@@ -1,3 +1,6 @@
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+
 const navItems = [
   ["Home", "#home"],
   ["Release Date", "#release"],
