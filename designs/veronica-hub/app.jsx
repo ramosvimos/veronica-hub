@@ -91,15 +91,42 @@ const sources = [
   ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-09", "#updates"]
 ];
 
+const officialAssets = {
+  portrait: "/assets/official/capcom-veronica-press-a.png",
+  title: "/assets/official/capcom-veronica-press-b.png",
+  ogp: "/assets/official/capcom-veronica-ogp.png",
+  siteThumb: "/assets/official/capcom-veronica-site.png"
+};
+
 const officialMedia = [
   {
     title: "Resident Evil Veronica Press Image",
     type: "Official Media",
     source: "Capcom press release",
     href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-    image: "https://www.capcom.co.jp/ir/english/news/html/images/ogp/img_ogp_260608.png",
+    image: officialAssets.portrait,
     cta: "View Source",
-    note: "Official media reference. Resident Evil Veronica ©CAPCOM.",
+    note: "Official character key art reference. Resident Evil Veronica ©CAPCOM.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Official Title Treatment",
+    type: "Official Media",
+    source: "Capcom press release",
+    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
+    image: officialAssets.title,
+    cta: "View Source",
+    note: "Official title image reference, filed as source material.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Capcom Announcement Preview",
+    type: "Official Media",
+    source: "Capcom press release",
+    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
+    image: officialAssets.ogp,
+    cta: "View Source",
+    note: "Official announcement preview image used for source context.",
     verified: "2026-06-09"
   },
   {
@@ -192,29 +219,39 @@ function Hero() {
           </div>
           <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
         </div>
-        <aside className="dossier-panel" aria-label="Dossier status panel">
-          <div className="panel-header">
-            <h2>Dossier Status</h2>
-            <span className="panel-code">VH-REV-2027</span>
-          </div>
-          <div className="tracking-pulse" aria-hidden="true"><span></span></div>
-          <dl className="status-list">
-            <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
-            <div className="status-row"><dt>Release window</dt><dd><Badge type="confirmed">Confirmed</Badge> 2027</dd></div>
-            <div className="status-row">
-              <dt>Platforms</dt>
-              <dd>
-                <Badge type="confirmed">Confirmed</Badge>
-                <span className="platform-chip-row">
-                  <span>PC</span><span>PS5</span><span>Xbox Series X|S</span><span>Nintendo Switch 2</span>
-                </span>
-              </dd>
+        <aside className="hero-side" aria-label="Official media and dossier status">
+          <figure className="official-hero-media">
+            <img src={officialAssets.portrait} alt="Official Resident Evil Veronica press image from Capcom" />
+            <figcaption>
+              <span>Official Capcom Media</span>
+              <strong>Source reference / ©CAPCOM</strong>
+            </figcaption>
+            <img className="official-title-mark" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
+          </figure>
+          <div className="dossier-panel" aria-label="Dossier status panel">
+            <div className="panel-header">
+              <h2>Dossier Status</h2>
+              <span className="panel-code">VH-REV-2027</span>
             </div>
-            <div className="status-row"><dt>PC storefront</dt><dd><Badge type="confirmed">Confirmed</Badge> Steam</dd></div>
-            <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
-            <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
-            <div className="status-row"><dt>Last verified</dt><dd>2026-06-09</dd></div>
-          </dl>
+            <div className="tracking-pulse" aria-hidden="true"><span></span></div>
+            <dl className="status-list">
+              <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
+              <div className="status-row"><dt>Release window</dt><dd><Badge type="confirmed">Confirmed</Badge> 2027</dd></div>
+              <div className="status-row">
+                <dt>Platforms</dt>
+                <dd>
+                  <Badge type="confirmed">Confirmed</Badge>
+                  <span className="platform-chip-row">
+                    <span>PC</span><span>PS5</span><span>Xbox Series X|S</span><span>Nintendo Switch 2</span>
+                  </span>
+                </dd>
+              </div>
+              <div className="status-row"><dt>PC storefront</dt><dd><Badge type="confirmed">Confirmed</Badge> Steam</dd></div>
+              <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
+              <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
+              <div className="status-row"><dt>Last verified</dt><dd>2026-06-09</dd></div>
+            </dl>
+          </div>
         </aside>
       </div>
     </section>
@@ -472,7 +509,7 @@ function CharactersSection() {
   return (
     <section className="section" id="characters" data-screen-label="09 Characters">
       <div className="container">
-        <SectionHeading kicker="Personnel dossier" title="Characters">No official character art is used. Cards rely on monograms, archive numbers and spoiler badges.</SectionHeading>
+        <SectionHeading kicker="Personnel dossier" title="Characters">Character cards use monograms, archive numbers and spoiler badges; official media stays in labeled source frames.</SectionHeading>
         <div className="character-grid">
           {characters.map(([initials, name, role, spoiler, source], index) => (
             <article className="card character-card" key={name}>
@@ -646,7 +683,7 @@ function MobileDrawer({ onClose }) {
         <nav className="drawer-links">
           {navItems.map(([label, href], index) => <a key={label} href={href} onClick={onClose}><span>{String(index + 1).padStart(2, "0")}</span>{label}</a>)}
         </nav>
-        <p className="meta">Independent fan-made information site. No official assets, no ROMs, no piracy.</p>
+        <p className="meta">Independent fan-made information site. Official media is source-labeled; no ROMs, no piracy.</p>
       </aside>
     </div>
   );
