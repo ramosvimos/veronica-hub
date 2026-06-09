@@ -220,7 +220,6 @@ function Header({ onSearch, onMenu }) {
 function Hero() {
   return (
     <section className="hero" id="home" data-screen-label="01 Home Hero">
-      <OfficialMonsterBackdrop className="hero-monster-backdrop" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <img className="hero-title-treatment" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
