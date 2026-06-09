@@ -13,11 +13,11 @@ const navItems = [
 ];
 
 const facts = [
-  { label: "Project status", value: "Announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
-  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
-  { label: "Exact date", value: "Not confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
-  { label: "PC / Steam", value: "Tracked", status: "confirmed", source: "Steam store", verified: "2026-06-08", sourceLevel: "Store" },
-  { label: "Genre", value: "Survival horror", status: "reported", source: "Steam store", verified: "2026-06-08", sourceLevel: "Store" }
+  { label: "Project status", value: "Announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Exact date", value: "Not confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "PC / Steam", value: "Tracked", status: "confirmed", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" },
+  { label: "Genre", value: "Survival horror", status: "reported", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" }
 ];
 
 const updates = [
@@ -85,10 +85,10 @@ const faq = [
 ];
 
 const sources = [
-  ["Capcom press release", "Official", "High", "Release window, remake status", "2026-06-08", "https://www.businesswire.com/news/home/20260608994346/en/Resident-Evil-Veronica-to-Launch-in-2027"],
-  ["Steam store", "Official store", "High", "PC status, release window", "2026-06-08", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
+  ["Capcom press release", "Official", "High", "Release window, remake status", "2026-06-09", "https://www.businesswire.com/news/home/20260608994346/en/Resident-Evil-Veronica-to-Launch-in-2027"],
+  ["Steam store", "Official store", "High", "PC status, release window", "2026-06-09", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
   ["Official YouTube", "Official", "High", "Verified trailer embed when URL is added", "Pending", "#trailer"],
-  ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-08", "#updates"]
+  ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-09", "#updates"]
 ];
 
 function Badge({ type, children }) {
@@ -146,7 +146,7 @@ function Hero() {
             <a className="btn secondary" href="#trailer">Trailer Status</a>
             <a className="btn secondary" href="#story">Read Story Guide</a>
           </div>
-          <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-08 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
+          <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
         </div>
         <aside className="dossier-panel" aria-label="Dossier status panel">
           <div className="panel-header">
@@ -156,11 +156,11 @@ function Hero() {
           <div className="tracking-pulse" aria-hidden="true"><span></span></div>
           <dl className="status-list">
             <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
-            <div className="status-row"><dt>Release window</dt><dd>2027</dd></div>
-            <div className="status-row"><dt>Platforms</dt><dd>PC, Steam, PS5, Xbox Series X|S, Switch 2</dd></div>
+            <div className="status-row"><dt>Release window</dt><dd><Badge type="confirmed">Confirmed</Badge> 2027</dd></div>
+            <div className="status-row"><dt>Platforms</dt><dd><Badge type="reported">Tracked</Badge> PC, Steam, PS5, Xbox Series X|S, Switch 2</dd></div>
             <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
             <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
-            <div className="status-row"><dt>Last verified</dt><dd>2026-06-08</dd></div>
+            <div className="status-row"><dt>Last verified</dt><dd>2026-06-09</dd></div>
           </dl>
         </aside>
       </div>
@@ -205,9 +205,9 @@ function QuickFacts() {
 
 function Updates() {
   return (
-    <section className="section" id="updates" data-screen-label="03 Latest Updates">
+    <section className="section" id="updates" data-screen-label="03 Incident Log">
       <div className="container">
-        <SectionHeading kicker="Typewriter log" title="Latest Updates">Incident log saved from verified sources, with official records separated from site notes.</SectionHeading>
+        <SectionHeading kicker="Typewriter log" title="Incident Log">Latest updates saved from verified sources, with official records separated from site notes.</SectionHeading>
         <div className="timeline">
           {updates.map((item) => (
             <article className="event" key={item.title}>
@@ -305,7 +305,7 @@ function TrailerSection() {
   return (
     <section className="section" id="trailer" data-screen-label="07 Trailer">
       <div className="container">
-        <SectionHeading kicker="Video terminal" title="Trailer">The official trailer module stays locked until a verified official YouTube ID is added to the data file.</SectionHeading>
+        <SectionHeading kicker="Video terminal" title="Trailer">Official trailer embed will appear here once a verified video URL is added.</SectionHeading>
         <div className="terminal">
           <div className="terminal-screen" role="img" aria-label="Corrupted video terminal placeholder for verified trailer">
             <span className="recording-dot" aria-hidden="true"></span>
@@ -427,7 +427,7 @@ function FAQSection() {
                 {question}
                 <span>{open === index ? "-" : "+"}</span>
               </button>
-              {open === index && <div className="accordion-body">{answer}<p className="meta">Source note: source-backed answer / last verified 2026-06-08</p></div>}
+              {open === index && <div className="accordion-body">{answer}<p className="meta">Source note: source-backed answer / last verified 2026-06-09</p></div>}
             </div>
           ))}
         </div>
@@ -502,7 +502,7 @@ function Footer() {
         <div className="footer-links">
           <a href="#sources">Sources policy</a>
           <a href="#faq">Correction request placeholder</a>
-          <p className="meta">Last source review: 2026-06-08</p>
+          <p className="meta">Last source review: 2026-06-09</p>
         </div>
       </div>
     </footer>
