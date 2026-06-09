@@ -101,6 +101,7 @@ const officialAssets = {
   steamCapsule: "/assets/official/steam/steam-capsule.jpg",
   steamPageBg: "/assets/official/steam/steam-page-bg.jpg",
   trailerPoster: "/assets/official/steam/steam-trailer-poster.jpg",
+  monsterCrowd: "/assets/official/steam/steam-screenshot-03.jpg",
   steamShots: [
     "/assets/official/steam/steam-screenshot-01.jpg",
     "/assets/official/steam/steam-screenshot-02.jpg",
@@ -177,20 +178,10 @@ function fileCode(index) {
   return `FILE ${String(index + 1).padStart(2, "0")}`;
 }
 
-function ShadowPresence({ className = "" }) {
+function OfficialMonsterBackdrop({ className = "" }) {
   return (
-    <div className={`shadow-presence ${className}`} aria-hidden="true">
-      <span className="presence-lab-light"></span>
-      <span className="presence-body"></span>
-      <span className="presence-head"></span>
-      <span className="presence-core"></span>
-      <span className="presence-restraint restraint-a"></span>
-      <span className="presence-restraint restraint-b"></span>
-      <span className="presence-limb limb-a"></span>
-      <span className="presence-limb limb-b"></span>
-      <span className="presence-limb limb-c"></span>
-      <span className="presence-fog"></span>
-      <span className="presence-glass"></span>
+    <div className={`official-monster-backdrop ${className}`} aria-hidden="true">
+      <img src={officialAssets.monsterCrowd} alt="" />
     </div>
   );
 }
@@ -229,7 +220,7 @@ function Header({ onSearch, onMenu }) {
 function Hero() {
   return (
     <section className="hero" id="home" data-screen-label="01 Home Hero">
-      <ShadowPresence className="hero-shadow-presence" />
+      <OfficialMonsterBackdrop className="hero-monster-backdrop" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <img className="hero-title-treatment" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
@@ -460,8 +451,8 @@ function PlatformsSection() {
 
 function TrailerSection() {
   return (
-    <section className="section shadow-stage trailer-stage" id="trailer" data-screen-label="07 Trailer">
-      <ShadowPresence className="trailer-shadow-presence" />
+    <section className="section monster-stage trailer-stage" id="trailer" data-screen-label="07 Trailer">
+      <OfficialMonsterBackdrop className="trailer-monster-backdrop" />
       <div className="container">
         <SectionHeading kicker="Video terminal" title="Trailer">Official announcement trailer embedded from the verified BIOHAZARD official YouTube channel.</SectionHeading>
         <div className="terminal">
@@ -494,8 +485,8 @@ function TrailerSection() {
 function StorySection() {
   const [open, setOpen] = React.useState(false);
   return (
-    <section className="section shadow-stage story-stage" id="story" data-screen-label="08 Story Primer">
-      <ShadowPresence className="story-shadow-presence" />
+    <section className="section monster-stage story-stage" id="story" data-screen-label="08 Story Primer">
+      <OfficialMonsterBackdrop className="story-monster-backdrop" />
       <div className="container two-col">
         <article className="card spoiler-card">
           <SectionHeading kicker="Found file" title="Story Briefing" />
@@ -636,8 +627,8 @@ function SourcesSection() {
 
 function NotFoundSection() {
   return (
-    <section className="not-found-archive shadow-stage" data-screen-label="404 Lost Archive">
-      <ShadowPresence className="not-found-shadow-presence" />
+    <section className="not-found-archive monster-stage" data-screen-label="404 Lost Archive">
+      <OfficialMonsterBackdrop className="not-found-monster-backdrop" />
       <div className="container not-found-grid">
         <div className="not-found-copy">
           <span className="kicker">Access denied</span>
