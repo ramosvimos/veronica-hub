@@ -167,12 +167,32 @@ const routeToSection = {
   "/sources/": "#sources"
 };
 
+const knownPaths = new Set(["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/characters/", "/faq/", "/sources/"]);
+
 function Badge({ type, children }) {
   return <span className={`badge ${type.toLowerCase()}`}>{children}</span>;
 }
 
 function fileCode(index) {
   return `FILE ${String(index + 1).padStart(2, "0")}`;
+}
+
+function ShadowPresence({ className = "" }) {
+  return (
+    <div className={`shadow-presence ${className}`} aria-hidden="true">
+      <span className="presence-lab-light"></span>
+      <span className="presence-body"></span>
+      <span className="presence-head"></span>
+      <span className="presence-core"></span>
+      <span className="presence-restraint restraint-a"></span>
+      <span className="presence-restraint restraint-b"></span>
+      <span className="presence-limb limb-a"></span>
+      <span className="presence-limb limb-b"></span>
+      <span className="presence-limb limb-c"></span>
+      <span className="presence-fog"></span>
+      <span className="presence-glass"></span>
+    </div>
+  );
 }
 
 function Header({ onSearch, onMenu }) {
@@ -209,6 +229,7 @@ function Header({ onSearch, onMenu }) {
 function Hero() {
   return (
     <section className="hero" id="home" data-screen-label="01 Home Hero">
+      <ShadowPresence className="hero-shadow-presence" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <img className="hero-title-treatment" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
@@ -439,7 +460,8 @@ function PlatformsSection() {
 
 function TrailerSection() {
   return (
-    <section className="section" id="trailer" data-screen-label="07 Trailer">
+    <section className="section shadow-stage trailer-stage" id="trailer" data-screen-label="07 Trailer">
+      <ShadowPresence className="trailer-shadow-presence" />
       <div className="container">
         <SectionHeading kicker="Video terminal" title="Trailer">Official announcement trailer embedded from the verified BIOHAZARD official YouTube channel.</SectionHeading>
         <div className="terminal">
@@ -472,7 +494,8 @@ function TrailerSection() {
 function StorySection() {
   const [open, setOpen] = React.useState(false);
   return (
-    <section className="section" id="story" data-screen-label="08 Story Primer">
+    <section className="section shadow-stage story-stage" id="story" data-screen-label="08 Story Primer">
+      <ShadowPresence className="story-shadow-presence" />
       <div className="container two-col">
         <article className="card spoiler-card">
           <SectionHeading kicker="Found file" title="Story Briefing" />
@@ -611,6 +634,30 @@ function SourcesSection() {
   );
 }
 
+function NotFoundSection() {
+  return (
+    <section className="not-found-archive shadow-stage" data-screen-label="404 Lost Archive">
+      <ShadowPresence className="not-found-shadow-presence" />
+      <div className="container not-found-grid">
+        <div className="not-found-copy">
+          <span className="kicker">Access denied</span>
+          <h1>Lost in the archive.</h1>
+          <p>Something is watching from the dark. Return to the verified dossier before this file collapses.</p>
+          <div className="cta-row">
+            <a className="btn primary" href="/">Return Home</a>
+            <a className="btn secondary" href="/sources/">View Sources</a>
+          </div>
+        </div>
+        <aside className="card not-found-card">
+          <span className="archive-meta">ERROR FILE / 404</span>
+          <strong>Requested record not found</strong>
+          <p className="meta">No unofficial downloads, rumors or unsourced files are served here.</p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="footer">
@@ -676,6 +723,7 @@ function App() {
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const currentPath = window.location.pathname === "" ? "/" : window.location.pathname;
+  const isNotFound = !knownPaths.has(currentPath);
 
   React.useEffect(() => {
     const onKeyDown = (event) => {
@@ -704,16 +752,22 @@ function App() {
     <div className="app-shell">
       <Header onSearch={() => setSearchOpen(true)} onMenu={() => setMenuOpen(true)} />
       <main>
-        <Hero />
-        <OfficialMediaTerminal />
-        <QuickFacts />
-        <ReleaseSection />
-        <PlatformsSection />
-        <StorySection />
-        <TrailerSection />
-        <SourcesSection />
-        {currentPath === "/characters/" && <CharactersSection />}
-        {currentPath === "/faq/" && <FAQSection />}
+        {isNotFound ? (
+          <NotFoundSection />
+        ) : (
+          <>
+            <Hero />
+            <OfficialMediaTerminal />
+            <QuickFacts />
+            <ReleaseSection />
+            <PlatformsSection />
+            <StorySection />
+            <TrailerSection />
+            <SourcesSection />
+            {currentPath === "/characters/" && <CharactersSection />}
+            {currentPath === "/faq/" && <FAQSection />}
+          </>
+        )}
       </main>
       <Footer />
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
