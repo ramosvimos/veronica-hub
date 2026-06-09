@@ -7,17 +7,21 @@ const navItems = [
   ["Platforms", "/platforms/"],
   ["Trailer", "/trailer/"],
   ["Story", "/story/"],
-  ["Characters", "/characters/"],
-  ["FAQ", "/faq/"],
   ["Sources", "/sources/"]
 ];
 
 const facts = [
-  { label: "Project status", value: "Announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
-  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
-  { label: "Exact date", value: "Not confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
-  { label: "PC / Steam", value: "Tracked", status: "confirmed", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" },
-  { label: "Genre", value: "Survival horror", status: "reported", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" }
+  { label: "Official title", value: "Resident Evil Veronica", status: "confirmed", source: "Capcom / Steam", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Common search name", value: "Resident Evil Code Veronica Remake", status: "reported", source: "Steam store", verified: "2026-06-09", sourceLevel: "Search alias" },
+  { label: "Status", value: "Officially announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom / Steam", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Exact release date", value: "Not officially confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Platforms", value: "PS5, Xbox Series X|S, Nintendo Switch 2, PC", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Steam page", value: "Available / wishlist page present", status: "confirmed", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" },
+  { label: "Genre", value: "Survival Horror", status: "confirmed", source: "Capcom press release", verified: "2026-06-09", sourceLevel: "Official" },
+  { label: "Developer", value: "CAPCOM Co., Ltd.", status: "confirmed", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" },
+  { label: "Publisher", value: "CAPCOM Co., Ltd.", status: "confirmed", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" },
+  { label: "PC system requirements", value: "TBD", status: "unknown", source: "Steam store", verified: "2026-06-09", sourceLevel: "Store" }
 ];
 
 const updates = [
@@ -33,7 +37,7 @@ const updates = [
   {
     date: "2026-06-08",
     tag: "Store",
-    status: "media",
+    status: "official",
     title: "Steam page is live with a 2027 release window",
     summary: "The Steam listing confirms CAPCOM as developer and publisher, with the product not yet available and planned for 2027.",
     source: "Steam store",
@@ -44,7 +48,7 @@ const updates = [
     tag: "Site Update",
     status: "site",
     title: "Veronica Hub labels confirmed and unknown facts separately",
-    summary: "The homepage treats the release window as confirmed, while the exact date and gameplay specifics remain not officially confirmed.",
+    summary: "The homepage now keeps Capcom, Steam and official YouTube as the only source classes for MVP content.",
     source: "Veronica Hub source policy",
     href: "#sources"
   }
@@ -59,36 +63,33 @@ const platforms = [
 ];
 
 const characters = [
-  ["C.R.", "Claire Redfield", "Protagonist / survivor", "Light", "Original game / official source"],
-  ["C.H.", "Chris Redfield", "Search target / sibling link", "Light", "Original game / official source"],
-  ["S.B.", "Steve Burnside", "Rockfort Island survivor", "Light", "Original game / official source"],
-  ["A.W.", "Albert Wesker", "Series antagonist context", "Heavy", "Original game / series source"],
-  ["A.A.", "Alfred Ashford", "Ashford family dossier", "Heavy", "Original game / archive context"],
-  ["A.X.", "Alexia Ashford", "Spoiler-sensitive archive", "Heavy", "Original game / archive context"]
+  ["C.R.", "Claire Redfield", "Travels to France searching for Chris", "Confirmed", "Steam store"],
+  ["C.H.", "Chris Redfield", "Claire's brother and search target", "Confirmed", "Steam store"],
+  ["U.S.", "Umbrella special forces", "Capture Claire after she reaches France", "Confirmed", "Steam store"],
+  ["R.I.", "Rockfort Island", "Remote island thrown into another biological disaster", "Confirmed", "Steam store"]
 ];
 
 const comparisonRows = [
-  ["Camera", "Fixed-camera survival horror era.", "Modern presentation may change camera behavior.", "Unknown"],
-  ["Controls", "Tank-control foundation in the original release.", "May be modernized, but no system should be stated as confirmed yet.", "Unknown"],
+  ["Remake status", "Resident Evil Code: Veronica released in 2000.", "Capcom identifies Resident Evil Veronica as a remake of the original.", "Confirmed"],
   ["Story", "Claire searches for Chris after Raccoon City.", "Capcom says the story is being reimagined.", "Confirmed"],
   ["Visuals", "Original Dreamcast-era real-time 3D environments.", "Capcom says high-quality RE Engine graphics are planned.", "Confirmed"],
-  ["Puzzles", "Classic resource and puzzle pacing.", "Expected to be reworked, but details are not confirmed.", "Expected"]
+  ["Gameplay", "Original gameplay is not used as a remake promise.", "Steam says modernized gameplay; specific systems are not confirmed.", "Unknown"]
 ];
 
 const faq = [
   ["Is Resident Evil Code Veronica Remake official?", "Yes. Capcom announced Resident Evil Veronica, a remake of Resident Evil Code: Veronica, with a planned 2027 release."],
   ["What is the release date?", "A 2027 release window is confirmed. An exact date has not been officially confirmed."],
-  ["Is it coming to PC or Steam?", "A Steam product page exists and lists a 2027 release window. Veronica Hub tracks the Steam page as a primary source for PC status."],
+  ["Is it coming to PC or Steam?", "Yes. Capcom confirms PC as a platform, and Steam has an official store page with wishlist access."],
   ["Is it a full remake or a remaster?", "Capcom describes it as a remake with a reimagined story and RE Engine graphics. Specific gameplay systems still need source-backed confirmation."],
-  ["Do I need to play the original?", "No. The hub is designed for newcomers with spoiler-light story context first and deeper archive sections hidden by default."],
+  ["Are PC system requirements confirmed?", "No. Steam currently lists the minimum and recommended PC system requirements as TBD."],
+  ["Do I need to play the original?", "No. The hub keeps the remake page limited to official story context and avoids original-game spoilers unless clearly labeled later."],
   ["Is Veronica Hub an official site?", "No. Veronica Hub is an independent fan-made information site and is not affiliated with or endorsed by Capcom."]
 ];
 
 const sources = [
-  ["Capcom press release", "Official", "High", "Release window, platform list, remake status", "2026-06-09", "https://www.capcom.co.jp/ir/english/news/html/e260608.html"],
-  ["Steam store", "Official store", "High", "PC status, release window", "2026-06-09", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
-  ["Official YouTube", "Official", "High", "Verified trailer embed when URL is added", "Pending", "#trailer"],
-  ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-09", "#updates"]
+  ["Capcom press release", "Official", "High", "Announcement, 2027 window, platforms, genre and remake direction", "2026-06-09", "https://www.capcom.co.jp/ir/english/news/html/e260608.html"],
+  ["Steam store", "Official store", "High", "Store page, PC status, developer, publisher, story context and TBD system requirements", "2026-06-09", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
+  ["Official Resident Evil YouTube", "Official", "High", "Announcement trailer embed after official video ID is manually verified", "Pending", "#trailer"]
 ];
 
 const officialAssets = {
@@ -113,105 +114,34 @@ const officialAssets = {
 
 const officialMedia = [
   {
-    title: "Resident Evil Veronica Press Image",
-    type: "Official Media",
+    title: "Capcom Press Release",
+    type: "Official Source",
     source: "Capcom press release",
     href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
     image: officialAssets.portrait,
     cta: "View Source",
-    note: "Official character key art reference. Resident Evil Veronica ©CAPCOM.",
+    note: "Official announcement record for the 2027 release window, platforms, genre and remake status.",
     verified: "2026-06-09",
     featured: true
   },
   {
-    title: "Official Title Treatment",
-    type: "Official Media",
-    source: "Capcom press release",
-    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-    image: officialAssets.title,
-    cta: "View Source",
-    note: "Official title image reference, filed as source material.",
-    verified: "2026-06-09"
-  },
-  {
-    title: "Capcom Announcement Preview",
-    type: "Official Media",
-    source: "Capcom press release",
-    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-    image: officialAssets.ogp,
-    cta: "View Source",
-    note: "Official announcement preview image used for source context.",
-    verified: "2026-06-09"
-  },
-  {
-    title: "Steam Store Header",
-    type: "Store Media",
-    source: "Steam store",
-    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image: officialAssets.steamHeader,
-    cta: "Open Store",
-    note: "Official store header image for the product page.",
-    verified: "2026-06-09"
-  },
-  {
-    title: "Steam Store Capsule",
-    type: "Store Media",
+    title: "Steam Store Page",
+    type: "Official Store",
     source: "Steam store",
     href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
     image: officialAssets.steamCapsule,
     cta: "Open Store",
-    note: "Official store capsule art used as storefront source material.",
+    note: "Store page available; planned release date is 2027 and wishlist access is present.",
     verified: "2026-06-09"
   },
   {
-    title: "Steam Page Background",
-    type: "Store Media",
-    source: "Steam store",
-    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image: officialAssets.steamPageBg,
-    cta: "Open Store",
-    note: "Official store background image, used as visual source reference.",
-    verified: "2026-06-09"
-  },
-  {
-    title: "Trailer Poster Frame",
-    type: "Video Media",
-    source: "Steam store",
-    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image: officialAssets.trailerPoster,
-    cta: "Open Store",
-    note: "Official store trailer poster frame. Embed remains locked until a verified video URL is added.",
-    verified: "2026-06-09",
-    featured: true
-  },
-  ...officialAssets.steamShots.map((image, index) => ({
-    title: `Official Steam Screenshot ${String(index + 1).padStart(2, "0")}`,
-    type: "Store Screenshot",
-    source: "Steam store",
-    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image,
-    cta: "Open Store",
-    note: "Official Steam screenshot filed as source-backed media.",
-    verified: "2026-06-09"
-  })),
-  {
-    title: "Resident Evil Veronica Steam Page",
-    type: "Store File",
-    source: "Steam store",
-    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image: officialAssets.siteThumb,
-    cta: "Open Store",
-    note: "Storefront reference for PC / Steam status and release window.",
-    verified: "2026-06-09"
-  },
-  {
-    title: "Official Trailer Slot",
-    type: "Video Terminal",
-    source: "Official YouTube",
+    title: "Official Announcement Trailer",
+    type: "Official YouTube",
+    source: "Resident Evil official YouTube",
     href: "/trailer/",
     image: officialAssets.trailerPoster,
     cta: "Trailer Status",
-    note: "Official embed remains locked until the verified source URL is added.",
+    note: "Trailer is tracked, but embed remains locked until the official video ID is manually verified.",
     verified: "Pending"
   }
 ];
@@ -256,7 +186,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search files</button>
-          <a className="latest-pill" href="/#updates">Latest Update</a>
+          <a className="latest-pill" href="/sources/">Source Policy</a>
           <button className="utility-button small" type="button" aria-label="Open search" onClick={onSearch}>Find</button>
           <button className="utility-button small" type="button" aria-label="Open menu" onClick={onMenu}>Menu</button>
         </div>
@@ -274,20 +204,20 @@ function Hero() {
           <div className="eyebrow-row">
             <span className="chip cyan">Independent fan-made information hub</span>
             <span className="chip red">No ROMs or piracy</span>
-            <span className="chip">Source-first updates</span>
+            <span className="chip">Capcom / Steam / official YouTube only</span>
           </div>
           <h1>Resident Evil <span>Code Veronica</span> Remake</h1>
-          <p className="hero-subtitle">Release date, platforms, trailer, story and latest news in one beginner-friendly survival-horror dossier.</p>
+          <p className="hero-subtitle">Official title, 2027 release window, confirmed platforms, trailer status and spoiler-light story context in one source-first dossier.</p>
           <div className="cta-row">
             <a className="btn primary" href="/release-date/">Release Date</a>
             <a className="btn secondary" href="/trailer/">Trailer Status</a>
             <a className="btn secondary" href="/story/">Read Story Guide</a>
           </div>
-          <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
+          <p className="trust-note">FILE STATUS: OFFICIALLY ANNOUNCED / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
           <div className="hero-status-grid" aria-label="Dossier status panel">
             <div className="hero-status-card wide">
-              <span>Official Capcom Media</span>
-              <strong>Key art and screenshots source-labeled / ©CAPCOM</strong>
+              <span>Source level</span>
+              <strong>Official / store cross-check</strong>
             </div>
             <div className="hero-status-card">
               <span>Release window</span>
@@ -295,15 +225,15 @@ function Hero() {
             </div>
             <div className="hero-status-card">
               <span>Platforms</span>
-              <strong>PC / PS5 / Xbox / Switch 2</strong>
+              <strong>PS5 / Xbox Series X|S / Switch 2 / PC</strong>
+            </div>
+            <div className="hero-status-card">
+              <span>Genre</span>
+              <strong>Survival Horror</strong>
             </div>
             <div className="hero-status-card">
               <span>Exact date</span>
-              <strong>Not confirmed</strong>
-            </div>
-            <div className="hero-status-card">
-              <span>Last verified</span>
-              <strong>2026-06-09</strong>
+              <strong>Not officially confirmed</strong>
             </div>
           </div>
         </div>
@@ -316,7 +246,7 @@ function OfficialMediaTerminal() {
   return (
     <section className="section media-terminal-section" id="official-media" data-screen-label="02 Official Media Terminal">
       <div className="container">
-        <SectionHeading kicker="Official media terminal" title="Source References">Verified official and store-backed references are filed inside Veronica Hub containers, not used as site branding.</SectionHeading>
+        <SectionHeading kicker="Official media terminal" title="Source References">MVP sources are limited to Capcom, Steam and the official Resident Evil YouTube channel. No media recaps, fan discussions or rumor feeds are used as facts.</SectionHeading>
         <div className="media-reference-grid">
           {officialMedia.map((item) => (
             <article className={`official-media-frame ${item.image ? "has-image" : ""} ${item.featured ? "featured" : ""}`} key={item.title}>
@@ -325,7 +255,7 @@ function OfficialMediaTerminal() {
                 <Badge type={item.verified === "Pending" ? "unknown" : "official"}>{item.verified === "Pending" ? "Pending" : "Verified"}</Badge>
               </div>
               {item.image ? (
-                <img src={item.image} alt="Official Resident Evil Veronica media reference from Capcom press release" />
+                <img src={item.image} alt={`${item.title} reference for Resident Evil Veronica`} />
               ) : (
                 <div className="media-placeholder" aria-hidden="true">
                   <span>{item.type === "Store File" ? "STORE" : "VIDEO"}</span>
@@ -358,7 +288,7 @@ function QuickFacts() {
   return (
     <section className="section tight" id="facts" data-screen-label="02 Quick Facts">
       <div className="container">
-        <SectionHeading kicker="Inventory grid" title="Quick Facts">Source-backed details arranged as archive inventory slots, with confirmed, reported and unknown states separated.</SectionHeading>
+        <SectionHeading kicker="Inventory grid" title="Quick Facts">Only official, store-listed and unknown states are separated here. No exact date, price, demo or PC specs are published before confirmation.</SectionHeading>
         <div className="facts-grid">
           {facts.map((fact, index) => (
             <article className="card fact-card" key={fact.label}>
@@ -412,20 +342,20 @@ function ContextSection() {
         <article className="card editorial">
           <SectionHeading kicker="Archive briefing" title="What is Resident Evil Code Veronica Remake?" />
           <p className="archive-meta">FILE ACCESS: SAFE / SOURCE LEVEL: TRACKED</p>
-          <p>Resident Evil Veronica is a modern remake of Resident Evil Code: Veronica. Veronica Hub tracks verified information about its release window, platforms, trailer, story context, characters and changes from the original.</p>
-          <p>The beginner path focuses on Claire Redfield, Chris Redfield, Umbrella, Rockfort Island and the classic survival horror timeline without treating speculation as fact.</p>
+          <p>Resident Evil Veronica is the official title of Capcom's remake of 2000's Resident Evil Code: Veronica. Veronica Hub tracks verified information about the 2027 release window, confirmed platforms, official trailer status and Steam-backed story context.</p>
+          <p>The current MVP avoids media rumors, player discussion, price speculation, demo assumptions and unconfirmed gameplay details.</p>
           <div className="cta-row">
             <a className="btn secondary" href="/story/">Read Story Guide</a>
-            <a className="btn secondary" href="/characters/">View Characters</a>
+            <a className="btn secondary" href="/sources/">View Sources</a>
           </div>
         </article>
         <aside className="card briefing">
           <h3>Archive Briefing</h3>
           <ul className="briefing-list">
-            <li><span>Story context</span><strong>Claire / Chris / Umbrella</strong></li>
-            <li><span>Spoiler level</span><strong>Light by default</strong></li>
-            <li><span>Best next page</span><strong>Story Guide</strong></li>
-            <li><span>Fact style</span><strong>Source-backed</strong></li>
+            <li><span>Official title</span><strong>Resident Evil Veronica</strong></li>
+            <li><span>Search alias</span><strong>Resident Evil Code Veronica Remake</strong></li>
+            <li><span>Source classes</span><strong>Capcom / Steam / YouTube</strong></li>
+            <li><span>Fact style</span><strong>Source-backed only</strong></li>
           </ul>
         </aside>
       </div>
@@ -453,13 +383,13 @@ function ReleaseSection() {
             <span>Last verified: 2026-06-09</span>
           </div>
           <div className="track-next">
-            {["Official website updates", "Store page changes", "Trailer descriptions", "Platform listings", "Capcom news channels"].map((item) => (
+            {["Exact release date", "New trailer updates", "Platform store changes", "PC system requirements", "Demo information", "Price / editions"].map((item) => (
               <span key={item}>{item}</span>
             ))}
           </div>
           <div className="cta-row">
             <a className="btn secondary" href="/sources/">View Sources</a>
-            <a className="btn secondary" href="/#updates">Latest Date Updates</a>
+            <a className="btn secondary" href="/platforms/">Platform Status</a>
           </div>
         </article>
       </div>
@@ -471,7 +401,7 @@ function PlatformsSection() {
   return (
     <section className="section" id="platforms" data-screen-label="06 Platforms">
       <div className="container">
-        <SectionHeading kicker="Access cards" title="Platforms">Resident Evil Veronica is tracked across PC, Steam, PlayStation, Xbox and Nintendo Switch 2 listings using source-backed platform notes.</SectionHeading>
+        <SectionHeading kicker="Access cards" title="Platforms">Capcom confirms PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Steam confirms a store page with wishlist access.</SectionHeading>
         <p className="platform-note">Platform marks are original abstract labels, not official logos.</p>
         <div className="platform-grid">
           {platforms.map((platform) => (
@@ -487,7 +417,8 @@ function PlatformsSection() {
         <article className="store-file">
           <span className="archive-meta">STORE FILE / STEAM</span>
           <h3>Resident Evil Veronica Steam Store Page</h3>
-          <p>Release Date: 2027<br />Developer / Publisher: CAPCOM Co., Ltd.<br />Usage: storefront reference for PC status and wishlist availability.</p>
+          <p>Planned Release Date: 2027<br />Developer: CAPCOM Co., Ltd.<br />Publisher: CAPCOM Co., Ltd.<br />Steam page: available<br />Wishlist: available</p>
+          <p className="meta">Store-listed features currently include single-player, Steam Achievements, captions available, HDR available and Family Sharing. Steam language and feature listings may change before release.</p>
           <a className="source-link" href="https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/" target="_blank" rel="noopener noreferrer">Open Steam Page</a>
         </article>
       </div>
@@ -499,19 +430,19 @@ function TrailerSection() {
   return (
     <section className="section" id="trailer" data-screen-label="07 Trailer">
       <div className="container">
-        <SectionHeading kicker="Video terminal" title="Trailer">Official trailer embed will appear here once a verified video URL is added.</SectionHeading>
+        <SectionHeading kicker="Video terminal" title="Trailer">Official announcement trailer tracked. Embed only the verified official Resident Evil or Capcom channel video.</SectionHeading>
         <div className="terminal">
-          <div className="terminal-screen" role="img" aria-label="Corrupted video terminal placeholder for verified trailer">
+          <div className="terminal-screen" role="img" aria-label="Locked video terminal for verified official trailer">
             <span className="recording-dot" aria-hidden="true"></span>
             <div className="terminal-message">
               <span className="play-core" aria-hidden="true">▶</span>
               <strong>Awaiting Verified Official Trailer</strong>
-              <p>Official trailer embed will appear here once a verified video URL is added.</p>
+              <p>Embed pending manual verification of the official video URL. No IGN, GameSpot, fan-made or concept trailer is embedded.</p>
             </div>
             <span className="timecode">00:00:00 / VERIFIED SOURCE REQUIRED</span>
             <div className="terminal-caption">
-              <span>Awaiting verified official trailer URL</span>
-              <span>Embed locked / source required</span>
+              <span>Official trailer tracked</span>
+              <span>Embed locked / official video ID required</span>
             </div>
           </div>
         </div>
@@ -526,22 +457,22 @@ function StorySection() {
     <section className="section" id="story" data-screen-label="08 Story Primer">
       <div className="container two-col">
         <article className="card spoiler-card">
-          <SectionHeading kicker="Found file" title="Story Primer" />
+          <SectionHeading kicker="Found file" title="Story Briefing" />
           <div className="file-paper-head">
-            <Badge type="reported">Spoiler-light</Badge>
+            <Badge type="confirmed">Steam story context</Badge>
             <span>ARCHIVE NOTE</span>
           </div>
-          <p className="archive-meta">FILE ACCESS: SAFE / SPOILER LEVEL: LIGHT</p>
-          <p>The original Code: Veronica connects Claire Redfield, Chris Redfield, Umbrella, Rockfort Island and the classic survival horror timeline. This section gives new players the basic context without late-game reveals.</p>
+          <p className="archive-meta">FILE ACCESS: SAFE / SOURCE: STEAM STORE / SPOILER LEVEL: LIGHT</p>
+          <p>Three months after the biological disaster in Raccoon City, Claire Redfield travels to France in search of her brother, Chris Redfield. Instead of a reunion, she is captured by Umbrella special forces and transported to Rockfort Island, a remote island that becomes a survival-horror hellscape after another biological disaster.</p>
           <div className="accordion-item">
             <button className="accordion-button" type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-              Unlock spoiler-full archive
+              Original-game context policy
               <span>{open ? "-" : "+"}</span>
             </button>
             {open && (
               <div className="accordion-body">
-                <p className="warning-copy">WARNING: Heavy spoilers from the original game may appear below.</p>
-                Heavy spoilers from the original game may appear in the production page. This expanded state demonstrates the warning flow without publishing late-game reveals.
+                <p className="warning-copy">Original-game spoilers are not treated as remake-confirmed facts.</p>
+                Steve Burnside, Albert Wesker, Alfred Ashford, Alexia Ashford, Antarctica, boss fights and original ending details belong in a future Original Game Context section unless Capcom or Steam confirms them for the remake page.
               </div>
             )}
           </div>
@@ -549,7 +480,7 @@ function StorySection() {
         <aside className="card briefing">
           <h3>Story Terms</h3>
           <ul className="briefing-list">
-            {["Claire Redfield", "Chris Redfield", "Umbrella", "Rockfort Island", "Ashford"].map((term) => (
+            {["Claire Redfield", "Chris Redfield", "France", "Umbrella special forces", "Rockfort Island"].map((term) => (
               <li key={term}><span>Term</span><strong>{term}</strong></li>
             ))}
           </ul>
@@ -563,13 +494,13 @@ function CharactersSection() {
   return (
     <section className="section" id="characters" data-screen-label="09 Characters">
       <div className="container">
-        <SectionHeading kicker="Personnel dossier" title="Characters">Character cards use monograms, archive numbers and spoiler badges; official media stays in labeled source frames.</SectionHeading>
+        <SectionHeading kicker="Personnel dossier" title="Characters">This page only surfaces people and entities named in current official store story context. Original-game legacy characters are not promoted as remake-confirmed.</SectionHeading>
         <div className="character-grid">
           {characters.map(([initials, name, role, spoiler, source], index) => (
             <article className="card character-card" key={name}>
               <div className="personnel-top">
                 <span>PERSONNEL FILE</span>
-                <Badge type={spoiler === "Light" ? "reported" : "unknown"}>{spoiler}</Badge>
+                <Badge type={spoiler === "Confirmed" ? "confirmed" : "unknown"}>{spoiler}</Badge>
               </div>
               <div className="monogram">{initials}</div>
               <div>
@@ -588,7 +519,7 @@ function ComparisonSection() {
   return (
     <section className="section" id="remake" data-screen-label="10 Remake vs Original">
       <div className="container">
-        <SectionHeading kicker="Analysis file" title="Remake vs Original">Lab analysis of confirmed, expected and unknown changes, without overpromising unverified gameplay details.</SectionHeading>
+        <SectionHeading kicker="Analysis file" title="Remake Direction">Only the remake direction confirmed by Capcom and Steam is listed. Specific camera, combat, puzzle or character-switching systems remain unconfirmed.</SectionHeading>
         <div className="comparison-wrap">
           <table>
             <thead>
@@ -638,10 +569,10 @@ function SourcesSection() {
   return (
     <section className="section" id="sources" data-screen-label="12 Sources">
       <div className="container">
-        <SectionHeading kicker="Evidence locker" title="Sources & Verification">Every fact on Veronica Hub is tied to a source, and rumor labels are treated as part of the interface, not afterthought copy.</SectionHeading>
+        <SectionHeading kicker="Evidence locker" title="Sources & Verification">Veronica Hub MVP uses three reliable source classes: Capcom official material, Steam official store data and official Resident Evil YouTube video records.</SectionHeading>
         <article className="verification-policy">
           <span className="archive-meta">SOURCE POLICY / EXACT DATES LOCKED UNTIL VERIFIED</span>
-          <p>Veronica Hub does not publish exact dates, demo information, prices or system requirements unless they are confirmed by a reliable source.</p>
+          <p>Veronica Hub does not publish exact dates, demo information, prices, editions, PC specifications or specific gameplay systems unless they are confirmed by an official or highly reliable source.</p>
           <span className="redacted" aria-hidden="true"></span>
         </article>
         <div className="source-grid">
@@ -656,26 +587,6 @@ function SourcesSection() {
               </div>
             </article>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Newsletter() {
-  return (
-    <section className="section" data-screen-label="13 Newsletter CTA">
-      <div className="container">
-        <div className="newsletter">
-          <div>
-            <h2>Get Update Alerts</h2>
-            <p>Want a reminder when verified release date, platform or trailer information changes? Newsletter integration is planned for a future version.</p>
-            <p className="meta">Signup is disabled for now while the source policy and correction flow are finalized.</p>
-          </div>
-          <div className="cta-row">
-            <input className="disabled-input" disabled value="Newsletter disabled for launch review" aria-label="Newsletter disabled placeholder" />
-            <button className="btn secondary" type="button" disabled>Notify Me Later</button>
-          </div>
         </div>
       </div>
     </section>
@@ -699,7 +610,7 @@ function Footer() {
         </nav>
         <div className="footer-links">
           <a href="/sources/">Sources policy</a>
-          <a href="/faq/">Correction request placeholder</a>
+          <a href="/faq/">Source correction policy</a>
           <p className="meta">Last source review: 2026-06-09</p>
         </div>
       </div>
@@ -708,7 +619,7 @@ function Footer() {
 }
 
 function SearchOverlay({ onClose }) {
-  const suggestions = ["release date", "platforms", "trailer", "Steam", "Claire Redfield", "remake vs original", "story", "FAQ"];
+  const suggestions = ["release date", "platforms", "trailer", "Steam", "Claire Redfield", "story", "sources"];
   return (
     <div className="search-overlay" role="dialog" aria-modal="true" aria-label="Search files">
       <div className="search-modal">
@@ -720,7 +631,7 @@ function SearchOverlay({ onClose }) {
         <div className="suggestions">
           {suggestions.map((item) => <button className="chip" type="button" key={item}>{item}</button>)}
         </div>
-        <p className="meta" style={{ marginTop: 14 }}>Search suggestions are staged for launch. Full indexing can connect to page data later.</p>
+        <p className="meta" style={{ marginTop: 14 }}>Search shortcuts focus on official title, release window, platforms, trailer status, story context and source policy.</p>
       </div>
     </div>
   );
@@ -746,6 +657,7 @@ function MobileDrawer({ onClose }) {
 function App() {
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const currentPath = window.location.pathname === "" ? "/" : window.location.pathname;
 
   React.useEffect(() => {
     const onKeyDown = (event) => {
@@ -777,17 +689,13 @@ function App() {
         <Hero />
         <OfficialMediaTerminal />
         <QuickFacts />
-        <Updates />
-        <ContextSection />
         <ReleaseSection />
         <PlatformsSection />
-        <TrailerSection />
         <StorySection />
-        <CharactersSection />
-        <ComparisonSection />
-        <FAQSection />
+        <TrailerSection />
         <SourcesSection />
-        <Newsletter />
+        {currentPath === "/characters/" && <CharactersSection />}
+        {currentPath === "/faq/" && <FAQSection />}
       </main>
       <Footer />
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
