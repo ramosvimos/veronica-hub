@@ -89,7 +89,7 @@ const faq = [
 const sources = [
   ["Capcom press release", "Official", "High", "Announcement, 2027 window, platforms, genre and remake direction", "2026-06-09", "https://www.capcom.co.jp/ir/english/news/html/e260608.html"],
   ["Steam store", "Official store", "High", "Store page, PC status, developer, publisher, story context and TBD system requirements", "2026-06-09", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
-  ["Official Resident Evil YouTube", "Official", "High", "Announcement trailer embed after official video ID is manually verified", "Pending", "#trailer"]
+  ["Official BIOHAZARD YouTube", "Official", "High", "Announcement trailer embed verified by YouTube oEmbed author and Capcom Japan press release", "2026-06-09", "https://www.youtube.com/watch?v=mhzX_E5O7O0"]
 ];
 
 const officialAssets = {
@@ -110,6 +110,14 @@ const officialAssets = {
     "/assets/official/steam/steam-screenshot-06.jpg",
     "/assets/official/steam/steam-screenshot-07.jpg"
   ]
+};
+
+const officialTrailer = {
+  id: "mhzX_E5O7O0",
+  title: "BIOHAZARD RE:Veronica Announcement Trailer",
+  channel: "BIOHAZARD",
+  watchUrl: "https://www.youtube.com/watch?v=mhzX_E5O7O0",
+  embedUrl: "https://www.youtube-nocookie.com/embed/mhzX_E5O7O0?rel=0&modestbranding=1"
 };
 
 const officialMedia = [
@@ -137,12 +145,12 @@ const officialMedia = [
   {
     title: "Official Announcement Trailer",
     type: "Official YouTube",
-    source: "Resident Evil official YouTube",
-    href: "/trailer/",
+    source: "BIOHAZARD official YouTube",
+    href: officialTrailer.watchUrl,
     image: officialAssets.trailerPoster,
-    cta: "Trailer Status",
-    note: "Trailer is tracked, but embed remains locked until the official video ID is manually verified.",
-    verified: "Pending"
+    cta: "Watch Trailer",
+    note: "Official trailer video ID verified via YouTube oEmbed and Capcom Japan press release.",
+    verified: "2026-06-09"
   }
 ];
 
@@ -246,7 +254,7 @@ function OfficialMediaTerminal() {
   return (
     <section className="section media-terminal-section" id="official-media" data-screen-label="02 Official Media Terminal">
       <div className="container">
-        <SectionHeading kicker="Official media terminal" title="Source References">MVP sources are limited to Capcom, Steam and the official Resident Evil YouTube channel. No media recaps, fan discussions or rumor feeds are used as facts.</SectionHeading>
+        <SectionHeading kicker="Official media terminal" title="Source References">MVP sources are limited to Capcom, Steam and Resident Evil / BIOHAZARD official YouTube channels. No media recaps, fan discussions or rumor feeds are used as facts.</SectionHeading>
         <div className="media-reference-grid">
           {officialMedia.map((item) => (
             <article className={`official-media-frame ${item.image ? "has-image" : ""} ${item.featured ? "featured" : ""}`} key={item.title}>
@@ -430,21 +438,28 @@ function TrailerSection() {
   return (
     <section className="section" id="trailer" data-screen-label="07 Trailer">
       <div className="container">
-        <SectionHeading kicker="Video terminal" title="Trailer">Official announcement trailer tracked. Embed only the verified official Resident Evil or Capcom channel video.</SectionHeading>
+        <SectionHeading kicker="Video terminal" title="Trailer">Official announcement trailer embedded from the verified BIOHAZARD official YouTube channel.</SectionHeading>
         <div className="terminal">
-          <div className="terminal-screen" role="img" aria-label="Locked video terminal for verified official trailer">
-            <span className="recording-dot" aria-hidden="true"></span>
-            <div className="terminal-message">
-              <span className="play-core" aria-hidden="true">▶</span>
-              <strong>Awaiting Verified Official Trailer</strong>
-              <p>Embed pending manual verification of the official video URL. No IGN, GameSpot, fan-made or concept trailer is embedded.</p>
-            </div>
-            <span className="timecode">00:00:00 / VERIFIED SOURCE REQUIRED</span>
+          <div className="terminal-screen video-ready">
+            <iframe
+              src={officialTrailer.embedUrl}
+              title={officialTrailer.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+            <span className="timecode">OFFICIAL VIDEO / {officialTrailer.channel}</span>
             <div className="terminal-caption">
-              <span>Official trailer tracked</span>
-              <span>Embed locked / official video ID required</span>
+              <span>Video ID: {officialTrailer.id}</span>
+              <a href={officialTrailer.watchUrl} target="_blank" rel="noopener noreferrer">Open on YouTube</a>
             </div>
           </div>
+        </div>
+        <div className="source-proof-row trailer-source-row">
+          <span>Verified trailer source</span>
+          <a href={officialTrailer.watchUrl} target="_blank" rel="noopener noreferrer">BIOHAZARD official YouTube</a>
+          <a href="https://prtimes.jp/main/html/rd/p/000005819.000013450.html" target="_blank" rel="noopener noreferrer">Capcom Japan press release</a>
+          <span>Last verified: 2026-06-09</span>
         </div>
       </div>
     </section>
@@ -569,7 +584,7 @@ function SourcesSection() {
   return (
     <section className="section" id="sources" data-screen-label="12 Sources">
       <div className="container">
-        <SectionHeading kicker="Evidence locker" title="Sources & Verification">Veronica Hub MVP uses three reliable source classes: Capcom official material, Steam official store data and official Resident Evil YouTube video records.</SectionHeading>
+        <SectionHeading kicker="Evidence locker" title="Sources & Verification">Veronica Hub MVP uses three reliable source classes: Capcom official material, Steam official store data and Resident Evil / BIOHAZARD official YouTube video records.</SectionHeading>
         <article className="verification-policy">
           <span className="archive-meta">SOURCE POLICY / EXACT DATES LOCKED UNTIL VERIFIED</span>
           <p>Veronica Hub does not publish exact dates, demo information, prices, editions, PC specifications or specific gameplay systems unless they are confirmed by an official or highly reliable source.</p>

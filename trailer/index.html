@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Resident Evil Veronica Trailer Status | Veronica Hub</title>
-  <meta name="description" content="Official Resident Evil Veronica announcement trailer tracking. Embed remains pending until the official Resident Evil or Capcom video ID is verified." />
+  <title>Resident Evil Veronica Trailer | Veronica Hub</title>
+  <meta name="description" content="Watch the verified official BIOHAZARD YouTube announcement trailer for Resident Evil Veronica and see source proof." />
   <link rel="canonical" href="https://veronica-hub.vercel.app/trailer/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://veronica-hub.vercel.app/trailer/" />
-  <meta property="og:title" content="Resident Evil Veronica Trailer Status | Veronica Hub" />
-  <meta property="og:description" content="Official Resident Evil Veronica announcement trailer tracking. Embed remains pending until the official Resident Evil or Capcom video ID is verified." />
+  <meta property="og:title" content="Resident Evil Veronica Trailer | Veronica Hub" />
+  <meta property="og:description" content="Watch the verified official BIOHAZARD YouTube announcement trailer for Resident Evil Veronica and see source proof." />
   <meta property="og:image" content="https://veronica-hub.vercel.app/assets/official/capcom-veronica-ogp.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Resident Evil Veronica Trailer Status | Veronica Hub" />
-  <meta name="twitter:description" content="Official Resident Evil Veronica announcement trailer tracking. Embed remains pending until the official Resident Evil or Capcom video ID is verified." />
+  <meta name="twitter:title" content="Resident Evil Veronica Trailer | Veronica Hub" />
+  <meta name="twitter:description" content="Watch the verified official BIOHAZARD YouTube announcement trailer for Resident Evil Veronica and see source proof." />
   <meta name="twitter:image" content="https://veronica-hub.vercel.app/assets/official/capcom-veronica-ogp.png" />
   <script type="application/ld+json">
     {
@@ -1199,6 +1199,23 @@
       animation: sweep 5.5s linear infinite;
     }
 
+    .terminal-screen.video-ready {
+      background: #000;
+    }
+
+    .terminal-screen.video-ready::before {
+      display: none;
+    }
+
+    .terminal-screen iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
+    }
+
     .recording-dot {
       position: absolute;
       top: 18px;
@@ -1254,9 +1271,11 @@
       position: absolute;
       top: 18px;
       right: 18px;
+      z-index: 2;
       color: rgba(231,229,228,0.72);
       font: 850 11px/1 var(--mono);
       letter-spacing: 0.06em;
+      pointer-events: none;
     }
 
     .terminal-caption {
@@ -1264,6 +1283,7 @@
       bottom: 18px;
       left: 18px;
       right: 18px;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       gap: 16px;
@@ -1271,6 +1291,18 @@
       font: 800 11px/1.3 var(--mono);
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      pointer-events: none;
+    }
+
+    .terminal-caption a {
+      color: var(--cyan-2);
+      pointer-events: auto;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .trailer-source-row {
+      margin-top: 14px;
     }
 
     @keyframes sweep { from { transform: translateX(-45%); } to { transform: translateX(45%); } }
@@ -1724,6 +1756,6 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="/designs/veronica-hub/app.bundle.js?v=20260609-sources-mvp"></script>
+  <script src="/designs/veronica-hub/app.bundle.js?v=20260609-trailer-embed"></script>
 </body>
 </html>
