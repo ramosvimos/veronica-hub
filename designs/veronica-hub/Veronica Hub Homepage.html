@@ -561,12 +561,36 @@
       font: 750 15px/1.35 var(--sans);
     }
 
+    .platform-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .platform-chip-row span {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(103,232,249,0.24);
+      border-radius: 999px;
+      padding: 0 8px;
+      color: #dff8ff;
+      background: rgba(56,189,248,0.07);
+      font: 800 10px/1 var(--mono);
+      white-space: nowrap;
+    }
+
     .section {
       padding: 74px 0;
       position: relative;
     }
 
     .section.tight { padding-top: 34px; }
+
+    .media-terminal-section {
+      padding-top: 36px;
+    }
 
     .section-heading {
       display: grid;
@@ -702,6 +726,97 @@
       text-decoration: underline;
       text-decoration-color: rgba(103,232,249,0.28);
       text-underline-offset: 3px;
+    }
+
+    .media-reference-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .official-media-frame {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+      border: 1px solid rgba(103,232,249,0.24);
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, rgba(56,189,248,0.07), rgba(95,17,24,0.14)),
+        rgba(255,255,255,0.04);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.42);
+    }
+
+    .official-media-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(5,4,6,0.03), rgba(5,4,6,0.7)),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.032) 0, rgba(255,255,255,0.032) 1px, transparent 1px, transparent 5px);
+      z-index: 1;
+    }
+
+    .official-media-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.72) contrast(1.08) saturate(0.9);
+    }
+
+    .media-label,
+    .media-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .media-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .media-label span {
+      color: var(--cyan-2);
+      font: 850 10px/1 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .media-placeholder {
+      min-height: 126px;
+      margin: 0 14px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 7px),
+        rgba(0,0,0,0.22);
+    }
+
+    .media-placeholder span {
+      color: rgba(231,229,228,0.36);
+      font: 900 24px/1 var(--mono);
+      letter-spacing: 0.08em;
+    }
+
+    .media-copy {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .media-copy h3 {
+      font: 900 20px/1.08 var(--sans);
+      letter-spacing: 0;
     }
 
     .timeline {
@@ -848,6 +963,44 @@
       color: #fca5a5;
     }
 
+    .source-proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid rgba(103,232,249,0.16);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.14);
+      color: var(--muted);
+      font: 800 11px/1.4 var(--mono);
+    }
+
+    .source-proof-row a {
+      color: var(--cyan-2);
+      text-decoration: underline;
+      text-decoration-color: rgba(103,232,249,0.28);
+      text-underline-offset: 3px;
+    }
+
+    .track-next {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .track-next span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 0 10px;
+      background: rgba(255,255,255,0.035);
+      color: #d6d3d1;
+      font: 800 11px/1 var(--mono);
+    }
+
     .release-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -904,6 +1057,33 @@
       background: linear-gradient(135deg, rgba(56,189,248,0.05), rgba(255,255,255,0.03));
     }
 
+    .platform-note {
+      margin: -12px 0 18px;
+      color: var(--dim);
+      font: 750 12px/1.5 var(--mono);
+    }
+
+    .store-file {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border: 1px solid rgba(103,232,249,0.18);
+      border-radius: 12px;
+      background:
+        linear-gradient(90deg, rgba(56,189,248,0.08), rgba(255,255,255,0.03)),
+        rgba(0,0,0,0.14);
+    }
+
+    .store-file h3 {
+      font: 900 22px/1.1 var(--sans);
+    }
+
+    .store-file p {
+      color: #d6d3d1;
+      line-height: 1.58;
+    }
+
     .platform-icon {
       width: 42px;
       height: 42px;
@@ -929,6 +1109,7 @@
 
     .terminal-screen {
       aspect-ratio: 16 / 9;
+      max-height: 620px;
       position: relative;
       display: grid;
       place-items: center;
@@ -973,6 +1154,31 @@
       box-shadow: 0 0 46px rgba(56,189,248,0.14);
       font: 900 30px/1 var(--sans);
       padding-left: 4px;
+    }
+
+    .terminal-message {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      gap: 14px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .terminal-message strong {
+      color: #fff;
+      font: 900 clamp(20px, 3vw, 34px)/1.05 var(--sans);
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .terminal-message p {
+      max-width: 520px;
+      color: var(--muted);
+      font: 800 12px/1.55 var(--mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .timecode {
@@ -1361,7 +1567,8 @@
       .platform-grid,
       .character-grid,
       .source-grid,
-      .faq-grid {
+      .faq-grid,
+      .media-reference-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -1382,6 +1589,7 @@
       .character-grid,
       .source-grid,
       .faq-grid,
+      .media-reference-grid,
       .release-grid {
         grid-template-columns: 1fr;
       }
@@ -1408,6 +1616,14 @@
         position: static;
         padding: 14px;
         flex-direction: column;
+      }
+      .timecode {
+        position: static;
+        padding: 14px 14px 0;
+        justify-self: end;
+      }
+      .official-media-frame {
+        min-height: 320px;
       }
       .drawer-panel { width: 100%; }
     }

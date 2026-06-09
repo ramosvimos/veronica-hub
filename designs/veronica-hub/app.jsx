@@ -2,14 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 
 const navItems = [
-  ["Home", "#home"],
-  ["Release Date", "#release"],
-  ["Platforms", "#platforms"],
-  ["Trailer", "#trailer"],
-  ["Story", "#story"],
-  ["Characters", "#characters"],
-  ["FAQ", "#faq"],
-  ["Sources", "#sources"]
+  ["Home", "/"],
+  ["Release Date", "/release-date/"],
+  ["Platforms", "/platforms/"],
+  ["Trailer", "/trailer/"],
+  ["Story", "/story/"],
+  ["Characters", "/characters/"],
+  ["FAQ", "/faq/"],
+  ["Sources", "/sources/"]
 ];
 
 const facts = [
@@ -27,8 +27,8 @@ const updates = [
     status: "official",
     title: "Capcom announces Resident Evil Veronica for 2027",
     summary: "The source record says Resident Evil Veronica is a remake of the 2000 title and that the exact release date will be announced later.",
-    source: "Capcom via Business Wire",
-    href: "https://www.businesswire.com/news/home/20260608994346/en/Resident-Evil-Veronica-to-Launch-in-2027"
+    source: "Capcom press release",
+    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html"
   },
   {
     date: "2026-06-08",
@@ -51,11 +51,11 @@ const updates = [
 ];
 
 const platforms = [
-  { icon: "PC", name: "PC", status: "Confirmed", source: "Steam store", note: "Store page tracked" },
-  { icon: "PS", name: "PlayStation 5", status: "Reported", source: "Announcement coverage", note: "Use source badge in production" },
-  { icon: "XB", name: "Xbox Series X|S", status: "Reported", source: "Announcement coverage", note: "Tracked as current-gen console" },
-  { icon: "NS", name: "Nintendo Switch 2", status: "Reported", source: "Announcement coverage", note: "Added from current source review" },
-  { icon: "ST", name: "Steam", status: "Confirmed", source: "Steam store", note: "Wishlist page present" }
+  { icon: "PC", name: "PC", status: "Confirmed", source: "Capcom press release", note: "Official platform listing verified.", verified: "2026-06-09" },
+  { icon: "PS", name: "PlayStation 5", status: "Confirmed", source: "Capcom press release", note: "Official platform listing verified.", verified: "2026-06-09" },
+  { icon: "XB", name: "Xbox Series X|S", status: "Confirmed", source: "Capcom press release", note: "Official platform listing verified.", verified: "2026-06-09" },
+  { icon: "NS", name: "Nintendo Switch 2", status: "Confirmed", source: "Capcom press release", note: "Official platform listing verified.", verified: "2026-06-09" },
+  { icon: "ST", name: "Steam storefront", status: "Confirmed", source: "Steam store page", note: "Store page and wishlist listing available.", verified: "2026-06-09" }
 ];
 
 const characters = [
@@ -85,11 +85,54 @@ const faq = [
 ];
 
 const sources = [
-  ["Capcom press release", "Official", "High", "Release window, remake status", "2026-06-09", "https://www.businesswire.com/news/home/20260608994346/en/Resident-Evil-Veronica-to-Launch-in-2027"],
+  ["Capcom press release", "Official", "High", "Release window, platform list, remake status", "2026-06-09", "https://www.capcom.co.jp/ir/english/news/html/e260608.html"],
   ["Steam store", "Official store", "High", "PC status, release window", "2026-06-09", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
   ["Official YouTube", "Official", "High", "Verified trailer embed when URL is added", "Pending", "#trailer"],
   ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-09", "#updates"]
 ];
+
+const officialMedia = [
+  {
+    title: "Resident Evil Veronica Press Image",
+    type: "Official Media",
+    source: "Capcom press release",
+    href: "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
+    image: "https://www.capcom.co.jp/ir/english/news/html/images/ogp/img_ogp_260608.png",
+    cta: "View Source",
+    note: "Official media reference. Resident Evil Veronica ©CAPCOM.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Resident Evil Veronica Steam Page",
+    type: "Store File",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image: null,
+    cta: "Open Store",
+    note: "Storefront reference for PC / Steam status and release window.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Official Trailer Slot",
+    type: "Video Terminal",
+    source: "Official YouTube",
+    href: "/trailer/",
+    image: null,
+    cta: "Trailer Status",
+    note: "Official embed remains locked until the verified source URL is added.",
+    verified: "Pending"
+  }
+];
+
+const routeToSection = {
+  "/release-date/": "#release",
+  "/platforms/": "#platforms",
+  "/trailer/": "#trailer",
+  "/story/": "#story",
+  "/characters/": "#characters",
+  "/faq/": "#faq",
+  "/sources/": "#sources"
+};
 
 function Badge({ type, children }) {
   return <span className={`badge ${type.toLowerCase()}`}>{children}</span>;
@@ -100,10 +143,11 @@ function fileCode(index) {
 }
 
 function Header({ onSearch, onMenu }) {
+  const activePath = window.location.pathname === "" ? "/" : window.location.pathname;
   return (
     <header className="topbar">
       <div className="topbar-inner">
-        <a className="brand" href="#home" aria-label="Veronica Hub home">
+        <a className="brand" href="/" aria-label="Veronica Hub home">
           <span className="mark">VH</span>
           <span className="brand-title">
             <strong>Veronica Hub</strong>
@@ -112,7 +156,7 @@ function Header({ onSearch, onMenu }) {
         </a>
         <nav className="nav" aria-label="Primary navigation">
           {navItems.map(([label, href], index) => (
-            <a key={label} className={index === 0 ? "active" : ""} href={href}>
+            <a key={label} className={activePath === href ? "active" : ""} href={href}>
               <span className="nav-code">{fileCode(index)}</span>
               <span className="nav-label">{label}</span>
             </a>
@@ -120,7 +164,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search files</button>
-          <a className="latest-pill" href="#updates">Latest Update</a>
+          <a className="latest-pill" href="/#updates">Latest Update</a>
           <button className="utility-button small" type="button" aria-label="Open search" onClick={onSearch}>Find</button>
           <button className="utility-button small" type="button" aria-label="Open menu" onClick={onMenu}>Menu</button>
         </div>
@@ -142,9 +186,9 @@ function Hero() {
           <h1>Resident Evil <span>Code Veronica</span> Remake</h1>
           <p className="hero-subtitle">Release date, platforms, trailer, story and latest news in one beginner-friendly survival-horror dossier.</p>
           <div className="cta-row">
-            <a className="btn primary" href="#release">Release Date</a>
-            <a className="btn secondary" href="#trailer">Trailer Status</a>
-            <a className="btn secondary" href="#story">Read Story Guide</a>
+            <a className="btn primary" href="/release-date/">Release Date</a>
+            <a className="btn secondary" href="/trailer/">Trailer Status</a>
+            <a className="btn secondary" href="/story/">Read Story Guide</a>
           </div>
           <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
         </div>
@@ -157,12 +201,53 @@ function Hero() {
           <dl className="status-list">
             <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
             <div className="status-row"><dt>Release window</dt><dd><Badge type="confirmed">Confirmed</Badge> 2027</dd></div>
-            <div className="status-row"><dt>Platforms</dt><dd><Badge type="reported">Tracked</Badge> PC, Steam, PS5, Xbox Series X|S, Switch 2</dd></div>
+            <div className="status-row">
+              <dt>Platforms</dt>
+              <dd>
+                <Badge type="confirmed">Confirmed</Badge>
+                <span className="platform-chip-row">
+                  <span>PC</span><span>PS5</span><span>Xbox Series X|S</span><span>Nintendo Switch 2</span>
+                </span>
+              </dd>
+            </div>
+            <div className="status-row"><dt>PC storefront</dt><dd><Badge type="confirmed">Confirmed</Badge> Steam</dd></div>
             <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
             <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
             <div className="status-row"><dt>Last verified</dt><dd>2026-06-09</dd></div>
           </dl>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+function OfficialMediaTerminal() {
+  return (
+    <section className="section media-terminal-section" id="official-media" data-screen-label="02 Official Media Terminal">
+      <div className="container">
+        <SectionHeading kicker="Official media terminal" title="Source References">Verified official and store-backed references are filed inside Veronica Hub containers, not used as site branding.</SectionHeading>
+        <div className="media-reference-grid">
+          {officialMedia.map((item) => (
+            <article className={`official-media-frame ${item.image ? "has-image" : ""}`} key={item.title}>
+              <div className="media-label">
+                <span>{item.type}</span>
+                <Badge type={item.verified === "Pending" ? "unknown" : "official"}>{item.verified === "Pending" ? "Pending" : "Verified"}</Badge>
+              </div>
+              {item.image ? (
+                <img src={item.image} alt="Official Resident Evil Veronica media reference from Capcom press release" />
+              ) : (
+                <div className="media-placeholder" aria-hidden="true">
+                  <span>{item.type === "Store File" ? "STORE" : "VIDEO"}</span>
+                </div>
+              )}
+              <div className="media-copy">
+                <h3>{item.title}</h3>
+                <p className="meta">Source: {item.source}<br />Last verified: {item.verified}<br />{item.note}</p>
+                <a className="source-link" href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}>{item.cta}</a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -239,8 +324,8 @@ function ContextSection() {
           <p>Resident Evil Veronica is a modern remake of Resident Evil Code: Veronica. Veronica Hub tracks verified information about its release window, platforms, trailer, story context, characters and changes from the original.</p>
           <p>The beginner path focuses on Claire Redfield, Chris Redfield, Umbrella, Rockfort Island and the classic survival horror timeline without treating speculation as fact.</p>
           <div className="cta-row">
-            <a className="btn secondary" href="#story">Read Story Guide</a>
-            <a className="btn secondary" href="#characters">View Characters</a>
+            <a className="btn secondary" href="/story/">Read Story Guide</a>
+            <a className="btn secondary" href="/characters/">View Characters</a>
           </div>
         </article>
         <aside className="card briefing">
@@ -266,13 +351,24 @@ function ReleaseSection() {
           <p className="archive-meta">DATE FILE: ACTIVE / UNVERIFIED EXACT DATES REJECTED</p>
           <div className="release-grid">
             <div className="mini-stat"><span>Current window</span><strong>2027</strong></div>
-            <div className="mini-stat"><span>Exact date</span><strong>Unknown</strong></div>
+            <div className="mini-stat"><span>Exact date</span><strong>Not confirmed</strong></div>
             <div className="mini-stat"><span>Policy</span><strong>No fake dates</strong></div>
           </div>
           <p className="meta">Update policy: Veronica Hub does not publish exact dates unless they are confirmed by an official or highly reliable source.</p>
+          <div className="source-proof-row">
+            <span>Sources</span>
+            <a href="https://www.capcom.co.jp/ir/english/news/html/e260608.html" target="_blank" rel="noopener noreferrer">Capcom press release</a>
+            <a href="https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/" target="_blank" rel="noopener noreferrer">Steam store page</a>
+            <span>Last verified: 2026-06-09</span>
+          </div>
+          <div className="track-next">
+            {["Official website updates", "Store page changes", "Trailer descriptions", "Platform listings", "Capcom news channels"].map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
           <div className="cta-row">
-            <a className="btn secondary" href="#sources">View Sources</a>
-            <a className="btn secondary" href="#updates">Latest Date Updates</a>
+            <a className="btn secondary" href="/sources/">View Sources</a>
+            <a className="btn secondary" href="/#updates">Latest Date Updates</a>
           </div>
         </article>
       </div>
@@ -284,18 +380,25 @@ function PlatformsSection() {
   return (
     <section className="section" id="platforms" data-screen-label="06 Platforms">
       <div className="container">
-        <SectionHeading kicker="Access cards" title="Platforms">Platform cards use original abstract marks, not official platform logos.</SectionHeading>
+        <SectionHeading kicker="Access cards" title="Platforms">Resident Evil Veronica is tracked across PC, Steam, PlayStation, Xbox and Nintendo Switch 2 listings using source-backed platform notes.</SectionHeading>
+        <p className="platform-note">Platform marks are original abstract labels, not official logos.</p>
         <div className="platform-grid">
           {platforms.map((platform) => (
             <article className="card platform-card" key={platform.name}>
               <div className="platform-icon" aria-hidden="true">{platform.icon}</div>
               <div>
                 <h3>{platform.name}</h3>
-                <p className="meta">Status: {platform.status}<br />Source: {platform.source}<br />{platform.note}</p>
+                <p className="meta">Status: {platform.status}<br />Source: {platform.source}<br />Last verified: {platform.verified}<br />{platform.note}</p>
               </div>
             </article>
           ))}
         </div>
+        <article className="store-file">
+          <span className="archive-meta">STORE FILE / STEAM</span>
+          <h3>Resident Evil Veronica Steam Store Page</h3>
+          <p>Release Date: 2027<br />Developer / Publisher: CAPCOM Co., Ltd.<br />Usage: storefront reference for PC status and wishlist availability.</p>
+          <a className="source-link" href="https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/" target="_blank" rel="noopener noreferrer">Open Steam Page</a>
+        </article>
       </div>
     </section>
   );
@@ -309,7 +412,11 @@ function TrailerSection() {
         <div className="terminal">
           <div className="terminal-screen" role="img" aria-label="Corrupted video terminal placeholder for verified trailer">
             <span className="recording-dot" aria-hidden="true"></span>
-            <span className="play-core" aria-hidden="true">▶</span>
+            <div className="terminal-message">
+              <span className="play-core" aria-hidden="true">▶</span>
+              <strong>Awaiting Verified Official Trailer</strong>
+              <p>Official trailer embed will appear here once a verified video URL is added.</p>
+            </div>
             <span className="timecode">00:00:00 / VERIFIED SOURCE REQUIRED</span>
             <div className="terminal-caption">
               <span>Awaiting verified official trailer URL</span>
@@ -489,7 +596,7 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <a className="brand" href="#home">
+          <a className="brand" href="/">
             <span className="mark">VH</span>
             <span className="brand-title"><strong>Veronica Hub</strong><span>Source policy active</span></span>
           </a>
@@ -500,8 +607,8 @@ function Footer() {
           {navItems.slice(1).map(([label, href]) => <a key={label} href={href}>{label}</a>)}
         </nav>
         <div className="footer-links">
-          <a href="#sources">Sources policy</a>
-          <a href="#faq">Correction request placeholder</a>
+          <a href="/sources/">Sources policy</a>
+          <a href="/faq/">Correction request placeholder</a>
           <p className="meta">Last source review: 2026-06-09</p>
         </div>
       </div>
@@ -533,7 +640,7 @@ function MobileDrawer({ onClose }) {
     <div className="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
       <aside className="drawer-panel">
         <div className="modal-head">
-          <a className="brand" href="#home" onClick={onClose}><span className="mark">VH</span><span className="brand-title"><strong>Veronica Hub</strong><span>Menu</span></span></a>
+          <a className="brand" href="/" onClick={onClose}><span className="mark">VH</span><span className="brand-title"><strong>Veronica Hub</strong><span>Menu</span></span></a>
           <button className="close-button" type="button" onClick={onClose} aria-label="Close menu">x</button>
         </div>
         <nav className="drawer-links">
@@ -564,11 +671,20 @@ function App() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  React.useEffect(() => {
+    const section = routeToSection[window.location.pathname];
+    if (!section) return;
+    window.setTimeout(() => {
+      document.querySelector(section)?.scrollIntoView({ block: "start" });
+    }, 80);
+  }, []);
+
   return (
     <div className="app-shell">
       <Header onSearch={() => setSearchOpen(true)} onMenu={() => setMenuOpen(true)} />
       <main>
         <Hero />
+        <OfficialMediaTerminal />
         <QuickFacts />
         <Updates />
         <ContextSection />
