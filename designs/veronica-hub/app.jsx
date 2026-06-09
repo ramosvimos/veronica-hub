@@ -95,7 +95,20 @@ const officialAssets = {
   portrait: "/assets/official/capcom-veronica-press-a.png",
   title: "/assets/official/capcom-veronica-press-b.png",
   ogp: "/assets/official/capcom-veronica-ogp.png",
-  siteThumb: "/assets/official/capcom-veronica-site.png"
+  siteThumb: "/assets/official/capcom-veronica-site.png",
+  steamHeader: "/assets/official/steam/steam-header.jpg",
+  steamCapsule: "/assets/official/steam/steam-capsule.jpg",
+  steamPageBg: "/assets/official/steam/steam-page-bg.jpg",
+  trailerPoster: "/assets/official/steam/steam-trailer-poster.jpg",
+  steamShots: [
+    "/assets/official/steam/steam-screenshot-01.jpg",
+    "/assets/official/steam/steam-screenshot-02.jpg",
+    "/assets/official/steam/steam-screenshot-03.jpg",
+    "/assets/official/steam/steam-screenshot-04.jpg",
+    "/assets/official/steam/steam-screenshot-05.jpg",
+    "/assets/official/steam/steam-screenshot-06.jpg",
+    "/assets/official/steam/steam-screenshot-07.jpg"
+  ]
 };
 
 const officialMedia = [
@@ -107,7 +120,8 @@ const officialMedia = [
     image: officialAssets.portrait,
     cta: "View Source",
     note: "Official character key art reference. Resident Evil Veronica ©CAPCOM.",
-    verified: "2026-06-09"
+    verified: "2026-06-09",
+    featured: true
   },
   {
     title: "Official Title Treatment",
@@ -130,11 +144,62 @@ const officialMedia = [
     verified: "2026-06-09"
   },
   {
+    title: "Steam Store Header",
+    type: "Store Media",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image: officialAssets.steamHeader,
+    cta: "Open Store",
+    note: "Official store header image for the product page.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Steam Store Capsule",
+    type: "Store Media",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image: officialAssets.steamCapsule,
+    cta: "Open Store",
+    note: "Official store capsule art used as storefront source material.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Steam Page Background",
+    type: "Store Media",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image: officialAssets.steamPageBg,
+    cta: "Open Store",
+    note: "Official store background image, used as visual source reference.",
+    verified: "2026-06-09"
+  },
+  {
+    title: "Trailer Poster Frame",
+    type: "Video Media",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image: officialAssets.trailerPoster,
+    cta: "Open Store",
+    note: "Official store trailer poster frame. Embed remains locked until a verified video URL is added.",
+    verified: "2026-06-09",
+    featured: true
+  },
+  ...officialAssets.steamShots.map((image, index) => ({
+    title: `Official Steam Screenshot ${String(index + 1).padStart(2, "0")}`,
+    type: "Store Screenshot",
+    source: "Steam store",
+    href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+    image,
+    cta: "Open Store",
+    note: "Official Steam screenshot filed as source-backed media.",
+    verified: "2026-06-09"
+  })),
+  {
     title: "Resident Evil Veronica Steam Page",
     type: "Store File",
     source: "Steam store",
     href: "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-    image: null,
+    image: officialAssets.siteThumb,
     cta: "Open Store",
     note: "Storefront reference for PC / Steam status and release window.",
     verified: "2026-06-09"
@@ -144,7 +209,7 @@ const officialMedia = [
     type: "Video Terminal",
     source: "Official YouTube",
     href: "/trailer/",
-    image: null,
+    image: officialAssets.trailerPoster,
     cta: "Trailer Status",
     note: "Official embed remains locked until the verified source URL is added.",
     verified: "Pending"
@@ -204,7 +269,8 @@ function Hero() {
   return (
     <section className="hero" id="home" data-screen-label="01 Home Hero">
       <div className="container hero-grid">
-        <div>
+        <div className="hero-copy">
+          <img className="hero-title-treatment" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
           <div className="eyebrow-row">
             <span className="chip cyan">Independent fan-made information hub</span>
             <span className="chip red">No ROMs or piracy</span>
@@ -218,41 +284,29 @@ function Hero() {
             <a className="btn secondary" href="/story/">Read Story Guide</a>
           </div>
           <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-09 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
-        </div>
-        <aside className="hero-side" aria-label="Official media and dossier status">
-          <figure className="official-hero-media">
-            <img src={officialAssets.portrait} alt="Official Resident Evil Veronica press image from Capcom" />
-            <figcaption>
+          <div className="hero-status-grid" aria-label="Dossier status panel">
+            <div className="hero-status-card wide">
               <span>Official Capcom Media</span>
-              <strong>Source reference / ©CAPCOM</strong>
-            </figcaption>
-            <img className="official-title-mark" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
-          </figure>
-          <div className="dossier-panel" aria-label="Dossier status panel">
-            <div className="panel-header">
-              <h2>Dossier Status</h2>
-              <span className="panel-code">VH-REV-2027</span>
+              <strong>Key art and screenshots source-labeled / ©CAPCOM</strong>
             </div>
-            <div className="tracking-pulse" aria-hidden="true"><span></span></div>
-            <dl className="status-list">
-              <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
-              <div className="status-row"><dt>Release window</dt><dd><Badge type="confirmed">Confirmed</Badge> 2027</dd></div>
-              <div className="status-row">
-                <dt>Platforms</dt>
-                <dd>
-                  <Badge type="confirmed">Confirmed</Badge>
-                  <span className="platform-chip-row">
-                    <span>PC</span><span>PS5</span><span>Xbox Series X|S</span><span>Nintendo Switch 2</span>
-                  </span>
-                </dd>
-              </div>
-              <div className="status-row"><dt>PC storefront</dt><dd><Badge type="confirmed">Confirmed</Badge> Steam</dd></div>
-              <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
-              <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
-              <div className="status-row"><dt>Last verified</dt><dd>2026-06-09</dd></div>
-            </dl>
+            <div className="hero-status-card">
+              <span>Release window</span>
+              <strong>2027</strong>
+            </div>
+            <div className="hero-status-card">
+              <span>Platforms</span>
+              <strong>PC / PS5 / Xbox / Switch 2</strong>
+            </div>
+            <div className="hero-status-card">
+              <span>Exact date</span>
+              <strong>Not confirmed</strong>
+            </div>
+            <div className="hero-status-card">
+              <span>Last verified</span>
+              <strong>2026-06-09</strong>
+            </div>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   );
@@ -265,7 +319,7 @@ function OfficialMediaTerminal() {
         <SectionHeading kicker="Official media terminal" title="Source References">Verified official and store-backed references are filed inside Veronica Hub containers, not used as site branding.</SectionHeading>
         <div className="media-reference-grid">
           {officialMedia.map((item) => (
-            <article className={`official-media-frame ${item.image ? "has-image" : ""}`} key={item.title}>
+            <article className={`official-media-frame ${item.image ? "has-image" : ""} ${item.featured ? "featured" : ""}`} key={item.title}>
               <div className="media-label">
                 <span>{item.type}</span>
                 <Badge type={item.verified === "Pending" ? "unknown" : "official"}>{item.verified === "Pending" ? "Pending" : "Verified"}</Badge>
