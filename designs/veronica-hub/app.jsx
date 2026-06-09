@@ -43,8 +43,8 @@ const updates = [
     date: "2026-06-08",
     tag: "Site Update",
     status: "site",
-    title: "Veronica Hub prototype labels confirmed and unknown facts separately",
-    summary: "The page treats the release window as confirmed, while the exact date and gameplay specifics remain not officially confirmed.",
+    title: "Veronica Hub labels confirmed and unknown facts separately",
+    summary: "The homepage treats the release window as confirmed, while the exact date and gameplay specifics remain not officially confirmed.",
     source: "Veronica Hub source policy",
     href: "#sources"
   }
@@ -136,7 +136,7 @@ function Hero() {
           <p className="hero-subtitle">Release date, platforms, trailer, story and latest news in one beginner-friendly survival-horror dossier.</p>
           <div className="cta-row">
             <a className="btn primary" href="#release">Release Date</a>
-            <a className="btn secondary" href="#trailer">Watch Trailer</a>
+            <a className="btn secondary" href="#trailer">Trailer Status</a>
             <a className="btn secondary" href="#story">Read Story Guide</a>
           </div>
           <p className="trust-note">Last source review: 2026-06-08 / Exact release date: not officially confirmed.</p>
@@ -288,7 +288,7 @@ function TrailerSection() {
   return (
     <section className="section" id="trailer" data-screen-label="07 Trailer">
       <div className="container">
-        <SectionHeading kicker="Verified embeds only" title="Trailer">The prototype shows the safe placeholder state until a verified official YouTube ID is added to the data file.</SectionHeading>
+        <SectionHeading kicker="Verified embeds only" title="Trailer">The official trailer module stays locked until a verified official YouTube ID is added to the data file.</SectionHeading>
         <div className="terminal">
           <div className="terminal-screen" role="img" aria-label="Corrupted video terminal placeholder for verified trailer">
             <span className="recording-dot" aria-hidden="true"></span>
@@ -437,10 +437,10 @@ function Newsletter() {
           <div>
             <h2>Get Update Alerts</h2>
             <p>Want a reminder when verified release date, platform or trailer information changes? Newsletter integration is planned for a future version.</p>
-            <p className="meta">Placeholder only - no signup required for MVP.</p>
+            <p className="meta">Signup is disabled for now while the source policy and correction flow are finalized.</p>
           </div>
           <div className="cta-row">
-            <input className="disabled-input" disabled value="Newsletter disabled in prototype" aria-label="Newsletter disabled placeholder" />
+            <input className="disabled-input" disabled value="Newsletter disabled for launch review" aria-label="Newsletter disabled placeholder" />
             <button className="btn secondary" type="button" disabled>Notify Me Later</button>
           </div>
         </div>
@@ -459,6 +459,7 @@ function Footer() {
             <span className="brand-title"><strong>Veronica Hub</strong><span>Source policy active</span></span>
           </a>
           <p>Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.</p>
+          <p className="meta">We do not host ROMs, ISOs, cracks or unofficial downloads.</p>
         </div>
         <nav className="footer-links" aria-label="Footer navigation">
           {navItems.slice(1).map(([label, href]) => <a key={label} href={href}>{label}</a>)}
@@ -486,7 +487,7 @@ function SearchOverlay({ onClose }) {
         <div className="suggestions">
           {suggestions.map((item) => <button className="chip" type="button" key={item}>{item}</button>)}
         </div>
-        <p className="meta" style={{ marginTop: 14 }}>Prototype state: search suggestions only. Production can connect this to page data.</p>
+        <p className="meta" style={{ marginTop: 14 }}>Search suggestions are staged for launch. Full indexing can connect to page data later.</p>
       </div>
     </div>
   );
