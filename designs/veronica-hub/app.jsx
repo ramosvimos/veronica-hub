@@ -13,11 +13,11 @@ const navItems = [
 ];
 
 const facts = [
-  { label: "Project status", value: "Announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-08" },
-  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom press release", verified: "2026-06-08" },
-  { label: "Exact date", value: "Not confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-08" },
-  { label: "PC / Steam", value: "Tracked", status: "confirmed", source: "Steam store", verified: "2026-06-08" },
-  { label: "Genre", value: "Survival horror", status: "reported", source: "Steam store", verified: "2026-06-08" }
+  { label: "Project status", value: "Announced", status: "confirmed", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
+  { label: "Release window", value: "2027", status: "confirmed", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
+  { label: "Exact date", value: "Not confirmed", status: "unknown", source: "Capcom press release", verified: "2026-06-08", sourceLevel: "Official" },
+  { label: "PC / Steam", value: "Tracked", status: "confirmed", source: "Steam store", verified: "2026-06-08", sourceLevel: "Store" },
+  { label: "Genre", value: "Survival horror", status: "reported", source: "Steam store", verified: "2026-06-08", sourceLevel: "Store" }
 ];
 
 const updates = [
@@ -59,12 +59,12 @@ const platforms = [
 ];
 
 const characters = [
-  ["C.R.", "Claire Redfield", "Protagonist / survivor", "Light"],
-  ["C.H.", "Chris Redfield", "Search target / sibling link", "Light"],
-  ["S.B.", "Steve Burnside", "Rockfort Island survivor", "Light"],
-  ["A.W.", "Albert Wesker", "Series antagonist context", "Heavy"],
-  ["A.A.", "Alfred Ashford", "Ashford family dossier", "Heavy"],
-  ["A.X.", "Alexia Ashford", "Spoiler-sensitive archive", "Heavy"]
+  ["C.R.", "Claire Redfield", "Protagonist / survivor", "Light", "Original game / official source"],
+  ["C.H.", "Chris Redfield", "Search target / sibling link", "Light", "Original game / official source"],
+  ["S.B.", "Steve Burnside", "Rockfort Island survivor", "Light", "Original game / official source"],
+  ["A.W.", "Albert Wesker", "Series antagonist context", "Heavy", "Original game / series source"],
+  ["A.A.", "Alfred Ashford", "Ashford family dossier", "Heavy", "Original game / archive context"],
+  ["A.X.", "Alexia Ashford", "Spoiler-sensitive archive", "Heavy", "Original game / archive context"]
 ];
 
 const comparisonRows = [
@@ -85,14 +85,18 @@ const faq = [
 ];
 
 const sources = [
-  ["Capcom press release", "Official", "High", "Release window, remake status"],
-  ["Steam store", "Official store", "High", "PC status, release window"],
-  ["Official YouTube", "Official", "High", "Verified trailer embed when URL is added"],
-  ["Games media", "Media", "Medium", "Platform reporting and timeline notes"]
+  ["Capcom press release", "Official", "High", "Release window, remake status", "2026-06-08", "https://www.businesswire.com/news/home/20260608994346/en/Resident-Evil-Veronica-to-Launch-in-2027"],
+  ["Steam store", "Official store", "High", "PC status, release window", "2026-06-08", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
+  ["Official YouTube", "Official", "High", "Verified trailer embed when URL is added", "Pending", "#trailer"],
+  ["Games media", "Media", "Medium", "Platform reporting and timeline notes", "2026-06-08", "#updates"]
 ];
 
 function Badge({ type, children }) {
   return <span className={`badge ${type.toLowerCase()}`}>{children}</span>;
+}
+
+function fileCode(index) {
+  return `FILE ${String(index + 1).padStart(2, "0")}`;
 }
 
 function Header({ onSearch, onMenu }) {
@@ -108,7 +112,10 @@ function Header({ onSearch, onMenu }) {
         </a>
         <nav className="nav" aria-label="Primary navigation">
           {navItems.map(([label, href], index) => (
-            <a key={label} className={index === 0 ? "active" : ""} href={href}>{label}</a>
+            <a key={label} className={index === 0 ? "active" : ""} href={href}>
+              <span className="nav-code">{fileCode(index)}</span>
+              <span className="nav-label">{label}</span>
+            </a>
           ))}
         </nav>
         <div className="top-actions">
@@ -139,19 +146,21 @@ function Hero() {
             <a className="btn secondary" href="#trailer">Trailer Status</a>
             <a className="btn secondary" href="#story">Read Story Guide</a>
           </div>
-          <p className="trust-note">Last source review: 2026-06-08 / Exact release date: not officially confirmed.</p>
+          <p className="trust-note">FILE STATUS: TRACKING / LAST VERIFIED: 2026-06-08 / EXACT DATE: NOT OFFICIALLY CONFIRMED</p>
         </div>
         <aside className="dossier-panel" aria-label="Dossier status panel">
           <div className="panel-header">
             <h2>Dossier Status</h2>
             <span className="panel-code">VH-REV-2027</span>
           </div>
+          <div className="tracking-pulse" aria-hidden="true"><span></span></div>
           <dl className="status-list">
-            <div className="status-row"><dt>Status</dt><dd><Badge type="confirmed">Confirmed</Badge> Announced and tracking official updates</dd></div>
+            <div className="status-row"><dt>File status</dt><dd><Badge type="confirmed">Tracking</Badge> Official update monitor active</dd></div>
             <div className="status-row"><dt>Release window</dt><dd>2027</dd></div>
             <div className="status-row"><dt>Platforms</dt><dd>PC, Steam, PS5, Xbox Series X|S, Switch 2</dd></div>
             <div className="status-row"><dt>Exact date</dt><dd><Badge type="unknown">Unknown</Badge> Not officially confirmed</dd></div>
-            <div className="status-row"><dt>Sources</dt><dd>Official press release / Steam store / media cross-check</dd></div>
+            <div className="status-row"><dt>Source level</dt><dd>Official / Store / Media cross-check</dd></div>
+            <div className="status-row"><dt>Last verified</dt><dd>2026-06-08</dd></div>
           </dl>
         </aside>
       </div>
@@ -173,16 +182,19 @@ function QuickFacts() {
   return (
     <section className="section tight" id="facts" data-screen-label="02 Quick Facts">
       <div className="container">
-        <SectionHeading kicker="Evidence cards" title="Quick Facts">Source-backed details at a glance, with confirmed, reported and unknown states separated.</SectionHeading>
+        <SectionHeading kicker="Inventory grid" title="Quick Facts">Source-backed details arranged as archive inventory slots, with confirmed, reported and unknown states separated.</SectionHeading>
         <div className="facts-grid">
-          {facts.map((fact) => (
+          {facts.map((fact, index) => (
             <article className="card fact-card" key={fact.label}>
-              <Badge type={fact.status}>{fact.status}</Badge>
+              <div className="slot-top">
+                <span className="slot-code">SLOT {String(index + 1).padStart(2, "0")}</span>
+                <Badge type={fact.status}>{fact.status}</Badge>
+              </div>
               <div>
                 <h3>{fact.label}</h3>
                 <div className="value">{fact.value}</div>
               </div>
-              <p className="meta">Source: {fact.source}<br />Last verified: {fact.verified}</p>
+              <p className="meta">SOURCE LEVEL: {fact.sourceLevel}<br />Source: {fact.source}<br />Last verified: {fact.verified}</p>
             </article>
           ))}
         </div>
@@ -195,13 +207,16 @@ function Updates() {
   return (
     <section className="section" id="updates" data-screen-label="03 Latest Updates">
       <div className="container">
-        <SectionHeading kicker="Incident log" title="Latest Updates">A timeline of official news, store changes and site-tracked source policy updates.</SectionHeading>
+        <SectionHeading kicker="Typewriter log" title="Latest Updates">Incident log saved from verified sources, with official records separated from site notes.</SectionHeading>
         <div className="timeline">
           {updates.map((item) => (
             <article className="event" key={item.title}>
               <div className="event-date">{item.date}</div>
               <div className={`card event-card ${item.status}`}>
-                <Badge type={item.status === "media" ? "reported" : item.status}>{item.tag}</Badge>
+                <div className="log-meta">
+                  <span>ARCHIVE UPDATED</span>
+                  <Badge type={item.status === "media" ? "reported" : item.status}>{item.tag}</Badge>
+                </div>
                 <h3>{item.title}</h3>
                 <p>{item.summary}</p>
                 <p className="meta">Source: <a className="source-link" href={item.href} target="_blank" rel="noopener noreferrer">{item.source}</a></p>
@@ -219,7 +234,8 @@ function ContextSection() {
     <section className="section" id="context" data-screen-label="04 Context Briefing">
       <div className="container two-col">
         <article className="card editorial">
-          <SectionHeading kicker="Spoiler-light briefing" title="What is Resident Evil Code Veronica Remake?" />
+          <SectionHeading kicker="Archive briefing" title="What is Resident Evil Code Veronica Remake?" />
+          <p className="archive-meta">FILE ACCESS: SAFE / SOURCE LEVEL: TRACKED</p>
           <p>Resident Evil Veronica is a modern remake of Resident Evil Code: Veronica. Veronica Hub tracks verified information about its release window, platforms, trailer, story context, characters and changes from the original.</p>
           <p>The beginner path focuses on Claire Redfield, Chris Redfield, Umbrella, Rockfort Island and the classic survival horror timeline without treating speculation as fact.</p>
           <div className="cta-row">
@@ -247,6 +263,7 @@ function ReleaseSection() {
       <div className="container">
         <SectionHeading kicker="Date tracker" title="Release Date">No exact release date has been confirmed yet.</SectionHeading>
         <article className="card release-card">
+          <p className="archive-meta">DATE FILE: ACTIVE / UNVERIFIED EXACT DATES REJECTED</p>
           <div className="release-grid">
             <div className="mini-stat"><span>Current window</span><strong>2027</strong></div>
             <div className="mini-stat"><span>Exact date</span><strong>Unknown</strong></div>
@@ -267,7 +284,7 @@ function PlatformsSection() {
   return (
     <section className="section" id="platforms" data-screen-label="06 Platforms">
       <div className="container">
-        <SectionHeading kicker="Tracked platform data" title="Platforms">Platform cards use original abstract marks, not official platform logos.</SectionHeading>
+        <SectionHeading kicker="Access cards" title="Platforms">Platform cards use original abstract marks, not official platform logos.</SectionHeading>
         <div className="platform-grid">
           {platforms.map((platform) => (
             <article className="card platform-card" key={platform.name}>
@@ -288,11 +305,12 @@ function TrailerSection() {
   return (
     <section className="section" id="trailer" data-screen-label="07 Trailer">
       <div className="container">
-        <SectionHeading kicker="Verified embeds only" title="Trailer">The official trailer module stays locked until a verified official YouTube ID is added to the data file.</SectionHeading>
+        <SectionHeading kicker="Video terminal" title="Trailer">The official trailer module stays locked until a verified official YouTube ID is added to the data file.</SectionHeading>
         <div className="terminal">
           <div className="terminal-screen" role="img" aria-label="Corrupted video terminal placeholder for verified trailer">
             <span className="recording-dot" aria-hidden="true"></span>
             <span className="play-core" aria-hidden="true">▶</span>
+            <span className="timecode">00:00:00 / VERIFIED SOURCE REQUIRED</span>
             <div className="terminal-caption">
               <span>Awaiting verified official trailer URL</span>
               <span>Embed locked / source required</span>
@@ -310,17 +328,22 @@ function StorySection() {
     <section className="section" id="story" data-screen-label="08 Story Primer">
       <div className="container two-col">
         <article className="card spoiler-card">
-          <SectionHeading kicker="Spoiler-aware" title="Story Primer" />
-          <Badge type="reported">Spoiler-light</Badge>
+          <SectionHeading kicker="Found file" title="Story Primer" />
+          <div className="file-paper-head">
+            <Badge type="reported">Spoiler-light</Badge>
+            <span>ARCHIVE NOTE</span>
+          </div>
+          <p className="archive-meta">FILE ACCESS: SAFE / SPOILER LEVEL: LIGHT</p>
           <p>The original Code: Veronica connects Claire Redfield, Chris Redfield, Umbrella, Rockfort Island and the classic survival horror timeline. This section gives new players the basic context without late-game reveals.</p>
           <div className="accordion-item">
             <button className="accordion-button" type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-              Spoiler-full archive
+              Unlock spoiler-full archive
               <span>{open ? "-" : "+"}</span>
             </button>
             {open && (
               <div className="accordion-body">
-                Heavy spoilers from the original game may appear in the production page. This prototype keeps the copy restrained and uses the expanded state to demonstrate the warning flow.
+                <p className="warning-copy">WARNING: Heavy spoilers from the original game may appear below.</p>
+                Heavy spoilers from the original game may appear in the production page. This expanded state demonstrates the warning flow without publishing late-game reveals.
               </div>
             )}
           </div>
@@ -344,12 +367,16 @@ function CharactersSection() {
       <div className="container">
         <SectionHeading kicker="Personnel dossier" title="Characters">No official character art is used. Cards rely on monograms, archive numbers and spoiler badges.</SectionHeading>
         <div className="character-grid">
-          {characters.map(([initials, name, role, spoiler]) => (
+          {characters.map(([initials, name, role, spoiler, source], index) => (
             <article className="card character-card" key={name}>
+              <div className="personnel-top">
+                <span>PERSONNEL FILE</span>
+                <Badge type={spoiler === "Light" ? "reported" : "unknown"}>{spoiler}</Badge>
+              </div>
               <div className="monogram">{initials}</div>
               <div>
                 <h3>{name}</h3>
-                <p className="meta">Role: {role}<br />Spoiler level: {spoiler}</p>
+                <p className="meta">FILE-{initials.replace(".", "").replace(".", "")}-{String(index + 1).padStart(3, "0")}<br />Role: {role}<br />Source: {source}</p>
               </div>
             </article>
           ))}
@@ -363,7 +390,7 @@ function ComparisonSection() {
   return (
     <section className="section" id="remake" data-screen-label="10 Remake vs Original">
       <div className="container">
-        <SectionHeading kicker="Lab analysis report" title="Remake vs Original">Confirmed details, expected changes and unknowns are visually separated.</SectionHeading>
+        <SectionHeading kicker="Analysis file" title="Remake vs Original">Lab analysis of confirmed, expected and unknown changes, without overpromising unverified gameplay details.</SectionHeading>
         <div className="comparison-wrap">
           <table>
             <thead>
@@ -391,11 +418,12 @@ function FAQSection() {
   return (
     <section className="section" id="faq" data-screen-label="11 FAQ">
       <div className="container">
-        <SectionHeading kicker="Clear answers" title="FAQ">Answers include source notes and avoid treating unknowns as confirmed facts.</SectionHeading>
+        <SectionHeading kicker="Puzzle panel" title="FAQ">Common questions unlocked with source notes and last-verified context.</SectionHeading>
         <div className="faq-grid">
           {faq.map(([question, answer], index) => (
             <div className="accordion-item" key={question}>
               <button className="accordion-button" type="button" aria-expanded={open === index} onClick={() => setOpen(open === index ? -1 : index)}>
+                <span className="lock-label">LOCK {String(index + 1).padStart(2, "0")}</span>
                 {question}
                 <span>{open === index ? "-" : "+"}</span>
               </button>
@@ -413,13 +441,20 @@ function SourcesSection() {
     <section className="section" id="sources" data-screen-label="12 Sources">
       <div className="container">
         <SectionHeading kicker="Evidence locker" title="Sources & Verification">Every fact on Veronica Hub is tied to a source, and rumor labels are treated as part of the interface, not afterthought copy.</SectionHeading>
+        <article className="verification-policy">
+          <span className="archive-meta">SOURCE POLICY / EXACT DATES LOCKED UNTIL VERIFIED</span>
+          <p>Veronica Hub does not publish exact dates, demo information, prices or system requirements unless they are confirmed by a reliable source.</p>
+          <span className="redacted" aria-hidden="true"></span>
+        </article>
         <div className="source-grid">
-          {sources.map(([name, type, reliability, usedFor]) => (
+          {sources.map(([name, type, reliability, usedFor, checked, href], index) => (
             <article className="card source-card" key={name}>
+              <span className="slot-code">SOURCE FILE {String(index + 1).padStart(2, "0")}</span>
               <Badge type={type.includes("Official") ? "official" : type === "Media" ? "media" : "reported"}>{type}</Badge>
               <div>
                 <h3>{name}</h3>
-                <p className="meta">Reliability: {reliability}<br />Used for: {usedFor}</p>
+                <p className="meta">Reliability: {reliability}<br />Last checked: {checked}<br />Used for: {usedFor}</p>
+                <a className="source-link" href={href} target={href.startsWith("#") ? undefined : "_blank"} rel={href.startsWith("#") ? undefined : "noopener noreferrer"}>View source</a>
               </div>
             </article>
           ))}
