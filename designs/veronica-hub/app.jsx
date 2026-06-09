@@ -130,7 +130,8 @@ const officialMedia = [
     cta: "View Source",
     note: "Official announcement record for the 2027 release window, platforms, genre and remake status.",
     verified: "2026-06-09",
-    featured: true
+    featured: true,
+    fit: "cover"
   },
   {
     title: "Steam Store Page",
@@ -140,7 +141,8 @@ const officialMedia = [
     image: officialAssets.steamCapsule,
     cta: "Open Store",
     note: "Store page available; planned release date is 2027 and wishlist access is present.",
-    verified: "2026-06-09"
+    verified: "2026-06-09",
+    fit: "contain"
   },
   {
     title: "Official Announcement Trailer",
@@ -150,7 +152,8 @@ const officialMedia = [
     image: officialAssets.trailerPoster,
     cta: "Watch Trailer",
     note: "Official trailer video ID verified via YouTube oEmbed and Capcom Japan press release.",
-    verified: "2026-06-09"
+    verified: "2026-06-09",
+    fit: "contain"
   }
 ];
 
@@ -257,7 +260,7 @@ function OfficialMediaTerminal() {
         <SectionHeading kicker="Official media terminal" title="Source References">MVP sources are limited to Capcom, Steam and Resident Evil / BIOHAZARD official YouTube channels. No media recaps, fan discussions or rumor feeds are used as facts.</SectionHeading>
         <div className="media-reference-grid">
           {officialMedia.map((item) => (
-            <article className={`official-media-frame ${item.image ? "has-image" : ""} ${item.featured ? "featured" : ""}`} key={item.title}>
+            <article className={`official-media-frame ${item.image ? "has-image" : ""} ${item.featured ? "featured" : ""} ${item.fit === "contain" ? "fit-contain" : ""}`} key={item.title}>
               <div className="media-label">
                 <span>{item.type}</span>
                 <Badge type={item.verified === "Pending" ? "unknown" : "official"}>{item.verified === "Pending" ? "Pending" : "Verified"}</Badge>
