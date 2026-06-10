@@ -2,7 +2,7 @@
 
 ## Site
 
-- Production URL: https://veronica-hub.vercel.app/
+- Production URL: https://residentevilveronica.com/
 - Baseline start date: 2026-06-10
 - Measurement owner: site maintainer
 - Analytics source: Vercel Web Analytics

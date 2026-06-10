@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const origin = process.env.VERONICA_ORIGIN || "https://veronica-hub.vercel.app";
+const origin = process.env.VERONICA_ORIGIN || "https://residentevilveronica.com";
 const dataPath = "content/site-data.json";
 const fallbackRoutes = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/characters/", "/faq/", "/sources/"];
 const routes = fs.existsSync(dataPath)

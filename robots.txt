@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://veronica-hub.vercel.app/sitemap.xml
+Sitemap: https://residentevilveronica.com/sitemap.xml

@@ -4,41 +4,41 @@
 
 Use this URL-prefix property:
 
-https://veronica-hub.vercel.app/
+https://residentevilveronica.com/
 
 ## Verification Order
 
 1. HTML file verification if Search Console provides a verification file.
 2. Meta tag verification if file upload is inconvenient.
-3. DNS verification only after the site moves to a custom domain.
+3. DNS verification if Google requests domain-level ownership.
 
 ## Sitemap
 
 Submit this sitemap:
 
-https://veronica-hub.vercel.app/sitemap.xml
+https://residentevilveronica.com/sitemap.xml
 
 ## URL Inspection Set
 
 Inspect these URLs after deployment:
 
-- https://veronica-hub.vercel.app/
-- https://veronica-hub.vercel.app/release-date/
-- https://veronica-hub.vercel.app/platforms/
-- https://veronica-hub.vercel.app/trailer/
-- https://veronica-hub.vercel.app/faq/
-- https://veronica-hub.vercel.app/sources/
-- https://veronica-hub.vercel.app/pc-requirements/
-- https://veronica-hub.vercel.app/preorder/
-- https://veronica-hub.vercel.app/demo/
-- https://veronica-hub.vercel.app/editions/
-- https://veronica-hub.vercel.app/media/
-- https://veronica-hub.vercel.app/changelog/
+- https://residentevilveronica.com/
+- https://residentevilveronica.com/release-date/
+- https://residentevilveronica.com/platforms/
+- https://residentevilveronica.com/trailer/
+- https://residentevilveronica.com/faq/
+- https://residentevilveronica.com/sources/
+- https://residentevilveronica.com/pc-requirements/
+- https://residentevilveronica.com/preorder/
+- https://residentevilveronica.com/demo/
+- https://residentevilveronica.com/editions/
+- https://residentevilveronica.com/media/
+- https://residentevilveronica.com/changelog/
 
 ## First Submission Checklist
 
 - Production deployment is current.
-- `https://veronica-hub.vercel.app/sitemap.xml` returns XML.
+- `https://residentevilveronica.com/sitemap.xml` returns XML.
 - Sitemap contains canonical absolute URLs.
 - Robots file includes the sitemap location.
 - Core pages return HTTP 200.

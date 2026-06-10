@@ -6,7 +6,7 @@
 
 ## Search Console Property
 
-https://veronica-hub.vercel.app/
+https://residentevilveronica.com/
 
 ## Indexing Summary
 

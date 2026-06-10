@@ -23,16 +23,18 @@ for (const file of requiredFiles) {
   if (!fs.existsSync(file)) failures.push(`Missing ${file}`);
 }
 
+const productionOrigin = "https://residentevilveronica.com";
+
 if (fs.existsSync("robots.txt")) {
   const robots = fs.readFileSync("robots.txt", "utf8");
-  if (!robots.includes("Sitemap: https://veronica-hub.vercel.app/sitemap.xml")) {
+  if (!robots.includes(`Sitemap: ${productionOrigin}/sitemap.xml`)) {
     failures.push("robots.txt missing production sitemap line");
   }
 }
 
 if (fs.existsSync("sitemap.xml")) {
   const sitemap = fs.readFileSync("sitemap.xml", "utf8");
-  if (!sitemap.includes("https://veronica-hub.vercel.app/")) {
+  if (!sitemap.includes(`${productionOrigin}/`)) {
     failures.push("sitemap.xml missing production origin");
   }
 }
@@ -46,7 +48,7 @@ if (fs.existsSync("docs/ANALYTICS_DECISION.md")) {
 
 if (fs.existsSync("docs/SEARCH_CONSOLE_RUNBOOK.md")) {
   const runbook = fs.readFileSync("docs/SEARCH_CONSOLE_RUNBOOK.md", "utf8");
-  if (!runbook.includes("https://veronica-hub.vercel.app/sitemap.xml")) {
+  if (!runbook.includes(`${productionOrigin}/sitemap.xml`)) {
     failures.push("Search Console runbook missing sitemap URL");
   }
 }

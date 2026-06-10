@@ -4,13 +4,13 @@
 
 Use URL-prefix property:
 
-https://veronica-hub.vercel.app/
+https://residentevilveronica.com/
 
 ## Submit Sitemap
 
 Submit:
 
-https://veronica-hub.vercel.app/sitemap.xml
+https://residentevilveronica.com/sitemap.xml
 
 ## First 14-Day Checks
 

@@ -23,7 +23,7 @@ Each item should come from a changelog entry and include:
 Run:
 
 ```bash
-curl -s https://veronica-hub.vercel.app/feed.xml | head -20
+curl -s https://residentevilveronica.com/feed.xml | head -20
 ```
 
 Expected:
