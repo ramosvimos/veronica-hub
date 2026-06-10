@@ -321,19 +321,46 @@ function HomePage() {
   );
 }
 
-function SourcesPreview() {
+function SourcesPreview({ expanded = false }) {
+  const sources = expanded ? primarySources() : primarySources().slice(0, 3);
   return (
     <section className="section" id="sources">
       <div className="container">
         <SectionHeading kicker="Evidence locker" title="Sources & Verification">Official sources, store listings and site policy records support each claim.</SectionHeading>
         <div className="source-grid">
-          {primarySources().slice(0, 3).map((source) => (
+          {sources.map((source) => (
             <article className="card source-card" key={source.id}>
               <span className="eyebrow">{source.type} / {source.reliability}</span>
               <h3>{source.name}</h3>
               <p>{source.usedFor}</p>
               <p className="meta">Last checked: {source.lastChecked}</p>
               <a className="source-link" href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined}>Open source</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DeveloperPublisherSection() {
+  const profile = siteData.developerPublisherProfile;
+  return (
+    <section className="section tight">
+      <div className="container">
+        <SectionHeading kicker="Company file" title="Developer & Publisher">Resident Evil Veronica lists Capcom as both the developer and publisher.</SectionHeading>
+        <article className="verification-policy">
+          <span className="eyebrow">{profile.company}</span>
+          <h3>Why the two roles matter</h3>
+          <p>{profile.summary}</p>
+          <p className="meta">Reference links: <SourceLinks sourceIds={profile.sourceIds} /></p>
+        </article>
+        <div className="source-grid" style={{ marginTop: 16 }}>
+          {profile.representativeWorks.map((work) => (
+            <article className="card source-card" key={work.name}>
+              <span className="eyebrow">{work.type}</span>
+              <h3>{work.name}</h3>
+              <p>{work.whyItMatters}</p>
             </article>
           ))}
         </div>
@@ -537,7 +564,8 @@ function FaqPage({ routeInfo }) {
 function SourcesPage({ routeInfo }) {
   return (
     <TextPage routeInfo={routeInfo}>
-      <SourcesPreview />
+      <DeveloperPublisherSection />
+      <SourcesPreview expanded />
     </TextPage>
   );
 }

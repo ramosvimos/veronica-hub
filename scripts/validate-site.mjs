@@ -118,6 +118,12 @@ for (const sourceId of data.pcRequirementEstimate.sourceIds) {
   }
 }
 
+for (const sourceId of data.developerPublisherProfile.sourceIds) {
+  if (!data.sources.some((source) => source.id === sourceId)) {
+    fail(`Developer publisher profile references missing source ${sourceId}`);
+  }
+}
+
 if (data.routes.length !== 15) fail(`Expected 15 routes, found ${data.routes.length}`);
 if (data.claims.length < 12) fail(`Expected at least 12 claims, found ${data.claims.length}`);
 if (data.media.length < 11) fail(`Expected at least 11 media records, found ${data.media.length}`);

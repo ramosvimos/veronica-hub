@@ -436,6 +436,24 @@
       "lastChecked": "2026-06-10"
     },
     {
+      "id": "capcom-product-index",
+      "name": "Capcom product index",
+      "type": "official-company-reference",
+      "reliability": "high",
+      "url": "https://www.capcom-games.com/product/en-us/",
+      "usedFor": "Official Capcom franchise and product context, including Resident Evil, Monster Hunter, Street Fighter, Mega Man, Devil May Cry and Ace Attorney",
+      "lastChecked": "2026-06-10"
+    },
+    {
+      "id": "capcom-platinum-titles",
+      "name": "Capcom Platinum Titles",
+      "type": "official-company-reference",
+      "reliability": "high",
+      "url": "https://www.capcom.co.jp/ir/english/business/million.html",
+      "usedFor": "Official Capcom sales milestone reference for major titles that have sold over one million units",
+      "lastChecked": "2026-06-10"
+    },
+    {
       "id": "steam-resident-evil-4",
       "name": "Resident Evil 4 Steam store",
       "type": "official-store-comparison",
@@ -463,6 +481,45 @@
       "lastChecked": "2026-06-10"
     }
   ],
+  "developerPublisherProfile": {
+    "company": "CAPCOM Co., Ltd.",
+    "developer": "CAPCOM Co., Ltd.",
+    "publisher": "CAPCOM Co., Ltd.",
+    "sourceIds": ["steam-store", "capcom-product-index", "capcom-platinum-titles"],
+    "summary": "Resident Evil Veronica lists CAPCOM Co., Ltd. as both developer and publisher on Steam. In practical terms, the developer role covers making the game, including design, engineering, art, audio and production. The publisher role covers commercial release work such as platform coordination, store pages, marketing, localization, age ratings and launch operations. Because Capcom is both developer and publisher here, official Capcom and store channels are especially important sources for factual updates.",
+    "representativeWorks": [
+      {
+        "name": "Resident Evil",
+        "type": "Survival horror",
+        "whyItMatters": "Capcom's horror flagship and the direct franchise context for Resident Evil Veronica."
+      },
+      {
+        "name": "Monster Hunter",
+        "type": "Action RPG / hunting action",
+        "whyItMatters": "One of Capcom's largest global franchises and a major reference point for Capcom's worldwide publishing scale."
+      },
+      {
+        "name": "Street Fighter",
+        "type": "Fighting game",
+        "whyItMatters": "Capcom's long-running competitive fighting series and one of its most recognizable brands."
+      },
+      {
+        "name": "Mega Man",
+        "type": "Action platformer",
+        "whyItMatters": "A classic Capcom action series that shows the company's long-running console game history."
+      },
+      {
+        "name": "Devil May Cry",
+        "type": "Stylish action",
+        "whyItMatters": "A Capcom action series known for character action combat and high production identity."
+      },
+      {
+        "name": "Ace Attorney",
+        "type": "Adventure / visual novel",
+        "whyItMatters": "A representative non-action Capcom series, useful for showing that Capcom publishes beyond horror and action."
+      }
+    ]
+  },
   "pcRequirementEstimate": {
     "status": "speculative",
     "lastReviewed": "2026-06-10",

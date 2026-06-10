@@ -105,6 +105,22 @@ function routeSpecific(route) {
   if (route.path === "/sources/") {
     return `
       <section class="static-section">
+        <h2>Developer & Publisher</h2>
+        <article class="static-card">
+          <p class="eyebrow">CAPCOM Co., Ltd.</p>
+          <h3>Developer and publisher are the same company</h3>
+          <p>${escapeHtml(data.developerPublisherProfile.summary)}</p>
+          <p>Reference links: ${sourceLinks(data.developerPublisherProfile.sourceIds)}.</p>
+        </article>
+        <div class="static-grid">
+          ${data.developerPublisherProfile.representativeWorks.map((work) => `<article class="static-card">
+            <p class="eyebrow">${escapeHtml(work.type)}</p>
+            <h3>${escapeHtml(work.name)}</h3>
+            <p>${escapeHtml(work.whyItMatters)}</p>
+          </article>`).join("")}
+        </div>
+      </section>
+      <section class="static-section">
         <h2>Source Records</h2>
         <div class="static-grid">
           ${primarySources().map((source) => `<article class="static-card">
