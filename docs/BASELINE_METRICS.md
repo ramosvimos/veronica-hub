@@ -12,8 +12,8 @@
 
 | Metric | Value | Notes |
 | --- | ---: | --- |
-| Production routes checked | 0 | Fill after first P1 production check |
-| Sitemap submitted | 0 | 1 after Search Console submission |
+| Production routes checked | 15 | `npm run check:production` passed on 2026-06-10 |
+| Sitemap submitted | 0 | Manual Search Console submission still required |
 | Indexed pages | 0 | Search Console may not show data immediately |
 | Search impressions | 0 | Initial value before data is available |
 | Search clicks | 0 | Initial value before data is available |
