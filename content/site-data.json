@@ -262,140 +262,227 @@
       "label": "Official title",
       "value": "Resident Evil Veronica",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/sources/"]
+      "pages": [
+        "/",
+        "/sources/"
+      ]
     },
     {
       "id": "search-alias",
       "label": "Common search name",
       "value": "Resident Evil Code Veronica Remake",
       "status": "reported",
-      "sourceIds": ["steam-store"],
+      "sourceIds": [
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/faq/", "/original-vs-remake/"]
+      "pages": [
+        "/",
+        "/faq/",
+        "/original-vs-remake/"
+      ]
     },
     {
       "id": "announcement-status",
       "label": "Announcement status",
       "value": "Officially announced",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08"],
+      "sourceIds": [
+        "capcom-press-2026-06-08"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/sources/", "/faq/"]
+      "pages": [
+        "/",
+        "/sources/",
+        "/faq/"
+      ]
     },
     {
       "id": "release-window",
       "label": "Release window",
       "value": "2027",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/release-date/", "/faq/"]
+      "pages": [
+        "/",
+        "/release-date/",
+        "/faq/"
+      ]
     },
     {
       "id": "exact-release-date",
       "label": "Exact release date",
       "value": "Not officially confirmed",
       "status": "unknown",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/release-date/", "/faq/"]
+      "pages": [
+        "/",
+        "/release-date/",
+        "/faq/"
+      ]
     },
     {
       "id": "confirmed-platforms",
       "label": "Confirmed platforms",
       "value": "PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/platforms/", "/faq/"]
+      "pages": [
+        "/",
+        "/platforms/",
+        "/faq/"
+      ]
     },
     {
       "id": "steam-page",
       "label": "Steam page",
       "value": "Live with wishlist access",
       "status": "confirmed",
-      "sourceIds": ["steam-store"],
+      "sourceIds": [
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/platforms/", "/pc-requirements/", "/preorder/"]
+      "pages": [
+        "/",
+        "/platforms/",
+        "/pc-requirements/",
+        "/preorder/"
+      ]
     },
     {
       "id": "official-trailer",
       "label": "Official trailer",
       "value": "Announcement trailer available",
       "status": "confirmed",
-      "sourceIds": ["official-youtube-trailer"],
+      "sourceIds": [
+        "official-youtube-trailer"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/trailer/", "/media/"]
+      "pages": [
+        "/",
+        "/trailer/",
+        "/media/"
+      ]
     },
     {
       "id": "pc-requirements",
       "label": "PC system requirements",
       "value": "Not officially confirmed",
       "status": "unknown",
-      "sourceIds": ["steam-store"],
+      "sourceIds": [
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/pc-requirements/", "/faq/"]
+      "pages": [
+        "/pc-requirements/",
+        "/faq/"
+      ]
     },
     {
       "id": "preorder-status",
       "label": "Preorder status",
       "value": "Not officially confirmed",
       "status": "unknown",
-      "sourceIds": ["steam-store", "capcom-press-2026-06-08"],
+      "sourceIds": [
+        "steam-store",
+        "capcom-press-2026-06-08"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/preorder/", "/faq/"]
+      "pages": [
+        "/preorder/",
+        "/faq/"
+      ]
     },
     {
       "id": "demo-status",
       "label": "Demo status",
       "value": "Not officially confirmed",
       "status": "unknown",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/demo/", "/faq/"]
+      "pages": [
+        "/demo/",
+        "/faq/"
+      ]
     },
     {
       "id": "edition-status",
       "label": "Editions and price",
       "value": "Not officially confirmed",
       "status": "unknown",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/editions/", "/faq/", "/preorder/"]
+      "pages": [
+        "/editions/",
+        "/faq/",
+        "/preorder/"
+      ]
     },
     {
       "id": "genre",
       "label": "Genre",
       "value": "Survival Horror",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/", "/story/"]
+      "pages": [
+        "/",
+        "/story/"
+      ]
     },
     {
       "id": "developer-publisher",
       "label": "Developer and publisher",
       "value": "CAPCOM Co., Ltd.",
       "status": "confirmed",
-      "sourceIds": ["steam-store"],
+      "sourceIds": [
+        "steam-store"
+      ],
       "lastChecked": "2026-06-10",
       "lastChanged": "2026-06-08",
-      "pages": ["/sources/", "/platforms/"]
+      "pages": [
+        "/sources/",
+        "/platforms/"
+      ]
     }
   ],
   "sources": [
@@ -485,7 +572,11 @@
     "company": "CAPCOM Co., Ltd.",
     "developer": "CAPCOM Co., Ltd.",
     "publisher": "CAPCOM Co., Ltd.",
-    "sourceIds": ["steam-store", "capcom-product-index", "capcom-platinum-titles"],
+    "sourceIds": [
+      "steam-store",
+      "capcom-product-index",
+      "capcom-platinum-titles"
+    ],
     "summary": "Resident Evil Veronica lists CAPCOM Co., Ltd. as both developer and publisher on Steam. In practical terms, the developer role covers making the game, including design, engineering, art, audio and production. The publisher role covers commercial release work such as platform coordination, store pages, marketing, localization, age ratings and launch operations. Because Capcom is both developer and publisher here, official Capcom and store channels are especially important sources for factual updates.",
     "representativeWorks": [
       {
@@ -525,7 +616,12 @@
     "lastReviewed": "2026-06-10",
     "basis": "Resident Evil Veronica official requirements are TBD on Steam. This estimate compares nearby official Steam requirement listings, used only as RE Engine reference points for this PC page.",
     "warning": "This is not official. Do not treat it as final purchase advice.",
-    "sourceIds": ["steam-store", "steam-resident-evil-4", "steam-resident-evil-village", "steam-resident-evil-requiem"],
+    "sourceIds": [
+      "steam-store",
+      "steam-resident-evil-4",
+      "steam-resident-evil-village",
+      "steam-resident-evil-requiem"
+    ],
     "tiers": [
       {
         "name": "Official Veronica status",
@@ -571,7 +667,10 @@
       "short": "PC",
       "name": "PC",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08", "steam-store"],
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store"
+      ],
       "note": "PC is officially listed. Steam page is live; system requirements remain unknown."
     },
     {
@@ -579,7 +678,9 @@
       "short": "PS5",
       "name": "PlayStation 5",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08"],
+      "sourceIds": [
+        "capcom-press-2026-06-08"
+      ],
       "note": "Official platform listing verified."
     },
     {
@@ -587,7 +688,9 @@
       "short": "XB",
       "name": "Xbox Series X|S",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08"],
+      "sourceIds": [
+        "capcom-press-2026-06-08"
+      ],
       "note": "Official platform listing verified."
     },
     {
@@ -595,7 +698,9 @@
       "short": "NS2",
       "name": "Nintendo Switch 2",
       "status": "confirmed",
-      "sourceIds": ["capcom-press-2026-06-08"],
+      "sourceIds": [
+        "capcom-press-2026-06-08"
+      ],
       "note": "Official platform listing verified."
     },
     {
@@ -603,7 +708,9 @@
       "short": "ST",
       "name": "Steam",
       "status": "confirmed",
-      "sourceIds": ["steam-store"],
+      "sourceIds": [
+        "steam-store"
+      ],
       "note": "Store page and wishlist access are available."
     }
   ],
@@ -675,7 +782,10 @@
       "src": "/assets/official/capcom-veronica-press-a.png",
       "alt": "Official Resident Evil Veronica key art from Capcom announcement material",
       "sourceId": "capcom-press-2026-06-08",
-      "pages": ["/", "/media/"]
+      "pages": [
+        "/",
+        "/media/"
+      ]
     },
     {
       "id": "capcom-title",
@@ -684,7 +794,10 @@
       "src": "/assets/official/capcom-veronica-press-b.png",
       "alt": "Official Resident Evil Veronica title art",
       "sourceId": "capcom-press-2026-06-08",
-      "pages": ["/media/", "/sources/"]
+      "pages": [
+        "/media/",
+        "/sources/"
+      ]
     },
     {
       "id": "capcom-ogp",
@@ -693,7 +806,9 @@
       "src": "/assets/official/capcom-veronica-ogp.png",
       "alt": "Official Resident Evil Veronica promotional image used for page previews",
       "sourceId": "capcom-press-2026-06-08",
-      "pages": ["/media/"]
+      "pages": [
+        "/media/"
+      ]
     },
     {
       "id": "capcom-site",
@@ -702,7 +817,10 @@
       "src": "/assets/official/capcom-veronica-site.png",
       "alt": "Official Resident Evil Veronica image from Capcom site material",
       "sourceId": "capcom-press-2026-06-08",
-      "pages": ["/media/", "/sources/"]
+      "pages": [
+        "/media/",
+        "/sources/"
+      ]
     },
     {
       "id": "steam-capsule",
@@ -711,7 +829,10 @@
       "src": "/assets/official/steam/steam-capsule.jpg",
       "alt": "Resident Evil Veronica Steam capsule art",
       "sourceId": "steam-store",
-      "pages": ["/platforms/", "/media/"]
+      "pages": [
+        "/platforms/",
+        "/media/"
+      ]
     },
     {
       "id": "steam-header",
@@ -720,7 +841,9 @@
       "src": "/assets/official/steam/steam-header.jpg",
       "alt": "Resident Evil Veronica Steam header art",
       "sourceId": "steam-store",
-      "pages": ["/media/"]
+      "pages": [
+        "/media/"
+      ]
     },
     {
       "id": "steam-page-bg",
@@ -729,7 +852,11 @@
       "src": "/assets/official/steam/steam-page-bg.jpg",
       "alt": "Resident Evil Veronica Steam page background image",
       "sourceId": "steam-store",
-      "pages": ["/", "/story/", "/media/"]
+      "pages": [
+        "/",
+        "/story/",
+        "/media/"
+      ]
     },
     {
       "id": "trailer-poster",
@@ -738,7 +865,10 @@
       "src": "/assets/official/steam/steam-trailer-poster.jpg",
       "alt": "Poster image for the official Resident Evil Veronica announcement trailer",
       "sourceId": "official-youtube-trailer",
-      "pages": ["/trailer/", "/media/"]
+      "pages": [
+        "/trailer/",
+        "/media/"
+      ]
     },
     {
       "id": "screenshot-01",
@@ -747,7 +877,10 @@
       "src": "/assets/official/steam/steam-screenshot-01.jpg",
       "alt": "Official Resident Evil Veronica screenshot featuring Claire Redfield",
       "sourceId": "steam-store",
-      "pages": ["/characters/", "/media/"]
+      "pages": [
+        "/characters/",
+        "/media/"
+      ]
     },
     {
       "id": "screenshot-02",
@@ -756,7 +889,10 @@
       "src": "/assets/official/steam/steam-screenshot-02.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing an exterior setting",
       "sourceId": "steam-store",
-      "pages": ["/story/", "/media/"]
+      "pages": [
+        "/story/",
+        "/media/"
+      ]
     },
     {
       "id": "screenshot-03",
@@ -765,7 +901,10 @@
       "src": "/assets/official/steam/steam-screenshot-03.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing a creature encounter",
       "sourceId": "steam-store",
-      "pages": ["/trailer/", "/media/"]
+      "pages": [
+        "/trailer/",
+        "/media/"
+      ]
     },
     {
       "id": "screenshot-04",
@@ -774,7 +913,10 @@
       "src": "/assets/official/steam/steam-screenshot-04.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing a corridor incident",
       "sourceId": "steam-store",
-      "pages": ["/story/", "/media/"]
+      "pages": [
+        "/story/",
+        "/media/"
+      ]
     },
     {
       "id": "screenshot-05",
@@ -783,7 +925,10 @@
       "src": "/assets/official/steam/steam-screenshot-05.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing an interior survival scene",
       "sourceId": "steam-store",
-      "pages": ["/media/", "/original-vs-remake/"]
+      "pages": [
+        "/media/",
+        "/original-vs-remake/"
+      ]
     },
     {
       "id": "screenshot-06",
@@ -792,7 +937,10 @@
       "src": "/assets/official/steam/steam-screenshot-06.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing a facility scene",
       "sourceId": "steam-store",
-      "pages": ["/media/", "/pc-requirements/"]
+      "pages": [
+        "/media/",
+        "/pc-requirements/"
+      ]
     },
     {
       "id": "screenshot-07",
@@ -801,17 +949,437 @@
       "src": "/assets/official/steam/steam-screenshot-07.jpg",
       "alt": "Official Resident Evil Veronica screenshot showing an island approach",
       "sourceId": "steam-store",
-      "pages": ["/story/", "/media/"]
+      "pages": [
+        "/story/",
+        "/media/"
+      ]
+    }
+  ],
+  "referenceGames": [
+    {
+      "title": "Resident Evil",
+      "release": "1996",
+      "position": "RE1",
+      "platforms": "PlayStation, PC, Dreamcast",
+      "storyContext": "Established fixed-camera survival mechanics, item friction and room-based tension before the series shifted to modern controls.",
+      "playability": "Classic baseline with deliberate movement and strict inventory management, useful for understanding original survival pressure.",
+      "whyReference": "This is the oldest playable anchor. It defines what players still expect from survival horror rhythm in later remakes.",
+      "origin": "RE1 defined the franchise’s core architecture and became the oldest benchmark before every later gameplay conversion.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Gameplay walk-through (search)",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+1996+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 2",
+      "release": "1998",
+      "position": "RE2",
+      "platforms": "PlayStation, PC, Xbox",
+      "storyContext": "Extends the franchise with Claire and Leon in parallel arcs, and a wider crisis after the Raccoon City incident.",
+      "playability": "Sharper room pressure and clearer combat-readability than RE1, with stronger checkpoint cadence.",
+      "whyReference": "Most useful legacy baseline for inventory rhythm and campaign urgency before modern remakes.",
+      "origin": "RE2 preserved the original survival loop while scaling scope, making it a direct historical comparator for modern tuning.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+2"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Gameplay walk-through (search)",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+2+1998+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 3: Nemesis",
+      "release": "1999",
+      "position": "RE3",
+      "platforms": "PlayStation, PC, Dreamcast, Xbox",
+      "storyContext": "Introduces a recurring threat pressure model centered around the Nemesis chase and escape rhythm.",
+      "playability": "Higher urgency profile with timed pressure from repeating boss pressure and tighter encounter resets.",
+      "whyReference": "Important to understand how threat persistence changed pacing before modern action-remake design.",
+      "origin": "RE3 formalized repetitive pursuit pressure, which later games and remakes later borrow for intensity calibration.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+3+Nemesis"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Nemesis pressure gameplay",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+3+Nemesis+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil Code: Veronica",
+      "release": "2000",
+      "position": "RE CV",
+      "platforms": "Dreamcast, PlayStation 2, PC",
+      "storyContext": "Direct narrative predecessor for Veronica, extending the Claire/Chris arc through broader island and travel settings.",
+      "playability": "Longer transitions and sustained movement segments, while still grounded in classic survival rhythm.",
+      "whyReference": "The most relevant non-remake anchor because Veronica inherits setting and character context from this node.",
+      "origin": "Code Veronica is the direct predecessor chain, so relation mapping for Veronica starts here before any modernization.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+Code+Veronica"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Story and atmosphere",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+Code+Veronica+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 0",
+      "release": "2002",
+      "position": "RE0",
+      "platforms": "GameCube, PS3, PS4, PC",
+      "storyContext": "Prequel branch with Rebecca and Billy, using a companion-first puzzle and combat structure before Veronica’s broader arc.",
+      "playability": "Twin-role pacing and checkpoint placement emphasize sequencing and short-term strategy.",
+      "whyReference": "Useful if visitors want the predecessor style before full cinematic action transitions.",
+      "origin": "RE0 preserves early design rhythm with partner framing and helps explain how the series handled tension before later remasters.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+0"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Co-op style moments (search)",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+0+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 4",
+      "release": "2005",
+      "position": "RE4",
+      "platforms": "GameCube, PS2, PC, Xbox",
+      "storyContext": "Moves the series into more cinematic action-survival using Leon in a wider mission geography.",
+      "playability": "Stronger movement and enemy density profile than earlier entries while keeping survival constraints in place.",
+      "whyReference": "This is the structural pivot before RE4 Remake shows the full modernization path.",
+      "origin": "RE4 introduced the major shift toward modern action timing, a key reason RE4 Remake is in the playable comparison queue.",
+      "links": [
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+4"
+        }
+      ],
+      "clips": [
+        {
+          "label": "RE4 gameplay search",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+4+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 5",
+      "release": "2009",
+      "position": "RE5",
+      "platforms": "PS3, Xbox 360, PS4, Xbox One, PC",
+      "storyContext": "Expands the story into broader action and cooperative structures with stronger mission throughput.",
+      "playability": "Larger combat spaces and faster flow, useful for understanding modern action-pressure branches.",
+      "whyReference": "Important contrast for visitors asking why some Veronica claims feel more restrained than action-era entries.",
+      "origin": "RE5 illustrates a short period where action tempo outpaced narrow survival structure; valuable for direction clarity.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+5"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Action benchmark (search)",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+5+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 6",
+      "release": "2012",
+      "position": "RE6",
+      "platforms": "PS3, Xbox 360, PS4, Xbox One, PC",
+      "storyContext": "Splits into multiple protagonists and campaign branches, increasing structural complexity.",
+      "playability": "High throughput with heavier sequence density and mission segmentation.",
+      "whyReference": "A cautionary comparison for scope and pacing: useful when discussing what Veronica likely did not inherit.",
+      "origin": "RE6 showed how broad campaign design can dilute intensity; it helps position why remakes moved back toward tighter control.",
+      "links": [
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        },
+        {
+          "label": "Steam listing search",
+          "url": "https://store.steampowered.com/search/?term=Resident+Evil+6"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Campaign structure search",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+6+gameplay"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 7: Biohazard",
+      "release": "2017",
+      "position": "RE7",
+      "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
+      "storyContext": "Re-centers the series around first-person dread and tighter house-scale immersion.",
+      "playability": "Close-quarters exploration and fear rhythm become stronger than classical static-room sequencing.",
+      "whyReference": "Critical modern baseline before RE8 and before current remake expectations in narrative tone.",
+      "origin": "RE7 introduced the perspective reset that made later releases feel more intimate and immediate in threat reaction.",
+      "links": [
+        {
+          "label": "Steam",
+          "url": "https://store.steampowered.com/app/418370/Resident_Evil_7_Biohazard/"
+        },
+        {
+          "label": "Capcom RE hub",
+          "url": "https://www.residentevil.com/"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Official trailer",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+7+Biohazard+official+trailer"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 2 Remake",
+      "release": "2019",
+      "position": "RE2 Remake",
+      "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
+      "storyContext": "Modern RE2 rebuild with near-complete system refresh on a proven chapter skeleton.",
+      "playability": "Clearer input responsiveness, improved movement pacing and preserved inventory pressure under modern control systems.",
+      "whyReference": "Most reliable modern anchor for how a legacy chapter is remade for current audience habits.",
+      "origin": "RE2 Remake is the current proof point for Capcom’s baseline conversion approach, directly useful for Veronica expectation framing.",
+      "links": [
+        {
+          "label": "Steam",
+          "url": "https://store.steampowered.com/app/883710/Resident_Evil_2/"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Official trailer",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+2+Remake+official+trailer"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 3 Remake",
+      "release": "2020",
+      "position": "RE3 Remake",
+      "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
+      "storyContext": "Rebuild of RE3 with compressed pacing and modern threat readability.",
+      "playability": "Faster loop compression and clearer enemy telegraphing for modern players without full structural rewrite.",
+      "whyReference": "Supports players comparing campaign density and urgency before deciding on Veronica expectations.",
+      "origin": "RE3 Remake demonstrates what a short remaster-like conversion can preserve while changing input and timing conventions.",
+      "links": [
+        {
+          "label": "Steam",
+          "url": "https://store.steampowered.com/app/952060/Resident_Evil_3/"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Official trailer",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+3+Remake+official+trailer"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil Village",
+      "release": "2021",
+      "position": "RE8",
+      "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
+      "storyContext": "Post-RE7 continuation with stronger boss-driven progression and broader modern traversal.",
+      "playability": "Large modern action-horror map language with tactical movement and boss rhythm.",
+      "whyReference": "Current mainstream reference for players comparing how modern scale and pacing may continue into Veronica.",
+      "origin": "RE8 marks the recent benchmark before Veronica and helps place expectations for atmosphere versus combat density.",
+      "links": [
+        {
+          "label": "Steam",
+          "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Official trailer",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+Village+official+trailer"
+        }
+      ]
+    },
+    {
+      "title": "Resident Evil 4 Remake",
+      "release": "2023",
+      "position": "RE4 Remake",
+      "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
+      "storyContext": "Current modernized form of RE4 with full contemporary control and encounter systems.",
+      "playability": "Tighter combat windows, revised pacing and stronger player agency under legacy camera legacy converted to modern expectations.",
+      "whyReference": "Most direct modern template for expected gameplay translation quality and tone transfer.",
+      "origin": "RE4 Remake is the nearest official modern reference for how Capcom remasters legacy structure at 2023-level polish.",
+      "links": [
+        {
+          "label": "Steam",
+          "url": "https://store.steampowered.com/app/2050650/Resident_Evil_4/"
+        }
+      ],
+      "clips": [
+        {
+          "label": "Official trailer",
+          "url": "https://www.youtube.com/results?search_query=Resident+Evil+4+Remake+official+trailer"
+        }
+      ]
+    }
+  ],
+  "creatorVideos": [
+    {
+      "title": "Survival-horror build and pacing discussion",
+      "creator": "Markiplier / PC Gaming",
+      "context": "Game-first creators with long-format impressions.",
+      "reason": "Good for audience who wants a raw first-play reaction before comparing Veronica.",
+      "url": "https://www.youtube.com/@markiplier",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=Markiplier+resident+evil+remake"
+    },
+    {
+      "title": "Survival-horror creator reaction + breakdown",
+      "creator": "AngryJoeShow",
+      "context": "High-visibility game creator with long-form review style.",
+      "reason": "Useful for players checking if the remake tone is “fun + scary” rather than “pure puzzle-only”.",
+      "url": "https://www.youtube.com/@AngryJoeShow",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=AngryJoeShow+resident+evil+4+remake+or+village"
+    },
+    {
+      "title": "Game-focused editorial clips",
+      "creator": "GameSpot",
+      "context": "Editorial channel with hands-on and trailerview content.",
+      "reason": "Useful for fast scene checks when visitors want official clip-heavy coverage.",
+      "url": "https://www.youtube.com/@GameSpot",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=GameSpot+Resident+Evil+official"
+    },
+    {
+      "title": "Launch/trailer reaction context",
+      "creator": "IGN",
+      "context": "Long-form game coverage from launch and trailer release periods.",
+      "reason": "Helps users balance fan edits with mainstream breakdowns.",
+      "url": "https://www.youtube.com/@IGN",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=IGN+Resident+Evil+trailer+reaction"
+    },
+    {
+      "title": "Theory + design speculation for gameplay structure",
+      "creator": "The Game Theorists",
+      "context": "Narrative/gameplay design explanations.",
+      "reason": "Useful for players who want to understand combat and level logic direction.",
+      "url": "https://www.youtube.com/@GameTheorists",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=The+Game+Theorists+Resident+Evil"
+    },
+    {
+      "title": "Long-form walkthrough and pacing references",
+      "creator": "TheRadBrad",
+      "context": "Walkthrough-focused creator with full-playstyle pacing coverage.",
+      "reason": "Useful for players who compare campaign flow and mission structure before making a final opinion.",
+      "url": "https://www.youtube.com/@theRadBrad",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=TheRadBrad+Resident+Evil+gameplay"
+    },
+    {
+      "title": "Direct first-play reactions and impressions",
+      "creator": "jacksepticeye",
+      "context": "High-energy reaction creator with practical setup and progression takes.",
+      "reason": "Adds a broad creator perspective before readers dive into claim-heavy source sections.",
+      "url": "https://www.youtube.com/@jacksepticeye",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=jacksepticeye+resident+evil+trailer"
+    },
+    {
+      "title": "Cross-region creator walkthrough references",
+      "creator": "VGC Channel",
+      "context": "Cross-region RE-focused gameplay captures.",
+      "reason": "Good for players who prefer practical gameplay snippets over review essays.",
+      "url": "https://www.youtube.com/results?search_query=VGC+Resident+Evil+playthrough",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=VGC+Resident+Evil+gameplay"
+    },
+    {
+      "title": "Community showcase + launch clips roundup",
+      "creator": "GameXplain",
+      "context": "Cross-platform video and trailer coverage with practical gameplay snippets.",
+      "reason": "Good for broad platform comparison and clip discovery.",
+      "url": "https://www.youtube.com/@GameXplain",
+      "linkLabel": "Creator videos (search)",
+      "query": "https://www.youtube.com/results?search_query=GameXplain+Resident+Evil+Village+trailer+reaction"
     }
   ],
   "changelog": [
     {
       "date": "2026-06-10",
       "type": "Site Update",
+      "title": "Expanded playable reference catalog with pre-2000 RE era titles",
+      "summary": "Added original and early-series Resident Evil titles plus additional clip search references so visitors can compare pacing before judging Veronica.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": [
+        "media-page"
+      ]
+    },
+    {
+      "date": "2026-06-10",
+      "type": "Site Update",
       "title": "Veronica Hub source-backed dossier plan created",
       "summary": "Planning documents define static page generation, source-backed claims, P1 measurement and growth roadmap.",
       "sourceId": "veronica-hub-policy",
-      "affectedClaims": ["announcement-status", "release-window", "exact-release-date"]
+      "affectedClaims": [
+        "announcement-status",
+        "release-window",
+        "exact-release-date"
+      ]
     },
     {
       "date": "2026-06-09",
@@ -819,7 +1387,9 @@
       "title": "Homepage visual direction improved",
       "summary": "The homepage hero and official media presentation were refined while preserving the lead heroine background.",
       "sourceId": "veronica-hub-policy",
-      "affectedClaims": ["official-trailer"]
+      "affectedClaims": [
+        "official-trailer"
+      ]
     },
     {
       "date": "2026-06-08",
@@ -827,7 +1397,11 @@
       "title": "Capcom announces Resident Evil Veronica for 2027",
       "summary": "Capcom announces Resident Evil Veronica as a remake with a 2027 release window and confirmed platform set.",
       "sourceId": "capcom-press-2026-06-08",
-      "affectedClaims": ["announcement-status", "release-window", "confirmed-platforms"]
+      "affectedClaims": [
+        "announcement-status",
+        "release-window",
+        "confirmed-platforms"
+      ]
     },
     {
       "date": "2026-06-08",
@@ -835,7 +1409,111 @@
       "title": "Steam page is live",
       "summary": "Steam lists Resident Evil Veronica with CAPCOM as developer and publisher and a planned 2027 release year.",
       "sourceId": "steam-store",
-      "affectedClaims": ["steam-page", "developer-publisher", "pc-requirements"]
+      "affectedClaims": [
+        "steam-page",
+        "developer-publisher",
+        "pc-requirements"
+      ]
+    }
+  ],
+  "gameHistoryTimeline": [
+    {
+      "year": "1996",
+      "title": "Resident Evil",
+      "event": "Foundational survival-horror grammar established.",
+      "impact": "Defined inventory, puzzle and threat pacing for the whole franchise.",
+      "note": "Baseline for all playable comparisons in this dossier."
+    },
+    {
+      "year": "1998",
+      "title": "Resident Evil 2",
+      "event": "Series expands with parallel protagonists and city-level crisis continuity.",
+      "impact": "Strengthens checkpoint rhythm and pressure progression.",
+      "note": "High relevance for first-time visitors mapping core survival rhythm."
+    },
+    {
+      "year": "1999",
+      "title": "Resident Evil 3: Nemesis",
+      "event": "Recurring threat pressure model becomes central.",
+      "impact": "Introduces a stronger urgency profile around enemy return cycles.",
+      "note": "Useful for understanding chase-based intensity expectations."
+    },
+    {
+      "year": "2000",
+      "title": "Resident Evil Code: Veronica",
+      "event": "Narrative bridge for the Veronica storyline enters.",
+      "impact": "Creates direct story context that the remake inherits at a high level.",
+      "note": "Primary predecessor for direct lore relationship."
+    },
+    {
+      "year": "2002",
+      "title": "Resident Evil 0",
+      "event": "Prequel branch adds companion-first puzzle rhythm.",
+      "impact": "Refines pressure sequencing before heavy cinematic modernization.",
+      "note": "Supportive context node, not the main sequel chain."
+    },
+    {
+      "year": "2005",
+      "title": "Resident Evil 4",
+      "event": "Major modernization pivot: cinematic action and movement tuning.",
+      "impact": "Shifts the franchise toward faster, more active pressure systems.",
+      "note": "This pivot explains later remake conversion logic."
+    },
+    {
+      "year": "2009",
+      "title": "Resident Evil 5",
+      "event": "Co-op and action scale increase across mission architecture.",
+      "impact": "Shows a wider action direction before later contraction.",
+      "note": "Use for historical contrast only."
+    },
+    {
+      "year": "2012",
+      "title": "Resident Evil 6",
+      "event": "Campaign structure becomes multi-protagonist and broad.",
+      "impact": "Raises complexity and broadens route throughput.",
+      "note": "Important turning point for later scope refinement."
+    },
+    {
+      "year": "2017",
+      "title": "Resident Evil 7: Biohazard",
+      "event": "First-person horror reset.",
+      "impact": "Re-centers fear, immersion and camera control expectations.",
+      "note": "Critical checkpoint for modern playable controls."
+    },
+    {
+      "year": "2019",
+      "title": "Resident Evil 2 Remake",
+      "event": "High-confidence legacy rebuild of a classic chapter.",
+      "impact": "Proves how Capcom modernizes with control and atmosphere continuity.",
+      "note": "Primary modern benchmark for remaking classic systems."
+    },
+    {
+      "year": "2020",
+      "title": "Resident Evil 3 Remake",
+      "event": "Urgency-focused remasterized conversion of RE3.",
+      "impact": "Shows compression and clarity as valid modern pacing choices.",
+      "note": "Directly relevant to campaign density questions."
+    },
+    {
+      "year": "2021",
+      "title": "Resident Evil Village",
+      "event": "Current era broad action-horror and boss sequencing established.",
+      "impact": "Sets upper-bound expectations for modern RE combat depth.",
+      "note": "Useful contrast for “how modern” the remake may feel."
+    },
+    {
+      "year": "2023",
+      "title": "Resident Evil 4 Remake",
+      "event": "Full legacy conversion at RE Engine standards.",
+      "impact": "Most practical modern template for comparing pacing, control and atmosphere transfer.",
+      "note": "Direct reference for Veronica comparison."
+    },
+    {
+      "year": "2027",
+      "title": "Resident Evil Veronica Remake",
+      "event": "Capcom confirms platform set and release window.",
+      "impact": "Shifts user focus from speculation to comparison-based expectation mapping.",
+      "note": "Exact date remains unconfirmed."
     }
   ]
 }

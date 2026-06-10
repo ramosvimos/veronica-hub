@@ -7,6 +7,19 @@ const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/"
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/media/", "/changelog/", "/faq/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
+const mediaGalleryIds = [
+  "capcom-portrait",
+  "capcom-title",
+  "capcom-site",
+  "steam-capsule",
+  "steam-header",
+  "trailer-poster",
+  "screenshot-01",
+  "screenshot-03",
+  "screenshot-04",
+  "screenshot-05",
+  "screenshot-06"
+];
 
 function normalizePath(pathname) {
   if (!pathname || pathname === "") return "/";
@@ -45,8 +58,17 @@ function claimsForPage(path) {
   return claims.length ? claims : siteData.claims.slice(0, 6);
 }
 
+function mediaForGallery() {
+  const mediaById = new Map(siteData.media.map((item) => [item.id, item]));
+  const selected = mediaGalleryIds
+    .map((id) => mediaById.get(id))
+    .filter((item) => item?.pages.includes("/media/"));
+  if (selected.length > 0) return selected;
+  return siteData.media.filter((item) => item.pages.includes("/media/"));
+}
+
 function mediaForPage(path, limit = 6) {
-  const media = path === "/media/" ? siteData.media : siteData.media.filter((item) => item.pages.includes(path));
+  const media = path === "/media/" ? mediaForGallery() : siteData.media.filter((item) => item.pages.includes(path));
   return media.slice(0, limit);
 }
 
@@ -74,6 +96,54 @@ function OptimizedImage({ src, alt, loading = "lazy" }) {
       {image}
     </picture>
   );
+}
+
+function LinkList({ links }) {
+  if (!links?.length) return null;
+  return (
+    <p className="meta">
+      {links.map((link, index) => (
+        <React.Fragment key={link.url}>
+          <a href={link.url} target={link.url.startsWith("http") ? "_blank" : undefined} rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}>{link.label || link.url}</a>
+          {index < links.length - 1 && " / "}
+        </React.Fragment>
+      ))}
+    </p>
+  );
+}
+
+function sortByRelease(items = []) {
+  return [...items].sort((a, b) => {
+    const aYear = Number.parseInt(a.release, 10) || 0;
+    const bYear = Number.parseInt(b.release, 10) || 0;
+    return aYear - bYear;
+  });
+}
+
+function sortTimeline(items = []) {
+  return [...items].sort((a, b) => {
+    const aYear = Number.parseInt(a.year, 10) || 0;
+    const bYear = Number.parseInt(b.year, 10) || 0;
+    return aYear - bYear;
+  });
+}
+
+function originPositionFilter() {
+  return new Set([
+    "RE1",
+    "RE2",
+    "RE3",
+    "RE0",
+    "RE CV",
+    "RE4",
+    "RE5",
+    "RE6",
+    "RE7",
+    "RE2 Remake",
+    "RE3 Remake",
+    "RE8",
+    "RE4 Remake"
+  ]);
 }
 
 function Badge({ type, children }) {
@@ -597,6 +667,10 @@ function SourcesPage({ routeInfo }) {
 }
 
 function MediaPage({ routeInfo }) {
+  const timeline = sortTimeline(siteData.gameHistoryTimeline || []);
+  const sortedGames = sortByRelease(siteData.referenceGames || []);
+  const origins = sortedGames.filter((game) => originPositionFilter().has(game.position));
+
   return (
     <>
       <PageHero routeInfo={routeInfo} />
@@ -604,10 +678,96 @@ function MediaPage({ routeInfo }) {
         <div className="container">
           <SectionHeading kicker="Official gallery" title="Source-Labeled Media">Every image below is an official asset already present in the repository.</SectionHeading>
           <div className="media-gallery">
-            {siteData.media.map((item) => <MediaCard item={item} key={item.id} />)}
+            {mediaForPage(routeInfo.path, 30).map((item) => <MediaCard item={item} key={item.id} />)}
           </div>
         </div>
       </section>
+      {timeline.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <SectionHeading kicker="Franchise timeline" title="How RE Gameplay Evolved">Use this timeline to see which design shift connects to Veronica expectations.</SectionHeading>
+            <div className="timeline-list">
+              {timeline.map((entry) => (
+                <article className="card" key={`${entry.year}-${entry.title}`}>
+                  <p className="eyebrow">{entry.year}</p>
+                  <h3>{entry.title}</h3>
+                  <p>{entry.event}</p>
+                  <p className="meta">Impact: {entry.impact}</p>
+                  {entry.note && <p className="meta">Note: {entry.note}</p>}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {origins.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <SectionHeading kicker="Classic origins" title="Key Predecessor Line for Veronica">These are the nodes most directly used for playable pacing and origin context comparisons.</SectionHeading>
+            <div className="source-grid">
+              {origins.map((game) => (
+                <article className="card source-card" key={`${game.title}-${game.position}`}>
+                  <span className="eyebrow">{game.position} / {game.release}</span>
+                  <h3>{game.title}</h3>
+                  <p><strong>Story context:</strong> {game.storyContext}</p>
+                  <p className="meta">Why it matters: {game.whyReference}</p>
+                  <p className="meta">Origin: {game.origin}</p>
+                  <p className="meta">Playable traits: {game.playability}</p>
+                  <LinkList links={game.links} />
+                  <LinkList links={game.clips} />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {siteData.referenceGames?.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <SectionHeading kicker="Playable references" title="Previous Survival-Horror Comparables">Sorted by release year to avoid fragmented ordering.</SectionHeading>
+            <div className="source-grid">
+              {sortedGames.map((game) => (
+                <article className="card source-card" key={game.title}>
+                  <span className="eyebrow">{game.platforms || "PC / console"}</span>
+                  <h3>{game.title}</h3>
+                  <p>{game.playability}</p>
+                  <p className="meta">Why include: {game.whyReference}</p>
+                  <p className="meta">Year: {game.release}</p>
+                  <p className="meta">Series node: {game.position}</p>
+                  <p className="meta">Story context: {game.storyContext}</p>
+                  <p className="meta">Origin: {game.origin}</p>
+                  <LinkList links={game.links} />
+                  <LinkList links={game.clips} />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+      {siteData.creatorVideos?.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <SectionHeading kicker="Creator picks" title="Big creator videos for first-play vibe">These are for first-impression comparison before the final Veronica decision.</SectionHeading>
+            <div className="source-grid">
+              {siteData.creatorVideos.map((video) => {
+                const links = [
+                  { label: video.linkLabel || "Watch channel videos", url: video.url },
+                  ...(video.query ? [{ label: "Search related clips", url: video.query }] : [])
+                ];
+                return (
+                  <article className="card source-card" key={`${video.title}-${video.creator}`}>
+                    <span className="eyebrow">{video.creator}</span>
+                    <h3>{video.title}</h3>
+                    <p>{video.context}</p>
+                    <p className="meta">Reason: {video.reason}</p>
+                    <LinkList links={links} />
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
       <QuickFacts path="/media/" />
     </>
   );

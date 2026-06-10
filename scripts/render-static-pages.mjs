@@ -19,6 +19,19 @@ const articleRoutes = new Set([
   "/sources/",
   "/changelog/"
 ]);
+const mediaGalleryIds = [
+  "capcom-portrait",
+  "capcom-title",
+  "capcom-site",
+  "steam-capsule",
+  "steam-header",
+  "trailer-poster",
+  "screenshot-01",
+  "screenshot-03",
+  "screenshot-04",
+  "screenshot-05",
+  "screenshot-06"
+];
 
 function escapeHtml(value) {
   return String(value)
@@ -41,8 +54,29 @@ function routeClaims(routePath) {
   return data.claims.filter((claim) => claim.pages.includes(routePath));
 }
 
+function sortedByRelease(items = []) {
+  return [...items].sort((a, b) => {
+    const aYear = Number.parseInt(a.release, 10) || 0;
+    const bYear = Number.parseInt(b.release, 10) || 0;
+    return aYear - bYear;
+  });
+}
+
+function sortedTimeline(items = []) {
+  return [...items].sort((a, b) => {
+    const aYear = Number.parseInt(a.year, 10) || 0;
+    const bYear = Number.parseInt(b.year, 10) || 0;
+    return aYear - bYear;
+  });
+}
+
 function routeMedia(routePath) {
-  return data.media.filter((media) => media.pages.includes(routePath));
+  const media = data.media.filter((item) => item.pages.includes(routePath));
+  if (routePath !== "/media/") return media;
+  const mediaById = new Map(media.filter((item) => item?.id).map((item) => [item.id, item]));
+  return mediaGalleryIds
+    .map((id) => mediaById.get(id))
+    .filter(Boolean);
 }
 
 function sourceById(id) {
@@ -55,6 +89,18 @@ function sourceLinks(sourceIds) {
     .filter(Boolean)
     .map((source) => `<a href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a>`)
     .join(", ");
+}
+
+function mediaResourceLinks(items) {
+  if (!Array.isArray(items) || !items.length) return "";
+  return items
+    .map((item, index) => {
+      const url = escapeHtml(item.url || "");
+      const label = escapeHtml(item.label || item.url || "Open");
+      const separator = index < items.length - 1 ? " / " : "";
+      return `<a href="${url}">${label}</a>${separator}`;
+    })
+    .join("");
 }
 
 function optimizedImageSrc(src) {
@@ -96,13 +142,14 @@ function claimCards(routePath) {
 }
 
 function mediaGrid(routePath) {
-  const media = routePath === "/media/" ? data.media : routeMedia(routePath).slice(0, 6);
-  if (!media.length) return "";
+  const media = routeMedia(routePath);
+  const visibleMedia = routePath === "/media/" ? media : media.slice(0, 6);
+  if (!visibleMedia.length) return "";
   return `
     <section class="static-section">
       <h2>Official Media References</h2>
       <div class="static-media-grid">
-        ${media.map((item) => {
+        ${visibleMedia.map((item) => {
           const source = sourceById(item.sourceId);
           return `<figure class="static-media-card">
             ${imageMarkup(item)}
@@ -113,7 +160,101 @@ function mediaGrid(routePath) {
     </section>`;
 }
 
+function referenceGamesSection() {
+  const games = sortedByRelease(data.referenceGames || []);
+  if (!games.length) return "";
+  return `
+    <section class="static-section">
+      <h2>Playable Reference Games</h2>
+      <div class="static-grid">
+        ${games.map((game) => `
+          <article class="static-card">
+            <p class="eyebrow">${escapeHtml(game.platforms || "PC / console")}</p>
+            <h3>${escapeHtml(game.title)}</h3>
+            <p>${escapeHtml(game.playability)}</p>
+            <p>Node: ${escapeHtml(game.position || "")}</p>
+            <p>Story context: ${escapeHtml(game.storyContext || "")}</p>
+            <p>Origin: ${escapeHtml(game.origin || "")}</p>
+            <p>Why include: ${escapeHtml(game.whyReference || "")}</p>
+            <p>Year: ${escapeHtml(game.release || "")}</p>
+            ${game.links && game.links.length ? `<p class="meta">Official references: ${mediaResourceLinks(game.links)}</p>` : ""}
+            ${game.clips && game.clips.length ? `<p class="meta">Clips: ${mediaResourceLinks(game.clips)}</p>` : ""}
+          </article>`).join("")}
+      </div>
+    </section>`;
+}
+
+function timelineSection() {
+  const timeline = sortedTimeline(data.gameHistoryTimeline || []);
+  if (!timeline.length) return "";
+  return `
+    <section class="static-section">
+      <h2>Franchise Timeline</h2>
+      <div class="timeline-list">
+        ${timeline.map((event) => `
+          <article class="static-card">
+            <p class="eyebrow">${escapeHtml(event.year || "")}</p>
+            <h3>${escapeHtml(event.title)}</h3>
+            <p>${escapeHtml(event.event)}</p>
+            <p class="meta">Impact: ${escapeHtml(event.impact || "")}</p>
+            ${event.note ? `<p class="meta">Note: ${escapeHtml(event.note)}</p>` : ""}
+          </article>`).join("")}
+      </div>
+    </section>`;
+}
+
+function classicsSection() {
+  const positionSet = new Set(["RE1", "RE0", "RE2", "RE3", "RE CV", "RE4", "RE5", "RE6", "RE7", "RE2 Remake", "RE3 Remake", "RE8", "RE4 Remake"]);
+  const games = sortedByRelease(data.referenceGames || []).filter((game) => positionSet.has(game.position));
+  if (!games.length) return "";
+  return `
+    <section class="static-section">
+      <h2>Classic Origins</h2>
+      <div class="static-grid">
+        ${games.map((game) => `
+          <article class="static-card">
+            <p class="eyebrow">${escapeHtml(game.position || "")}</p>
+            <h3>${escapeHtml(game.title)} (${escapeHtml(game.release || "")})</h3>
+            <p>Story context: ${escapeHtml(game.storyContext || "")}</p>
+            <p>Why include: ${escapeHtml(game.whyReference || "")}</p>
+            <p>Origin: ${escapeHtml(game.origin || "")}</p>
+            ${game.links && game.links.length ? `<p class="meta">Official references: ${mediaResourceLinks(game.links)}</p>` : ""}
+            ${game.clips && game.clips.length ? `<p class="meta">Clips: ${mediaResourceLinks(game.clips)}</p>` : ""}
+            <p class="meta">Playable traits: ${escapeHtml(game.playability || "")}</p>
+          </article>`).join("")}
+      </div>
+    </section>`;
+}
+
+function creatorVideosSection() {
+  const videos = data.creatorVideos || [];
+  if (!videos.length) return "";
+  return `
+    <section class="static-section">
+      <h2>Creator Videos</h2>
+      <div class="static-grid">
+        ${videos.map((video) => {
+          const links = [
+            { label: video.linkLabel || "Watch channel videos", url: video.url },
+            ...(video.query ? [{ label: "Search related clips", url: video.query }] : [])
+          ];
+          return `<article class="static-card">
+            <p class="eyebrow">${escapeHtml(video.creator || "Creator")}</p>
+            <h3>${escapeHtml(video.title)}</h3>
+            <p>${escapeHtml(video.context || "")}</p>
+            <p>Reason: ${escapeHtml(video.reason || "")}</p>
+            <p class="meta">${mediaResourceLinks(links)}</p>
+          </article>`;
+        }).join("")}
+      </div>
+    </section>`;
+}
+
 function routeSpecific(route) {
+  if (route.path === "/media/") {
+    return `${mediaGrid(route.path)}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+  }
+
   if (route.path === "/faq/") {
     return `
       <section class="static-section">
@@ -237,7 +378,7 @@ function staticBody(route) {
           <div class="static-grid">${claimCards(route.path)}</div>
         </section>
         ${routeSpecific(route)}
-        ${mediaGrid(route.path)}
+        ${route.path === "/media/" ? "" : mediaGrid(route.path)}
         <section class="static-section static-policy">
           <h2>Source Policy</h2>
           <p>${escapeHtml(data.site.disclaimer)}</p>
@@ -297,10 +438,11 @@ function faqSchema(route) {
 
 function mediaSchema(route) {
   if (route.path !== "/media/") return null;
+  const media = routeMedia(route.path);
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "itemListElement": data.media.map((item, index) => ({
+    "itemListElement": media.map((item, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "url": `${data.site.origin}${item.src}`,
