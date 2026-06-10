@@ -154,9 +154,9 @@
       "changefreq": "daily",
       "intro": "PC is confirmed, but minimum and recommended requirements are not confirmed yet.",
       "body": [
-        "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. That does not mean PC system requirements are available. At the current verification time, minimum and recommended specifications remain unconfirmed, so this page should not invent CPU, GPU, memory, storage, operating system or upscaling requirements.",
-        "The correct user answer is simple: PC is confirmed, Steam is available, but system requirements are still unknown. This page exists because many players search for specs long before release, and fake requirement tables often spread faster than official updates.",
-        "When official requirements appear, update this page by adding a dated changelog entry, linking the source record, and preserving the previous unknown status in the history. That makes the page useful both before and after Capcom publishes specs."
+        "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. That does not mean PC system requirements are available. At the current verification time, minimum and recommended specifications remain unconfirmed, so the official status stays unknown.",
+        "Because players still need buying guidance, this page includes a clearly labeled speculative estimate based on official Steam requirements for nearby RE Engine titles. The estimate is not a claim about Resident Evil Veronica. It is preparation guidance, and the comparison links are kept only on this PC requirements page.",
+        "The safest answer is two-layered: official Veronica requirements are still TBD, but a practical target should be at least in the modern RE Engine range, with 16 GB RAM and a midrange DirectX 12 GPU as a safer baseline. When official requirements appear, this page should replace the estimate with the source-backed table and preserve the estimate as historical context."
       ]
     },
     {
@@ -434,8 +434,80 @@
       "url": "/sources/",
       "usedFor": "Rules for confirmed, reported and unknown claim states",
       "lastChecked": "2026-06-10"
+    },
+    {
+      "id": "steam-resident-evil-4",
+      "name": "Resident Evil 4 Steam store",
+      "type": "official-store-comparison",
+      "reliability": "high",
+      "url": "https://store.steampowered.com/app/2050650/Resident_Evil_4/",
+      "usedFor": "Comparable modern RE Engine PC requirements: 8 GB minimum RAM, 16 GB recommended RAM, DirectX 12 and GPU classes from GTX 1050 Ti/RX 560 through GTX 1070/RX 5700",
+      "lastChecked": "2026-06-10"
+    },
+    {
+      "id": "steam-resident-evil-village",
+      "name": "Resident Evil Village Steam store",
+      "type": "official-store-comparison",
+      "reliability": "high",
+      "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/",
+      "usedFor": "Comparable RE Engine PC requirements with the same broad minimum and recommended classes as Resident Evil 4",
+      "lastChecked": "2026-06-10"
+    },
+    {
+      "id": "steam-resident-evil-requiem",
+      "name": "Resident Evil Requiem Steam store",
+      "type": "official-store-comparison",
+      "reliability": "high",
+      "url": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/",
+      "usedFor": "Newer Resident Evil Steam listing used as a cautious 2026-class comparison, not as direct Veronica evidence",
+      "lastChecked": "2026-06-10"
     }
   ],
+  "pcRequirementEstimate": {
+    "status": "speculative",
+    "lastReviewed": "2026-06-10",
+    "basis": "Resident Evil Veronica official requirements are TBD on Steam. This estimate compares nearby official Steam requirement listings, used only as RE Engine reference points for this PC page.",
+    "warning": "This is not official. Do not treat it as final purchase advice.",
+    "sourceIds": ["steam-store", "steam-resident-evil-4", "steam-resident-evil-village", "steam-resident-evil-requiem"],
+    "tiers": [
+      {
+        "name": "Official Veronica status",
+        "confidence": "confirmed status, unknown specs",
+        "os": "TBD",
+        "cpu": "TBD",
+        "memory": "TBD",
+        "gpu": "TBD",
+        "notes": "Steam currently lists Resident Evil Veronica system requirements as TBD."
+      },
+      {
+        "name": "Low-confidence floor",
+        "confidence": "speculative",
+        "os": "Windows 10 64-bit or newer",
+        "cpu": "AMD Ryzen 3 1200 / Intel Core i5-7500 class or newer",
+        "memory": "8 GB RAM minimum is plausible, 16 GB is safer",
+        "gpu": "AMD Radeon RX 560 4GB / NVIDIA GeForce GTX 1050 Ti 4GB class as a weak floor",
+        "notes": "Based on Resident Evil 4 and Village official Steam minimums. A 2027 remake could land higher."
+      },
+      {
+        "name": "Safer 1080p target",
+        "confidence": "speculative",
+        "os": "Windows 10 or Windows 11 64-bit",
+        "cpu": "AMD Ryzen 5 3600 / Intel Core i7-8700 class or newer",
+        "memory": "16 GB RAM",
+        "gpu": "AMD Radeon RX 5700 / NVIDIA GeForce GTX 1070 class or better",
+        "notes": "Matches the broad recommended class for Resident Evil 4 and Village and is a more practical target than the minimum floor."
+      },
+      {
+        "name": "Cautious 2026-class target",
+        "confidence": "speculative",
+        "os": "Windows 11 64-bit",
+        "cpu": "AMD Ryzen 5 3500 / Intel Core i5-8500 class or newer",
+        "memory": "16 GB RAM",
+        "gpu": "GeForce GTX 1660 6GB / Radeon RX 5500 XT 8GB as a cautious minimum-class comparison; RTX 2060 Super / RX 6600 class as a stronger target",
+        "notes": "Based on the newer Resident Evil Requiem Steam listing. Requiem is not direct evidence for Veronica, but it is useful as a newer Capcom PC baseline."
+      }
+    ]
+  },
   "platforms": [
     {
       "id": "pc",
@@ -519,7 +591,11 @@
     },
     {
       "question": "Are PC system requirements confirmed?",
-      "answer": "No. PC is confirmed, but minimum and recommended PC requirements are not officially confirmed yet."
+      "answer": "No. PC is confirmed, but minimum and recommended PC requirements are not officially confirmed yet. Veronica Hub shows a separate speculative estimate based on official Steam requirements from nearby RE Engine games."
+    },
+    {
+      "question": "Can I use the estimated PC requirements to buy hardware?",
+      "answer": "Treat the estimate as preparation guidance, not an official purchase guarantee. Wait for Capcom or Steam to publish Resident Evil Veronica requirements before making a final upgrade decision."
     },
     {
       "question": "Is there a demo?",

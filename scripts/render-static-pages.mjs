@@ -57,6 +57,10 @@ function sourceLinks(sourceIds) {
     .join(", ");
 }
 
+function primarySources() {
+  return data.sources.filter((source) => !source.type.includes("comparison"));
+}
+
 function claimCards(routePath) {
   const claims = routeClaims(routePath);
   const visibleClaims = claims.length ? claims : data.claims.slice(0, 5);
@@ -103,7 +107,7 @@ function routeSpecific(route) {
       <section class="static-section">
         <h2>Source Records</h2>
         <div class="static-grid">
-          ${data.sources.map((source) => `<article class="static-card">
+          ${primarySources().map((source) => `<article class="static-card">
             <p class="eyebrow">${escapeHtml(source.type)} / ${escapeHtml(source.reliability)}</p>
             <h3>${escapeHtml(source.name)}</h3>
             <p>${escapeHtml(source.usedFor)}</p>
@@ -111,6 +115,27 @@ function routeSpecific(route) {
             <a href="${escapeHtml(source.url)}">Open source</a>
           </article>`).join("")}
         </div>
+      </section>`;
+  }
+
+  if (route.path === "/pc-requirements/") {
+    return `
+      <section class="static-section">
+        <h2>Speculative PC Estimate</h2>
+        <p><strong>${escapeHtml(data.pcRequirementEstimate.warning)}</strong></p>
+        <p>${escapeHtml(data.pcRequirementEstimate.basis)}</p>
+        <div class="static-grid">
+          ${data.pcRequirementEstimate.tiers.map((tier) => `<article class="static-card">
+            <p class="eyebrow">${escapeHtml(tier.confidence)}</p>
+            <h3>${escapeHtml(tier.name)}</h3>
+            <p><strong>OS:</strong> ${escapeHtml(tier.os)}</p>
+            <p><strong>CPU:</strong> ${escapeHtml(tier.cpu)}</p>
+            <p><strong>Memory:</strong> ${escapeHtml(tier.memory)}</p>
+            <p><strong>GPU:</strong> ${escapeHtml(tier.gpu)}</p>
+            <p>${escapeHtml(tier.notes)}</p>
+          </article>`).join("")}
+        </div>
+        <p class="static-trust">Estimate basis links: ${sourceLinks(data.pcRequirementEstimate.sourceIds)}.</p>
       </section>`;
   }
 

@@ -9,7 +9,8 @@ Every indexed page must satisfy:
 - At least one source or verification block.
 - Clear confirmed versus unknown status.
 - Internal links to related pages.
-- No fake dates, fake prices, fake PC specs or fake demo claims.
+- No fake dates, fake prices, fake official PC specs or fake demo claims.
+- Speculative estimates must be visibly labeled and kept on the relevant page only.
 - Official media only when it supports the page topic.
 
 ## Reject A Page If

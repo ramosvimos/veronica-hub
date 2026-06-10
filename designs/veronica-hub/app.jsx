@@ -22,6 +22,24 @@ function sourceById(id) {
   return siteData.sources.find((source) => source.id === id);
 }
 
+function primarySources() {
+  return siteData.sources.filter((source) => !source.type.includes("comparison"));
+}
+
+function SourceLinks({ sourceIds }) {
+  const sources = sourceIds.map((id) => sourceById(id)).filter(Boolean);
+  return (
+    <>
+      {sources.map((source, index) => (
+        <React.Fragment key={source.id}>
+          {index > 0 && ", "}
+          <a href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined}>{source.name}</a>
+        </React.Fragment>
+      ))}
+    </>
+  );
+}
+
 function claimsForPage(path) {
   const claims = siteData.claims.filter((claim) => claim.pages.includes(path));
   return claims.length ? claims : siteData.claims.slice(0, 6);
@@ -207,7 +225,7 @@ function QuickFacts({ path = "/" }) {
                 <h3>{claim.label}</h3>
                 <div className="value">{claim.value}</div>
               </div>
-              <p className="meta">Last checked: {claim.lastChecked}<br />Sources: {claim.sourceIds.map((id) => sourceById(id)?.name).filter(Boolean).join(", ")}</p>
+              <p className="meta">Last checked: {claim.lastChecked}<br />Sources: <SourceLinks sourceIds={claim.sourceIds} /></p>
             </article>
           ))}
         </div>
@@ -309,7 +327,7 @@ function SourcesPreview() {
       <div className="container">
         <SectionHeading kicker="Evidence locker" title="Sources & Verification">Official sources, store listings and site policy records support each claim.</SectionHeading>
         <div className="source-grid">
-          {siteData.sources.slice(0, 3).map((source) => (
+          {primarySources().slice(0, 3).map((source) => (
             <article className="card source-card" key={source.id}>
               <span className="eyebrow">{source.type} / {source.reliability}</span>
               <h3>{source.name}</h3>
@@ -360,6 +378,42 @@ function TextPage({ routeInfo, children }) {
       {children}
       <ContextMedia path={routeInfo.path} />
     </>
+  );
+}
+
+function PcEstimateSection() {
+  const estimate = siteData.pcRequirementEstimate;
+  return (
+    <section className="section tight">
+      <div className="container">
+        <SectionHeading kicker="Speculative estimate" title="PC Prep Range">This is not official. It is a cautious preparation range based on nearby official Steam requirement listings.</SectionHeading>
+        <article className="verification-policy">
+          <span className="eyebrow">{estimate.status} / last reviewed {estimate.lastReviewed}</span>
+          <h3>Official Veronica specs are still TBD</h3>
+          <p>{estimate.warning}</p>
+          <p>{estimate.basis}</p>
+          <p className="meta">Basis links: <SourceLinks sourceIds={estimate.sourceIds} /></p>
+        </article>
+        <div className="facts-grid" style={{ marginTop: 16 }}>
+          {estimate.tiers.map((tier) => (
+            <article className="card fact-card" key={tier.name}>
+              <div className="slot-top">
+                <span className="eyebrow">{tier.confidence}</span>
+                <Badge type={tier.confidence.includes("unknown") ? "unknown" : "reported"}>Estimate</Badge>
+              </div>
+              <div>
+                <h3>{tier.name}</h3>
+                <p><strong>OS:</strong> {tier.os}</p>
+                <p><strong>CPU:</strong> {tier.cpu}</p>
+                <p><strong>Memory:</strong> {tier.memory}</p>
+                <p><strong>GPU:</strong> {tier.gpu}</p>
+              </div>
+              <p className="meta">{tier.notes}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -424,6 +478,14 @@ function TrailerPage({ routeInfo }) {
           <OfficialVideoTerminal />
         </div>
       </section>
+    </TextPage>
+  );
+}
+
+function PcRequirementsPage({ routeInfo }) {
+  return (
+    <TextPage routeInfo={routeInfo}>
+      <PcEstimateSection />
     </TextPage>
   );
 }
@@ -542,6 +604,7 @@ function PageSwitch({ path }) {
   const routeInfo = route(path);
   if (path === "/") return <HomePage />;
   if (path === "/platforms/") return <PlatformsPage routeInfo={routeInfo} />;
+  if (path === "/pc-requirements/") return <PcRequirementsPage routeInfo={routeInfo} />;
   if (path === "/trailer/") return <TrailerPage routeInfo={routeInfo} />;
   if (path === "/characters/") return <CharactersPage routeInfo={routeInfo} />;
   if (path === "/faq/") return <FaqPage routeInfo={routeInfo} />;

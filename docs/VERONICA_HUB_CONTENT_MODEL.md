@@ -28,4 +28,4 @@ Primary factual sources are Capcom official material, Steam official store data,
 
 ## Editorial Rules
 
-Do not invent exact release dates, price, editions, demo availability, preorder timing or PC requirements. Unknown details stay unknown until a cited source changes them.
+Do not invent exact release dates, price, editions, demo availability, preorder timing or official PC requirements. Unknown details stay unknown until a cited source changes them. A clearly labeled speculative estimate is allowed only when it is separated from official claims, limited to the relevant page, and linked to its comparison sources.
