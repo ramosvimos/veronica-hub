@@ -16,7 +16,11 @@ const officialAssets = {
   steamCapsule: "/assets/official/steam/steam-capsule.jpg",
   steamPageBg: "/assets/official/steam/steam-page-bg.jpg",
   trailerPoster: "/assets/official/steam/steam-trailer-poster.jpg",
-  monsterCrowd: "/assets/official/steam/steam-screenshot-03.jpg"
+  monsterCrowd: "/assets/official/steam/steam-screenshot-03.jpg",
+  claireCombat: "/assets/official/steam/steam-screenshot-01.jpg",
+  prisonExterior: "/assets/official/steam/steam-screenshot-02.jpg",
+  corridorBody: "/assets/official/steam/steam-screenshot-04.jpg",
+  helicopterApproach: "/assets/official/steam/steam-screenshot-07.jpg"
 };
 
 const officialTrailer = {
@@ -82,6 +86,14 @@ const officialMedia = [
   }
 ];
 
+const officialScreens = [
+  ["Claire Redfield", officialAssets.claireCombat],
+  ["Rockfort Exterior", officialAssets.prisonExterior],
+  ["Creature Encounter", officialAssets.monsterCrowd],
+  ["Corridor Incident", officialAssets.corridorBody],
+  ["Island Approach", officialAssets.helicopterApproach]
+];
+
 const updates = [
   ["2026-06-08", "Official", "Capcom announces Resident Evil Veronica for 2027", "Resident Evil Veronica is announced as a remake of the 2000 title. Exact date details will be announced later.", "Capcom press release", "https://www.capcom.co.jp/ir/english/news/html/e260608.html"],
   ["2026-06-08", "Store", "Steam page is live with a 2027 release window", "Steam confirms CAPCOM as developer and publisher, with planned release date listed as 2027.", "Steam store", "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/"],
@@ -138,7 +150,7 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <img className="hero-title-treatment" src={officialAssets.title} alt="Official Resident Evil Veronica title treatment from Capcom" />
+          <span className="hero-kicker">Source-backed remake dossier</span>
           <div className="eyebrow-row"><span className="chip cyan">Independent fan-made information hub</span><span className="chip red">No ROMs or piracy</span><span className="chip">Official sources only</span></div>
           <h1>Resident Evil <span>Code Veronica</span> Remake</h1>
           <p className="hero-subtitle">Official title, 2027 release window, confirmed platforms, trailer status and spoiler-light story context in one source-first dossier.</p>
@@ -147,11 +159,6 @@ function Hero() {
         </div>
         <aside className="hero-dossier" aria-label="Current dossier status and official media">
           <DossierPanel />
-          <article className="hero-official-card official-media-frame fit-contain">
-            <div className="media-label"><span>Official media</span><Badge type="official">Verified</Badge></div>
-            <img src={officialAssets.trailerPoster} alt="Official Resident Evil Veronica trailer poster" />
-            <div className="media-copy"><h3>Announcement Trailer</h3><p className="meta">Source: BIOHAZARD official YouTube<br />Last verified: 2026-06-09</p><a className="source-link" href="/trailer/">Open Trailer</a></div>
-          </article>
         </aside>
       </div>
     </section>
@@ -191,8 +198,26 @@ function OfficialMediaTerminal() {
   );
 }
 
+function ScreenshotWall() {
+  return (
+    <section className="section screenshot-wall" id="screens">
+      <div className="container">
+        <SectionHeading kicker="Official screens" title="Visual Archive">More official Steam media, arranged as atmosphere instead of database filler.</SectionHeading>
+        <div className="screenshot-grid">
+          {officialScreens.map(([label, image]) => (
+            <figure className="screenshot-card" key={label}>
+              <img src={image} alt={`${label} official Resident Evil Veronica screenshot`} />
+              <span>{label}</span>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function QuickFacts() {
-  return <section className="section tight" id="facts"><div className="container"><SectionHeading kicker="Inventory grid" title="Quick Facts">Confirmed facts are separated from unknown details. No exact date, price, demo or PC specs are published before confirmation.</SectionHeading><div className="facts-grid">{facts.map(([label, value, status, source, level], index) => <article className="card fact-card" key={label}><div className="slot-top"><span className="slot-code">SLOT {String(index + 1).padStart(2, "0")}</span><Badge type={status}>{status}</Badge></div><div><h3>{label}</h3><div className="value">{value}</div></div><p className="meta">SOURCE LEVEL: {level}<br />Source: {source}<br />Last verified: 2026-06-09</p></article>)}</div></div></section>;
+  return <section className="section tight" id="facts"><div className="container"><SectionHeading kicker="Inventory grid" title="Quick Facts">Confirmed facts are separated from unknown details. No exact date, price, demo or PC specs are published before confirmation.</SectionHeading><div className="facts-grid">{facts.slice(0, 6).map(([label, value, status, source, level], index) => <article className="card fact-card" key={label}><div className="slot-top"><span className="slot-code">SLOT {String(index + 1).padStart(2, "0")}</span><Badge type={status}>{status}</Badge></div><div><h3>{label}</h3><div className="value">{value}</div></div><p className="meta">SOURCE LEVEL: {level}<br />Source: {source}<br />Last verified: 2026-06-09</p></article>)}</div></div></section>;
 }
 
 function ReleaseSection() {
@@ -258,7 +283,7 @@ function App() {
     const section = routeToSection[window.location.pathname];
     if (section) window.setTimeout(() => document.querySelector(section)?.scrollIntoView({ block: "start" }), 80);
   }, []);
-  return <div className="app-shell"><Header onSearch={() => setSearchOpen(true)} onMenu={() => setMenuOpen(true)} /><main>{isNotFound ? <NotFoundSection /> : <><Hero /><OfficialMediaTerminal /><QuickFacts /><ReleaseSection /><PlatformsSection /><StorySection /><TrailerSection /><SourcesSection /></>}</main><Footer />{searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}{menuOpen && <MobileDrawer onClose={() => setMenuOpen(false)} />}</div>;
+  return <div className="app-shell"><Header onSearch={() => setSearchOpen(true)} onMenu={() => setMenuOpen(true)} /><main>{isNotFound ? <NotFoundSection /> : <><Hero /><ScreenshotWall /><OfficialMediaTerminal /><QuickFacts /><ReleaseSection /><PlatformsSection /><StorySection /><TrailerSection /><SourcesSection /></>}</main><Footer />{searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}{menuOpen && <MobileDrawer onClose={() => setMenuOpen(false)} />}</div>;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
