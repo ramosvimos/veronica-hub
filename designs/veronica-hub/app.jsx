@@ -50,6 +50,32 @@ function mediaForPage(path, limit = 6) {
   return media.slice(0, limit);
 }
 
+function optimizedImageSrc(src) {
+  if (!src.startsWith("/assets/official/")) return null;
+  const filename = src.split("/").pop();
+  if (!/\.(jpe?g|png)$/i.test(filename)) return null;
+  return `/assets/optimized/${filename.replace(/\.(jpe?g|png)$/i, ".webp")}`;
+}
+
+function cssImageValue(src) {
+  const optimizedSrc = optimizedImageSrc(src);
+  if (!optimizedSrc) return `url("${src}")`;
+  const type = /\.png$/i.test(src) ? "image/png" : "image/jpeg";
+  return `image-set(url("${optimizedSrc}") type("image/webp"), url("${src}") type("${type}"))`;
+}
+
+function OptimizedImage({ src, alt, loading = "lazy" }) {
+  const optimizedSrc = optimizedImageSrc(src);
+  const image = <img src={src} alt={alt} loading={loading} decoding="async" fetchPriority={loading === "eager" ? "high" : "low"} />;
+  if (!optimizedSrc) return image;
+  return (
+    <picture>
+      <source srcSet={optimizedSrc} type="image/webp" />
+      {image}
+    </picture>
+  );
+}
+
 function Badge({ type, children }) {
   return <span className={`badge ${String(type).toLowerCase()}`}>{children}</span>;
 }
@@ -249,7 +275,7 @@ function OfficialVideoTerminal() {
           <iframe src={`${siteData.trailer.embedUrl}&autoplay=1`} title={siteData.trailer.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         ) : (
           <button className="trailer-poster-button" type="button" onClick={() => setLoaded(true)} aria-label={`Load official trailer: ${siteData.trailer.title}`}>
-            <img src={poster.src} alt="" />
+            <OptimizedImage src={poster.src} alt="" />
             <span className="play-core" aria-hidden="true">▶</span>
             <span className="trailer-cta-text">Watch official trailer</span>
           </button>
@@ -298,7 +324,7 @@ function MediaFrame({ item }) {
         <span>{item.kind}</span>
         <Badge type="official">Verified</Badge>
       </div>
-      <img src={item.src} alt={item.alt} />
+      <OptimizedImage src={item.src} alt={item.alt} />
       <div className="media-copy">
         <h3>{item.title}</h3>
         <p className="meta">Source: {source?.name || "Official source"}<br />Last verified: {source?.lastChecked || siteData.site.lastVerified}</p>
@@ -371,7 +397,7 @@ function DeveloperPublisherSection() {
 
 function PageHero({ routeInfo }) {
   const leadMedia = mediaForPage(routeInfo.path, 1)[0] || siteData.media.find((item) => item.id === "steam-page-bg");
-  const style = leadMedia ? { "--page-image": `url("${leadMedia.src}")` } : undefined;
+  const style = leadMedia ? { "--page-image": cssImageValue(leadMedia.src) } : undefined;
   return (
     <section className="page-hero" style={style}>
       <div className="page-hero-inner">
@@ -463,7 +489,7 @@ function MediaCard({ item }) {
   const source = sourceById(item.sourceId);
   return (
     <figure className="card media-card">
-      <img src={item.src} alt={item.alt} />
+      <OptimizedImage src={item.src} alt={item.alt} />
       <figcaption>
         <strong>{item.title}</strong>
         <span>{item.kind} / {source?.name || "Official source"}</span>

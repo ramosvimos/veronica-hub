@@ -57,6 +57,28 @@ function sourceLinks(sourceIds) {
     .join(", ");
 }
 
+function optimizedImageSrc(src) {
+  if (!src.startsWith("/assets/official/")) return null;
+  const extension = path.extname(src).toLowerCase();
+  if (![".jpg", ".jpeg", ".png"].includes(extension)) return null;
+  return `/assets/optimized/${path.basename(src, extension)}.webp`;
+}
+
+function imageMarkup(item) {
+  const img = `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" decoding="async" fetchpriority="low" />`;
+  const optimizedSrc = optimizedImageSrc(item.src);
+  if (!optimizedSrc) return img;
+  return `<picture><source srcset="${escapeHtml(optimizedSrc)}" type="image/webp" />${img}</picture>`;
+}
+
+function preloadLinks(route) {
+  if (route.path !== "/") return "";
+  return [
+    "/assets/optimized/capcom-veronica-press-a.webp",
+    "/assets/optimized/steam-page-bg.webp"
+  ].map((href) => `<link rel="preload" as="image" href="${href}" type="image/webp" fetchpriority="high" />`).join("\n  ");
+}
+
 function primarySources() {
   return data.sources.filter((source) => !source.type.includes("comparison"));
 }
@@ -83,7 +105,7 @@ function mediaGrid(routePath) {
         ${media.map((item) => {
           const source = sourceById(item.sourceId);
           return `<figure class="static-media-card">
-            <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" />
+            ${imageMarkup(item)}
             <figcaption><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.kind)}${source ? ` / ${escapeHtml(source.name)}` : ""}</span></figcaption>
           </figure>`;
         }).join("")}
@@ -316,6 +338,7 @@ function pageHtml(route) {
   const schemaTags = schemas(route)
     .map((schema) => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
     .join("\n  ");
+  const preloadTags = preloadLinks(route);
   const body = staticBody(route);
 
   return `<!doctype html>
@@ -332,7 +355,7 @@ function pageHtml(route) {
   <meta property="og:description" content="${escapeHtml(route.description)}" />
   <meta property="og:image" content="${escapeHtml(data.site.origin)}/assets/official/capcom-veronica-ogp.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="${stylesheetPath}" />
+  ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
   ${schemaTags}
 </head>
 <body>
