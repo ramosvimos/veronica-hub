@@ -5,6 +5,7 @@ const root = process.cwd();
 const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"), "utf8"));
 const bundlePath = "/designs/veronica-hub/app.bundle.js";
 const stylesheetPath = "/styles/site.css";
+const adsenseClient = "ca-pub-2875158540739129";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/faq/", "/changelog/"];
 
@@ -642,8 +643,10 @@ function pageHtml(route) {
   <meta property="og:description" content="${escapeHtml(route.description)}" />
   <meta property="og:image" content="${escapeHtml(data.site.origin)}/assets/official/capcom-veronica-ogp.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="google-adsense-account" content="${adsenseClient}" />
   <link rel="alternate" type="application/rss+xml" title="Veronica Hub Changelog Feed" href="/feed.xml" />
   ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}" crossorigin="anonymous"></script>
   ${schemaTags}
 </head>
 <body>

@@ -4,6 +4,8 @@ import path from "node:path";
 const root = process.cwd();
 const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"), "utf8"));
 const failures = [];
+const adsenseClient = "ca-pub-2875158540739129";
+const adsTxtLine = "google.com, pub-2875158540739129, DIRECT, f08c47fec0942fa0";
 
 function fail(message) {
   failures.push(message);
@@ -58,6 +60,9 @@ for (const route of data.routes) {
   if (!html.includes(`<h1>${route.h1}</h1>`)) fail(`Missing h1 for ${route.path}`);
   if (!html.includes(`rel="canonical" href="${canonical}"`)) fail(`Missing canonical for ${route.path}`);
   if (!html.includes("application/ld+json")) fail(`Missing JSON-LD for ${route.path}`);
+  if (!html.includes(`name="google-adsense-account" content="${adsenseClient}"`)) fail(`Missing AdSense account meta for ${route.path}`);
+  if (!html.includes(`pagead/js/adsbygoogle.js?client=${adsenseClient}`)) fail(`Missing AdSense loader for ${route.path}`);
+  if ((html.match(/adsbygoogle\.js/g) || []).length !== 1) fail(`AdSense loader duplicated for ${route.path}`);
   if (!html.includes("Last verified") && !html.includes("Last checked")) fail(`Missing verification copy for ${route.path}`);
   if (html.includes("noindex")) fail(`Route contains noindex: ${route.path}`);
   if (!html.includes('class="footer-links"')) fail(`Missing static footer links for ${route.path}`);
@@ -107,6 +112,10 @@ else {
 
 const robots = read(path.join(root, "robots.txt"));
 if (!robots.includes(`Sitemap: ${data.site.origin}/sitemap.xml`)) fail("robots.txt missing production sitemap line");
+
+const adsTxtPath = path.join(root, "ads.txt");
+if (!fs.existsSync(adsTxtPath)) fail("Missing ads.txt");
+else if (!read(adsTxtPath).includes(adsTxtLine)) fail("ads.txt missing Google AdSense publisher line");
 
 for (const media of data.media) {
   const assetPath = path.join(root, media.src.replace(/^\//, ""));
