@@ -53,6 +53,11 @@ const items = [...(data.changelog || [])]
   })
   .join("\n");
 
+const latestChangelogDate = [...(data.changelog || [])]
+  .map((entry) => entry.date)
+  .sort()
+  .pop() || data.site.lastVerified;
+
 const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -61,7 +66,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
     <atom:link href="${escapeXml(data.site.origin)}/feed.xml" rel="self" type="application/rss+xml" />
     <description>${escapeXml(data.site.tagline)} official-source change feed.</description>
     <language>en-us</language>
-    <lastBuildDate>${escapeXml(new Date().toUTCString())}</lastBuildDate>
+    <lastBuildDate>${escapeXml(rfc822(latestChangelogDate))}</lastBuildDate>
 ${items}
   </channel>
 </rss>
