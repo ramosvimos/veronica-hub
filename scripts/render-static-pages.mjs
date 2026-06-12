@@ -5,6 +5,7 @@ const root = process.cwd();
 const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"), "utf8"));
 const bundlePath = "/designs/veronica-hub/app.bundle.js";
 const stylesheetPath = "/styles/site.css";
+const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/"];
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -31,6 +32,13 @@ const mediaGalleryIds = [
   "screenshot-04",
   "screenshot-05",
   "screenshot-06"
+];
+const mediaSectionLinks = [
+  { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
+  { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
+  { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
+  { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
+  { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
 ];
 
 function escapeHtml(value) {
@@ -81,6 +89,10 @@ function routeMedia(routePath) {
 
 function sourceById(id) {
   return data.sources.find((source) => source.id === id);
+}
+
+function routeByPath(routePath) {
+  return data.routes.find((route) => route.path === routePath);
 }
 
 function sourceLinks(sourceIds) {
@@ -166,7 +178,7 @@ function mediaGrid(routePath) {
   const visibleMedia = routePath === "/media/" ? media : media.slice(0, 6);
   if (!visibleMedia.length) return "";
   return `
-    <section class="static-section">
+    <section class="static-section" id="${routePath === "/media/" ? "official-gallery" : "official-media"}">
       <h2>Official Media References</h2>
       <div class="static-media-grid">
         ${visibleMedia.map((item) => {
@@ -180,11 +192,25 @@ function mediaGrid(routePath) {
     </section>`;
 }
 
+function mediaSectionNav() {
+  return `
+    <section class="static-section static-section-compact" aria-label="Media page sections">
+      <div class="section-jump-nav">
+        ${mediaSectionLinks.map((item, index) => `
+          <a href="${escapeHtml(item.href)}">
+            <span class="nav-code">SEC ${String(index + 1).padStart(2, "0")}</span>
+            <strong>${escapeHtml(item.label)}</strong>
+            <span>${escapeHtml(item.meta)}</span>
+          </a>`).join("")}
+      </div>
+    </section>`;
+}
+
 function referenceGamesSection() {
   const games = sortedByRelease(data.referenceGames || []);
   if (!games.length) return "";
   return `
-    <section class="static-section">
+    <section class="static-section" id="reference-games">
       <h2>Reference Game Encyclopedia</h2>
       <div class="static-grid">
         ${games.map((game) => `
@@ -208,7 +234,7 @@ function timelineSection() {
   const timeline = sortedTimeline(data.gameHistoryTimeline || []);
   if (!timeline.length) return "";
   return `
-    <section class="static-section">
+    <section class="static-section" id="franchise-timeline">
       <h2>Franchise Timeline</h2>
       <div class="timeline-list">
         ${timeline.map((event) => `
@@ -228,7 +254,7 @@ function classicsSection() {
   const games = sortedByRelease(data.referenceGames || []).filter((game) => positionSet.has(game.position));
   if (!games.length) return "";
   return `
-    <section class="static-section">
+    <section class="static-section" id="classic-origins">
       <h2>Classic Origins</h2>
       <div class="static-grid">
         ${games.map((game) => `
@@ -250,7 +276,7 @@ function creatorVideosSection() {
   const videos = data.creatorVideos || [];
   if (!videos.length) return "";
   return `
-    <section class="static-section">
+    <section class="static-section" id="creator-videos">
       <h2>Creator Videos</h2>
       <div class="static-grid">
         ${videos.map((video) => {
@@ -272,7 +298,7 @@ function creatorVideosSection() {
 
 function routeSpecific(route) {
   if (route.path === "/media/") {
-    return `${mediaGrid(route.path)}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+    return `${mediaSectionNav()}${mediaGrid(route.path)}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
   }
 
   if (route.path === "/faq/") {
@@ -380,7 +406,7 @@ function staticBody(route) {
       <header class="static-header">
         <a class="static-brand" href="/">VH</a>
         <nav>
-          ${data.routes.slice(0, 8).map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`).join("")}
+          ${primaryNav.map((path) => routeByPath(path)).filter(Boolean).map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`).join("")}
         </nav>
       </header>
       <main>

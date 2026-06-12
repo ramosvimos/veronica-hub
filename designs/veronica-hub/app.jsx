@@ -3,8 +3,8 @@ import * as ReactDOM from "react-dom/client";
 import { Analytics } from "@vercel/analytics/react";
 import siteData from "../../content/site-data.json";
 
-const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/sources/"];
-const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/media/", "/changelog/", "/faq/"];
+const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/"];
+const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/changelog/", "/faq/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
@@ -19,6 +19,13 @@ const mediaGalleryIds = [
   "screenshot-04",
   "screenshot-05",
   "screenshot-06"
+];
+const mediaSectionLinks = [
+  { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
+  { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
+  { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
+  { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
+  { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
 ];
 
 function normalizePath(pathname) {
@@ -586,6 +593,24 @@ function ReferenceMediaGallery({ game }) {
   );
 }
 
+function MediaSectionNav() {
+  return (
+    <section className="section section-compact" aria-label="Media page sections">
+      <div className="container">
+        <div className="section-jump-nav">
+          {mediaSectionLinks.map((item, index) => (
+            <a href={item.href} key={item.href}>
+              <span className="nav-code">SEC {String(index + 1).padStart(2, "0")}</span>
+              <strong>{item.label}</strong>
+              <span>{item.meta}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function PlatformsPage({ routeInfo }) {
   return (
     <TextPage routeInfo={routeInfo}>
@@ -692,7 +717,8 @@ function MediaPage({ routeInfo }) {
   return (
     <>
       <PageHero routeInfo={routeInfo} />
-      <section className="section">
+      <MediaSectionNav />
+      <section className="section" id="official-gallery">
         <div className="container">
           <SectionHeading kicker="Official gallery" title="Source-Labeled Media">Every image below is an official asset already present in the repository.</SectionHeading>
           <div className="media-gallery">
@@ -701,7 +727,7 @@ function MediaPage({ routeInfo }) {
         </div>
       </section>
       {timeline.length > 0 ? (
-        <section className="section">
+        <section className="section" id="franchise-timeline">
           <div className="container">
             <SectionHeading kicker="Franchise timeline" title="How RE Gameplay Evolved">Use this timeline to see which design shift connects to Veronica expectations.</SectionHeading>
             <div className="timeline-list">
@@ -718,8 +744,29 @@ function MediaPage({ routeInfo }) {
           </div>
         </section>
       ) : null}
+      {origins.length > 0 ? (
+        <section className="section" id="classic-origins">
+          <div className="container">
+            <SectionHeading kicker="Classic origins" title="Key Predecessor Line for Veronica">These are the nodes most directly used for playable pacing and origin context comparisons.</SectionHeading>
+            <div className="source-grid">
+              {origins.map((game) => (
+                <article className="card source-card" key={`${game.title}-${game.position}`}>
+                  <span className="eyebrow">{game.position} / {game.release}</span>
+                  <h3>{game.title}</h3>
+                  <p><strong>Story context:</strong> {game.storyContext}</p>
+                  <p className="meta">Why it matters: {game.whyReference}</p>
+                  <p className="meta">Origin: {game.origin}</p>
+                  <p className="meta">Playable traits: {game.playability}</p>
+                  <LinkList links={game.links} />
+                  <LinkList links={game.clips} />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
       {siteData.referenceGames?.length > 0 ? (
-        <section className="section">
+        <section className="section" id="reference-games">
           <div className="container">
             <SectionHeading kicker="Reference Game Encyclopedia" title="Reference Game Encyclopedia">Sorted by release year to provide a clear historical line for gameplay comparison.</SectionHeading>
             <div className="source-grid">
@@ -742,29 +789,8 @@ function MediaPage({ routeInfo }) {
           </div>
         </section>
       ) : null}
-      {origins.length > 0 ? (
-        <section className="section">
-          <div className="container">
-            <SectionHeading kicker="Classic origins" title="Key Predecessor Line for Veronica">These are the nodes most directly used for playable pacing and origin context comparisons.</SectionHeading>
-            <div className="source-grid">
-              {origins.map((game) => (
-                <article className="card source-card" key={`${game.title}-${game.position}`}>
-                  <span className="eyebrow">{game.position} / {game.release}</span>
-                  <h3>{game.title}</h3>
-                  <p><strong>Story context:</strong> {game.storyContext}</p>
-                  <p className="meta">Why it matters: {game.whyReference}</p>
-                  <p className="meta">Origin: {game.origin}</p>
-                  <p className="meta">Playable traits: {game.playability}</p>
-                  <LinkList links={game.links} />
-                  <LinkList links={game.clips} />
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
       {siteData.creatorVideos?.length > 0 ? (
-        <section className="section">
+        <section className="section" id="creator-videos">
           <div className="container">
             <SectionHeading kicker="Creator picks" title="Big creator videos for first-play vibe">These are for first-impression comparison before the final Veronica decision.</SectionHeading>
             <div className="source-grid">
