@@ -24,15 +24,19 @@ const articleRoutes = new Set([
 const mediaGalleryIds = [
   "capcom-portrait",
   "capcom-title",
+  "capcom-ogp",
   "capcom-site",
   "steam-capsule",
   "steam-header",
+  "steam-page-bg",
   "trailer-poster",
   "screenshot-01",
+  "screenshot-02",
   "screenshot-03",
   "screenshot-04",
   "screenshot-05",
-  "screenshot-06"
+  "screenshot-06",
+  "screenshot-07"
 ];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },

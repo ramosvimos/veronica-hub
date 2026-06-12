@@ -127,6 +127,11 @@ for (const item of data.media) {
   }
 }
 
+for (const route of data.routes.filter((route) => route.path !== "/media/")) {
+  const routeMedia = data.media.filter((item) => item.pages.includes(route.path));
+  if (!routeMedia.length) fail(`Route ${route.path} has no direct media assignment`);
+}
+
 for (const sourceId of data.pcRequirementEstimate.sourceIds) {
   if (!data.sources.some((source) => source.id === sourceId)) {
     fail(`PC estimate references missing source ${sourceId}`);

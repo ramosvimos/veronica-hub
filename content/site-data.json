@@ -811,6 +811,7 @@
       "alt": "Official Resident Evil Veronica title art",
       "sourceId": "capcom-press-2026-06-08",
       "pages": [
+        "/release-date/",
         "/media/",
         "/sources/"
       ]
@@ -823,6 +824,8 @@
       "alt": "Official Resident Evil Veronica promotional image used for page previews",
       "sourceId": "capcom-press-2026-06-08",
       "pages": [
+        "/editions/",
+        "/faq/",
         "/media/"
       ]
     },
@@ -834,8 +837,10 @@
       "alt": "Official Resident Evil Veronica image from Capcom site material",
       "sourceId": "capcom-press-2026-06-08",
       "pages": [
+        "/changelog/",
         "/media/",
-        "/sources/"
+        "/sources/",
+        "/watchlist/"
       ]
     },
     {
@@ -846,7 +851,7 @@
       "alt": "Resident Evil Veronica Steam capsule art",
       "sourceId": "steam-store",
       "pages": [
-        "/platforms/",
+        "/preorder/",
         "/media/"
       ]
     },
@@ -858,6 +863,7 @@
       "alt": "Resident Evil Veronica Steam header art",
       "sourceId": "steam-store",
       "pages": [
+        "/platforms/",
         "/media/"
       ]
     },
@@ -918,6 +924,7 @@
       "alt": "Official Resident Evil Veronica screenshot showing a creature encounter",
       "sourceId": "steam-store",
       "pages": [
+        "/demo/",
         "/trailer/",
         "/media/"
       ]

@@ -10,15 +10,19 @@ const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
   "capcom-portrait",
   "capcom-title",
+  "capcom-ogp",
   "capcom-site",
   "steam-capsule",
   "steam-header",
+  "steam-page-bg",
   "trailer-poster",
   "screenshot-01",
+  "screenshot-02",
   "screenshot-03",
   "screenshot-04",
   "screenshot-05",
-  "screenshot-06"
+  "screenshot-06",
+  "screenshot-07"
 ];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
@@ -27,6 +31,23 @@ const mediaSectionLinks = [
   { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
   { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
 ];
+const routeHeroMediaIds = {
+  "/release-date/": "capcom-title",
+  "/platforms/": "steam-header",
+  "/trailer/": "trailer-poster",
+  "/story/": "steam-page-bg",
+  "/characters/": "screenshot-01",
+  "/faq/": "capcom-ogp",
+  "/sources/": "capcom-site",
+  "/pc-requirements/": "screenshot-06",
+  "/preorder/": "steam-capsule",
+  "/demo/": "screenshot-03",
+  "/editions/": "capcom-ogp",
+  "/original-vs-remake/": "screenshot-05",
+  "/media/": "capcom-portrait",
+  "/changelog/": "capcom-site",
+  "/watchlist/": "capcom-site"
+};
 
 function normalizePath(pathname) {
   if (!pathname || pathname === "") return "/";
@@ -92,6 +113,10 @@ function mediaForGallery() {
 function mediaForPage(path, limit = 6) {
   const media = path === "/media/" ? mediaForGallery() : siteData.media.filter((item) => item.pages.includes(path));
   return media.slice(0, limit);
+}
+
+function mediaById(id) {
+  return siteData.media.find((item) => item.id === id);
 }
 
 function optimizedImageSrc(src) {
@@ -452,13 +477,13 @@ function TrailerPreview() {
 }
 
 function MediaPreview() {
-  const media = siteData.media.filter((item) => ["steam-capsule", "screenshot-01", "screenshot-02", "screenshot-03", "screenshot-07", "capcom-title"].includes(item.id));
+  const media = siteData.media.filter((item) => ["steam-capsule", "steam-header", "screenshot-01", "screenshot-02", "screenshot-03", "screenshot-04", "screenshot-07", "capcom-title"].includes(item.id));
   return (
     <section className="section" id="media-preview">
       <div className="container">
         <SectionHeading kicker="Official media" title="Visual Archive Preview">Official screenshots are placed as source material and expanded on the media page.</SectionHeading>
         <div className="media-reference-grid">
-          {media.slice(0, 6).map((item) => <MediaFrame item={item} key={item.id} />)}
+          {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} />)}
         </div>
       </div>
     </section>
@@ -547,7 +572,7 @@ function DeveloperPublisherSection() {
 }
 
 function PageHero({ routeInfo }) {
-  const leadMedia = mediaForPage(routeInfo.path, 1)[0] || siteData.media.find((item) => item.id === "steam-page-bg");
+  const leadMedia = mediaById(routeHeroMediaIds[routeInfo.path]) || mediaForPage(routeInfo.path, 1)[0] || mediaById("steam-page-bg");
   const style = leadMedia ? { "--page-image": cssImageValue(leadMedia.src) } : undefined;
   return (
     <section className="page-hero" style={style}>
