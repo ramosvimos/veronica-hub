@@ -394,9 +394,14 @@ function routeSpecific(route) {
         </article>
         <div class="static-grid">
           ${data.developerPublisherProfile.representativeWorks.map((work) => `<article class="static-card">
+            ${work.image ? `<figure class="company-work-image">
+              ${imageMarkup({ src: work.image.src, alt: work.image.alt })}
+              <figcaption>${escapeHtml(work.image.source)}</figcaption>
+            </figure>` : ""}
             <p class="eyebrow">${escapeHtml(work.type)}</p>
             <h3>${escapeHtml(work.name)}</h3>
             <p>${escapeHtml(work.whyItMatters)}</p>
+            ${work.url ? `<a class="source-link" href="${escapeHtml(work.url)}">Open official site</a>` : ""}
           </article>`).join("")}
         </div>
       </section>

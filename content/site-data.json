@@ -598,31 +598,67 @@
       {
         "name": "Resident Evil",
         "type": "Survival horror",
+        "url": "https://game.capcom.com/residentevil/en/",
+        "image": {
+          "src": "/assets/company/resident-evil-portal.jpg",
+          "alt": "Resident Evil official portal preview image",
+          "source": "Resident Evil Portal | CAPCOM"
+        },
         "whyItMatters": "Capcom's horror flagship and the direct franchise context for Resident Evil Veronica."
       },
       {
         "name": "Monster Hunter",
         "type": "Action RPG / hunting action",
+        "url": "https://www.monsterhunter.com/",
+        "image": {
+          "src": "/assets/company/monster-hunter-portal.jpg",
+          "alt": "Monster Hunter official portal preview image",
+          "source": "MONSTER HUNTER Portal | CAPCOM"
+        },
         "whyItMatters": "One of Capcom's largest global franchises and a major reference point for Capcom's worldwide publishing scale."
       },
       {
         "name": "Street Fighter",
         "type": "Fighting game",
+        "url": "https://www.streetfighter.com/en",
+        "image": {
+          "src": "/assets/company/street-fighter-series.jpg",
+          "alt": "Street Fighter official series preview image",
+          "source": "Street Fighter Series | CAPCOM"
+        },
         "whyItMatters": "Capcom's long-running competitive fighting series and one of its most recognizable brands."
       },
       {
         "name": "Mega Man",
         "type": "Action platformer",
+        "url": "https://megaman.capcom.com/",
+        "image": {
+          "src": "/assets/company/mega-man-portal.jpg",
+          "alt": "Mega Man official site background image",
+          "source": "Mega Man | CAPCOM"
+        },
         "whyItMatters": "A classic Capcom action series that shows the company's long-running console game history."
       },
       {
         "name": "Devil May Cry",
         "type": "Stylish action",
+        "url": "https://www.devilmaycry.com/",
+        "image": {
+          "src": "/assets/company/devil-may-cry-portal.jpg",
+          "alt": "Devil May Cry official portal preview image",
+          "source": "Devil May Cry | CAPCOM"
+        },
         "whyItMatters": "A Capcom action series known for character action combat and high production identity."
       },
       {
         "name": "Ace Attorney",
         "type": "Adventure / visual novel",
+        "url": "https://www.ace-attorney.com/",
+        "image": {
+          "src": "/assets/company/ace-attorney-portal.jpg",
+          "alt": "Ace Attorney official portal preview image",
+          "source": "Ace Attorney | CAPCOM"
+        },
         "whyItMatters": "A representative non-action Capcom series, useful for showing that Capcom publishes beyond horror and action."
       }
     ]

@@ -452,23 +452,53 @@ function TrailerPreview() {
 function MediaPreview() {
   const previewIds = ["screenshot-01", "screenshot-02", "screenshot-03", "screenshot-04", "screenshot-05", "screenshot-06", "screenshot-07"];
   const media = previewIds.map((id) => mediaById(id)).filter(Boolean);
+  const [activeImage, setActiveImage] = React.useState(null);
   return (
     <section className="section" id="media-preview">
       <div className="container">
         <SectionHeading kicker="Official media" title="Screenshot Preview">A quick look at official screenshots. The full gallery is on the media page.</SectionHeading>
         <div className="media-reference-grid">
-          {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} />)}
+          {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} onOpen={setActiveImage} />)}
         </div>
       </div>
+      {activeImage ? <ImageLightbox item={activeImage} onClose={() => setActiveImage(null)} /> : null}
     </section>
   );
 }
 
-function MediaFrame({ item }) {
+function ImageLightbox({ item, onClose }) {
+  React.useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [onClose]);
+
+  return (
+    <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={item.title} onClick={onClose}>
+      <button className="lightbox-close" type="button" onClick={onClose} aria-label="Close image preview">x</button>
+      <figure className="lightbox-figure" onClick={(event) => event.stopPropagation()}>
+        <OptimizedImage src={item.src} alt={item.alt} loading="eager" />
+        <figcaption>
+          <strong>{item.title}</strong>
+          <span>{item.kind}</span>
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
+function MediaFrame({ item, onOpen }) {
   const source = sourceById(item.sourceId);
   const fitContain = item.kind.includes("art") || item.kind.includes("store");
   return (
-    <article className={`official-media-frame ${fitContain ? "fit-contain" : ""}`}>
+    <article className={`official-media-frame ${fitContain ? "fit-contain" : ""} ${onOpen ? "has-zoom" : ""}`}>
+      {onOpen ? (
+        <button className="media-zoom-button" type="button" onClick={() => onOpen(item)} aria-label={`Open larger image: ${item.title}`}>
+          View larger
+        </button>
+      ) : null}
       <div className="media-label">
         <span>{item.kind}</span>
         <Badge type="official">Verified</Badge>
@@ -534,9 +564,18 @@ function DeveloperPublisherSection() {
         <div className="source-grid" style={{ marginTop: 16 }}>
           {profile.representativeWorks.map((work) => (
             <article className="card source-card" key={work.name}>
+              {work.image ? (
+                <figure className="company-work-image">
+                  <OptimizedImage src={work.image.src} alt={work.image.alt} />
+                  <figcaption>{work.image.source}</figcaption>
+                </figure>
+              ) : null}
               <span className="eyebrow">{work.type}</span>
               <h3>{work.name}</h3>
               <p>{work.whyItMatters}</p>
+              {work.url ? (
+                <a className="source-link" href={work.url} target="_blank" rel="noopener noreferrer">Open official site</a>
+              ) : null}
             </article>
           ))}
         </div>
