@@ -103,6 +103,26 @@ function mediaResourceLinks(items) {
     .join("");
 }
 
+function gameMediaSection(game) {
+  const media = game.media || [];
+  if (!media.length) {
+    return `<p class="meta">Image resources: No official image references provided.</p>`;
+  }
+  return `
+    <div class="static-grid">
+      ${media.map((item) => {
+        const src = escapeHtml(item.src || "");
+        const label = escapeHtml(item.label || "Image");
+        const source = escapeHtml(item.source || "Official image");
+        const alt = escapeHtml(item.alt || item.label || "Game media");
+        return `<figure class="static-media-card">
+          <img src="${src}" alt="${alt}" loading="lazy" decoding="async" />
+          <figcaption><strong>${label}</strong><span>${source}</span></figcaption>
+        </figure>`;
+      }).join("")}
+    </div>`;
+}
+
 function optimizedImageSrc(src) {
   if (!src.startsWith("/assets/official/")) return null;
   const extension = path.extname(src).toLowerCase();
@@ -165,20 +185,20 @@ function referenceGamesSection() {
   if (!games.length) return "";
   return `
     <section class="static-section">
-      <h2>Playable Reference Games</h2>
+      <h2>Reference Game Encyclopedia</h2>
       <div class="static-grid">
         ${games.map((game) => `
           <article class="static-card">
-            <p class="eyebrow">${escapeHtml(game.platforms || "PC / console")}</p>
+            <p class="eyebrow">${escapeHtml(game.release || "")} / ${escapeHtml(game.position || "")}</p>
             <h3>${escapeHtml(game.title)}</h3>
-            <p>${escapeHtml(game.playability)}</p>
-            <p>Node: ${escapeHtml(game.position || "")}</p>
-            <p>Story context: ${escapeHtml(game.storyContext || "")}</p>
-            <p>Origin: ${escapeHtml(game.origin || "")}</p>
-            <p>Why include: ${escapeHtml(game.whyReference || "")}</p>
-            <p>Year: ${escapeHtml(game.release || "")}</p>
-            ${game.links && game.links.length ? `<p class="meta">Official references: ${mediaResourceLinks(game.links)}</p>` : ""}
-            ${game.clips && game.clips.length ? `<p class="meta">Clips: ${mediaResourceLinks(game.clips)}</p>` : ""}
+            <p class="meta">来源: ${escapeHtml(game.origin || "")}</p>
+            <p class="meta">故事关系: ${escapeHtml(game.storyContext || "")}</p>
+            <p class="meta">可玩性: ${escapeHtml(game.playability || "")}</p>
+            <p class="meta">为什么对比: ${escapeHtml(game.whyReference || "")}</p>
+            <p class="meta">图片资料:</p>
+            ${gameMediaSection(game)}
+            ${game.links && game.links.length ? `<p class="meta">来源链接: ${mediaResourceLinks(game.links)}</p>` : ""}
+            ${game.clips && game.clips.length ? `<p class="meta">片段链接: ${mediaResourceLinks(game.clips)}</p>` : ""}
           </article>`).join("")}
       </div>
     </section>`;

@@ -568,6 +568,24 @@ function MediaCard({ item }) {
   );
 }
 
+
+function ReferenceMediaGallery({ game }) {
+  if (!game.media?.length) return null;
+  return (
+    <div className="source-grid">
+      {game.media.map((item) => (
+        <figure className="card media-card" key={`${item.src}-${item.label}`}>
+          <OptimizedImage src={item.src} alt={item.alt || item.label} loading="lazy" />
+          <figcaption>
+            <strong>{item.label}</strong>
+            <span>{item.source || "Official image"}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 function PlatformsPage({ routeInfo }) {
   return (
     <TextPage routeInfo={routeInfo}>
@@ -700,6 +718,30 @@ function MediaPage({ routeInfo }) {
           </div>
         </section>
       ) : null}
+      {siteData.referenceGames?.length > 0 ? (
+        <section className="section">
+          <div className="container">
+            <SectionHeading kicker="Reference Game Encyclopedia" title="Reference Game Encyclopedia">Sorted by release year to provide a clear historical line for gameplay comparison.</SectionHeading>
+            <div className="source-grid">
+              {sortedGames.map((game) => (
+                <article className="card source-card" key={`${game.title}-${game.release}`}>
+                  <p className="eyebrow">{game.release} / {game.position}</p>
+                  <h3>{game.title}</h3>
+                  <p className="meta"><strong>Origin:</strong> {game.origin}</p>
+                  <p className="meta"><strong>Story context:</strong> {game.storyContext}</p>
+                  <p className="meta"><strong>Playability:</strong> {game.playability}</p>
+                  <p className="meta"><strong>Why compare:</strong> {game.whyReference}</p>
+                  <div className="meta"><strong>Image resources:</strong>
+                    <ReferenceMediaGallery game={game} />
+                  </div>
+                  <div className="meta"><strong>Source links:</strong> {game.links?.length ? <LinkList links={game.links} /> : "None"}</div>
+                  <div className="meta"><strong>Clip links:</strong> {game.clips?.length ? <LinkList links={game.clips} /> : "None"}</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
       {origins.length > 0 ? (
         <section className="section">
           <div className="container">
@@ -713,29 +755,6 @@ function MediaPage({ routeInfo }) {
                   <p className="meta">Why it matters: {game.whyReference}</p>
                   <p className="meta">Origin: {game.origin}</p>
                   <p className="meta">Playable traits: {game.playability}</p>
-                  <LinkList links={game.links} />
-                  <LinkList links={game.clips} />
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-      {siteData.referenceGames?.length > 0 ? (
-        <section className="section">
-          <div className="container">
-            <SectionHeading kicker="Playable references" title="Previous Survival-Horror Comparables">Sorted by release year to avoid fragmented ordering.</SectionHeading>
-            <div className="source-grid">
-              {sortedGames.map((game) => (
-                <article className="card source-card" key={game.title}>
-                  <span className="eyebrow">{game.platforms || "PC / console"}</span>
-                  <h3>{game.title}</h3>
-                  <p>{game.playability}</p>
-                  <p className="meta">Why include: {game.whyReference}</p>
-                  <p className="meta">Year: {game.release}</p>
-                  <p className="meta">Series node: {game.position}</p>
-                  <p className="meta">Story context: {game.storyContext}</p>
-                  <p className="meta">Origin: {game.origin}</p>
                   <LinkList links={game.links} />
                   <LinkList links={game.clips} />
                 </article>
