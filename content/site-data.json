@@ -254,6 +254,22 @@
         "A useful changelog entry should include the date, change type, title, summary, source and affected claims or pages. It should not be used as a news feed for rumors or filler posts. If nothing official changed, the changelog can stay quiet.",
         "This discipline matters during a long release window. When Capcom publishes new details, the site can update quickly while preserving the old state and the reason for the change. That is the difference between a fan page and a source-backed dossier."
       ]
+    },
+    {
+      "path": "/watchlist/",
+      "title": "Resident Evil Veronica Watchlist: Official Update Alerts and RSS",
+      "description": "Subscribe to official-source Resident Evil Veronica changes through the Veronica Hub watchlist and RSS feed.",
+      "h1": "Resident Evil Veronica Watchlist",
+      "section": "watchlist",
+      "navLabel": "Watchlist",
+      "priority": "0.7",
+      "changefreq": "daily",
+      "intro": "Track only official-source changes for release date, demo, preorder, editions, PC specs, trailers and media.",
+      "body": [
+        "The Watchlist is the return reason for Veronica Hub. It exists for players who do not want rumors, reposts or filler articles, but do want to know when official Resident Evil Veronica information changes.",
+        "In the first version, the reliable subscription path is RSS at /feed.xml. The feed is generated from the changelog, so every update has a dated record and a source trail. Email collection is prepared as a provider-ready form, but Veronica Hub should not pretend to store subscribers until a real newsletter or form provider is connected.",
+        "Notifications should stay narrow: release date, demo, preorder, editions or price, PC requirements, trailer updates, store media and source policy changes. If a change cannot be tied to an official source or a reviewed store listing, it does not belong in the Watchlist."
+      ]
     }
   ],
   "claims": [
@@ -1552,7 +1568,76 @@
       "query": "https://www.youtube.com/results?search_query=GameXplain+Resident+Evil+Village+trailer+reaction"
     }
   ],
+  "watchlist": {
+    "headline": "Get official Veronica updates only",
+    "promise": "No rumor blasts. Veronica Hub only flags official-source changes that affect release date, demo, preorder, editions, PC specs, trailers, store media or source policy.",
+    "rssUrl": "/feed.xml",
+    "formStatus": "provider-ready",
+    "formAction": "",
+    "emailAddress": "watchlist@residentevilveronica.com",
+    "topics": [
+      "Release date or release window changes",
+      "Demo confirmation or availability",
+      "Preorder, editions, price or store status",
+      "PC requirements and platform-specific details",
+      "Official trailer, screenshot or media updates",
+      "Source policy and claim-status changes"
+    ],
+    "placementRoutes": [
+      "/",
+      "/release-date/",
+      "/demo/",
+      "/preorder/",
+      "/pc-requirements/",
+      "/changelog/",
+      "/watchlist/"
+    ],
+    "states": {
+      "success": "Request received by the connected provider.",
+      "failure": "Provider submission failed. Use RSS while this is being checked.",
+      "duplicate": "This address may already be on the list. We will not create duplicate alert profiles.",
+      "slow": "Still sending. Do not submit again until the provider responds."
+    }
+  },
+  "sourceMonitoring": {
+    "policy": "Automated checks detect official-source changes only. They never rewrite public claims without human review.",
+    "sources": [
+      {
+        "sourceId": "capcom-press-2026-06-08",
+        "reason": "Announcement wording, release window and platform claims"
+      },
+      {
+        "sourceId": "steam-store",
+        "reason": "Store page, wishlist, PC, developer/publisher and media records"
+      },
+      {
+        "sourceId": "official-youtube-trailer",
+        "reason": "Official trailer availability and video metadata"
+      }
+    ],
+    "snapshotFields": [
+      "sourceId",
+      "checkedAt",
+      "url",
+      "httpStatus",
+      "title",
+      "contentHash",
+      "relevantText"
+    ]
+  },
   "changelog": [
+    {
+      "date": "2026-06-12",
+      "type": "Site Update",
+      "title": "Watchlist and RSS tracking layer added",
+      "summary": "Added a Watchlist page, RSS feed generation from changelog records and a source monitoring script that creates human-review items before claim changes.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": [
+        "watchlist",
+        "changelog",
+        "source-monitoring"
+      ]
+    },
     {
       "date": "2026-06-10",
       "type": "Site Update",

@@ -77,10 +77,25 @@ for (const route of data.routes.filter((route) => route.path !== "/faq/")) {
 const mediaHtml = read(routeOutputPath("/media/"));
 if (!mediaHtml.includes('"@type":"ItemList"')) fail("Media page is missing ItemList schema");
 
+const watchlistHtml = read(routeOutputPath("/watchlist/"));
+if (!watchlistHtml.includes("Get official Veronica updates only")) fail("Watchlist page missing main watchlist copy");
+if (!watchlistHtml.includes("/feed.xml")) fail("Watchlist page missing RSS link");
+
 const sitemap = read(path.join(root, "sitemap.xml"));
 for (const route of data.routes) {
   if (!sitemap.includes(`${data.site.origin}${route.path}`)) fail(`Sitemap missing ${route.path}`);
   if (!sitemap.includes(`<lastmod>${data.site.lastVerified}</lastmod>`)) fail(`Sitemap lastmod mismatch for ${route.path}`);
+}
+
+const feedPath = path.join(root, "feed.xml");
+if (!fs.existsSync(feedPath)) fail("Missing feed.xml");
+else {
+  const feed = read(feedPath);
+  if (!feed.includes("<rss version=\"2.0\"")) fail("feed.xml is not RSS 2.0");
+  if (!feed.includes(`${data.site.origin}/changelog/`)) fail("feed.xml missing changelog link");
+  for (const entry of data.changelog) {
+    if (!feed.includes(escapeHtml(entry.title))) fail(`feed.xml missing changelog item: ${entry.title}`);
+  }
 }
 
 const robots = read(path.join(root, "robots.txt"));
@@ -124,7 +139,19 @@ for (const sourceId of data.developerPublisherProfile.sourceIds) {
   }
 }
 
-if (data.routes.length !== 15) fail(`Expected 15 routes, found ${data.routes.length}`);
+if (!data.watchlist?.rssUrl) fail("Watchlist missing rssUrl");
+if (!Array.isArray(data.watchlist?.topics) || data.watchlist.topics.length < 4) fail("Watchlist needs tracked topics");
+for (const page of data.watchlist?.placementRoutes || []) {
+  if (!routePaths.has(page)) fail(`Watchlist references missing page ${page}`);
+}
+
+for (const item of data.sourceMonitoring?.sources || []) {
+  if (!data.sources.some((source) => source.id === item.sourceId)) {
+    fail(`Source monitoring references missing source ${item.sourceId}`);
+  }
+}
+
+if (data.routes.length !== 16) fail(`Expected 16 routes, found ${data.routes.length}`);
 if (data.claims.length < 12) fail(`Expected at least 12 claims, found ${data.claims.length}`);
 if (data.media.length < 11) fail(`Expected at least 11 media records, found ${data.media.length}`);
 

@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import { Analytics } from "@vercel/analytics/react";
 import siteData from "../../content/site-data.json";
 
-const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/"];
+const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/changelog/", "/faq/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
@@ -43,6 +43,10 @@ function slugify(value) {
 
 function referenceGameId(game) {
   return `reference-${slugify(game.title || game)}`;
+}
+
+function changelogId(entry) {
+  return slugify(`${entry.date}-${entry.title}`);
 }
 
 function route(path) {
@@ -130,6 +134,13 @@ function LinkList({ links }) {
   );
 }
 
+function watchlistMailto() {
+  const watchlist = siteData.watchlist;
+  const subject = encodeURIComponent("Resident Evil Veronica Watchlist");
+  const body = encodeURIComponent("Please add me to the Veronica Hub official-source watchlist.");
+  return `mailto:${watchlist.emailAddress}?subject=${subject}&body=${body}`;
+}
+
 function sortByRelease(items = []) {
   return [...items].sort((a, b) => {
     const aYear = Number.parseInt(a.release, 10) || 0;
@@ -193,7 +204,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search files</button>
-          <a className="latest-pill" href="/sources/">Source Policy</a>
+          <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small" type="button" onClick={onSearch}>Find</button>
           <button className="utility-button small" type="button" onClick={onMenu}>Menu</button>
         </div>
@@ -275,7 +286,7 @@ function SectionHeading({ kicker, title, children }) {
 }
 
 function RouteCards() {
-  const cards = ["/release-date/", "/platforms/", "/trailer/", "/pc-requirements/", "/preorder/", "/demo/", "/characters/", "/media/", "/changelog/"];
+  const cards = ["/release-date/", "/platforms/", "/trailer/", "/pc-requirements/", "/preorder/", "/demo/", "/characters/", "/media/", "/changelog/", "/watchlist/"];
   return (
     <section className="section tight" id="answers">
       <div className="container">
@@ -318,6 +329,57 @@ function LatestVerification() {
           <p>Exact release date, demo, preorder, editions, price and PC requirements stay unknown until official sources change them.</p>
           <a className="source-link" href="/sources/">Read source policy</a>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+function WatchlistCallout({ expanded = false }) {
+  const watchlist = siteData.watchlist;
+  if (!watchlist) return null;
+  return (
+    <section className="section tight watchlist-section" id="watchlist">
+      <div className="container">
+        <SectionHeading kicker="Official change alerts" title={watchlist.headline}>{watchlist.promise}</SectionHeading>
+        <div className="source-grid">
+          <article className="card source-card watchlist-card">
+            <span className="eyebrow">RSS available now</span>
+            <h3>Changelog-backed feed</h3>
+            <p>The feed is generated from dated changelog records, so every item has a source trail instead of rumor-first posts.</p>
+            <div className="watchlist-actions">
+              <a className="source-link" href={watchlist.rssUrl}>Open RSS feed</a>
+              <a className="source-link" href="/changelog/">View changelog</a>
+            </div>
+          </article>
+          <article className="card source-card watchlist-card">
+            <span className="eyebrow">Email provider</span>
+            <h3>Prepared, not faked</h3>
+            <p>Email collection is marked {watchlist.formStatus}. Connect a real newsletter or form provider before storing addresses.</p>
+            <form className="watchlist-form" onSubmit={(event) => event.preventDefault()}>
+              <label htmlFor="watchlist-email">Email address</label>
+              <input id="watchlist-email" type="email" placeholder="you@example.com" disabled={!watchlist.formAction} />
+              <button className="btn secondary" type="submit" disabled={!watchlist.formAction}>Notify me</button>
+            </form>
+            <p className="meta"><a href={watchlistMailto()}>Request email alerts by email</a></p>
+          </article>
+          <article className="card source-card watchlist-card">
+            <span className="eyebrow">Tracked topics</span>
+            <h3>Only official changes</h3>
+            <ul className="watchlist-topic-list">
+              {watchlist.topics.map((topic) => <li key={topic}>{topic}</li>)}
+            </ul>
+          </article>
+          {expanded && (
+            <article className="card source-card watchlist-card">
+              <span className="eyebrow">Interaction states</span>
+              <h3>Provider behavior</h3>
+              <p className="meta">Success: {watchlist.states.success}</p>
+              <p className="meta">Failure: {watchlist.states.failure}</p>
+              <p className="meta">Duplicate: {watchlist.states.duplicate}</p>
+              <p className="meta">Slow network: {watchlist.states.slow}</p>
+            </article>
+          )}
+        </div>
       </div>
     </section>
   );
@@ -426,6 +488,7 @@ function HomePage() {
     <>
       <Hero />
       <LatestVerification />
+      <WatchlistCallout />
       <QuickFacts path="/" />
       <RouteCards />
       <TrailerPreview />
@@ -516,6 +579,7 @@ function TextPage({ routeInfo, children }) {
         </div>
       </section>
       <QuickFacts path={routeInfo.path} />
+      {siteData.watchlist?.placementRoutes?.includes(routeInfo.path) && routeInfo.path !== "/watchlist/" ? <WatchlistCallout /> : null}
       {children}
       <ContextMedia path={routeInfo.path} />
     </>
@@ -862,7 +926,7 @@ function ChangelogPage({ routeInfo }) {
             {siteData.changelog.map((entry) => {
               const source = sourceById(entry.sourceId);
               return (
-                <article className="card" key={`${entry.date}-${entry.title}`}>
+                <article className="card" id={changelogId(entry)} key={`${entry.date}-${entry.title}`}>
                   <p className="eyebrow">{entry.date} / {entry.type}</p>
                   <h3>{entry.title}</h3>
                   <p>{entry.summary}</p>
@@ -871,8 +935,17 @@ function ChangelogPage({ routeInfo }) {
               );
             })}
           </div>
+          <p className="trust-note">RSS feed: <a href="/feed.xml">/feed.xml</a>. Feed items are generated from these changelog records.</p>
         </div>
       </section>
+    </TextPage>
+  );
+}
+
+function WatchlistPage({ routeInfo }) {
+  return (
+    <TextPage routeInfo={routeInfo}>
+      <WatchlistCallout expanded />
     </TextPage>
   );
 }
@@ -904,6 +977,7 @@ function PageSwitch({ path }) {
   if (path === "/sources/") return <SourcesPage routeInfo={routeInfo} />;
   if (path === "/media/") return <MediaPage routeInfo={routeInfo} />;
   if (path === "/changelog/") return <ChangelogPage routeInfo={routeInfo} />;
+  if (path === "/watchlist/") return <WatchlistPage routeInfo={routeInfo} />;
   return <TextPage routeInfo={routeInfo} />;
 }
 
@@ -962,7 +1036,8 @@ function Footer() {
           {primaryNav.slice(1).map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
         <nav className="footer-links">
-          {utilityRoutes.slice(0, 6).map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
+          {[...utilityRoutes.slice(0, 6), "/watchlist/"].map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
+          <a href="/feed.xml">RSS Feed</a>
         </nav>
       </div>
     </footer>

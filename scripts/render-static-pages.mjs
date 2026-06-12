@@ -5,7 +5,7 @@ const root = process.cwd();
 const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"), "utf8"));
 const bundlePath = "/designs/veronica-hub/app.bundle.js";
 const stylesheetPath = "/styles/site.css";
-const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/"];
+const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -18,7 +18,8 @@ const articleRoutes = new Set([
   "/story/",
   "/characters/",
   "/sources/",
-  "/changelog/"
+  "/changelog/",
+  "/watchlist/"
 ]);
 const mediaGalleryIds = [
   "capcom-portrait",
@@ -117,6 +118,10 @@ function sourceLinks(sourceIds) {
     .filter(Boolean)
     .map((source) => `<a href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a>`)
     .join(", ");
+}
+
+function changelogId(entry) {
+  return slugify(`${entry.date}-${entry.title}`);
 }
 
 function mediaResourceLinks(items) {
@@ -324,6 +329,39 @@ function creatorVideosSection() {
     </section>`;
 }
 
+function watchlistSection({ expanded = false } = {}) {
+  const watchlist = data.watchlist;
+  if (!watchlist) return "";
+  const mailto = `mailto:${watchlist.emailAddress}?subject=${encodeURIComponent("Resident Evil Veronica Watchlist")}&body=${encodeURIComponent("Please add me to the Veronica Hub official-source watchlist.")}`;
+  return `
+    <section class="static-section watchlist-section" id="watchlist">
+      <h2>${escapeHtml(watchlist.headline)}</h2>
+      <div class="static-grid">
+        <article class="static-card watchlist-card">
+          <p>${escapeHtml(watchlist.promise)}</p>
+          <p class="meta">Email provider status: ${escapeHtml(watchlist.formStatus)}. RSS is available now and is generated from changelog records.</p>
+          <div class="watchlist-actions">
+            <a class="source-link" href="${escapeHtml(watchlist.rssUrl)}">Open RSS feed</a>
+            <a class="source-link" href="${escapeHtml(mailto)}">Request email alerts</a>
+          </div>
+        </article>
+        <article class="static-card watchlist-card">
+          <p class="eyebrow">Notify only when these official facts change</p>
+          <ul class="watchlist-topic-list">
+            ${watchlist.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}
+          </ul>
+        </article>
+        ${expanded ? `<article class="static-card watchlist-card">
+          <p class="eyebrow">Interaction states</p>
+          <p>Success: ${escapeHtml(watchlist.states.success)}</p>
+          <p>Failure: ${escapeHtml(watchlist.states.failure)}</p>
+          <p>Duplicate: ${escapeHtml(watchlist.states.duplicate)}</p>
+          <p>Slow network: ${escapeHtml(watchlist.states.slow)}</p>
+        </article>` : ""}
+      </div>
+    </section>`;
+}
+
 function routeSpecific(route) {
   if (route.path === "/media/") {
     return `${mediaSectionNav()}${mediaGrid(route.path)}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
@@ -414,7 +452,7 @@ function routeSpecific(route) {
         <div class="static-faq-list">
           ${data.changelog.map((entry) => {
             const source = sourceById(entry.sourceId);
-            return `<article class="static-card">
+            return `<article class="static-card" id="${escapeHtml(changelogId(entry))}">
               <p class="eyebrow">${escapeHtml(entry.date)} / ${escapeHtml(entry.type)}</p>
               <h3>${escapeHtml(entry.title)}</h3>
               <p>${escapeHtml(entry.summary)}</p>
@@ -422,7 +460,12 @@ function routeSpecific(route) {
             </article>`;
           }).join("")}
         </div>
+        <p class="static-trust">RSS feed: <a href="/feed.xml">/feed.xml</a>. Feed items are generated from these changelog records.</p>
       </section>`;
+  }
+
+  if (route.path === "/watchlist/") {
+    return watchlistSection({ expanded: true });
   }
 
   return "";
@@ -451,6 +494,7 @@ function staticBody(route) {
           <h2>Verification Status</h2>
           <div class="static-grid">${claimCards(route.path)}</div>
         </section>
+        ${data.watchlist?.placementRoutes?.includes(route.path) && route.path !== "/watchlist/" ? watchlistSection() : ""}
         ${routeSpecific(route)}
         ${route.path === "/media/" ? "" : mediaGrid(route.path)}
         <section class="static-section static-policy">
@@ -571,6 +615,7 @@ function pageHtml(route) {
   <meta property="og:description" content="${escapeHtml(route.description)}" />
   <meta property="og:image" content="${escapeHtml(data.site.origin)}/assets/official/capcom-veronica-ogp.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="application/rss+xml" title="Veronica Hub Changelog Feed" href="/feed.xml" />
   ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
   ${schemaTags}
 </head>

@@ -2,10 +2,12 @@
   "scripts": {
     "build:js": "esbuild \"designs/veronica-hub/app.jsx\" --bundle --format=iife --minify --outfile=\"designs/veronica-hub/app.bundle.js\"",
     "build:pages": "node scripts/render-static-pages.mjs",
+    "build:feed": "node scripts/render-feed.mjs",
     "validate": "node scripts/validate-site.mjs",
+    "check:sources": "node scripts/check-sources.mjs",
     "check:p1": "node scripts/check-p1-readiness.mjs",
     "check:production": "node scripts/check-production-routes.mjs",
-    "build": "npm run build:js && npm run build:pages && npm run validate"
+    "build": "npm run build:js && npm run build:pages && npm run build:feed && npm run validate"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

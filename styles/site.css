@@ -238,6 +238,62 @@ input {
   text-transform: uppercase;
 }
 
+.watchlist-section .section-heading,
+.watchlist-section > h2 {
+  max-width: 760px;
+}
+
+.watchlist-card {
+  min-height: 100%;
+}
+
+.watchlist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.watchlist-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.watchlist-form label {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font: 850 11px/1 var(--mono);
+  text-transform: uppercase;
+}
+
+.watchlist-form input {
+  min-width: 0;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .06);
+  color: var(--text);
+  padding: 0 12px;
+}
+
+.watchlist-form input:disabled,
+.watchlist-form button:disabled {
+  cursor: not-allowed;
+  opacity: .56;
+}
+
+.watchlist-topic-list {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.watchlist-topic-list li + li {
+  margin-top: 8px;
+}
+
 .jump-select {
   width: min(360px, 100%);
   min-height: 42px;
@@ -1211,6 +1267,14 @@ input:focus-visible {
   }
 
   .jump-select {
+    width: 100%;
+  }
+
+  .watchlist-form {
+    grid-template-columns: 1fr;
+  }
+
+  .watchlist-form .btn {
     width: 100%;
   }
 
