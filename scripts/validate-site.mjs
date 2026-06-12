@@ -90,7 +90,7 @@ const mediaHtml = read(routeOutputPath("/media/"));
 if (!mediaHtml.includes('"@type":"ItemList"')) fail("Media page is missing ItemList schema");
 
 const watchlistHtml = read(routeOutputPath("/watchlist/"));
-if (!watchlistHtml.includes("Get official Veronica updates only")) fail("Watchlist page missing main watchlist copy");
+if (!watchlistHtml.includes("Follow official Veronica updates")) fail("Watchlist page missing main watchlist copy");
 if (!watchlistHtml.includes("/feed.xml")) fail("Watchlist page missing RSS link");
 
 const sitemap = read(path.join(root, "sitemap.xml"));

@@ -214,7 +214,7 @@ function Header({ onSearch, onMenu }) {
           <span className="mark">VH</span>
           <span className="brand-title">
             <strong>Veronica Hub</strong>
-            <span>Source policy active</span>
+            <span>Official update tracker</span>
           </span>
         </a>
         <nav className="nav" aria-label="Primary navigation">
@@ -222,14 +222,14 @@ function Header({ onSearch, onMenu }) {
             const item = route(path);
             return (
               <a key={path} className={activePath === path ? "active" : ""} href={path}>
-                <span className="nav-code">FILE {String(index + 1).padStart(2, "0")}</span>
+                <span className="nav-code">PAGE {String(index + 1).padStart(2, "0")}</span>
                 <span className="nav-label">{item.navLabel}</span>
               </a>
             );
           })}
         </nav>
         <div className="top-actions">
-          <button className="utility-button" type="button" onClick={onSearch}>Search files</button>
+          <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small" type="button" onClick={onSearch}>Find</button>
           <button className="utility-button small" type="button" onClick={onMenu}>Menu</button>
@@ -246,10 +246,10 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <span className="hero-kicker">Source-backed remake dossier</span>
+          <span className="hero-kicker">Official remake tracker</span>
           <div className="chip-row">
-            <span className="chip cyan">Official sources only</span>
-            <span className="chip red">No fake dates</span>
+            <span className="chip cyan">2027 release window</span>
+            <span className="chip red">Exact date pending</span>
             <span className="chip">Independent fan-made hub</span>
           </div>
           <h1>Resident Evil <span>Code Veronica</span> Remake</h1>
@@ -261,7 +261,7 @@ function Hero() {
           </div>
           <p className="trust-note">LAST VERIFIED: {siteData.site.lastVerified} / RELEASE WINDOW: {release?.value || "2027"} / EXACT DATE: {exactDate?.value || "Not officially confirmed"}</p>
         </div>
-        <aside className="hero-dossier" aria-label="Current dossier status">
+        <aside className="hero-dossier" aria-label="Current game status">
           <DossierPanel />
         </aside>
       </div>
@@ -271,7 +271,7 @@ function Hero() {
 
 function DossierPanel() {
   const statusRows = [
-    ["File status", "announcement-status"],
+    ["Announcement", "announcement-status"],
     ["Release window", "release-window"],
     ["Platforms", "confirmed-platforms"],
     ["Exact date", "exact-release-date"],
@@ -280,7 +280,7 @@ function DossierPanel() {
   return (
     <div className="dossier-panel">
       <div className="panel-header">
-        <h2>Dossier Status</h2>
+        <h2>Current Status</h2>
         <span className="panel-code">VH-2027</span>
       </div>
       <dl className="status-list">
@@ -316,14 +316,14 @@ function RouteCards() {
   return (
     <section className="section tight" id="answers">
       <div className="container">
-        <SectionHeading kicker="Answer routes" title="Open The Right File">Each route owns one question and keeps confirmed, reported and unknown details separate.</SectionHeading>
+        <SectionHeading kicker="Browse by topic" title="Find The Details You Need">Jump to release timing, platforms, trailer, PC status, demo, preorder information, media or source links.</SectionHeading>
         <div className="route-card-grid">
           {cards.map((path, index) => {
             const item = route(path);
             return (
               <a className="card route-card" href={path} key={path}>
                 <div className="route-card-top">
-                  <span className="eyebrow">FILE {String(index + 1).padStart(2, "0")}</span>
+                  <span className="eyebrow">TOPIC {String(index + 1).padStart(2, "0")}</span>
                   <span aria-hidden="true">Open</span>
                 </div>
                 <div>
@@ -344,15 +344,15 @@ function LatestVerification() {
     <section className="section tight" id="latest">
       <div className="container content-grid">
         <article className="card">
-          <SectionHeading kicker="Latest verification" title="No Rumor-First Updates" />
+          <SectionHeading kicker="Current official status" title="What We Know So Far" />
           <div className="article-copy">
             {route("/").body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </article>
         <aside className="verification-policy">
-          <span className="eyebrow">Verification policy</span>
-          <h3>Unknown Means Unknown</h3>
-          <p>Exact release date, demo, preorder, editions, price and PC requirements stay unknown until official sources change them.</p>
+          <span className="eyebrow">Still pending</span>
+          <h3>What Has Not Been Announced</h3>
+          <p>Exact release date, demo timing, preorder details, editions, price and PC requirements are still waiting for official confirmation.</p>
           <a className="source-link" href="/sources/">Read source policy</a>
         </aside>
       </div>
@@ -371,16 +371,16 @@ function WatchlistCallout({ expanded = false }) {
           <article className="card source-card watchlist-card">
             <span className="eyebrow">RSS available now</span>
             <h3>Changelog-backed feed</h3>
-            <p>The feed is generated from dated changelog records, so every item has a source trail instead of rumor-first posts.</p>
+            <p>The feed follows the changelog, so each update links back to the page or source that changed.</p>
             <div className="watchlist-actions">
               <a className="source-link" href={watchlist.rssUrl}>Open RSS feed</a>
               <a className="source-link" href="/changelog/">View changelog</a>
             </div>
           </article>
           <article className="card source-card watchlist-card">
-            <span className="eyebrow">Email provider</span>
-            <h3>Prepared, not faked</h3>
-            <p>Email collection is marked {watchlist.formStatus}. Connect a real newsletter or form provider before storing addresses.</p>
+            <span className="eyebrow">Email alerts</span>
+            <h3>Coming Later</h3>
+            <p>Email alerts are prepared, but they will only be enabled after a real form or newsletter provider is connected.</p>
             <form className="watchlist-form" onSubmit={(event) => event.preventDefault()}>
               <label htmlFor="watchlist-email">Email address</label>
               <input id="watchlist-email" type="email" placeholder="you@example.com" disabled={!watchlist.formAction} />
@@ -397,12 +397,10 @@ function WatchlistCallout({ expanded = false }) {
           </article>
           {expanded && (
             <article className="card source-card watchlist-card">
-              <span className="eyebrow">Interaction states</span>
-              <h3>Provider behavior</h3>
-              <p className="meta">Success: {watchlist.states.success}</p>
-              <p className="meta">Failure: {watchlist.states.failure}</p>
-              <p className="meta">Duplicate: {watchlist.states.duplicate}</p>
-              <p className="meta">Slow network: {watchlist.states.slow}</p>
+              <span className="eyebrow">Email alert status</span>
+              <h3>Not Active Yet</h3>
+              <p>Email alerts will be enabled after a newsletter or form service is connected.</p>
+              <p className="meta">For now, use the RSS feed or changelog to follow official updates.</p>
             </article>
           )}
         </div>
@@ -415,12 +413,12 @@ function QuickFacts({ path = "/" }) {
   return (
     <section className="section tight" id="facts">
       <div className="container">
-        <SectionHeading kicker="Claim grid" title="Current Facts">Claims are centralized in the content model and tied to source records.</SectionHeading>
+        <SectionHeading kicker="Verified details" title="Confirmed So Far">Each item below shows the current status and where the information came from.</SectionHeading>
         <div className="facts-grid">
           {claimsForPage(path).slice(0, 6).map((claim, index) => (
             <article className="card fact-card" key={claim.id}>
               <div className="slot-top">
-                <span className="eyebrow">SLOT {String(index + 1).padStart(2, "0")}</span>
+                <span className="eyebrow">DETAIL {String(index + 1).padStart(2, "0")}</span>
                 <Badge type={claim.status}>{claim.status}</Badge>
               </div>
               <div>
@@ -470,7 +468,7 @@ function TrailerPreview() {
   return (
     <section className="section" id="trailer">
       <div className="container">
-        <SectionHeading kicker="Video terminal" title="Official Trailer">The embed loads only after click. Visual interpretation does not become a factual claim without source support.</SectionHeading>
+        <SectionHeading kicker="Official video" title="Announcement Trailer">Watch the official BIOHAZARD trailer without leaving the page.</SectionHeading>
         <OfficialVideoTerminal />
       </div>
     </section>
@@ -482,7 +480,7 @@ function MediaPreview() {
   return (
     <section className="section" id="media-preview">
       <div className="container">
-        <SectionHeading kicker="Official media" title="Visual Archive Preview">Official screenshots are placed as source material and expanded on the media page.</SectionHeading>
+        <SectionHeading kicker="Official media" title="Screenshot Preview">A quick look at official screenshots and store images. The full gallery is on the media page.</SectionHeading>
         <div className="media-reference-grid">
           {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} />)}
         </div>
@@ -529,7 +527,7 @@ function SourcesPreview({ expanded = false }) {
   return (
     <section className="section" id="sources">
       <div className="container">
-        <SectionHeading kicker="Evidence locker" title="Sources & Verification">Official sources, store listings and site policy records support each claim.</SectionHeading>
+        <SectionHeading kicker="Source links" title="Official References">Open the Capcom, Steam and YouTube pages used for the current information.</SectionHeading>
         <div className="source-grid">
           {sources.map((source) => (
             <article className="card source-card" key={source.id}>
@@ -551,7 +549,7 @@ function DeveloperPublisherSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Company file" title="Developer & Publisher">Resident Evil Veronica lists Capcom as both the developer and publisher.</SectionHeading>
+        <SectionHeading kicker="Company info" title="Developer & Publisher">Resident Evil Veronica lists Capcom as both developer and publisher.</SectionHeading>
         <article className="verification-policy">
           <span className="eyebrow">{profile.company}</span>
           <h3>Why the two roles matter</h3>
@@ -599,7 +597,7 @@ function TextPage({ routeInfo, children }) {
           <aside className="verification-policy">
             <span className="eyebrow">Verification</span>
             <h3>Source Status</h3>
-            <p>Claims on this page are generated from the content model and last verified on {siteData.site.lastVerified}.</p>
+            <p>Information on this page was last checked on {siteData.site.lastVerified}. Source links are available for the main details.</p>
             <a className="source-link" href="/sources/">View sources</a>
           </aside>
         </div>
@@ -617,7 +615,7 @@ function PcEstimateSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Speculative estimate" title="PC Prep Range">This is not official. It is a cautious preparation range based on nearby official Steam requirement listings.</SectionHeading>
+        <SectionHeading kicker="Planning estimate" title="PC Prep Range">This is not official. It is a cautious preparation range based on nearby official Steam requirement listings.</SectionHeading>
         <article className="verification-policy">
           <span className="eyebrow">{estimate.status} / last reviewed {estimate.lastReviewed}</span>
           <h3>Official Veronica specs are still TBD</h3>
@@ -654,7 +652,7 @@ function ContextMedia({ path }) {
   return (
     <section className="section">
       <div className="container">
-        <SectionHeading kicker="Context media" title="Official Visual References">Images are shown only when they support this page's topic.</SectionHeading>
+        <SectionHeading kicker="Related media" title="Official Images">Images below are official assets related to this page.</SectionHeading>
         <div className="media-gallery">
           {media.map((item) => <MediaCard item={item} key={item.id} />)}
         </div>
@@ -734,7 +732,7 @@ function PlatformsPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Confirmed access" title="Platform Files">Platform support is confirmed separately from store-specific features.</SectionHeading>
+          <SectionHeading kicker="Confirmed platforms" title="Where It Is Coming Out">Platform support is confirmed separately from store-specific features.</SectionHeading>
           <div className="platform-grid">
             {siteData.platforms.map((platform) => (
               <article className="card platform-card" key={platform.id}>
@@ -779,7 +777,7 @@ function CharactersPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Personnel files" title="Character Status">Original-game context is useful, but it is not automatically remake-confirmed.</SectionHeading>
+          <SectionHeading kicker="Characters" title="Who Is Confirmed So Far">Original-game context is useful, but it is not automatically confirmed for the remake.</SectionHeading>
           <div className="character-grid">
             {siteData.characters.map((character) => (
               <article className="card character-card" key={character.name}>
@@ -803,7 +801,7 @@ function FaqPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Fast answers" title="FAQ">The visible FAQ matches the generated FAQPage schema.</SectionHeading>
+          <SectionHeading kicker="Fast answers" title="FAQ">Short answers for the most common release, platform and purchase questions.</SectionHeading>
           <div className="faq-list">
             {siteData.faq.map((item) => (
               <article className="card" key={item.question}>
@@ -839,7 +837,7 @@ function MediaPage({ routeInfo }) {
       <MediaSectionNav />
       <section className="section" id="official-gallery">
         <div className="container">
-          <SectionHeading kicker="Official gallery" title="Source-Labeled Media">Every image below is an official asset already present in the repository.</SectionHeading>
+            <SectionHeading kicker="Official gallery" title="Screenshots And Store Art">Every image below comes from official Capcom, Steam or video material.</SectionHeading>
           <div className="media-gallery">
             {mediaForPage(routeInfo.path, 30).map((item) => <MediaCard item={item} key={item.id} />)}
           </div>
@@ -848,7 +846,7 @@ function MediaPage({ routeInfo }) {
       {timeline.length > 0 ? (
         <section className="section" id="franchise-timeline">
           <div className="container">
-            <SectionHeading kicker="Franchise timeline" title="How RE Gameplay Evolved">Use this timeline to see which design shift connects to Veronica expectations.</SectionHeading>
+            <SectionHeading kicker="Franchise timeline" title="Resident Evil Gameplay Timeline">Use this timeline to see how earlier Resident Evil games shaped expectations for Veronica.</SectionHeading>
             <ReferenceGameSelect games={sortedGames} />
             <div className="timeline-list">
               {timeline.map((entry) => {
@@ -871,7 +869,7 @@ function MediaPage({ routeInfo }) {
       {origins.length > 0 ? (
         <section className="section" id="classic-origins">
           <div className="container">
-            <SectionHeading kicker="Classic origins" title="Key Predecessor Line for Veronica">These are the nodes most directly used for playable pacing and origin context comparisons.</SectionHeading>
+            <SectionHeading kicker="Classic origins" title="Earlier Games To Know">These games provide useful context for Veronica's pacing, camera, combat and story position.</SectionHeading>
             <div className="source-grid">
               {origins.map((game) => (
                 <article className="card source-card" key={`${game.title}-${game.position}`}>
@@ -916,7 +914,7 @@ function MediaPage({ routeInfo }) {
       {siteData.creatorVideos?.length > 0 ? (
         <section className="section" id="creator-videos">
           <div className="container">
-            <SectionHeading kicker="Creator picks" title="Big creator videos for first-play vibe">These are for first-impression comparison before the final Veronica decision.</SectionHeading>
+            <SectionHeading kicker="Creator videos" title="Gameplay And Reaction References">These videos help new visitors compare tone, pacing and play style across nearby Resident Evil games.</SectionHeading>
             <div className="source-grid">
               {siteData.creatorVideos.map((video) => {
                 const links = [
@@ -947,7 +945,7 @@ function ChangelogPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Dated records" title="What Changed">Changelog entries are quiet unless source or site status changes.</SectionHeading>
+            <SectionHeading kicker="Update history" title="What Changed">Important site and source updates are listed here by date.</SectionHeading>
           <div className="timeline-list">
             {siteData.changelog.map((entry) => {
               const source = sourceById(entry.sourceId);
@@ -961,7 +959,7 @@ function ChangelogPage({ routeInfo }) {
               );
             })}
           </div>
-          <p className="trust-note">RSS feed: <a href="/feed.xml">/feed.xml</a>. Feed items are generated from these changelog records.</p>
+          <p className="trust-note">RSS feed: <a href="/feed.xml">/feed.xml</a>. It follows the updates listed above.</p>
         </div>
       </section>
     </TextPage>
@@ -980,9 +978,9 @@ function NotFoundPage() {
   return (
     <section className="page-hero">
       <div className="page-hero-inner">
-        <span className="hero-kicker">Access denied</span>
+        <span className="hero-kicker">Page not found</span>
         <h1>Lost in the archive.</h1>
-        <p className="page-lede">That route is not part of the verified dossier. Return to the source-backed files.</p>
+        <p className="page-lede">That page is not available. Return to the main Resident Evil Veronica pages.</p>
         <div className="cta-row">
           <a className="btn primary" href="/">Return Home</a>
           <a className="btn secondary" href="/sources/">View Sources</a>
@@ -1013,7 +1011,7 @@ function SearchOverlay({ onClose }) {
     <div className="search-overlay" role="dialog" aria-modal="true">
       <div className="search-modal">
         <div className="modal-head">
-          <strong>Search files</strong>
+          <strong>Search pages</strong>
           <button className="close-button" type="button" onClick={onClose}>x</button>
         </div>
         <input className="search-input" autoFocus placeholder="Search release date, platforms, trailer..." />
@@ -1053,7 +1051,7 @@ function Footer() {
         <div>
           <a className="brand" href="/">
             <span className="mark">VH</span>
-            <span className="brand-title"><strong>Veronica Hub</strong><span>Source policy active</span></span>
+            <span className="brand-title"><strong>Veronica Hub</strong><span>Official update tracker</span></span>
           </a>
           <p>{siteData.site.disclaimer}</p>
           <p className="meta">{siteData.site.noPiracy}</p>

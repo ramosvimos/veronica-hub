@@ -353,7 +353,7 @@ function watchlistSection({ expanded = false } = {}) {
       <div class="static-grid">
         <article class="static-card watchlist-card">
           <p>${escapeHtml(watchlist.promise)}</p>
-          <p class="meta">Email provider status: ${escapeHtml(watchlist.formStatus)}. RSS is available now and is generated from changelog records.</p>
+          <p class="meta">RSS is available now. Email alerts will be enabled after a newsletter or form service is connected.</p>
           <div class="watchlist-actions">
             <a class="source-link" href="${escapeHtml(watchlist.rssUrl)}">Open RSS feed</a>
             <a class="source-link" href="${escapeHtml(mailto)}">Request email alerts</a>
@@ -366,11 +366,10 @@ function watchlistSection({ expanded = false } = {}) {
           </ul>
         </article>
         ${expanded ? `<article class="static-card watchlist-card">
-          <p class="eyebrow">Interaction states</p>
-          <p>Success: ${escapeHtml(watchlist.states.success)}</p>
-          <p>Failure: ${escapeHtml(watchlist.states.failure)}</p>
-          <p>Duplicate: ${escapeHtml(watchlist.states.duplicate)}</p>
-          <p>Slow network: ${escapeHtml(watchlist.states.slow)}</p>
+          <p class="eyebrow">Email alert status</p>
+          <h3>Not active yet</h3>
+          <p>Email alerts will be enabled after a newsletter or form service is connected.</p>
+          <p class="meta">For now, use the RSS feed or changelog to follow official updates.</p>
         </article>` : ""}
       </div>
     </section>`;
@@ -474,7 +473,7 @@ function routeSpecific(route) {
             </article>`;
           }).join("")}
         </div>
-        <p class="static-trust">RSS feed: <a href="/feed.xml">/feed.xml</a>. Feed items are generated from these changelog records.</p>
+        <p class="static-trust">RSS feed: <a href="/feed.xml">/feed.xml</a>. It follows the updates listed above.</p>
       </section>`;
   }
 
@@ -499,23 +498,23 @@ function staticBody(route) {
           <p class="eyebrow">${escapeHtml(data.site.tagline)}</p>
           <h1>${escapeHtml(route.h1)}</h1>
           <p class="static-lede">${escapeHtml(route.intro)}</p>
-          <p class="static-trust">Last verified: ${escapeHtml(data.site.lastVerified)}. Exact release date: not officially confirmed unless a source record says otherwise.</p>
+          <p class="static-trust">Last checked: ${escapeHtml(data.site.lastVerified)}. Exact release date has not been announced.</p>
         </section>
         <section class="static-section">
           ${route.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
         </section>
         <section class="static-section">
-          <h2>Verification Status</h2>
+          <h2>Current Status</h2>
           <div class="static-grid">${claimCards(route.path)}</div>
         </section>
         ${data.watchlist?.placementRoutes?.includes(route.path) && route.path !== "/watchlist/" ? watchlistSection() : ""}
         ${routeSpecific(route)}
         ${route.path === "/media/" ? "" : mediaGrid(route.path)}
         <section class="static-section static-policy">
-          <h2>Source Policy</h2>
+          <h2>How Updates Are Handled</h2>
           <p>${escapeHtml(data.site.disclaimer)}</p>
           <p>${escapeHtml(data.site.noPiracy)}</p>
-          <p>Veronica Hub marks claims as confirmed, reported or unknown. Unknown details stay unknown until a cited official source changes them.</p>
+          <p>Details that have not been announced yet are labeled clearly and updated only when an official source changes.</p>
         </section>
       </main>
       <footer class="footer">
@@ -523,7 +522,7 @@ function staticBody(route) {
           <div>
             <a class="brand" href="/">
               <span class="mark">VH</span>
-              <span class="brand-title"><strong>Veronica Hub</strong><span>Source policy active</span></span>
+              <span class="brand-title"><strong>Veronica Hub</strong><span>Official update tracker</span></span>
             </a>
             <p>${escapeHtml(data.site.disclaimer)}</p>
             <p class="meta">${escapeHtml(data.site.noPiracy)}</p>
