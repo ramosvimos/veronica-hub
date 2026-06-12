@@ -34,6 +34,17 @@ function normalizePath(pathname) {
   return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
 
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function referenceGameId(game) {
+  return `reference-${slugify(game.title || game)}`;
+}
+
 function route(path) {
   return routeMap.get(path) || routeMap.get("/");
 }
@@ -611,6 +622,23 @@ function MediaSectionNav() {
   );
 }
 
+function ReferenceGameSelect({ games }) {
+  if (!games.length) return null;
+  return (
+    <div className="timeline-tools">
+      <label htmlFor="reference-game-jump">Jump to resource card</label>
+      <select id="reference-game-jump" className="jump-select" defaultValue="" onChange={(event) => {
+        if (event.target.value) window.location.hash = event.target.value;
+      }}>
+        <option value="" disabled>Choose a game</option>
+        {games.map((game) => (
+          <option value={referenceGameId(game)} key={`${game.title}-${game.release}`}>{game.release} / {game.title}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 function PlatformsPage({ routeInfo }) {
   return (
     <TextPage routeInfo={routeInfo}>
@@ -712,6 +740,7 @@ function SourcesPage({ routeInfo }) {
 function MediaPage({ routeInfo }) {
   const timeline = sortTimeline(siteData.gameHistoryTimeline || []);
   const sortedGames = sortByRelease(siteData.referenceGames || []);
+  const referenceHrefByTitle = new Map(sortedGames.map((game) => [game.title, `#${referenceGameId(game)}`]));
   const origins = sortedGames.filter((game) => originPositionFilter().has(game.position));
 
   return (
@@ -730,16 +759,21 @@ function MediaPage({ routeInfo }) {
         <section className="section" id="franchise-timeline">
           <div className="container">
             <SectionHeading kicker="Franchise timeline" title="How RE Gameplay Evolved">Use this timeline to see which design shift connects to Veronica expectations.</SectionHeading>
+            <ReferenceGameSelect games={sortedGames} />
             <div className="timeline-list">
-              {timeline.map((entry) => (
-                <article className="card" key={`${entry.year}-${entry.title}`}>
-                  <p className="eyebrow">{entry.year}</p>
-                  <h3>{entry.title}</h3>
-                  <p>{entry.event}</p>
-                  <p className="meta">Impact: {entry.impact}</p>
-                  {entry.note && <p className="meta">Note: {entry.note}</p>}
-                </article>
-              ))}
+              {timeline.map((entry) => {
+                const resourceHref = referenceHrefByTitle.get(entry.title);
+                return (
+                  <article className="card" key={`${entry.year}-${entry.title}`}>
+                    <p className="eyebrow">{entry.year}</p>
+                    <h3>{entry.title}</h3>
+                    <p>{entry.event}</p>
+                    <p className="meta">Impact: {entry.impact}</p>
+                    {entry.note && <p className="meta">Note: {entry.note}</p>}
+                    {resourceHref && <a className="source-link" href={resourceHref}>Open resource card</a>}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -771,7 +805,7 @@ function MediaPage({ routeInfo }) {
             <SectionHeading kicker="Reference Game Encyclopedia" title="Reference Game Encyclopedia">Sorted by release year to provide a clear historical line for gameplay comparison.</SectionHeading>
             <div className="source-grid">
               {sortedGames.map((game) => (
-                <article className="card source-card" key={`${game.title}-${game.release}`}>
+                <article className="card source-card" id={referenceGameId(game)} key={`${game.title}-${game.release}`}>
                   <p className="eyebrow">{game.release} / {game.position}</p>
                   <h3>{game.title}</h3>
                   <p className="meta"><strong>Origin:</strong> {game.origin}</p>

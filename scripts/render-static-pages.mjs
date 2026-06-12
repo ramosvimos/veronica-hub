@@ -95,6 +95,22 @@ function routeByPath(routePath) {
   return data.routes.find((route) => route.path === routePath);
 }
 
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function referenceGameId(game) {
+  return `reference-${slugify(game.title || game)}`;
+}
+
+function timelineResourceHref(title) {
+  const game = (data.referenceGames || []).find((item) => item.title === title);
+  return game ? `#${referenceGameId(game)}` : "";
+}
+
 function sourceLinks(sourceIds) {
   return sourceIds
     .map((id) => sourceById(id))
@@ -214,7 +230,7 @@ function referenceGamesSection() {
       <h2>Reference Game Encyclopedia</h2>
       <div class="static-grid">
         ${games.map((game) => `
-          <article class="static-card">
+          <article class="static-card" id="${escapeHtml(referenceGameId(game))}">
             <p class="eyebrow">${escapeHtml(game.release || "")} / ${escapeHtml(game.position || "")}</p>
             <h3>${escapeHtml(game.title)}</h3>
             <p class="meta">来源: ${escapeHtml(game.origin || "")}</p>
@@ -232,19 +248,31 @@ function referenceGamesSection() {
 
 function timelineSection() {
   const timeline = sortedTimeline(data.gameHistoryTimeline || []);
+  const games = sortedByRelease(data.referenceGames || []);
   if (!timeline.length) return "";
   return `
     <section class="static-section" id="franchise-timeline">
       <h2>Franchise Timeline</h2>
+      <div class="timeline-tools">
+        <label for="reference-game-jump-static">Jump to resource card</label>
+        <select id="reference-game-jump-static" class="jump-select" onchange="if (this.value) location.hash = this.value">
+          <option value="" selected disabled>Choose a game</option>
+          ${games.map((game) => `<option value="${escapeHtml(referenceGameId(game))}">${escapeHtml(game.release || "")} / ${escapeHtml(game.title || "")}</option>`).join("")}
+        </select>
+      </div>
       <div class="timeline-list">
-        ${timeline.map((event) => `
+        ${timeline.map((event) => {
+          const resourceHref = timelineResourceHref(event.title);
+          return `
           <article class="static-card">
             <p class="eyebrow">${escapeHtml(event.year || "")}</p>
             <h3>${escapeHtml(event.title)}</h3>
             <p>${escapeHtml(event.event)}</p>
             <p class="meta">Impact: ${escapeHtml(event.impact || "")}</p>
             ${event.note ? `<p class="meta">Note: ${escapeHtml(event.note)}</p>` : ""}
-          </article>`).join("")}
+            ${resourceHref ? `<a class="source-link" href="${escapeHtml(resourceHref)}">Open resource card</a>` : ""}
+          </article>`;
+        }).join("")}
       </div>
     </section>`;
 }
