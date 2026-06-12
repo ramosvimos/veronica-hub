@@ -967,10 +967,10 @@
       "origin": "RE1 defined the franchise’s core architecture and became the oldest benchmark before every later gameplay conversion.",
       "media": [
         {
-          "label": "Early atmosphere scene",
-          "src": "https://upload.wikimedia.org/wikipedia/commons/5/57/Resident_Evil_Bar.jpg",
-          "source": "Wikipedia (Resident Evil page)",
-          "alt": "Resident Evil atmospheric scene artwork",
+          "label": "Official remaster store image",
+          "src": "/assets/reference-games/re1-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil official Steam header artwork",
           "mediaType": "image"
         }
       ],
@@ -1003,7 +1003,7 @@
       "media": [
         {
           "label": "NTSC cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/4/40/NTSC_Resident_Evil_2_Cover.png",
+          "src": "/assets/reference-games/re2-1-ntsc-cover.png",
           "source": "Wikipedia (Resident Evil 2 page)",
           "alt": "Resident Evil 2 cover art",
           "mediaType": "image"
@@ -1038,16 +1038,16 @@
       "media": [
         {
           "label": "Official cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/a/a5/Resident_Evil_3_Cover.jpg",
+          "src": "/assets/reference-games/re3-1-official-cover.jpg",
           "source": "Wikipedia (Resident Evil 3 page)",
-          "alt": "Resident Evil 3 cover art",
+          "alt": "Resident Evil 3 Nemesis cover artwork",
           "mediaType": "image"
         },
         {
           "label": "Gameplay scene",
-          "src": "https://upload.wikimedia.org/wikipedia/en/f/f8/Resident_Evil_3_Nemesis_Gameplay.png",
+          "src": "/assets/reference-games/re3-2-gameplay-scene.png",
           "source": "Wikipedia (Resident Evil 3 page)",
-          "alt": "Resident Evil 3 Nemesis gameplay scene",
+          "alt": "Resident Evil 3 Nemesis gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1080,16 +1080,16 @@
       "media": [
         {
           "label": "Game map scene",
-          "src": "https://upload.wikimedia.org/wikipedia/en/f/f3/Code_Veronica_screenshot.png",
-          "source": "Wikipedia (Resident Evil Code: Veronica X page)",
-          "alt": "Resident Evil Code: Veronica level environment",
+          "src": "/assets/reference-games/re-cv-1-game-map-scene.png",
+          "source": "Wikipedia (Code Veronica page)",
+          "alt": "Resident Evil Code Veronica gameplay scene",
           "mediaType": "image"
         },
         {
           "label": "Opening cinematic",
-          "src": "https://upload.wikimedia.org/wikipedia/en/c/cf/Claire_Code_Veronica_Opening.png",
-          "source": "Wikipedia (Resident Evil Code: Veronica X page)",
-          "alt": "Claire opening sequence from Resident Evil Code: Veronica",
+          "src": "/assets/reference-games/re-cv-2-opening-cinematic.png",
+          "source": "Wikipedia (Code Veronica page)",
+          "alt": "Claire Redfield in Code Veronica opening cinematic",
           "mediaType": "image"
         }
       ],
@@ -1121,17 +1121,17 @@
       "origin": "RE0 preserves early design rhythm with partner framing and helps explain how the series handled tension before later remasters.",
       "media": [
         {
-          "label": "Character pairing cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/c/c6/Rezerobox.jpg",
-          "source": "Wikipedia (Resident Evil Zero page)",
-          "alt": "Resident Evil Zero box artwork",
+          "label": "Official remaster store image",
+          "src": "/assets/reference-games/re0-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 0 official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Gameplay reference",
-          "src": "https://upload.wikimedia.org/wikipedia/en/f/fb/REzero_comparison.png",
-          "source": "Wikipedia (Resident Evil Zero page)",
-          "alt": "Resident Evil Zero gameplay screenshot",
+          "src": "/assets/reference-games/re0-2-gameplay-reference.png",
+          "source": "Wikipedia (Resident Evil 0 page)",
+          "alt": "Resident Evil 0 gameplay comparison screenshot",
           "mediaType": "image"
         }
       ],
@@ -1163,17 +1163,17 @@
       "origin": "RE4 introduced the major shift toward modern action timing, a key reason RE4 Remake is in the playable comparison queue.",
       "media": [
         {
-          "label": "GC era cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/d/d9/Resi4-gc-cover.jpg",
-          "source": "Wikipedia (Resident Evil 4 page)",
-          "alt": "Resident Evil 4 original cover",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re4-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 4 official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Combat encounter",
-          "src": "https://upload.wikimedia.org/wikipedia/en/4/42/Resident_Evil_4_Ganado_village.png",
+          "src": "/assets/reference-games/re4-2-combat-encounter.png",
           "source": "Wikipedia (Resident Evil 4 page)",
-          "alt": "Resident Evil 4 Ganado encounter screenshot",
+          "alt": "Resident Evil 4 village combat screenshot",
           "mediaType": "image"
         }
       ],
@@ -1201,17 +1201,17 @@
       "origin": "RE5 illustrates a short period where action tempo outpaced narrow survival structure; valuable for direction clarity.",
       "media": [
         {
-          "label": "Box artwork",
-          "src": "https://upload.wikimedia.org/wikipedia/en/5/58/Resident_Evil_5_Box_Artwork.jpg",
-          "source": "Wikipedia (Resident Evil 5 page)",
-          "alt": "Resident Evil 5 box artwork",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re5-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 5 official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Gameplay frame",
-          "src": "https://upload.wikimedia.org/wikipedia/en/5/59/Resi5gameplay.jpg",
+          "src": "/assets/reference-games/re5-2-gameplay-frame.jpg",
           "source": "Wikipedia (Resident Evil 5 page)",
-          "alt": "Resident Evil 5 gameplay frame",
+          "alt": "Resident Evil 5 gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1243,17 +1243,17 @@
       "origin": "RE6 showed how broad campaign design can dilute intensity; it helps position why remakes moved back toward tighter control.",
       "media": [
         {
-          "label": "Box artwork",
-          "src": "https://upload.wikimedia.org/wikipedia/en/1/11/Resident_Evil_6_box_artwork.png",
-          "source": "Wikipedia (Resident Evil 6 page)",
-          "alt": "Resident Evil 6 box artwork",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re6-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 6 official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Combat screenshot",
-          "src": "https://upload.wikimedia.org/wikipedia/en/8/88/Resident_Evil_6_gameplay.jpg",
+          "src": "/assets/reference-games/re6-2-combat-screenshot.jpg",
           "source": "Wikipedia (Resident Evil 6 page)",
-          "alt": "Resident Evil 6 co-op screenshot",
+          "alt": "Resident Evil 6 combat gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1285,17 +1285,17 @@
       "origin": "RE7 introduced the perspective reset that made later releases feel more intimate and immediate in threat reaction.",
       "media": [
         {
-          "label": "Cover artwork",
-          "src": "https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_7_cover_art.jpg",
-          "source": "Wikipedia (Resident Evil 7 page)",
-          "alt": "Resident Evil 7 cover artwork",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re7-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 7 Biohazard official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Gameplay moment",
-          "src": "https://upload.wikimedia.org/wikipedia/en/b/b5/Resident_Evil_7_gameplay.png",
+          "src": "/assets/reference-games/re7-2-gameplay-moment.png",
           "source": "Wikipedia (Resident Evil 7 page)",
-          "alt": "Resident Evil 7 gameplay screen",
+          "alt": "Resident Evil 7 gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1327,17 +1327,17 @@
       "origin": "RE2 Remake is the current proof point for Capcom’s baseline conversion approach, directly useful for Veronica expectation framing.",
       "media": [
         {
-          "label": "Remake cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_2_Remake.jpg",
-          "source": "Wikipedia (Resident Evil 2 remake page)",
-          "alt": "Resident Evil 2 Remake cover",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re2-remake-steam-header.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 2 Remake official Steam header artwork",
           "mediaType": "image"
         },
         {
           "label": "Remake gameplay",
-          "src": "https://upload.wikimedia.org/wikipedia/en/c/c5/Resident_Evil_2_Remake_gameplay.png",
-          "source": "Wikipedia (Resident Evil 2 remake page)",
-          "alt": "Resident Evil 2 Remake gameplay frame",
+          "src": "/assets/reference-games/re2-remake-2-remake-gameplay.png",
+          "source": "Wikipedia (Resident Evil 2 Remake page)",
+          "alt": "Resident Evil 2 Remake gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1365,17 +1365,17 @@
       "origin": "RE3 Remake demonstrates what a short remaster-like conversion can preserve while changing input and timing conventions.",
       "media": [
         {
-          "label": "Remake cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/d/dc/Resident_Evil_3.jpg",
-          "source": "Wikipedia (Resident Evil 3 remake page)",
-          "alt": "Resident Evil 3 Remake cover",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re3-remake-steam-capsule.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 3 Remake official Steam capsule artwork",
           "mediaType": "image"
         },
         {
           "label": "Remake gameplay",
-          "src": "https://upload.wikimedia.org/wikipedia/en/c/c8/Resident_Evil_3_2020_gameplay.jpg",
-          "source": "Wikipedia (Resident Evil 3 remake page)",
-          "alt": "Resident Evil 3 Remake gameplay scene",
+          "src": "/assets/reference-games/re3-remake-2-remake-gameplay.jpg",
+          "source": "Wikipedia (Resident Evil 3 Remake page)",
+          "alt": "Resident Evil 3 Remake gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1403,17 +1403,17 @@
       "origin": "RE8 marks the recent benchmark before Veronica and helps place expectations for atmosphere versus combat density.",
       "media": [
         {
-          "label": "Official artwork",
-          "src": "https://upload.wikimedia.org/wikipedia/en/2/2c/Resident_Evil_Village.png",
-          "source": "Wikipedia (Resident Evil Village page)",
-          "alt": "Resident Evil Village cover artwork",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re8-steam-capsule.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil Village official Steam capsule artwork",
           "mediaType": "image"
         },
         {
           "label": "Gameplay frame",
-          "src": "https://upload.wikimedia.org/wikipedia/en/a/a0/Resident_Evil_Village_screenshot.jpg",
+          "src": "/assets/reference-games/re8-2-gameplay-frame.jpg",
           "source": "Wikipedia (Resident Evil Village page)",
-          "alt": "Resident Evil Village boss encounter screenshot",
+          "alt": "Resident Evil Village gameplay screenshot",
           "mediaType": "image"
         }
       ],
@@ -1441,17 +1441,17 @@
       "origin": "RE4 Remake is the nearest official modern reference for how Capcom remasters legacy structure at 2023-level polish.",
       "media": [
         {
-          "label": "Remake cover",
-          "src": "https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg",
-          "source": "Wikipedia (Resident Evil 4 remake page)",
-          "alt": "Resident Evil 4 Remake cover artwork",
+          "label": "Official store image",
+          "src": "/assets/reference-games/re4-remake-steam-capsule.jpg",
+          "source": "Steam store / Capcom",
+          "alt": "Resident Evil 4 Remake official Steam capsule artwork",
           "mediaType": "image"
         },
         {
-          "label": "Reimagined frame",
-          "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/5520_NWFB_82X_20-03-2023.jpg",
-          "source": "Wikipedia (Resident Evil 4 remake page)",
-          "alt": "Resident Evil 4 Remake promotional frame",
+          "label": "Remake cover",
+          "src": "/assets/reference-games/re4-remake-1-remake-cover.jpg",
+          "source": "Wikipedia (Resident Evil 4 Remake page)",
+          "alt": "Resident Evil 4 Remake cover artwork",
           "mediaType": "image"
         }
       ],

@@ -572,9 +572,9 @@ function MediaCard({ item }) {
 function ReferenceMediaGallery({ game }) {
   if (!game.media?.length) return null;
   return (
-    <div className="source-grid">
+    <div className="reference-media-strip">
       {game.media.map((item) => (
-        <figure className="card media-card" key={`${item.src}-${item.label}`}>
+        <figure className="reference-media-item" key={`${item.src}-${item.label}`}>
           <OptimizedImage src={item.src} alt={item.alt || item.label} loading="lazy" />
           <figcaption>
             <strong>{item.label}</strong>

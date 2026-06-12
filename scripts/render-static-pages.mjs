@@ -109,13 +109,13 @@ function gameMediaSection(game) {
     return `<p class="meta">Image resources: No official image references provided.</p>`;
   }
   return `
-    <div class="static-grid">
+    <div class="reference-media-strip">
       ${media.map((item) => {
         const src = escapeHtml(item.src || "");
         const label = escapeHtml(item.label || "Image");
         const source = escapeHtml(item.source || "Official image");
         const alt = escapeHtml(item.alt || item.label || "Game media");
-        return `<figure class="static-media-card">
+        return `<figure class="reference-media-item">
           <img src="${src}" alt="${alt}" loading="lazy" decoding="async" />
           <figcaption><strong>${label}</strong><span>${source}</span></figcaption>
         </figure>`;

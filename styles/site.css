@@ -323,6 +323,7 @@ h3 {
   line-height: .94;
   font-weight: 920;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 span,
@@ -525,6 +526,7 @@ h3 {
 .static-section h2 {
   font: 920 clamp(32px, 4.2vw, 58px)/.97 var(--sans);
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .static-section h2 {
@@ -836,6 +838,47 @@ h3 {
   color: #fff;
 }
 
+.reference-media-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.reference-media-item {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, .09);
+  background: rgba(255, 255, 255, .035);
+}
+
+.reference-media-item picture {
+  display: block;
+}
+
+.reference-media-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 6px;
+  background: #07080b;
+}
+
+.reference-media-item figcaption {
+  display: grid;
+  gap: 3px;
+  padding: 9px 10px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.reference-media-item figcaption strong {
+  color: #fff;
+  font-size: 12px;
+}
+
 .faq-list,
 .timeline-list,
 .static-faq-list {
@@ -1013,12 +1056,12 @@ input:focus-visible {
   .container,
   .page-hero-inner,
   .static-shell {
-    width: min(100vw - 28px, 1180px);
+    width: min(1180px, calc(100vw - 28px));
   }
 
   .topbar-inner,
   .static-header {
-    width: min(100vw - 24px, 1180px);
+    width: min(1180px, calc(100vw - 24px));
   }
 
   .brand-title {
@@ -1026,6 +1069,7 @@ input:focus-visible {
   }
 
   .utility-button:not(.small),
+  .utility-button.small,
   .latest-pill {
     display: none;
   }
@@ -1049,7 +1093,22 @@ input:focus-visible {
   .hero h1,
   .page-hero h1,
   .static-hero h1 {
-    font-size: clamp(42px, 13vw, 66px);
+    font-size: clamp(34px, 9.6vw, 42px);
+    line-height: .98;
+  }
+
+  .section-heading h2,
+  .static-section h2 {
+    font-size: clamp(28px, 7.8vw, 32px);
+    line-height: 1;
+  }
+
+  .hero-subtitle,
+  .section-heading p,
+  .static-lede,
+  .static-section > p {
+    max-width: calc(100vw - 28px);
+    overflow-wrap: anywhere;
   }
 
   .cta-row .btn {
