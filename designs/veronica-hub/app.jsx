@@ -5,6 +5,7 @@ import siteData from "../../content/site-data.json";
 
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/changelog/", "/faq/"];
+const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/faq/", "/changelog/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
@@ -1061,8 +1062,7 @@ function Footer() {
           {primaryNav.slice(1).map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
         <nav className="footer-links">
-          {[...utilityRoutes.slice(0, 6), "/watchlist/"].map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
-          <a href="/feed.xml">RSS Feed</a>
+          {footerUtilityRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
       </div>
     </footer>

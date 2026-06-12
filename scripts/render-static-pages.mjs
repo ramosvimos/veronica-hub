@@ -6,6 +6,7 @@ const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"
 const bundlePath = "/designs/veronica-hub/app.bundle.js";
 const stylesheetPath = "/styles/site.css";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
+const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/faq/", "/changelog/"];
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -98,6 +99,14 @@ function sourceById(id) {
 
 function routeByPath(routePath) {
   return data.routes.find((route) => route.path === routePath);
+}
+
+function footerLinks(paths) {
+  return paths
+    .map((routePath) => routeByPath(routePath))
+    .filter(Boolean)
+    .map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`)
+    .join("");
 }
 
 function slugify(value) {
@@ -508,6 +517,20 @@ function staticBody(route) {
           <p>Veronica Hub marks claims as confirmed, reported or unknown. Unknown details stay unknown until a cited official source changes them.</p>
         </section>
       </main>
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <a class="brand" href="/">
+              <span class="mark">VH</span>
+              <span class="brand-title"><strong>Veronica Hub</strong><span>Source policy active</span></span>
+            </a>
+            <p>${escapeHtml(data.site.disclaimer)}</p>
+            <p class="meta">${escapeHtml(data.site.noPiracy)}</p>
+          </div>
+          <nav class="footer-links">${footerLinks(primaryNav.slice(1))}</nav>
+          <nav class="footer-links">${footerLinks(footerUtilityRoutes)}</nav>
+        </div>
+      </footer>
     </div>`;
 }
 

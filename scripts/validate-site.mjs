@@ -60,6 +60,13 @@ for (const route of data.routes) {
   if (!html.includes("application/ld+json")) fail(`Missing JSON-LD for ${route.path}`);
   if (!html.includes("Last verified") && !html.includes("Last checked")) fail(`Missing verification copy for ${route.path}`);
   if (html.includes("noindex")) fail(`Route contains noindex: ${route.path}`);
+  if (!html.includes('class="footer-links"')) fail(`Missing static footer links for ${route.path}`);
+  if (html.includes('<a href="/feed.xml">RSS Feed</a>')) fail(`Footer should not link directly to RSS XML on ${route.path}`);
+
+  const footer = html.match(/<footer[\s\S]*?<\/footer>/)?.[0] || "";
+  for (const [, href] of footer.matchAll(/href="([^"]+)"/g)) {
+    if (href !== "/" && !routePaths.has(href)) fail(`Footer link points to missing route on ${route.path}: ${href}`);
+  }
 
   const count = wordCount(html);
   const minimum = route.path === "/media/" ? 180 : 250;
