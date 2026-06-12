@@ -633,8 +633,8 @@
         "type": "Action platformer",
         "url": "https://megaman.capcom.com/",
         "image": {
-          "src": "/assets/company/mega-man-portal.jpg",
-          "alt": "Mega Man official site background image",
+          "src": "/assets/company/mega-man-portal-dark.jpg",
+          "alt": "Mega Man official site character silhouette background image",
           "source": "Mega Man | CAPCOM"
         },
         "whyItMatters": "A classic Capcom action series that shows the company's long-running console game history."
