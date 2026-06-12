@@ -73,7 +73,7 @@ function mediaForPage(path, limit = 6) {
 }
 
 function optimizedImageSrc(src) {
-  if (!src.startsWith("/assets/official/")) return null;
+  if (!src.startsWith("/assets/official/") && !src.startsWith("/assets/reference-games/")) return null;
   const filename = src.split("/").pop();
   if (!/\.(jpe?g|png)$/i.test(filename)) return null;
   return `/assets/optimized/${filename.replace(/\.(jpe?g|png)$/i, ".webp")}`;

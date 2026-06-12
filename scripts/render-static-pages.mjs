@@ -116,7 +116,7 @@ function gameMediaSection(game) {
         const source = escapeHtml(item.source || "Official image");
         const alt = escapeHtml(item.alt || item.label || "Game media");
         return `<figure class="reference-media-item">
-          <img src="${src}" alt="${alt}" loading="lazy" decoding="async" />
+          ${imageMarkup({ src: item.src || "", alt: item.alt || item.label || "Game media" })}
           <figcaption><strong>${label}</strong><span>${source}</span></figcaption>
         </figure>`;
       }).join("")}
@@ -124,7 +124,7 @@ function gameMediaSection(game) {
 }
 
 function optimizedImageSrc(src) {
-  if (!src.startsWith("/assets/official/")) return null;
+  if (!src.startsWith("/assets/official/") && !src.startsWith("/assets/reference-games/")) return null;
   const extension = path.extname(src).toLowerCase();
   if (![".jpg", ".jpeg", ".png"].includes(extension)) return null;
   return `/assets/optimized/${path.basename(src, extension)}.webp`;
