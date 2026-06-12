@@ -450,11 +450,12 @@ function TrailerPreview() {
 }
 
 function MediaPreview() {
-  const media = siteData.media.filter((item) => ["steam-capsule", "steam-header", "screenshot-01", "screenshot-02", "screenshot-03", "screenshot-04", "screenshot-07", "capcom-title"].includes(item.id));
+  const previewIds = ["screenshot-01", "screenshot-02", "screenshot-03", "screenshot-04", "screenshot-05", "screenshot-06", "screenshot-07"];
+  const media = previewIds.map((id) => mediaById(id)).filter(Boolean);
   return (
     <section className="section" id="media-preview">
       <div className="container">
-        <SectionHeading kicker="Official media" title="Screenshot Preview">A quick look at official screenshots and store images. The full gallery is on the media page.</SectionHeading>
+        <SectionHeading kicker="Official media" title="Screenshot Preview">A quick look at official screenshots. The full gallery is on the media page.</SectionHeading>
         <div className="media-reference-grid">
           {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} />)}
         </div>
