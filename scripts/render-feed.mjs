@@ -32,9 +32,8 @@ function rfc822(date) {
 
 function itemDescription(entry) {
   const source = sourceById(entry.sourceId);
-  const affected = entry.affectedClaims?.length ? ` Affected: ${entry.affectedClaims.join(", ")}.` : "";
-  const sourceText = source ? ` Source: ${source.name} (${source.url}).` : "";
-  return `${entry.summary}${affected}${sourceText}`;
+  const sourceText = source && source.type !== "site-policy" ? ` Reference: ${source.name} (${source.url}).` : "";
+  return `${entry.summary}${sourceText}`;
 }
 
 const items = [...(data.changelog || [])]
@@ -64,7 +63,7 @@ const feed = `<?xml version="1.0" encoding="UTF-8"?>
     <title>${escapeXml(data.site.name)} Changelog</title>
     <link>${escapeXml(data.site.origin)}/changelog/</link>
     <atom:link href="${escapeXml(data.site.origin)}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>${escapeXml(data.site.tagline)} official-source change feed.</description>
+    <description>${escapeXml(data.site.tagline)} official update feed.</description>
     <language>en-us</language>
     <lastBuildDate>${escapeXml(rfc822(latestChangelogDate))}</lastBuildDate>
 ${items}

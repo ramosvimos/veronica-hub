@@ -115,7 +115,7 @@ for (const item of trackedSources()) {
   if (statusChanged || hashChanged) {
     const reviewItem = {
       key: queueKey(snapshot),
-      status: "needs-human-review",
+      status: "needs-review",
       detectedAt: snapshot.checkedAt,
       sourceId: snapshot.sourceId,
       sourceName: snapshot.name,
@@ -125,7 +125,7 @@ for (const item of trackedSources()) {
       currentStatus: snapshot.httpStatus,
       previousHash: before.contentHash || "",
       currentHash: snapshot.contentHash || "",
-      instruction: "Review the official source manually before changing any public claim."
+      instruction: "Check the official source before updating site content."
     };
     if (!existingQueueKeys.has(reviewItem.key)) {
       queue.unshift(reviewItem);
@@ -137,7 +137,7 @@ for (const item of trackedSources()) {
 
 writeJson(snapshotsPath, {
   checkedAt: new Date().toISOString(),
-  policy: "Snapshots detect changes only. Public claims require human review before edits.",
+  policy: "Snapshots detect changes only. Site text is updated after review.",
   snapshots: current
 });
 writeJson(reviewQueuePath, queue);

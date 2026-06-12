@@ -193,7 +193,7 @@ function preloadLinks(route) {
 }
 
 function primarySources() {
-  return data.sources.filter((source) => !source.type.includes("comparison"));
+  return data.sources.filter((source) => !source.type.includes("comparison") && source.type !== "site-policy");
 }
 
 function claimCards(routePath) {
@@ -346,17 +346,15 @@ function creatorVideosSection() {
 function watchlistSection({ expanded = false } = {}) {
   const watchlist = data.watchlist;
   if (!watchlist) return "";
-  const mailto = `mailto:${watchlist.emailAddress}?subject=${encodeURIComponent("Resident Evil Veronica Watchlist")}&body=${encodeURIComponent("Please add me to the Veronica Hub official-source watchlist.")}`;
   return `
     <section class="static-section watchlist-section" id="watchlist">
       <h2>${escapeHtml(watchlist.headline)}</h2>
       <div class="static-grid">
         <article class="static-card watchlist-card">
           <p>${escapeHtml(watchlist.promise)}</p>
-          <p class="meta">RSS is available now. Email alerts will be enabled after a newsletter or form service is connected.</p>
           <div class="watchlist-actions">
             <a class="source-link" href="${escapeHtml(watchlist.rssUrl)}">Open RSS feed</a>
-            <a class="source-link" href="${escapeHtml(mailto)}">Request email alerts</a>
+            <a class="source-link" href="/changelog/">View changelog</a>
           </div>
         </article>
         <article class="static-card watchlist-card">
@@ -365,12 +363,6 @@ function watchlistSection({ expanded = false } = {}) {
             ${watchlist.topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("")}
           </ul>
         </article>
-        ${expanded ? `<article class="static-card watchlist-card">
-          <p class="eyebrow">Email alert status</p>
-          <h3>Not active yet</h3>
-          <p>Email alerts will be enabled after a newsletter or form service is connected.</p>
-          <p class="meta">For now, use the RSS feed or changelog to follow official updates.</p>
-        </article>` : ""}
       </div>
     </section>`;
 }
@@ -465,11 +457,14 @@ function routeSpecific(route) {
         <div class="static-faq-list">
           ${data.changelog.map((entry) => {
             const source = sourceById(entry.sourceId);
+            const reference = source && source.type !== "site-policy"
+              ? `<p class="meta">Reference: <a href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a></p>`
+              : "";
             return `<article class="static-card" id="${escapeHtml(changelogId(entry))}">
               <p class="eyebrow">${escapeHtml(entry.date)} / ${escapeHtml(entry.type)}</p>
               <h3>${escapeHtml(entry.title)}</h3>
               <p>${escapeHtml(entry.summary)}</p>
-              <p>Source: ${source ? `<a href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a>` : "Veronica Hub"}. Affected claims: ${entry.affectedClaims.map(escapeHtml).join(", ")}.</p>
+              ${reference}
             </article>`;
           }).join("")}
         </div>

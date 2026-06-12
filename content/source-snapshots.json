@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-06-12T06:58:58.901Z",
-  "policy": "Snapshots detect changes only. Public claims require human review before edits.",
+  "policy": "Snapshots detect changes only. Site text is updated after review.",
   "snapshots": [
     {
       "sourceId": "capcom-press-2026-06-08",

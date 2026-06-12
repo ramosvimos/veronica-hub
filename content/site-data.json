@@ -18,7 +18,7 @@
     {
       "path": "/",
       "title": "Resident Evil Code Veronica Remake Release Date, Platforms & Official Sources",
-      "description": "Source-backed Resident Evil Veronica hub tracking the 2027 release window, confirmed platforms, official trailer, PC status and verification notes.",
+      "description": "Resident Evil Veronica hub tracking the 2027 release window, confirmed platforms, official trailer, PC status and official links.",
       "h1": "Resident Evil Code Veronica Remake",
       "section": "home",
       "navLabel": "Home",
@@ -130,7 +130,7 @@
     {
       "path": "/sources/",
       "title": "Resident Evil Veronica Sources: Capcom, Steam and Official Video Records",
-      "description": "Source policy and verification notes for Veronica Hub, including Capcom, Steam and official YouTube records.",
+      "description": "Official Resident Evil Veronica links from Capcom, Steam and the BIOHAZARD YouTube channel.",
       "h1": "Resident Evil Veronica Sources",
       "section": "sources",
       "navLabel": "Sources",
@@ -250,7 +250,7 @@
       "changefreq": "daily",
       "intro": "Dated changes show what changed, when it changed and which source caused it.",
       "body": [
-        "The changelog records meaningful updates to Resident Evil Veronica information and site pages.",
+        "The changelog records meaningful updates to Resident Evil Veronica information and pages.",
         "It is not a daily news feed. If there is no official change, there may be nothing new to list.",
         "When official details change, the changelog helps show what changed and which source caused the update."
       ]
@@ -258,7 +258,7 @@
     {
       "path": "/watchlist/",
       "title": "Resident Evil Veronica Watchlist: Official Update Alerts and RSS",
-      "description": "Subscribe to official-source Resident Evil Veronica changes through the Veronica Hub watchlist and RSS feed.",
+      "description": "Follow official Resident Evil Veronica changes through the Veronica Hub watchlist and RSS feed.",
       "h1": "Resident Evil Veronica Watchlist",
       "section": "watchlist",
       "navLabel": "Watchlist",
@@ -267,7 +267,7 @@
       "intro": "Track official changes for release date, demo, preorder, editions, PC specs, trailers and media.",
       "body": [
         "Use the Watchlist if you only want updates when official Resident Evil Veronica information changes.",
-        "RSS is available now at /feed.xml. Email alerts are prepared, but they will only be enabled after a real newsletter or form provider is connected.",
+        "RSS is available now at /feed.xml. The feed follows changelog updates, so it is useful for readers who want to track official information changes.",
         "The Watchlist focuses on release date, demo, preorder, editions or price, PC requirements, trailer updates and official media changes."
       ]
     }
@@ -531,11 +531,11 @@
     },
     {
       "id": "veronica-hub-policy",
-      "name": "Veronica Hub source policy",
+      "name": "Veronica Hub update rules",
       "type": "site-policy",
       "reliability": "policy",
       "url": "/sources/",
-      "usedFor": "Rules for confirmed, reported and unknown claim states",
+      "usedFor": "Update rules for confirmed, reported and unknown information",
       "lastChecked": "2026-06-10"
     },
     {
@@ -1579,9 +1579,6 @@
     "headline": "Follow official Veronica updates",
     "promise": "Follow the official changes that matter: release date, demo, preorder, editions, PC specs, trailers, store media and source updates.",
     "rssUrl": "/feed.xml",
-    "formStatus": "provider-ready",
-    "formAction": "",
-    "emailAddress": "watchlist@residentevilveronica.com",
     "topics": [
       "Release date or release window changes",
       "Demo confirmation or availability",
@@ -1598,16 +1595,10 @@
       "/pc-requirements/",
       "/changelog/",
       "/watchlist/"
-    ],
-    "states": {
-      "success": "Request received by the connected provider.",
-      "failure": "Provider submission failed. Use RSS while this is being checked.",
-      "duplicate": "This address may already be on the list. We will not create duplicate alert profiles.",
-      "slow": "Still sending. Do not submit again until the provider responds."
-    }
+    ]
   },
   "sourceMonitoring": {
-    "policy": "Automated checks detect official-source changes only. They never rewrite public claims without human review.",
+    "policy": "Automated checks detect official page changes only. Site text is updated after review.",
     "sources": [
       {
         "sourceId": "capcom-press-2026-06-08",
@@ -1637,7 +1628,7 @@
       "date": "2026-06-12",
       "type": "Site Update",
       "title": "Watchlist and RSS tracking layer added",
-      "summary": "Added a Watchlist page, RSS feed generation from changelog records and a source monitoring script that creates human-review items before claim changes.",
+      "summary": "Added the Watchlist page and RSS feed so readers can follow official information changes.",
       "sourceId": "veronica-hub-policy",
       "affectedClaims": [
         "watchlist",
@@ -1658,8 +1649,8 @@
     {
       "date": "2026-06-10",
       "type": "Site Update",
-      "title": "Veronica Hub page plan created",
-      "summary": "Planning documents define the site structure, source policy, measurement checklist and update roadmap.",
+      "title": "Initial site structure added",
+      "summary": "Added core pages for release date, platforms, trailer, sources and update history.",
       "sourceId": "veronica-hub-policy",
       "affectedClaims": [
         "announcement-status",

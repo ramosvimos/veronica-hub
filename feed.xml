@@ -4,7 +4,7 @@
     <title>Veronica Hub Changelog</title>
     <link>https://residentevilveronica.com/changelog/</link>
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Resident Evil Veronica official update tracker official-source change feed.</description>
+    <description>Resident Evil Veronica official update tracker official update feed.</description>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Jun 2026 00:00:00 GMT</lastBuildDate>
     <item>
@@ -13,15 +13,15 @@
       <guid isPermaLink="false">veronica-hub:2026-06-12-watchlist-and-rss-tracking-layer-added</guid>
       <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
       <category>Site Update</category>
-      <description>Added a Watchlist page, RSS feed generation from changelog records and a source monitoring script that creates human-review items before claim changes. Affected: watchlist, changelog, source-monitoring. Source: Veronica Hub source policy (/sources/).</description>
+      <description>Added the Watchlist page and RSS feed so readers can follow official information changes.</description>
     </item>
     <item>
-      <title>Veronica Hub page plan created</title>
-      <link>https://residentevilveronica.com/changelog/#2026-06-10-veronica-hub-page-plan-created</link>
-      <guid isPermaLink="false">veronica-hub:2026-06-10-veronica-hub-page-plan-created</guid>
+      <title>Initial site structure added</title>
+      <link>https://residentevilveronica.com/changelog/#2026-06-10-initial-site-structure-added</link>
+      <guid isPermaLink="false">veronica-hub:2026-06-10-initial-site-structure-added</guid>
       <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
       <category>Site Update</category>
-      <description>Planning documents define the site structure, source policy, measurement checklist and update roadmap. Affected: announcement-status, release-window, exact-release-date. Source: Veronica Hub source policy (/sources/).</description>
+      <description>Added core pages for release date, platforms, trailer, sources and update history.</description>
     </item>
     <item>
       <title>Expanded playable reference catalog with pre-2000 RE era titles</title>
@@ -29,7 +29,7 @@
       <guid isPermaLink="false">veronica-hub:2026-06-10-expanded-playable-reference-catalog-with-pre-2000-re-era-titles</guid>
       <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
       <category>Site Update</category>
-      <description>Added original and early-series Resident Evil titles plus additional clip search references so visitors can compare pacing before judging Veronica. Affected: media-page. Source: Veronica Hub source policy (/sources/).</description>
+      <description>Added original and early-series Resident Evil titles plus additional clip search references so visitors can compare pacing before judging Veronica.</description>
     </item>
     <item>
       <title>Homepage visual direction improved</title>
@@ -37,7 +37,7 @@
       <guid isPermaLink="false">veronica-hub:2026-06-09-homepage-visual-direction-improved</guid>
       <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
       <category>Site Update</category>
-      <description>The homepage hero and official media presentation were refined while preserving the lead heroine background. Affected: official-trailer. Source: Veronica Hub source policy (/sources/).</description>
+      <description>The homepage hero and official media presentation were refined while preserving the lead heroine background.</description>
     </item>
     <item>
       <title>Steam page is live</title>
@@ -45,7 +45,7 @@
       <guid isPermaLink="false">veronica-hub:2026-06-08-steam-page-is-live</guid>
       <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
       <category>Store</category>
-      <description>Steam lists Resident Evil Veronica with CAPCOM as developer and publisher and a planned 2027 release year. Affected: steam-page, developer-publisher, pc-requirements. Source: Steam store (https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/).</description>
+      <description>Steam lists Resident Evil Veronica with CAPCOM as developer and publisher and a planned 2027 release year. Reference: Steam store (https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/).</description>
     </item>
     <item>
       <title>Capcom announces Resident Evil Veronica for 2027</title>
@@ -53,7 +53,7 @@
       <guid isPermaLink="false">veronica-hub:2026-06-08-capcom-announces-resident-evil-veronica-for-2027</guid>
       <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
       <category>Official</category>
-      <description>Capcom announces Resident Evil Veronica as a remake with a 2027 release window and confirmed platform set. Affected: announcement-status, release-window, confirmed-platforms. Source: Capcom press release (https://www.capcom.co.jp/ir/english/news/html/e260608.html).</description>
+      <description>Capcom announces Resident Evil Veronica as a remake with a 2027 release window and confirmed platform set. Reference: Capcom press release (https://www.capcom.co.jp/ir/english/news/html/e260608.html).</description>
     </item>
   </channel>
 </rss>

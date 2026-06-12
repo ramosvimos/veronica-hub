@@ -80,7 +80,7 @@ function sourceById(id) {
 }
 
 function primarySources() {
-  return siteData.sources.filter((source) => !source.type.includes("comparison"));
+  return siteData.sources.filter((source) => !source.type.includes("comparison") && source.type !== "site-policy");
 }
 
 function SourceLinks({ sourceIds }) {
@@ -158,13 +158,6 @@ function LinkList({ links }) {
       ))}
     </p>
   );
-}
-
-function watchlistMailto() {
-  const watchlist = siteData.watchlist;
-  const subject = encodeURIComponent("Resident Evil Veronica Watchlist");
-  const body = encodeURIComponent("Please add me to the Veronica Hub official-source watchlist.");
-  return `mailto:${watchlist.emailAddress}?subject=${subject}&body=${body}`;
 }
 
 function sortByRelease(items = []) {
@@ -353,7 +346,7 @@ function LatestVerification() {
           <span className="eyebrow">Still pending</span>
           <h3>What Has Not Been Announced</h3>
           <p>Exact release date, demo timing, preorder details, editions, price and PC requirements are still waiting for official confirmation.</p>
-          <a className="source-link" href="/sources/">Read source policy</a>
+          <a className="source-link" href="/sources/">View official sources</a>
         </aside>
       </div>
     </section>
@@ -378,31 +371,12 @@ function WatchlistCallout({ expanded = false }) {
             </div>
           </article>
           <article className="card source-card watchlist-card">
-            <span className="eyebrow">Email alerts</span>
-            <h3>Coming Later</h3>
-            <p>Email alerts are prepared, but they will only be enabled after a real form or newsletter provider is connected.</p>
-            <form className="watchlist-form" onSubmit={(event) => event.preventDefault()}>
-              <label htmlFor="watchlist-email">Email address</label>
-              <input id="watchlist-email" type="email" placeholder="you@example.com" disabled={!watchlist.formAction} />
-              <button className="btn secondary" type="submit" disabled={!watchlist.formAction}>Notify me</button>
-            </form>
-            <p className="meta"><a href={watchlistMailto()}>Request email alerts by email</a></p>
-          </article>
-          <article className="card source-card watchlist-card">
             <span className="eyebrow">Tracked topics</span>
             <h3>Only official changes</h3>
             <ul className="watchlist-topic-list">
               {watchlist.topics.map((topic) => <li key={topic}>{topic}</li>)}
             </ul>
           </article>
-          {expanded && (
-            <article className="card source-card watchlist-card">
-              <span className="eyebrow">Email alert status</span>
-              <h3>Not Active Yet</h3>
-              <p>Email alerts will be enabled after a newsletter or form service is connected.</p>
-              <p className="meta">For now, use the RSS feed or changelog to follow official updates.</p>
-            </article>
-          )}
         </div>
       </div>
     </section>
@@ -949,12 +923,15 @@ function ChangelogPage({ routeInfo }) {
           <div className="timeline-list">
             {siteData.changelog.map((entry) => {
               const source = sourceById(entry.sourceId);
+              const showSource = source && source.type !== "site-policy";
               return (
                 <article className="card" id={changelogId(entry)} key={`${entry.date}-${entry.title}`}>
                   <p className="eyebrow">{entry.date} / {entry.type}</p>
                   <h3>{entry.title}</h3>
                   <p>{entry.summary}</p>
-                  <p className="meta">Source: {source?.name || "Veronica Hub"}<br />Affected claims: {entry.affectedClaims.join(", ")}</p>
+                  {showSource ? (
+                    <p className="meta">Reference: <a href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined}>{source.name}</a></p>
+                  ) : null}
                 </article>
               );
             })}
