@@ -740,6 +740,10 @@ h3 {
   overflow: hidden;
   display: grid;
   align-content: end;
+  background:
+    linear-gradient(135deg, rgba(225, 29, 46, .18), rgba(103, 232, 249, .08)),
+    radial-gradient(circle at 68% 28%, rgba(255, 255, 255, .08), transparent 34%),
+    #08090d;
 }
 
 .media-zoom-button {
@@ -777,6 +781,9 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background:
+    linear-gradient(135deg, rgba(225, 29, 46, .16), rgba(103, 232, 249, .08)),
+    #08090d;
   filter: brightness(.72) contrast(1.08) saturate(.92);
 }
 
@@ -1078,11 +1085,17 @@ h3 {
   overflow: hidden;
   margin: 0;
   border: 1px solid rgba(255, 255, 255, .09);
-  background: rgba(255, 255, 255, .035);
+  background:
+    linear-gradient(135deg, rgba(225, 29, 46, .1), rgba(103, 232, 249, .055)),
+    rgba(255, 255, 255, .035);
 }
 
 .reference-media-item picture {
   display: block;
+  background:
+    linear-gradient(135deg, rgba(225, 29, 46, .14), rgba(103, 232, 249, .08)),
+    radial-gradient(circle at 70% 22%, rgba(255, 255, 255, .08), transparent 30%),
+    #08090d;
 }
 
 .reference-media-item img {
@@ -1091,7 +1104,9 @@ h3 {
   aspect-ratio: 16 / 10;
   object-fit: contain;
   padding: 6px;
-  background: #07080b;
+  background:
+    linear-gradient(135deg, rgba(225, 29, 46, .12), rgba(103, 232, 249, .07)),
+    #08090d;
 }
 
 .reference-media-item figcaption {
