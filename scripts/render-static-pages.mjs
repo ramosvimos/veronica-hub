@@ -685,7 +685,7 @@ function pageHtml(route) {
 </head>
 <body>
   <noscript>${body}</noscript>
-  <div id="root">${body}</div>
+  <div id="root"></div>
   <script src="${bundlePath}" defer></script>
 </body>
 </html>
