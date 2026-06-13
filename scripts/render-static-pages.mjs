@@ -171,7 +171,11 @@ function gameMediaSection(game) {
 }
 
 function optimizedImageSrc(src) {
-  if (!src.startsWith("/assets/official/") && !src.startsWith("/assets/reference-games/")) return null;
+  if (
+    !src.startsWith("/assets/official/") &&
+    !src.startsWith("/assets/reference-games/") &&
+    !src.startsWith("/assets/company/")
+  ) return null;
   const extension = path.extname(src).toLowerCase();
   if (![".jpg", ".jpeg", ".png"].includes(extension)) return null;
   return `/assets/optimized/${path.basename(src, extension)}.webp`;
