@@ -4,9 +4,17 @@
     <title>Veronica Hub Changelog</title>
     <link>https://residentevilveronica.com/changelog/</link>
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Resident Evil Veronica official update tracker official update feed.</description>
+    <description>Resident Evil Veronica source-backed official update tracker official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Official research pass adds product-page and Steam fact coverage</title>
+      <link>https://residentevilveronica.com/changelog/#2026-06-13-official-research-pass-adds-product-page-and-steam-fact-coverage</link>
+      <guid isPermaLink="false">veronica-hub:2026-06-13-official-research-pass-adds-product-page-and-steam-fact-coverage</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Expanded source coverage with the official Resident Evil Veronica product page, English official trailer, Steam story premise, remake positioning, feature flags and TBD PC requirements.</description>
+    </item>
     <item>
       <title>Watchlist and RSS tracking layer added</title>
       <link>https://residentevilveronica.com/changelog/#2026-06-12-watchlist-and-rss-tracking-layer-added</link>

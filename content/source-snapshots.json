@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-06-12T06:58:58.901Z",
+  "checkedAt": "2026-06-13T07:26:47.043Z",
   "policy": "Snapshots detect changes only. Site text is updated after review.",
   "snapshots": [
     {
       "sourceId": "capcom-press-2026-06-08",
       "name": "Capcom press release",
       "url": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-      "checkedAt": "2026-06-12T06:58:55.166Z",
+      "checkedAt": "2026-06-13T07:26:44.219Z",
       "httpStatus": 200,
       "ok": true,
       "title": "Resident Evil Veronica to Launch in 2027!– Capcom aims to further enhance the IP’s value by remaking a popular title of the series – | Press Release | CAPCOM",
@@ -18,24 +18,24 @@
       "sourceId": "steam-store",
       "name": "Steam store",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-      "checkedAt": "2026-06-12T06:58:56.440Z",
+      "checkedAt": "2026-06-13T07:26:45.454Z",
       "httpStatus": 200,
       "ok": true,
       "title": "Resident Evil Veronica on Steam",
-      "contentHash": "12b8b2928c96c6f7f34b48ae97012247847a7be92b39a1a7ffe9d7b3e89d2b51",
+      "contentHash": "fef0e32ced4298b1ca134c312ad0ecc5f547476c999eab82b97ecb61436fd29d",
       "relevantText": "Resident Evil Veronica on Steam Sign in Store Home Discovery Queue Wishlist Points Shop News Charts Community Home Discussions Workshop Market Broadcasts About Support Change language Get the Steam Mobile App View desktop website © Valve Co",
       "error": ""
     },
     {
       "sourceId": "official-youtube-trailer",
-      "name": "Official BIOHAZARD YouTube trailer",
-      "url": "https://www.youtube.com/watch?v=mhzX_E5O7O0",
-      "checkedAt": "2026-06-12T06:58:58.900Z",
+      "name": "Official Resident Evil YouTube trailer",
+      "url": "https://www.youtube.com/watch?v=uxUMXniTfjM",
+      "checkedAt": "2026-06-13T07:26:47.043Z",
       "httpStatus": 200,
       "ok": true,
-      "title": "『BIOHAZARD RE:Veronica』 Announcement Trailer - YouTube",
-      "contentHash": "d2623fe5e6f787a8049b47f7eb408a8fce5518b8fb7aa202339310dc2e67af94",
-      "relevantText": "『BIOHAZARD RE:Veronica』 Announcement Trailer - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy &amp; Safety How YouTube works Test new features &copy; 2026 Google LLC",
+      "title": "Resident Evil Veronica - Announcement Trailer - YouTube",
+      "contentHash": "8053fa4699baa3a53490690ea2623016dc95b960fa857fe400d3752dcb2e8be2",
+      "relevantText": "Resident Evil Veronica - Announcement Trailer - YouTube About Press Copyright Contact us Creators Advertise Developers Terms Privacy Policy &amp; Safety How YouTube works Test new features &copy; 2026 Google LLC",
       "error": ""
     }
   ]

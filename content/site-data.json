@@ -2,33 +2,33 @@
   "site": {
     "name": "Veronica Hub",
     "origin": "https://residentevilveronica.com",
-    "lastVerified": "2026-06-10",
-    "tagline": "Resident Evil Veronica official update tracker",
+    "lastVerified": "2026-06-13",
+    "tagline": "Resident Evil Veronica source-backed official update tracker",
     "disclaimer": "Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.",
     "noPiracy": "Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads."
   },
   "trailer": {
-    "id": "mhzX_E5O7O0",
-    "title": "BIOHAZARD RE:Veronica Announcement Trailer",
-    "channel": "BIOHAZARD official YouTube",
-    "watchUrl": "https://www.youtube.com/watch?v=mhzX_E5O7O0",
-    "embedUrl": "https://www.youtube-nocookie.com/embed/mhzX_E5O7O0?rel=0&modestbranding=1"
+    "id": "uxUMXniTfjM",
+    "title": "Resident Evil Veronica - Announcement Trailer",
+    "channel": "Resident Evil official YouTube",
+    "watchUrl": "https://www.youtube.com/watch?v=uxUMXniTfjM",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/uxUMXniTfjM?rel=0&modestbranding=1"
   },
   "routes": [
     {
       "path": "/",
-      "title": "Resident Evil Code Veronica Remake Release Date, Platforms & Official Sources",
-      "description": "Resident Evil Veronica hub tracking the 2027 release window, confirmed platforms, official trailer, PC status and official links.",
-      "h1": "Resident Evil Code Veronica Remake",
+      "title": "Resident Evil Veronica Official Sources, Release Window, Story and Platforms",
+      "description": "Source-backed Resident Evil Veronica dossier tracking the 2027 release window, official remake details, platforms, story premise, PC status and official links.",
+      "h1": "Resident Evil Veronica Official Dossier",
       "section": "home",
       "navLabel": "Home",
       "priority": "1.0",
       "changefreq": "daily",
-      "intro": "Track the confirmed 2027 release window, platforms, trailer, screenshots and official source links.",
+      "intro": "Track the confirmed 2027 release window, official remake details, platforms, story premise, screenshots and source links.",
       "body": [
-        "Capcom has announced Resident Evil Veronica for 2027. The currently confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. An exact release date has not been announced yet.",
-        "This site keeps the important questions in one place: release timing, platforms, trailer, PC requirements, demo status, preorder status, editions, screenshots and source links.",
-        "When Capcom or an official store updates the game page, the relevant section will be updated with the original link so you can check the information yourself."
+        "Capcom has announced Resident Evil Veronica for 2027. Official sources identify it as a remake of 2000's Resident Evil Code: Veronica, developed with a reimagined story, modernized gameplay and detailed graphics.",
+        "The confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Steam lists the PC page as live, with the planned release year set to 2027 and system requirements still marked TBD.",
+        "This site separates official facts from unknown details. Release date, preorder timing, demo availability, editions, PC requirements and new media are updated only when Capcom, Steam or another official platform source changes."
       ]
     },
     {
@@ -72,27 +72,27 @@
       "navLabel": "Trailer",
       "priority": "0.9",
       "changefreq": "daily",
-      "intro": "The trailer page embeds the official BIOHAZARD announcement video after user click.",
+      "intro": "The trailer page embeds the English official Resident Evil announcement video after user click.",
       "body": [
-        "The trailer on this page is the official announcement video from the BIOHAZARD YouTube channel. The video loads after you click the poster so the page stays fast.",
+        "The trailer on this page is the English official announcement video from the Resident Evil YouTube channel. The video loads only after you click the poster so the page stays fast.",
         "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence.",
-        "If Capcom publishes another trailer or gameplay presentation, it will be added here alongside the announcement trailer instead of replacing it without context."
+        "A Japanese BIOHAZARD channel version also exists. Veronica Hub uses the English channel as the primary embed for this English-language site."
       ]
     },
     {
       "path": "/story/",
       "title": "Resident Evil Veronica Story: Spoiler-Light Official Context",
-      "description": "Spoiler-light Resident Evil Veronica story context, separating remake-confirmed information from original-game background.",
+      "description": "Spoiler-light Resident Evil Veronica story context from official Steam and Capcom material, separating confirmed remake premise from original-game background.",
       "h1": "Resident Evil Veronica Story",
       "section": "story",
       "navLabel": "Story",
       "priority": "0.8",
       "changefreq": "weekly",
-      "intro": "A spoiler-light overview of Claire Redfield, Rockfort Island and what is confirmed for the remake.",
+      "intro": "A spoiler-light overview of Claire Redfield, Rockfort Island and the official remake premise.",
       "body": [
-        "Resident Evil Veronica follows Claire Redfield after the Raccoon City disaster as she searches for Chris Redfield and is drawn into another Umbrella-related nightmare.",
-        "The original Code: Veronica helps explain the setting and character stakes, but the remake may change scenes, pacing, enemy placement or gameplay flow.",
-        "This page keeps the story overview light so new players can understand the premise without reading a full plot summary."
+        "Steam places the story three months after the biological disaster in Raccoon City. Claire Redfield travels to France in search of Chris Redfield after surviving with Leon S. Kennedy and Sherry Birkin.",
+        "The official store synopsis says Claire is captured by Umbrella special forces and taken to Rockfort Island, which is transformed by another biological disaster into a survival-horror setting.",
+        "The original Code: Veronica remains useful context, but the remake is officially described as a reimagined storyline. This page avoids treating every original scene, puzzle, enemy or character beat as remake-confirmed."
       ]
     },
     {
@@ -130,7 +130,7 @@
     {
       "path": "/sources/",
       "title": "Resident Evil Veronica Sources: Capcom, Steam and Official Video Records",
-      "description": "Official Resident Evil Veronica links from Capcom, Steam and the BIOHAZARD YouTube channel.",
+      "description": "Official Resident Evil Veronica links from Capcom, the official product page, Steam and the English Resident Evil YouTube channel.",
       "h1": "Resident Evil Veronica Sources",
       "section": "sources",
       "navLabel": "Sources",
@@ -138,9 +138,9 @@
       "changefreq": "weekly",
       "intro": "Official links used for release window, platforms, trailer, store status and media.",
       "body": [
-        "This page collects the official links used across the site, including Capcom announcement material, the Steam store page and the official BIOHAZARD YouTube trailer.",
-        "Official sources can confirm release and platform information. Store listings can confirm store-specific details such as wishlist access, supported platforms and publisher information.",
-        "Leaks, screenshots without links and retailer placeholders are not treated as confirmed information."
+        "This page collects the official links used across the site, including Capcom announcement material, the official Resident Evil Veronica product page, the Steam store page and the official English announcement trailer.",
+        "Capcom sources confirm the announcement, release window, platform set, remake positioning and RE Engine development context. Steam confirms store-specific details including developer, publisher, planned release year, story synopsis, feature flags, language support and TBD PC requirements.",
+        "Media interviews, leaks, screenshots without links and retailer placeholders are not treated as confirmed information unless they are backed by an official source."
       ]
     },
     {
@@ -154,7 +154,7 @@
       "changefreq": "daily",
       "intro": "PC is confirmed, but minimum and recommended requirements are not confirmed yet.",
       "body": [
-        "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. That does not mean PC system requirements are available. At the current verification time, minimum and recommended specifications remain unconfirmed, so the official status stays unknown.",
+        "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. Steam currently lists minimum and recommended system requirements as TBD, so the official PC specification status remains unknown.",
         "Because PC players still need planning guidance, this page includes a clearly labeled estimate based on nearby official RE Engine PC requirements.",
         "The estimate is not official Resident Evil Veronica guidance. It is a preparation range only. When Capcom or Steam publishes exact requirements, this page should switch to the official table."
       ]
@@ -218,9 +218,9 @@
       "changefreq": "weekly",
       "intro": "A careful comparison between official remake material and original-game context.",
       "body": [
-        "Resident Evil Veronica is a remake of Resident Evil Code: Veronica, but a remake does not automatically confirm every scene, mechanic or enemy behavior from the 2000 game.",
-        "The original game is still useful context for Claire Redfield, Rockfort Island, Umbrella and the broader Resident Evil timeline.",
-        "This comparison is meant to help returning fans and new players understand what has been shown so far and what still belongs to original-game context."
+        "Resident Evil Veronica is officially described as a remake of 2000's Resident Evil Code: Veronica. Steam says it preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics.",
+        "The original game is useful context for Claire Redfield, Rockfort Island, Umbrella and the wider Resident Evil timeline, but remake status should come from current official material.",
+        "This comparison is meant to help returning fans and new players understand what is officially stated now, what comes from the original game, and what remains unknown."
       ]
     },
     {
@@ -234,7 +234,7 @@
       "changefreq": "weekly",
       "intro": "Official screenshots, store art, trailer imagery and reference material in one place.",
       "body": [
-        "This page collects official Resident Evil Veronica screenshots, store art, trailer imagery and reference material.",
+        "This page collects official Resident Evil Veronica screenshots, store art, trailer imagery and reference material, then separates confirmed remake media from historical gameplay context.",
         "Images are grouped with source labels so you can tell whether they came from Capcom, Steam or an official video channel.",
         "The reference game section adds older Resident Evil entries for gameplay context without mixing them into the confirmed remake information."
       ]
@@ -282,11 +282,48 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
         "/sources/"
+      ]
+    },
+    {
+      "id": "remake-status",
+      "label": "Remake basis",
+      "value": "Remake of 2000 Resident Evil Code: Veronica",
+      "status": "confirmed",
+      "sourceIds": [
+        "capcom-press-2026-06-08",
+        "steam-store",
+        "capcom-official-product"
+      ],
+      "lastChecked": "2026-06-13",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/",
+        "/story/",
+        "/original-vs-remake/",
+        "/faq/"
+      ]
+    },
+    {
+      "id": "modernized-gameplay",
+      "label": "Gameplay direction",
+      "value": "Modernized gameplay, reimagined storyline and detailed graphics",
+      "status": "confirmed",
+      "sourceIds": [
+        "steam-store",
+        "capcom-press-2026-06-08"
+      ],
+      "lastChecked": "2026-06-13",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/",
+        "/story/",
+        "/original-vs-remake/",
+        "/media/"
       ]
     },
     {
@@ -297,7 +334,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -313,7 +350,7 @@
       "sourceIds": [
         "capcom-press-2026-06-08"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -330,7 +367,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -347,7 +384,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -364,7 +401,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -380,13 +417,44 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
         "/platforms/",
         "/pc-requirements/",
         "/preorder/"
+      ]
+    },
+    {
+      "id": "steam-features",
+      "label": "Steam feature flags",
+      "value": "Single-player, Steam Achievements, captions, HDR and Family Sharing listed",
+      "status": "reported",
+      "sourceIds": [
+        "steam-store"
+      ],
+      "lastChecked": "2026-06-13",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/platforms/",
+        "/pc-requirements/",
+        "/sources/"
+      ]
+    },
+    {
+      "id": "supported-languages",
+      "label": "Steam language listing",
+      "value": "English plus 13 more languages listed on Steam",
+      "status": "reported",
+      "sourceIds": [
+        "steam-store"
+      ],
+      "lastChecked": "2026-06-13",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/platforms/",
+        "/sources/"
       ]
     },
     {
@@ -397,7 +465,7 @@
       "sourceIds": [
         "official-youtube-trailer"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -413,7 +481,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/pc-requirements/",
@@ -429,7 +497,7 @@
         "steam-store",
         "capcom-press-2026-06-08"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/preorder/",
@@ -445,7 +513,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/demo/",
@@ -461,7 +529,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/editions/",
@@ -478,11 +546,27 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
         "/story/"
+      ]
+    },
+    {
+      "id": "story-premise",
+      "label": "Official story premise",
+      "value": "Claire is captured by Umbrella forces and taken to Rockfort Island after searching for Chris",
+      "status": "confirmed",
+      "sourceIds": [
+        "steam-store"
+      ],
+      "lastChecked": "2026-06-13",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/story/",
+        "/characters/",
+        "/faq/"
       ]
     },
     {
@@ -493,7 +577,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-10",
+      "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
       "pages": [
         "/sources/",
@@ -509,7 +593,16 @@
       "reliability": "high",
       "url": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
       "usedFor": "Announcement, 2027 release window, platforms, genre and remake status",
-      "lastChecked": "2026-06-10"
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "capcom-official-product",
+      "name": "Official Resident Evil Veronica site",
+      "type": "official-product",
+      "reliability": "high",
+      "url": "https://www.residentevil.com/veronica/en-us/",
+      "usedFor": "Official product page, remake positioning, official media context and product-site verification",
+      "lastChecked": "2026-06-13"
     },
     {
       "id": "steam-store",
@@ -517,17 +610,17 @@
       "type": "official-store",
       "reliability": "high",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-      "usedFor": "Store page, PC status, developer, publisher, planned release year, story context and system requirements status",
-      "lastChecked": "2026-06-10"
+      "usedFor": "Store page, PC status, developer, publisher, planned release year, story synopsis, Steam features, language support and system requirements status",
+      "lastChecked": "2026-06-13"
     },
     {
       "id": "official-youtube-trailer",
-      "name": "Official BIOHAZARD YouTube trailer",
+      "name": "Official Resident Evil YouTube trailer",
       "type": "official",
       "reliability": "high",
-      "url": "https://www.youtube.com/watch?v=mhzX_E5O7O0",
-      "usedFor": "Announcement trailer",
-      "lastChecked": "2026-06-10"
+      "url": "https://www.youtube.com/watch?v=uxUMXniTfjM",
+      "usedFor": "English announcement trailer and official video verification",
+      "lastChecked": "2026-06-13"
     },
     {
       "id": "veronica-hub-policy",
@@ -665,7 +758,7 @@
   },
   "pcRequirementEstimate": {
     "status": "speculative",
-    "lastReviewed": "2026-06-10",
+    "lastReviewed": "2026-06-13",
     "basis": "Resident Evil Veronica official requirements are TBD on Steam. This estimate compares nearby official Steam requirement listings, used only as RE Engine reference points for this PC page.",
     "warning": "This is not official. Do not treat it as final purchase advice.",
     "sourceIds": [
@@ -770,32 +863,46 @@
     {
       "name": "Claire Redfield",
       "status": "confirmed",
-      "role": "Central protagonist context",
-      "note": "Official context centers Claire after the Raccoon City disaster."
+      "role": "Primary story driver",
+      "note": "Steam places Claire three months after Raccoon City, travelling to France in search of Chris before Umbrella forces capture her."
     },
     {
       "name": "Chris Redfield",
       "status": "referenced",
-      "role": "Story motivation",
-      "note": "Claire searches for Chris in the official story context."
+      "role": "Search motivation",
+      "note": "Chris is part of the official premise because Claire is searching for him; current official material does not yet define his playable role in the remake."
     },
     {
-      "name": "Umbrella forces",
+      "name": "Leon S. Kennedy and Sherry Birkin",
+      "status": "referenced-context",
+      "role": "Raccoon City continuity",
+      "note": "Steam references Claire surviving with Leon and Sherry, which anchors the story after Resident Evil 2 without confirming their remake appearances."
+    },
+    {
+      "name": "Umbrella special forces",
       "status": "confirmed-context",
-      "role": "Antagonistic organization context",
-      "note": "Official context describes Claire being captured by Umbrella special forces."
+      "role": "Antagonistic force",
+      "note": "Steam describes Umbrella special forces capturing Claire and transporting her to a mysterious island."
     },
     {
       "name": "Original-game cast",
       "status": "original-context",
       "role": "Not automatically remake-confirmed",
-      "note": "Original Code: Veronica characters should stay labeled as original context until official remake material confirms them."
+      "note": "Original Code: Veronica characters should stay labeled as original context until official remake material confirms them by name or appearance."
     }
   ],
   "faq": [
     {
       "question": "Is Resident Evil Code Veronica Remake official?",
-      "answer": "Yes. Capcom announced Resident Evil Veronica, a remake of Resident Evil Code: Veronica, with a planned 2027 release window."
+      "answer": "Yes. Capcom announced Resident Evil Veronica for 2027. Official sources describe it as a remake of 2000's Resident Evil Code: Veronica."
+    },
+    {
+      "question": "What has Capcom confirmed about the remake itself?",
+      "answer": "Capcom and Steam describe it as a remake that preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics."
+    },
+    {
+      "question": "Where does the story begin?",
+      "answer": "Steam places the premise three months after the Raccoon City disaster, with Claire searching for Chris before being captured by Umbrella forces and taken to Rockfort Island."
     },
     {
       "question": "What is the exact release date?",
@@ -807,7 +914,7 @@
     },
     {
       "question": "Are PC system requirements confirmed?",
-      "answer": "No. PC is confirmed, but minimum and recommended PC requirements are not officially confirmed yet. Veronica Hub shows a separate speculative estimate based on official Steam requirements from nearby RE Engine games."
+      "answer": "No. Steam lists minimum and recommended system requirements as TBD. PC is confirmed, but exact specs are not official yet."
     },
     {
       "question": "Can I use the estimated PC requirements to buy hardware?",
@@ -918,7 +1025,7 @@
     },
     {
       "id": "trailer-poster",
-      "title": "Official trailer poster",
+      "title": "Official English trailer poster",
       "kind": "trailer-poster",
       "src": "/assets/official/steam/steam-trailer-poster.jpg",
       "alt": "Poster image for the official Resident Evil Veronica announcement trailer",
@@ -1660,6 +1767,20 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-06-13",
+      "type": "Site Update",
+      "title": "Official research pass adds product-page and Steam fact coverage",
+      "summary": "Expanded source coverage with the official Resident Evil Veronica product page, English official trailer, Steam story premise, remake positioning, feature flags and TBD PC requirements.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": [
+        "remake-status",
+        "modernized-gameplay",
+        "story-premise",
+        "steam-features",
+        "supported-languages"
+      ]
+    },
     {
       "date": "2026-06-12",
       "type": "Site Update",
