@@ -42,6 +42,7 @@ const mediaGalleryIds = [
 ];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
+  { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
   { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
   { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
   { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
@@ -347,6 +348,32 @@ function creatorVideosSection() {
     </section>`;
 }
 
+function officialVideosSection({ compact = false } = {}) {
+  const videos = data.officialVideos || [];
+  if (!videos.length) return "";
+  const visibleVideos = compact ? videos.slice(0, 3) : videos;
+  return `
+    <section class="static-section" id="official-videos">
+      <h2>Official Video Library</h2>
+      <p>Verified uploads from Capcom, platform-holder and Summer Game Fest channels.</p>
+      <div class="static-grid">
+        ${visibleVideos.map((video) => {
+          const source = sourceById(video.sourceId);
+          return `<article class="static-card">
+            <p class="eyebrow">${escapeHtml(video.channel || "")} / ${escapeHtml(video.uploadDate || "")}</p>
+            <h3>${escapeHtml(video.title || "")}</h3>
+            <p>${escapeHtml(video.role || "")}</p>
+            <p class="meta">${escapeHtml(video.language || "")} / ${escapeHtml(video.region || "")} / ${escapeHtml(video.duration || "")}</p>
+            <p class="meta">${escapeHtml(video.note || "")}</p>
+            <p class="meta">Source: ${source ? `<a href="${escapeHtml(source.url)}">${escapeHtml(source.name)}</a>` : "Official video"}</p>
+            <p class="meta"><a href="${escapeHtml(video.url || "")}">Open video</a></p>
+          </article>`;
+        }).join("")}
+      </div>
+      ${compact && videos.length > visibleVideos.length ? `<p class="meta"><a href="/trailer/#official-videos">View all official videos</a></p>` : ""}
+    </section>`;
+}
+
 function watchlistSection({ expanded = false } = {}) {
   const watchlist = data.watchlist;
   if (!watchlist) return "";
@@ -373,7 +400,11 @@ function watchlistSection({ expanded = false } = {}) {
 
 function routeSpecific(route) {
   if (route.path === "/media/") {
-    return `${mediaSectionNav()}${mediaGrid(route.path)}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+    return `${mediaSectionNav()}${mediaGrid(route.path)}${officialVideosSection()}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+  }
+
+  if (route.path === "/trailer/") {
+    return officialVideosSection();
   }
 
   if (route.path === "/faq/") {

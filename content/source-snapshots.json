@@ -1,12 +1,12 @@
 {
-  "checkedAt": "2026-06-13T07:26:47.043Z",
+  "checkedAt": "2026-06-13T07:39:41.936Z",
   "policy": "Snapshots detect changes only. Site text is updated after review.",
   "snapshots": [
     {
       "sourceId": "capcom-press-2026-06-08",
       "name": "Capcom press release",
       "url": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
-      "checkedAt": "2026-06-13T07:26:44.219Z",
+      "checkedAt": "2026-06-13T07:39:38.964Z",
       "httpStatus": 200,
       "ok": true,
       "title": "Resident Evil Veronica to Launch in 2027!– Capcom aims to further enhance the IP’s value by remaking a popular title of the series – | Press Release | CAPCOM",
@@ -18,7 +18,7 @@
       "sourceId": "steam-store",
       "name": "Steam store",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
-      "checkedAt": "2026-06-13T07:26:45.454Z",
+      "checkedAt": "2026-06-13T07:39:40.200Z",
       "httpStatus": 200,
       "ok": true,
       "title": "Resident Evil Veronica on Steam",
@@ -30,7 +30,7 @@
       "sourceId": "official-youtube-trailer",
       "name": "Official Resident Evil YouTube trailer",
       "url": "https://www.youtube.com/watch?v=uxUMXniTfjM",
-      "checkedAt": "2026-06-13T07:26:47.043Z",
+      "checkedAt": "2026-06-13T07:39:41.936Z",
       "httpStatus": 200,
       "ok": true,
       "title": "Resident Evil Veronica - Announcement Trailer - YouTube",

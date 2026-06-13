@@ -27,6 +27,7 @@ const mediaGalleryIds = [
 ];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
+  { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
   { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
   { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
   { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
@@ -446,8 +447,38 @@ function TrailerPreview() {
   return (
     <section className="section" id="trailer">
       <div className="container">
-        <SectionHeading kicker="Official video" title="Announcement Trailer">Watch the official BIOHAZARD trailer without leaving the page.</SectionHeading>
+        <SectionHeading kicker="Official video" title="Announcement Trailer">Watch the official Resident Evil announcement trailer without leaving the page.</SectionHeading>
         <OfficialVideoTerminal />
+      </div>
+    </section>
+  );
+}
+
+function OfficialVideoLibrary({ compact = false } = {}) {
+  const videos = siteData.officialVideos || [];
+  if (!videos.length) return null;
+  const visibleVideos = compact ? videos.slice(0, 3) : videos;
+  return (
+    <section className="section tight" id="official-videos">
+      <div className="container">
+        <SectionHeading kicker="Official videos" title="Official Video Library">Verified uploads from Capcom, platform-holder and Summer Game Fest channels.</SectionHeading>
+        <div className="source-grid">
+          {visibleVideos.map((video) => {
+            const source = sourceById(video.sourceId);
+            return (
+              <article className="card source-card" key={video.id}>
+                <span className="eyebrow">{video.channel} / {video.uploadDate}</span>
+                <h3>{video.title}</h3>
+                <p>{video.role}</p>
+                <p className="meta">{video.language} / {video.region} / {video.duration}</p>
+                <p className="meta">{video.note}</p>
+                <p className="meta">Source: {source ? <a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a> : "Official video"}</p>
+                <a className="source-link" href={video.url} target="_blank" rel="noopener noreferrer">Open video</a>
+              </article>
+            );
+          })}
+        </div>
+        {compact && videos.length > visibleVideos.length ? <a className="source-link" href="/trailer/#official-videos">View all official videos</a> : null}
       </div>
     </section>
   );
@@ -778,6 +809,7 @@ function TrailerPage({ routeInfo }) {
           <OfficialVideoTerminal />
         </div>
       </section>
+      <OfficialVideoLibrary />
     </TextPage>
   );
 }
@@ -861,6 +893,7 @@ function MediaPage({ routeInfo }) {
           </div>
         </div>
       </section>
+      <OfficialVideoLibrary />
       {timeline.length > 0 ? (
         <section className="section" id="franchise-timeline">
           <div className="container">

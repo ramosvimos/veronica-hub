@@ -143,6 +143,15 @@ for (const item of data.media) {
   }
 }
 
+for (const video of data.officialVideos || []) {
+  if (!video.id) fail("Official video missing id");
+  if (!video.title) fail(`Official video ${video.id || "unknown"} missing title`);
+  if (!video.url?.startsWith("https://www.youtube.com/watch?v=")) fail(`Official video ${video.id || video.title} has invalid YouTube URL`);
+  if (!data.sources.some((source) => source.id === video.sourceId)) {
+    fail(`Official video ${video.id || video.title} references missing source ${video.sourceId}`);
+  }
+}
+
 for (const route of data.routes.filter((route) => route.path !== "/media/")) {
   const routeMedia = data.media.filter((item) => item.pages.includes(route.path));
   if (!routeMedia.length) fail(`Route ${route.path} has no direct media assignment`);

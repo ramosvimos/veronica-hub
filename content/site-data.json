@@ -72,11 +72,11 @@
       "navLabel": "Trailer",
       "priority": "0.9",
       "changefreq": "daily",
-      "intro": "The trailer page embeds the English official Resident Evil announcement video after user click.",
+      "intro": "The trailer page embeds the English official Resident Evil announcement video and lists verified official mirrors.",
       "body": [
-        "The trailer on this page is the English official announcement video from the Resident Evil YouTube channel. The video loads only after you click the poster so the page stays fast.",
+        "The lead trailer on this page is the English official announcement video from the Resident Evil YouTube channel. The video loads only after you click the poster so the page stays fast.",
         "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence.",
-        "A Japanese BIOHAZARD channel version also exists. Veronica Hub uses the English channel as the primary embed for this English-language site."
+        "The official video library below includes Capcom regional uploads, platform-holder uploads and the Summer Game Fest world-premiere upload. Media-site mirrors are not treated as primary official records."
       ]
     },
     {
@@ -138,7 +138,7 @@
       "changefreq": "weekly",
       "intro": "Official links used for release window, platforms, trailer, store status and media.",
       "body": [
-        "This page collects the official links used across the site, including Capcom announcement material, the official Resident Evil Veronica product page, the Steam store page and the official English announcement trailer.",
+        "This page collects the official links used across the site, including Capcom announcement material, the official Resident Evil Veronica product page, the Steam store page and verified official video uploads.",
         "Capcom sources confirm the announcement, release window, platform set, remake positioning and RE Engine development context. Steam confirms store-specific details including developer, publisher, planned release year, story synopsis, feature flags, language support and TBD PC requirements.",
         "Media interviews, leaks, screenshots without links and retailer placeholders are not treated as confirmed information unless they are backed by an official source."
       ]
@@ -460,10 +460,15 @@
     {
       "id": "official-trailer",
       "label": "Official trailer",
-      "value": "Announcement trailer available",
+      "value": "Announcement trailer available on official Resident Evil, BIOHAZARD, Capcom Europe, PlayStation, Xbox and Summer Game Fest channels",
       "status": "confirmed",
       "sourceIds": [
-        "official-youtube-trailer"
+        "official-youtube-trailer",
+        "official-youtube-biohazard-trailer",
+        "official-capcom-europe-trailer",
+        "official-playstation-trailer",
+        "official-xbox-trailer",
+        "official-sgf-trailer"
       ],
       "lastChecked": "2026-06-13",
       "lastChanged": "2026-06-08",
@@ -620,6 +625,51 @@
       "reliability": "high",
       "url": "https://www.youtube.com/watch?v=uxUMXniTfjM",
       "usedFor": "English announcement trailer and official video verification",
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "official-youtube-biohazard-trailer",
+      "name": "Official BIOHAZARD YouTube trailer",
+      "type": "official-video",
+      "reliability": "high",
+      "url": "https://www.youtube.com/watch?v=mhzX_E5O7O0",
+      "usedFor": "Japanese official announcement trailer mirror and regional video verification",
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "official-capcom-europe-trailer",
+      "name": "Official Capcom Europe trailer",
+      "type": "official-video",
+      "reliability": "high",
+      "url": "https://www.youtube.com/watch?v=v2tsDUA8iWs",
+      "usedFor": "European Capcom announcement trailer upload and regional video verification",
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "official-playstation-trailer",
+      "name": "PlayStation official trailer",
+      "type": "official-platform-video",
+      "reliability": "high",
+      "url": "https://www.youtube.com/watch?v=S4msqGQxSAg",
+      "usedFor": "Official PlayStation platform-holder announcement trailer upload",
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "official-xbox-trailer",
+      "name": "Xbox official trailer",
+      "type": "official-platform-video",
+      "reliability": "high",
+      "url": "https://www.youtube.com/watch?v=GmtuQF8R5n0",
+      "usedFor": "Official Xbox platform-holder announcement trailer upload",
+      "lastChecked": "2026-06-13"
+    },
+    {
+      "id": "official-sgf-trailer",
+      "name": "Summer Game Fest world-premiere trailer",
+      "type": "official-event-video",
+      "reliability": "high",
+      "url": "https://www.youtube.com/watch?v=-JNv2CwmoRA",
+      "usedFor": "Summer Game Fest 2026 world-premiere trailer upload",
       "lastChecked": "2026-06-13"
     },
     {
@@ -1119,6 +1169,92 @@
         "/story/",
         "/media/"
       ]
+    }
+  ],
+  "officialVideos": [
+    {
+      "id": "resident-evil-announcement-trailer",
+      "title": "Resident Evil Veronica - Announcement Trailer",
+      "channel": "Resident Evil",
+      "sourceId": "official-youtube-trailer",
+      "url": "https://www.youtube.com/watch?v=uxUMXniTfjM",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/uxUMXniTfjM?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-05",
+      "duration": "4:00",
+      "language": "English",
+      "region": "Global / English",
+      "role": "Primary official English upload",
+      "note": "Use this as the main embed for the English-language site."
+    },
+    {
+      "id": "biohazard-announcement-trailer",
+      "title": "BIOHAZARD RE:Veronica Announcement Trailer",
+      "channel": "BIOHAZARD",
+      "sourceId": "official-youtube-biohazard-trailer",
+      "url": "https://www.youtube.com/watch?v=mhzX_E5O7O0",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/mhzX_E5O7O0?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-05",
+      "duration": "4:00",
+      "language": "Japanese",
+      "region": "Japan",
+      "role": "Japanese official upload",
+      "note": "Useful for checking the Japanese BIOHAZARD branding and regional trailer copy."
+    },
+    {
+      "id": "capcom-europe-announcement-trailer",
+      "title": "Resident Evil Veronica - Announcement Trailer",
+      "channel": "Official Capcom Europe",
+      "sourceId": "official-capcom-europe-trailer",
+      "url": "https://www.youtube.com/watch?v=v2tsDUA8iWs",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/v2tsDUA8iWs?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-05",
+      "duration": "3:58",
+      "language": "English",
+      "region": "Europe",
+      "role": "Regional Capcom upload",
+      "note": "Official Capcom Europe mirror for regional trailer availability."
+    },
+    {
+      "id": "playstation-announcement-trailer",
+      "title": "Resident Evil Veronica - Announcement Trailer | PS5 Games",
+      "channel": "PlayStation",
+      "sourceId": "official-playstation-trailer",
+      "url": "https://www.youtube.com/watch?v=S4msqGQxSAg",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/S4msqGQxSAg?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-06",
+      "duration": "4:02",
+      "language": "English",
+      "region": "Platform holder",
+      "role": "Official PlayStation upload",
+      "note": "Platform-holder mirror confirming the PS5-facing trailer upload."
+    },
+    {
+      "id": "xbox-announcement-trailer",
+      "title": "Resident Evil Veronica - Announcement Trailer",
+      "channel": "Xbox",
+      "sourceId": "official-xbox-trailer",
+      "url": "https://www.youtube.com/watch?v=GmtuQF8R5n0",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/GmtuQF8R5n0?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-06",
+      "duration": "4:02",
+      "language": "English",
+      "region": "Platform holder",
+      "role": "Official Xbox upload",
+      "note": "Platform-holder mirror confirming the Xbox-facing trailer upload."
+    },
+    {
+      "id": "summer-game-fest-world-premiere",
+      "title": "Resident Evil Veronica World Premiere Trailer | Summer Game Fest 2026",
+      "channel": "Summer Game Fest / thegameawards",
+      "sourceId": "official-sgf-trailer",
+      "url": "https://www.youtube.com/watch?v=-JNv2CwmoRA",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/-JNv2CwmoRA?rel=0&modestbranding=1",
+      "uploadDate": "2026-06-05",
+      "duration": "3:40",
+      "language": "English",
+      "region": "Event",
+      "role": "World-premiere event upload",
+      "note": "Official Summer Game Fest record of the reveal moment; duration differs from channel mirrors."
     }
   ],
   "referenceGames": [
@@ -1767,6 +1903,16 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-06-13",
+      "type": "Site Update",
+      "title": "Official video library added",
+      "summary": "Added verified official Resident Evil Veronica video uploads from Resident Evil, BIOHAZARD, Official Capcom Europe, PlayStation, Xbox and Summer Game Fest.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": [
+        "official-trailer"
+      ]
+    },
     {
       "date": "2026-06-13",
       "type": "Site Update",
