@@ -233,8 +233,8 @@ function Header({ onSearch, onMenu }) {
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
-          <button className="utility-button small" type="button" onClick={onSearch}>Find</button>
-          <button className="utility-button small" type="button" onClick={onMenu}>Menu</button>
+          <button className="utility-button small find-action" type="button" onClick={onSearch}>Find</button>
+          <button className="utility-button small menu-action" type="button" onClick={onMenu}>Menu</button>
         </div>
       </div>
     </header>

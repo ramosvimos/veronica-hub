@@ -1322,6 +1322,10 @@ input:focus-visible {
     display: none;
   }
 
+  .top-actions .menu-action {
+    display: inline-flex;
+  }
+
   .hero {
     min-height: auto;
     padding: 44px 0 42px;
