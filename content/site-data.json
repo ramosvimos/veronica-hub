@@ -2,7 +2,7 @@
   "site": {
     "name": "Veronica Hub",
     "origin": "https://residentevilveronica.com",
-    "lastVerified": "2026-06-13",
+    "lastVerified": "2026-06-22",
     "tagline": "Resident Evil Veronica source-backed official update tracker",
     "disclaimer": "Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.",
     "noPiracy": "Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads."
@@ -28,7 +28,8 @@
       "body": [
         "Capcom has announced Resident Evil Veronica for 2027. Official sources identify it as a remake of 2000's Resident Evil Code: Veronica, developed with a reimagined story, modernized gameplay and detailed graphics.",
         "The confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Steam lists the PC page as live, with the planned release year set to 2027 and system requirements still marked TBD.",
-        "This site separates official facts from unknown details. Release date, preorder timing, demo availability, editions, PC requirements and new media are updated only when Capcom, Steam or another official platform source changes."
+        "A June 2026 producer interview and media Q&A added reported development context: the remake is described as third-person, the shortened Veronica title is meant to communicate main-series importance, and the team includes developers from the Resident Evil 2 and Resident Evil 4 remakes.",
+        "This site separates official facts from reported context and unknown details. Release date, preorder timing, demo availability, editions, PC requirements and new media are updated only when Capcom, Steam or another official platform source changes."
       ]
     },
     {
@@ -75,7 +76,7 @@
       "intro": "The trailer page embeds the English official Resident Evil announcement video and lists verified official mirrors.",
       "body": [
         "The lead trailer on this page is the English official announcement video from the Resident Evil YouTube channel. The video loads only after you click the poster so the page stays fast.",
-        "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence.",
+        "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence. Media Q&A reports say producer Yoshiaki Hirabayashi described the remake as a third-person game, so the first-person-looking trailer section should not be treated as a confirmed first-person mode.",
         "The official video library below includes Capcom regional uploads, platform-holder uploads and the Summer Game Fest world-premiere upload. Media-site mirrors are not treated as primary official records."
       ]
     },
@@ -92,6 +93,7 @@
       "body": [
         "Steam places the story three months after the biological disaster in Raccoon City. Claire Redfield travels to France in search of Chris Redfield after surviving with Leon S. Kennedy and Sherry Birkin.",
         "The official store synopsis says Claire is captured by Umbrella special forces and taken to Rockfort Island, which is transformed by another biological disaster into a survival-horror setting.",
+        "A producer interview frames the remake as a chance to continue Claire's post-Raccoon City story and explore more of her character motivation, but exact scene changes remain undisclosed.",
         "The original Code: Veronica remains useful context, but the remake is officially described as a reimagined storyline. This page avoids treating every original scene, puzzle, enemy or character beat as remake-confirmed."
       ]
     },
@@ -140,7 +142,7 @@
       "body": [
         "This page collects the official links used across the site, including Capcom announcement material, the official Resident Evil Veronica product page, the Steam store page and verified official video uploads.",
         "Capcom sources confirm the announcement, release window, platform set, remake positioning and RE Engine development context. Steam confirms store-specific details including developer, publisher, planned release year, story synopsis, feature flags, language support and TBD PC requirements.",
-        "Media interviews, leaks, screenshots without links and retailer placeholders are not treated as confirmed information unless they are backed by an official source."
+        "Media interviews and Q&A reports are now tracked separately as reported context, useful for producer comments about camera direction, naming and development-team background. Leaks, screenshots without links and retailer placeholders are not treated as confirmed information unless they are backed by an official source."
       ]
     },
     {
@@ -220,6 +222,8 @@
       "intro": "A careful comparison between official remake material and original-game context.",
       "body": [
         "Resident Evil Veronica is officially described as a remake of 2000's Resident Evil Code: Veronica. Steam says it preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics.",
+        "A June 2026 producer interview says Capcom views Code Veronica as important as a numbered Resident Evil entry and chose the shorter Veronica title to align with recent mainline subtitle conventions.",
+        "The same interview reports continuity with the Resident Evil 2 and Resident Evil 4 remake team, while media Q&A coverage reports that the new game is third-person. Those details help compare direction, but they do not reveal puzzle design, campaign structure or exact combat systems.",
         "The original game is useful context for Claire Redfield, Rockfort Island, Umbrella and the wider Resident Evil timeline, but remake status should come from current official material.",
         "This comparison is meant to help returning fans and new players understand what is officially stated now, what comes from the original game, and what remains unknown."
       ]
@@ -362,6 +366,74 @@
       ]
     },
     {
+      "id": "camera-perspective",
+      "label": "Camera perspective",
+      "value": "Producer interview and Q&A coverage describe Resident Evil Veronica as a third-person game",
+      "status": "reported",
+      "sourceIds": [
+        "vgc-producer-interview-2026-06-10",
+        "gamesradar-producer-qa-2026-06-10"
+      ],
+      "lastChecked": "2026-06-22",
+      "lastChanged": "2026-06-10",
+      "pages": [
+        "/",
+        "/trailer/",
+        "/original-vs-remake/",
+        "/faq/"
+      ]
+    },
+    {
+      "id": "title-rationale",
+      "label": "Title rationale",
+      "value": "Producer interview says the Veronica title is meant to communicate Code Veronica's main-series importance",
+      "status": "reported",
+      "sourceIds": [
+        "vgc-producer-interview-2026-06-10",
+        "gamesradar-producer-qa-2026-06-10"
+      ],
+      "lastChecked": "2026-06-22",
+      "lastChanged": "2026-06-10",
+      "pages": [
+        "/",
+        "/sources/",
+        "/original-vs-remake/",
+        "/faq/"
+      ]
+    },
+    {
+      "id": "remake-team-context",
+      "label": "Remake team context",
+      "value": "Producer interview reports development-team continuity with the Resident Evil 2 and Resident Evil 4 remakes",
+      "status": "reported",
+      "sourceIds": [
+        "vgc-producer-interview-2026-06-10"
+      ],
+      "lastChecked": "2026-06-22",
+      "lastChanged": "2026-06-10",
+      "pages": [
+        "/",
+        "/sources/",
+        "/original-vs-remake/"
+      ]
+    },
+    {
+      "id": "claire-character-depth",
+      "label": "Claire story focus",
+      "value": "Producer interview frames the remake as a chance to explore more of Claire after Raccoon City",
+      "status": "reported",
+      "sourceIds": [
+        "vgc-producer-interview-2026-06-10"
+      ],
+      "lastChecked": "2026-06-22",
+      "lastChanged": "2026-06-10",
+      "pages": [
+        "/story/",
+        "/characters/",
+        "/original-vs-remake/"
+      ]
+    },
+    {
       "id": "search-alias",
       "label": "Common search name",
       "value": "Resident Evil Code Veronica Remake",
@@ -418,9 +490,10 @@
       "status": "unknown",
       "sourceIds": [
         "capcom-press-2026-06-08",
-        "steam-store"
+        "steam-store",
+        "gamesradar-producer-qa-2026-06-10"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-06-22",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -642,7 +715,7 @@
       "reliability": "high",
       "url": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
       "usedFor": "Announcement, 2027 release window, platforms, genre and remake status",
-      "lastChecked": "2026-06-13"
+      "lastChecked": "2026-06-22"
     },
     {
       "id": "capcom-official-product",
@@ -660,7 +733,25 @@
       "reliability": "high",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
       "usedFor": "Store page, PC status, developer, publisher, planned release year, story synopsis, Steam features, language support and system requirements status",
-      "lastChecked": "2026-06-13"
+      "lastChecked": "2026-06-22"
+    },
+    {
+      "id": "vgc-producer-interview-2026-06-10",
+      "name": "VGC producer interview",
+      "type": "media-interview",
+      "reliability": "medium-high",
+      "url": "https://www.videogameschronicle.com/features/resident-evil-veronica-producer-explains-why-it-deserves-a-remake-and-is-just-as-important-as-numbered-entries/",
+      "usedFor": "Reported producer comments on title rationale, main-series importance, third-person direction, remake-team continuity and Claire story focus",
+      "lastChecked": "2026-06-22"
+    },
+    {
+      "id": "gamesradar-producer-qa-2026-06-10",
+      "name": "GamesRadar producer Q&A report",
+      "type": "media-qa-report",
+      "reliability": "medium",
+      "url": "https://www.gamesradar.com/games/resident-evil/resident-evil-veronicas-first-person-trailer-was-a-deliberate-misdirect-capcom-producer-confirms-the-horror-game-is-fully-third-person/",
+      "usedFor": "Reported Q&A context on third-person gameplay, trailer perspective, REV acronym and lack of an exact date inside the 2027 window",
+      "lastChecked": "2026-06-22"
     },
     {
       "id": "official-youtube-trailer",
@@ -993,6 +1084,14 @@
     {
       "question": "What has Capcom confirmed about the remake itself?",
       "answer": "Capcom and Steam describe it as a remake that preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics."
+    },
+    {
+      "question": "Is Resident Evil Veronica first-person or third-person?",
+      "answer": "The official trailer includes first-person-looking footage, but producer interview and media Q&A coverage describe the remake as a third-person game. Treat this as reported producer context until Capcom publishes a full gameplay breakdown."
+    },
+    {
+      "question": "Why is it called Resident Evil Veronica instead of Code Veronica?",
+      "answer": "A producer interview says the team still respects the Code Veronica name, but shortened the remake title to communicate that this story is important like a numbered Resident Evil entry and to align with recent one-word subtitle conventions."
     },
     {
       "question": "Where does the story begin?",
@@ -1964,6 +2063,20 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-06-22",
+      "type": "Source Review",
+      "title": "Producer interview details added",
+      "summary": "Added reported producer-interview and media Q&A details covering third-person camera direction, title rationale, remake-team context, Claire story focus and the continued lack of an exact release date.",
+      "sourceId": "vgc-producer-interview-2026-06-10",
+      "affectedClaims": [
+        "camera-perspective",
+        "title-rationale",
+        "remake-team-context",
+        "claire-character-depth",
+        "exact-release-date"
+      ]
+    },
     {
       "date": "2026-06-13",
       "type": "Site Update",

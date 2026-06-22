@@ -6,7 +6,15 @@
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Resident Evil Veronica source-backed official update tracker official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Producer interview details added</title>
+      <link>https://residentevilveronica.com/changelog/#2026-06-22-producer-interview-details-added</link>
+      <guid isPermaLink="false">veronica-hub:2026-06-22-producer-interview-details-added</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Added reported producer-interview and media Q&amp;A details covering third-person camera direction, title rationale, remake-team context, Claire story focus and the continued lack of an exact release date. Reference: VGC producer interview (https://www.videogameschronicle.com/features/resident-evil-veronica-producer-explains-why-it-deserves-a-remake-and-is-just-as-important-as-numbered-entries/).</description>
+    </item>
     <item>
       <title>Official video library added</title>
       <link>https://residentevilveronica.com/changelog/#2026-06-13-official-video-library-added</link>
