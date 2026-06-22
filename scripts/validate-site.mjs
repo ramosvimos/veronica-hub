@@ -93,6 +93,14 @@ const watchlistHtml = read(routeOutputPath("/watchlist/"));
 if (!watchlistHtml.includes("Follow official Veronica updates")) fail("Watchlist page missing main watchlist copy");
 if (!watchlistHtml.includes("/feed.xml")) fail("Watchlist page missing RSS link");
 
+const screenshotsHtml = read(routeOutputPath("/screenshots/"));
+if (!screenshotsHtml.includes("Screenshot Source Rules")) fail("Screenshots page missing source rules section");
+if (!screenshotsHtml.includes("official-screenshot")) fail("Screenshots page missing official screenshot media");
+
+const steamHtml = read(routeOutputPath("/steam/"));
+if (!steamHtml.includes("Steam Status")) fail("Steam page missing status section");
+if (!steamHtml.includes("Wishlist access is live")) fail("Steam page missing wishlist status");
+
 const sitemap = read(path.join(root, "sitemap.xml"));
 for (const route of data.routes) {
   if (!sitemap.includes(`${data.site.origin}${route.path}`)) fail(`Sitemap missing ${route.path}`);
@@ -181,7 +189,7 @@ for (const item of data.sourceMonitoring?.sources || []) {
   }
 }
 
-if (data.routes.length !== 16) fail(`Expected 16 routes, found ${data.routes.length}`);
+if (data.routes.length !== 18) fail(`Expected 18 routes, found ${data.routes.length}`);
 if (data.claims.length < 12) fail(`Expected at least 12 claims, found ${data.claims.length}`);
 if (data.media.length < 11) fail(`Expected at least 11 media records, found ${data.media.length}`);
 

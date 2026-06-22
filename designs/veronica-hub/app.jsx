@@ -4,8 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import siteData from "../../content/site-data.json";
 
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
-const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/changelog/", "/faq/"];
-const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/faq/", "/changelog/"];
+const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/changelog/", "/faq/"];
+const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
@@ -47,6 +47,8 @@ const routeHeroMediaIds = {
   "/editions/": "capcom-ogp",
   "/original-vs-remake/": "screenshot-05",
   "/media/": "capcom-portrait",
+  "/screenshots/": "screenshot-01",
+  "/steam/": "steam-header",
   "/changelog/": "capcom-site",
   "/watchlist/": "capcom-site"
 };
@@ -113,7 +115,9 @@ function mediaForGallery() {
 }
 
 function mediaForPage(path, limit = 6) {
-  const media = path === "/media/" ? mediaForGallery() : siteData.media.filter((item) => item.pages.includes(path));
+  const media = path === "/media/"
+    ? mediaForGallery()
+    : siteData.media.filter((item) => item.pages.includes(path) && (path !== "/screenshots/" || item.kind.includes("screenshot")));
   return media.slice(0, limit);
 }
 
@@ -310,7 +314,7 @@ function SectionHeading({ kicker, title, children }) {
 }
 
 function RouteCards() {
-  const cards = ["/release-date/", "/platforms/", "/trailer/", "/pc-requirements/", "/preorder/", "/demo/", "/characters/", "/media/", "/changelog/", "/watchlist/"];
+  const cards = ["/release-date/", "/platforms/", "/trailer/", "/pc-requirements/", "/preorder/", "/demo/", "/characters/", "/screenshots/", "/steam/", "/media/", "/changelog/", "/watchlist/"];
   return (
     <section className="section tight" id="answers">
       <div className="container">
@@ -695,8 +699,62 @@ function PcEstimateSection() {
   );
 }
 
+function ScreenshotSourceSection() {
+  const screenshots = siteData.media.filter((item) => item.pages.includes("/screenshots/") && item.kind.includes("screenshot"));
+  return (
+    <section className="section tight">
+      <div className="container">
+        <SectionHeading kicker="Official gallery" title="Screenshot Source Rules">This page is limited to official remake media from Steam and Capcom-linked sources.</SectionHeading>
+        <div className="source-grid">
+          <article className="card source-card">
+            <span className="eyebrow">Official screenshots</span>
+            <h3>{screenshots.length} images tracked</h3>
+            <p>Fan edits, leaked images and original-game captures are not included in the remake screenshot gallery.</p>
+          </article>
+          <article className="card source-card">
+            <span className="eyebrow">Update policy</span>
+            <h3>New images need a source change</h3>
+            <p>New screenshots are added only when an official store page, Capcom page or verified official channel publishes new media.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SteamStatusSection() {
+  const source = sourceById("steam-store");
+  return (
+    <section className="section tight">
+      <div className="container">
+        <SectionHeading kicker="Steam tracker" title="Store Status">Wishlist access is live, but preorder, price and PC requirements are still not final.</SectionHeading>
+        <div className="source-grid">
+          <article className="card source-card">
+            <span className="eyebrow">Store page</span>
+            <h3>Wishlist access is live</h3>
+            <p>The official Steam page confirms PC store presence and wishlist access for Resident Evil Veronica.</p>
+            {source ? <a className="source-link" href={source.url} target="_blank" rel="noopener noreferrer">Open Steam page</a> : null}
+          </article>
+          <article className="card source-card">
+            <span className="eyebrow">PC requirements</span>
+            <h3>Minimum and recommended specs are TBD</h3>
+            <p>Steam currently lists Resident Evil Veronica PC system requirements as TBD, so upgrade guidance remains clearly labeled as an estimate.</p>
+            <a className="source-link" href="/pc-requirements/">View PC status</a>
+          </article>
+          <article className="card source-card">
+            <span className="eyebrow">Purchase status</span>
+            <h3>Wishlist is not preorder</h3>
+            <p>Price, preorder timing, editions and bonuses remain unknown until Steam or Capcom publishes those details.</p>
+            <a className="source-link" href="/preorder/">View preorder status</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContextMedia({ path }) {
-  const media = mediaForPage(path, path === "/media/" ? 30 : 6);
+  const media = mediaForPage(path, path === "/media/" || path === "/screenshots/" ? 30 : 6);
   if (!media.length || path === "/media/") return null;
   return (
     <section className="section">
@@ -1054,6 +1112,8 @@ function PageSwitch({ path }) {
   if (path === "/faq/") return <FaqPage routeInfo={routeInfo} />;
   if (path === "/sources/") return <SourcesPage routeInfo={routeInfo} />;
   if (path === "/media/") return <MediaPage routeInfo={routeInfo} />;
+  if (path === "/screenshots/") return <TextPage routeInfo={routeInfo}><ScreenshotSourceSection /></TextPage>;
+  if (path === "/steam/") return <TextPage routeInfo={routeInfo}><SteamStatusSection /></TextPage>;
   if (path === "/changelog/") return <ChangelogPage routeInfo={routeInfo} />;
   if (path === "/watchlist/") return <WatchlistPage routeInfo={routeInfo} />;
   return <TextPage routeInfo={routeInfo} />;

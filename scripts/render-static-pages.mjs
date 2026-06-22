@@ -7,7 +7,7 @@ const bundlePath = "/designs/veronica-hub/app.bundle.js";
 const stylesheetPath = "/styles/site.css";
 const adsenseClient = "ca-pub-2875158540739129";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
-const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/faq/", "/changelog/"];
+const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -17,6 +17,8 @@ const articleRoutes = new Set([
   "/demo/",
   "/editions/",
   "/original-vs-remake/",
+  "/screenshots/",
+  "/steam/",
   "/story/",
   "/characters/",
   "/sources/",
@@ -88,6 +90,7 @@ function sortedTimeline(items = []) {
 
 function routeMedia(routePath) {
   const media = data.media.filter((item) => item.pages.includes(routePath));
+  if (routePath === "/screenshots/") return media.filter((item) => item.kind.includes("screenshot"));
   if (routePath !== "/media/") return media;
   const mediaById = new Map(media.filter((item) => item?.id).map((item) => [item.id, item]));
   return mediaGalleryIds
@@ -215,7 +218,7 @@ function claimCards(routePath) {
 
 function mediaGrid(routePath) {
   const media = routeMedia(routePath);
-  const visibleMedia = routePath === "/media/" ? media : media.slice(0, 6);
+  const visibleMedia = routePath === "/media/" || routePath === "/screenshots/" ? media : media.slice(0, 6);
   if (!visibleMedia.length) return "";
   return `
     <section class="static-section" id="${routePath === "/media/" ? "official-gallery" : "official-media"}">
@@ -398,9 +401,65 @@ function watchlistSection({ expanded = false } = {}) {
     </section>`;
 }
 
+function screenshotSourceSection() {
+  const screenshots = data.media.filter((item) => item.pages.includes("/screenshots/") && item.kind.includes("screenshot"));
+  return `
+    <section class="static-section">
+      <h2>Screenshot Source Rules</h2>
+      <div class="static-grid">
+        <article class="static-card">
+          <p class="eyebrow">Official gallery</p>
+          <h3>${screenshots.length} official screenshots tracked</h3>
+          <p>Images on this page come from Steam or Capcom-linked official material. Fan edits, leaked images and original-game captures are not included in the remake screenshot gallery.</p>
+        </article>
+        <article class="static-card">
+          <p class="eyebrow">Update policy</p>
+          <h3>New images need a source change</h3>
+          <p>New screenshots are added only when an official store page, Capcom page or verified official channel publishes new media.</p>
+        </article>
+      </div>
+    </section>`;
+}
+
+function steamStatusSection() {
+  const source = sourceById("steam-store");
+  return `
+    <section class="static-section">
+      <h2>Steam Status</h2>
+      <div class="static-grid">
+        <article class="static-card">
+          <p class="eyebrow">Store page</p>
+          <h3>Wishlist access is live</h3>
+          <p>The official Steam page is live for Resident Evil Veronica, which confirms PC store presence and wishlist access.</p>
+          ${source ? `<a class="source-link" href="${escapeHtml(source.url)}">Open Steam page</a>` : ""}
+        </article>
+        <article class="static-card">
+          <p class="eyebrow">PC requirements</p>
+          <h3>Minimum and recommended specs are TBD</h3>
+          <p>Steam currently lists Resident Evil Veronica PC system requirements as TBD, so upgrade guidance should remain clearly labeled as an estimate.</p>
+          <a class="source-link" href="/pc-requirements/">View PC status</a>
+        </article>
+        <article class="static-card">
+          <p class="eyebrow">Purchase status</p>
+          <h3>Wishlist is not preorder</h3>
+          <p>Price, preorder timing, editions and bonuses remain unknown until Steam or Capcom publishes those details.</p>
+          <a class="source-link" href="/preorder/">View preorder status</a>
+        </article>
+      </div>
+    </section>`;
+}
+
 function routeSpecific(route) {
   if (route.path === "/media/") {
     return `${mediaSectionNav()}${mediaGrid(route.path)}${officialVideosSection()}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+  }
+
+  if (route.path === "/screenshots/") {
+    return screenshotSourceSection();
+  }
+
+  if (route.path === "/steam/") {
+    return steamStatusSection();
   }
 
   if (route.path === "/trailer/") {
@@ -617,7 +676,7 @@ function faqSchema(route) {
 }
 
 function mediaSchema(route) {
-  if (route.path !== "/media/") return null;
+  if (route.path !== "/media/" && route.path !== "/screenshots/") return null;
   const media = routeMedia(route.path);
   return {
     "@context": "https://schema.org",

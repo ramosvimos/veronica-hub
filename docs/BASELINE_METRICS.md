@@ -34,7 +34,7 @@
 
 | Metric | Value | Notes |
 | --- | ---: | --- |
-| Indexed pages | 0 | Target: 12 or more if all 15 routes are submitted |
+| Indexed pages | 0 | Target: 14 or more if all 18 routes are submitted |
 | Search impressions | 0 | Directional baseline |
 | Search clicks | 0 | Directional baseline |
 | Average CTR | 0% | Target: 3% or higher on high-intent pages |

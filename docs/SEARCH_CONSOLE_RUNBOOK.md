@@ -33,6 +33,8 @@ Inspect these URLs after deployment:
 - https://residentevilveronica.com/demo/
 - https://residentevilveronica.com/editions/
 - https://residentevilveronica.com/media/
+- https://residentevilveronica.com/screenshots/
+- https://residentevilveronica.com/steam/
 - https://residentevilveronica.com/changelog/
 
 ## First Submission Checklist

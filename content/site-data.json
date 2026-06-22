@@ -241,6 +241,38 @@
       ]
     },
     {
+      "path": "/screenshots/",
+      "title": "Resident Evil Veronica Screenshots: Official Remake Image Gallery",
+      "description": "Browse official Resident Evil Veronica screenshots from Steam and Capcom with source labels, alt text and update status.",
+      "h1": "Resident Evil Veronica Screenshots",
+      "section": "screenshots",
+      "navLabel": "Screenshots",
+      "priority": "0.8",
+      "changefreq": "weekly",
+      "intro": "Official remake screenshots and store images, separated from speculation and fan media.",
+      "body": [
+        "This screenshot page focuses on official Resident Evil Veronica remake images from Steam and Capcom sources.",
+        "Each image keeps its source label so visitors can tell the difference between official screenshots, store art, trailer art and wider media context.",
+        "Fan edits, leaked images, emulator captures and original-game screenshots are not mixed into this gallery. New screenshots are added only after an official source publishes them."
+      ]
+    },
+    {
+      "path": "/steam/",
+      "title": "Resident Evil Veronica Steam Page: Wishlist, PC Status and Requirements",
+      "description": "Track the official Resident Evil Veronica Steam page, wishlist status, planned 2027 release year and TBD PC requirements.",
+      "h1": "Resident Evil Veronica Steam Page",
+      "section": "steam",
+      "navLabel": "Steam",
+      "priority": "0.8",
+      "changefreq": "daily",
+      "intro": "The official Steam page is live with wishlist access, a planned 2027 release year and PC requirements still marked TBD.",
+      "body": [
+        "Resident Evil Veronica has an official Steam store page for PC players. The page lists CAPCOM Co., Ltd. as developer and publisher and provides wishlist access.",
+        "Steam currently shows a planned 2027 release year and keeps minimum and recommended PC system requirements as TBD.",
+        "Wishlist access is not the same as preorder availability. Price, editions, preorder bonuses and exact release date should stay unknown until Steam or Capcom publishes those details."
+      ]
+    },
+    {
       "path": "/changelog/",
       "title": "Resident Evil Veronica Changelog: Source and Site Updates",
       "description": "Track dated Resident Evil Veronica source reviews, page updates and official information changes.",
@@ -287,7 +319,8 @@
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
-        "/sources/"
+        "/sources/",
+        "/steam/"
       ]
     },
     {
@@ -324,6 +357,7 @@
         "/",
         "/story/",
         "/original-vs-remake/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -373,6 +407,7 @@
       "pages": [
         "/",
         "/release-date/",
+        "/steam/",
         "/faq/"
       ]
     },
@@ -407,6 +442,7 @@
       "pages": [
         "/",
         "/platforms/",
+        "/steam/",
         "/faq/"
       ]
     },
@@ -424,7 +460,8 @@
         "/",
         "/platforms/",
         "/pc-requirements/",
-        "/preorder/"
+        "/preorder/",
+        "/steam/"
       ]
     },
     {
@@ -440,7 +477,8 @@
       "pages": [
         "/platforms/",
         "/pc-requirements/",
-        "/sources/"
+        "/sources/",
+        "/steam/"
       ]
     },
     {
@@ -455,7 +493,8 @@
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/",
-        "/sources/"
+        "/sources/",
+        "/steam/"
       ]
     },
     {
@@ -476,6 +515,7 @@
       "pages": [
         "/",
         "/trailer/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -491,6 +531,7 @@
       "lastChanged": "2026-06-08",
       "pages": [
         "/pc-requirements/",
+        "/steam/",
         "/faq/"
       ]
     },
@@ -507,6 +548,7 @@
       "lastChanged": "2026-06-08",
       "pages": [
         "/preorder/",
+        "/steam/",
         "/faq/"
       ]
     },
@@ -540,7 +582,8 @@
       "pages": [
         "/editions/",
         "/faq/",
-        "/preorder/"
+        "/preorder/",
+        "/steam/"
       ]
     },
     {
@@ -994,6 +1037,7 @@
       "sourceId": "capcom-press-2026-06-08",
       "pages": [
         "/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1007,6 +1051,7 @@
       "pages": [
         "/release-date/",
         "/media/",
+        "/screenshots/",
         "/sources/"
       ]
     },
@@ -1020,6 +1065,7 @@
       "pages": [
         "/editions/",
         "/faq/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1033,6 +1079,7 @@
       "pages": [
         "/changelog/",
         "/media/",
+        "/screenshots/",
         "/sources/",
         "/watchlist/"
       ]
@@ -1046,6 +1093,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/preorder/",
+        "/steam/",
         "/media/"
       ]
     },
@@ -1058,6 +1106,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/platforms/",
+        "/steam/",
         "/media/"
       ]
     },
@@ -1071,6 +1120,8 @@
       "pages": [
         "/",
         "/story/",
+        "/steam/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1083,6 +1134,7 @@
       "sourceId": "official-youtube-trailer",
       "pages": [
         "/trailer/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1095,6 +1147,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/characters/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1107,6 +1160,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/story/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1120,6 +1174,7 @@
       "pages": [
         "/demo/",
         "/trailer/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1132,6 +1187,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/story/",
+        "/screenshots/",
         "/media/"
       ]
     },
@@ -1144,6 +1200,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/media/",
+        "/screenshots/",
         "/original-vs-remake/"
       ]
     },
@@ -1156,6 +1213,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/media/",
+        "/screenshots/",
         "/pc-requirements/"
       ]
     },
@@ -1168,6 +1226,7 @@
       "sourceId": "steam-store",
       "pages": [
         "/story/",
+        "/screenshots/",
         "/media/"
       ]
     }
@@ -1873,6 +1932,7 @@
       "/demo/",
       "/preorder/",
       "/pc-requirements/",
+      "/steam/",
       "/changelog/",
       "/watchlist/"
     ]
