@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Editorial store capsule cover</title>
+  <desc id="desc">A dark capsule-shaped store display with red scanlines and cyan edge light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#030607"/>
+      <stop offset=".5" stop-color="#3a090f"/>
+      <stop offset="1" stop-color="#050304"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e22a3a" stop-opacity=".8"/>
+      <stop offset=".48" stop-color="#15191b" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#72f0ff" stop-opacity=".34"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="102" y="116" width="596" height="268" rx="34" fill="url(#glass)" stroke="#fff" stroke-opacity=".1"/>
+  <rect x="132" y="146" width="536" height="208" rx="18" fill="#050606" opacity=".68"/>
+  <g stroke="#e72537" stroke-width="3" opacity=".32">
+    <path d="M132 185h536M132 224h536M132 263h536M132 302h536"/>
+  </g>
+  <path d="M159 167c72 30 122 67 150 116 24 42 70 56 142 52" fill="none" stroke="#76e9f4" stroke-width="9" stroke-opacity=".4"/>
+  <path d="M510 130l62 239" stroke="#fff" stroke-opacity=".13" stroke-width="24"/>
+  <rect x="0" y="0" width="800" height="500" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+</svg>

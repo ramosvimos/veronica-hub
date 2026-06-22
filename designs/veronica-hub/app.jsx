@@ -44,6 +44,36 @@ const mediaAssetIds = [
   "capcom-ogp",
   "steam-page-bg"
 ];
+const editorialAssetCovers = {
+  "capcom-portrait": {
+    src: "/assets/editorial/veronica-archive-island.svg",
+    alt: "Editorial archive cover showing a dark island shoreline"
+  },
+  "capcom-title": {
+    src: "/assets/editorial/veronica-archive-title.svg",
+    alt: "Editorial archive cover showing a red evidence desk"
+  },
+  "capcom-site": {
+    src: "/assets/editorial/veronica-archive-dossier.svg",
+    alt: "Editorial archive cover showing a source dossier board"
+  },
+  "steam-capsule": {
+    src: "/assets/editorial/veronica-archive-capsule.svg",
+    alt: "Editorial archive cover showing a dark store capsule display"
+  },
+  "steam-header": {
+    src: "/assets/editorial/veronica-archive-header.svg",
+    alt: "Editorial archive cover showing a foggy industrial corridor"
+  },
+  "capcom-ogp": {
+    src: "/assets/editorial/veronica-archive-ogp.svg",
+    alt: "Editorial archive cover showing a social preview frame"
+  },
+  "steam-page-bg": {
+    src: "/assets/editorial/veronica-archive-background.svg",
+    alt: "Editorial archive cover showing an analog tape and monitor glow"
+  }
+};
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
@@ -148,6 +178,10 @@ function mediaByIds(ids, path = "/media/") {
   return ids
     .map((id) => mediaById(id))
     .filter((item) => item?.pages.includes(path));
+}
+
+function editorialAssetCover(id) {
+  return editorialAssetCovers[id] || null;
 }
 
 function optimizedImageSrc(src) {
@@ -793,15 +827,17 @@ function ContextMedia({ path }) {
   );
 }
 
-function MediaCard({ item, variant = "" }) {
+function MediaCard({ item, variant = "", cover = null }) {
   const source = sourceById(item.sourceId);
   const variantClass = variant ? ` media-card-${variant}` : "";
+  const imageSrc = cover?.src || item.src;
+  const imageAlt = cover?.alt || item.alt;
   return (
     <figure className={`card media-card${variantClass}`}>
-      <OptimizedImage src={item.src} alt={item.alt} />
+      <OptimizedImage src={imageSrc} alt={imageAlt} />
       <figcaption>
         <strong>{item.title}</strong>
-        <span>{item.kind} / {source?.name || "Official source"}</span>
+        <span>{cover ? "site editorial cover / " : ""}{item.kind} / {source?.name || "Official source"}</span>
       </figcaption>
     </figure>
   );
@@ -986,7 +1022,7 @@ function MediaPage({ routeInfo }) {
                 <p>Capsules, headers, key art and page backgrounds are still tracked, but they no longer dominate the first scan.</p>
               </div>
               <div className="media-asset-strip">
-                {assetMedia.map((item) => <MediaCard item={item} variant="asset" key={item.id} />)}
+                {assetMedia.map((item) => <MediaCard item={item} variant="asset" cover={editorialAssetCover(item.id)} key={item.id} />)}
               </div>
             </>
           ) : null}

@@ -61,6 +61,36 @@ const mediaAssetIds = [
   "capcom-ogp",
   "steam-page-bg"
 ];
+const editorialAssetCovers = {
+  "capcom-portrait": {
+    src: "/assets/editorial/veronica-archive-island.svg",
+    alt: "Editorial archive cover showing a dark island shoreline"
+  },
+  "capcom-title": {
+    src: "/assets/editorial/veronica-archive-title.svg",
+    alt: "Editorial archive cover showing a red evidence desk"
+  },
+  "capcom-site": {
+    src: "/assets/editorial/veronica-archive-dossier.svg",
+    alt: "Editorial archive cover showing a source dossier board"
+  },
+  "steam-capsule": {
+    src: "/assets/editorial/veronica-archive-capsule.svg",
+    alt: "Editorial archive cover showing a dark store capsule display"
+  },
+  "steam-header": {
+    src: "/assets/editorial/veronica-archive-header.svg",
+    alt: "Editorial archive cover showing a foggy industrial corridor"
+  },
+  "capcom-ogp": {
+    src: "/assets/editorial/veronica-archive-ogp.svg",
+    alt: "Editorial archive cover showing a social preview frame"
+  },
+  "steam-page-bg": {
+    src: "/assets/editorial/veronica-archive-background.svg",
+    alt: "Editorial archive cover showing an analog tape and monitor glow"
+  }
+};
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
@@ -122,6 +152,10 @@ function mediaByIds(ids, routePath = "/media/") {
   return ids
     .map((id) => mediaById.get(id))
     .filter((item) => item?.pages.includes(routePath));
+}
+
+function editorialAssetCover(id) {
+  return editorialAssetCovers[id] || null;
 }
 
 function sourceById(id) {
@@ -267,9 +301,12 @@ function mediaGrid(routePath) {
       <div class="media-asset-strip">
         ${assetMedia.map((item) => {
           const source = sourceById(item.sourceId);
+          const cover = editorialAssetCover(item.id);
+          const image = cover ? { src: cover.src, alt: cover.alt } : item;
+          const prefix = cover ? "site editorial cover / " : "";
           return `<figure class="static-media-card media-card-asset">
-            ${imageMarkup(item)}
-            <figcaption><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.kind)}${source ? ` / ${escapeHtml(source.name)}` : ""}</span></figcaption>
+            ${imageMarkup(image)}
+            <figcaption><strong>${escapeHtml(item.title)}</strong><span>${prefix}${escapeHtml(item.kind)}${source ? ` / ${escapeHtml(source.name)}` : ""}</span></figcaption>
           </figure>`;
         }).join("")}
       </div>

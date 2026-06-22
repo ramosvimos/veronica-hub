@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Editorial dossier archive cover</title>
+  <desc id="desc">A classified evidence board with photos, pins, and red connection string.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101416"/>
+      <stop offset="1" stop-color="#090505"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="86" y="66" width="628" height="368" fill="#191311" stroke="#fff" stroke-opacity=".08"/>
+  <g fill="#d8d2c5">
+    <rect x="132" y="108" width="124" height="90" transform="rotate(-4 194 153)"/>
+    <rect x="510" y="118" width="142" height="100" transform="rotate(5 581 168)"/>
+    <rect x="306" y="260" width="156" height="118" transform="rotate(-2 384 319)"/>
+  </g>
+  <g fill="#111819">
+    <rect x="148" y="124" width="92" height="54"/>
+    <rect x="528" y="136" width="106" height="62"/>
+    <rect x="324" y="280" width="120" height="72"/>
+  </g>
+  <g stroke="#d61f31" stroke-width="4" stroke-linecap="round">
+    <path d="M194 153l190 166 197-151M194 153l390 15M384 319l200-151"/>
+  </g>
+  <g fill="#76e9f4">
+    <circle cx="194" cy="153" r="8"/>
+    <circle cx="584" cy="168" r="8"/>
+    <circle cx="384" cy="319" r="8"/>
+  </g>
+  <path d="M0 438c117-28 231-20 338-4 140 22 280 26 462-12v78H0z" fill="#2a0810" opacity=".7"/>
+  <rect x="0" y="0" width="800" height="500" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+</svg>
