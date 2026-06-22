@@ -25,6 +25,25 @@ const mediaGalleryIds = [
   "screenshot-06",
   "screenshot-07"
 ];
+const mediaSpotlightIds = [
+  "screenshot-01",
+  "screenshot-02",
+  "screenshot-03",
+  "screenshot-04",
+  "screenshot-05",
+  "screenshot-06",
+  "screenshot-07",
+  "trailer-poster"
+];
+const mediaAssetIds = [
+  "capcom-portrait",
+  "capcom-title",
+  "capcom-site",
+  "steam-capsule",
+  "steam-header",
+  "capcom-ogp",
+  "steam-page-bg"
+];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
@@ -123,6 +142,12 @@ function mediaForPage(path, limit = 6) {
 
 function mediaById(id) {
   return siteData.media.find((item) => item.id === id);
+}
+
+function mediaByIds(ids, path = "/media/") {
+  return ids
+    .map((id) => mediaById(id))
+    .filter((item) => item?.pages.includes(path));
 }
 
 function optimizedImageSrc(src) {
@@ -768,10 +793,11 @@ function ContextMedia({ path }) {
   );
 }
 
-function MediaCard({ item }) {
+function MediaCard({ item, variant = "" }) {
   const source = sourceById(item.sourceId);
+  const variantClass = variant ? ` media-card-${variant}` : "";
   return (
-    <figure className="card media-card">
+    <figure className={`card media-card${variantClass}`}>
       <OptimizedImage src={item.src} alt={item.alt} />
       <figcaption>
         <strong>{item.title}</strong>
@@ -938,6 +964,8 @@ function MediaPage({ routeInfo }) {
   const sortedGames = sortByRelease(siteData.referenceGames || []);
   const referenceHrefByTitle = new Map(sortedGames.map((game) => [game.title, `#${referenceGameId(game)}`]));
   const origins = sortedGames.filter((game) => originPositionFilter().has(game.position));
+  const spotlightMedia = mediaByIds(mediaSpotlightIds);
+  const assetMedia = mediaByIds(mediaAssetIds);
 
   return (
     <>
@@ -945,10 +973,23 @@ function MediaPage({ routeInfo }) {
       <MediaSectionNav />
       <section className="section" id="official-gallery">
         <div className="container">
-            <SectionHeading kicker="Official gallery" title="Screenshots And Store Art">Every image below comes from official Capcom, Steam or video material.</SectionHeading>
-          <div className="media-gallery">
-            {mediaForPage(routeInfo.path, 30).map((item) => <MediaCard item={item} key={item.id} />)}
+          <SectionHeading kicker="Official gallery" title="Official Screenshots First">The main wall now leads with distinct in-game frames, while repeated logo and store assets sit in the archive strip below.</SectionHeading>
+          <div className="media-showcase">
+            {spotlightMedia.map((item, index) => (
+              <MediaCard item={item} variant={index === 0 ? "lead" : "compact"} key={item.id} />
+            ))}
           </div>
+          {assetMedia.length ? (
+            <>
+              <div className="asset-strip-head">
+                <span className="eyebrow">Store and brand assets</span>
+                <p>Capsules, headers, key art and page backgrounds are still tracked, but they no longer dominate the first scan.</p>
+              </div>
+              <div className="media-asset-strip">
+                {assetMedia.map((item) => <MediaCard item={item} variant="asset" key={item.id} />)}
+              </div>
+            </>
+          ) : null}
         </div>
       </section>
       <OfficialVideoLibrary />

@@ -42,6 +42,25 @@ const mediaGalleryIds = [
   "screenshot-06",
   "screenshot-07"
 ];
+const mediaSpotlightIds = [
+  "screenshot-01",
+  "screenshot-02",
+  "screenshot-03",
+  "screenshot-04",
+  "screenshot-05",
+  "screenshot-06",
+  "screenshot-07",
+  "trailer-poster"
+];
+const mediaAssetIds = [
+  "capcom-portrait",
+  "capcom-title",
+  "capcom-site",
+  "steam-capsule",
+  "steam-header",
+  "capcom-ogp",
+  "steam-page-bg"
+];
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
@@ -96,6 +115,13 @@ function routeMedia(routePath) {
   return mediaGalleryIds
     .map((id) => mediaById.get(id))
     .filter(Boolean);
+}
+
+function mediaByIds(ids, routePath = "/media/") {
+  const mediaById = new Map(data.media.map((item) => [item.id, item]));
+  return ids
+    .map((id) => mediaById.get(id))
+    .filter((item) => item?.pages.includes(routePath));
 }
 
 function sourceById(id) {
@@ -217,6 +243,39 @@ function claimCards(routePath) {
 }
 
 function mediaGrid(routePath) {
+  if (routePath === "/media/") {
+    const spotlightMedia = mediaByIds(mediaSpotlightIds);
+    const assetMedia = mediaByIds(mediaAssetIds);
+    return `
+    <section class="static-section" id="official-gallery">
+      <h2>Official Screenshots First</h2>
+      <p>The main wall leads with distinct in-game frames. Repeated logo and store assets stay available in the archive strip below.</p>
+      <div class="media-showcase">
+        ${spotlightMedia.map((item, index) => {
+          const source = sourceById(item.sourceId);
+          const variant = index === 0 ? "media-card-lead" : "media-card-compact";
+          return `<figure class="static-media-card ${variant}">
+            ${imageMarkup(item)}
+            <figcaption><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.kind)}${source ? ` / ${escapeHtml(source.name)}` : ""}</span></figcaption>
+          </figure>`;
+        }).join("")}
+      </div>
+      <div class="asset-strip-head">
+        <span class="eyebrow">Store and brand assets</span>
+        <p>Capsules, headers, key art and page backgrounds are still tracked, but they no longer dominate the first scan.</p>
+      </div>
+      <div class="media-asset-strip">
+        ${assetMedia.map((item) => {
+          const source = sourceById(item.sourceId);
+          return `<figure class="static-media-card media-card-asset">
+            ${imageMarkup(item)}
+            <figcaption><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.kind)}${source ? ` / ${escapeHtml(source.name)}` : ""}</span></figcaption>
+          </figure>`;
+        }).join("")}
+      </div>
+    </section>`;
+  }
+
   const media = routeMedia(routePath);
   const visibleMedia = routePath === "/media/" || routePath === "/screenshots/" ? media : media.slice(0, 6);
   if (!visibleMedia.length) return "";
