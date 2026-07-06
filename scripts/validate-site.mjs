@@ -32,6 +32,10 @@ function wordCount(html) {
   return stripTags(html).split(/\s+/).filter(Boolean).length;
 }
 
+function bodyWordCount(route) {
+  return (route.body || []).join(" ").split(/\s+/).filter(Boolean).length;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -90,6 +94,9 @@ for (const route of data.routes) {
   const count = wordCount(html);
   const minimum = route.path === "/media/" ? 180 : 250;
   if (count < minimum) fail(`${route.path} has weak static content: ${count} words`);
+  if (shouldIncludeInSitemap(route) && route.section !== "trust" && bodyWordCount(route) < 150) {
+    fail(`${route.path} has thin route body content: ${bodyWordCount(route)} words`);
+  }
 }
 
 const faqHtml = read(routeOutputPath("/faq/"));
