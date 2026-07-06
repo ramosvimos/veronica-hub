@@ -40,6 +40,18 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function routeRobots(route) {
+  return route.robots || "index,follow,max-image-preview:large";
+}
+
+function shouldShowAds(route) {
+  return route.showAds !== false;
+}
+
+function shouldIncludeInSitemap(route) {
+  return route.includeInSitemap !== false && !routeRobots(route).includes("noindex");
+}
+
 const routePaths = new Set();
 for (const route of data.routes) {
   if (routePaths.has(route.path)) fail(`Duplicate route path: ${route.path}`);
@@ -59,12 +71,14 @@ for (const route of data.routes) {
   if (!html.includes(`name="description" content="${escapeHtml(route.description)}"`)) fail(`Missing exact description for ${route.path}`);
   if (!html.includes(`<h1>${route.h1}</h1>`)) fail(`Missing h1 for ${route.path}`);
   if (!html.includes(`rel="canonical" href="${canonical}"`)) fail(`Missing canonical for ${route.path}`);
+  if (!html.includes(`name="robots" content="${escapeHtml(routeRobots(route))}"`)) fail(`Robots meta mismatch for ${route.path}`);
   if (!html.includes("application/ld+json")) fail(`Missing JSON-LD for ${route.path}`);
   if (!html.includes(`name="google-adsense-account" content="${adsenseClient}"`)) fail(`Missing AdSense account meta for ${route.path}`);
-  if (!html.includes(`pagead/js/adsbygoogle.js?client=${adsenseClient}`)) fail(`Missing AdSense loader for ${route.path}`);
-  if ((html.match(/adsbygoogle\.js/g) || []).length !== 1) fail(`AdSense loader duplicated for ${route.path}`);
+  const adsenseLoaderCount = (html.match(/adsbygoogle\.js/g) || []).length;
+  if (shouldShowAds(route) && !html.includes(`pagead/js/adsbygoogle.js?client=${adsenseClient}`)) fail(`Missing AdSense loader for ${route.path}`);
+  if (!shouldShowAds(route) && adsenseLoaderCount !== 0) fail(`AdSense loader should be disabled for ${route.path}`);
+  if (shouldShowAds(route) && adsenseLoaderCount !== 1) fail(`AdSense loader count mismatch for ${route.path}`);
   if (!html.includes("Last verified") && !html.includes("Last checked")) fail(`Missing verification copy for ${route.path}`);
-  if (html.includes("noindex")) fail(`Route contains noindex: ${route.path}`);
   if (!html.includes('class="footer-links"')) fail(`Missing static footer links for ${route.path}`);
   if (html.includes('<a href="/feed.xml">RSS Feed</a>')) fail(`Footer should not link directly to RSS XML on ${route.path}`);
 
@@ -103,8 +117,10 @@ if (!steamHtml.includes("Wishlist access is live")) fail("Steam page missing wis
 
 const sitemap = read(path.join(root, "sitemap.xml"));
 for (const route of data.routes) {
-  if (!sitemap.includes(`${data.site.origin}${route.path}`)) fail(`Sitemap missing ${route.path}`);
-  if (!sitemap.includes(`<lastmod>${data.site.lastVerified}</lastmod>`)) fail(`Sitemap lastmod mismatch for ${route.path}`);
+  const inSitemap = sitemap.includes(`${data.site.origin}${route.path}`);
+  if (shouldIncludeInSitemap(route) && !inSitemap) fail(`Sitemap missing ${route.path}`);
+  if (!shouldIncludeInSitemap(route) && inSitemap) fail(`Sitemap should exclude ${route.path}`);
+  if (shouldIncludeInSitemap(route) && !sitemap.includes(`<lastmod>${data.site.lastVerified}</lastmod>`)) fail(`Sitemap lastmod mismatch for ${route.path}`);
 }
 
 const feedPath = path.join(root, "feed.xml");
@@ -160,7 +176,7 @@ for (const video of data.officialVideos || []) {
   }
 }
 
-for (const route of data.routes.filter((route) => route.path !== "/media/")) {
+for (const route of data.routes.filter((route) => route.path !== "/media/" && route.section !== "trust")) {
   const routeMedia = data.media.filter((item) => item.pages.includes(route.path));
   if (!routeMedia.length) fail(`Route ${route.path} has no direct media assignment`);
 }
@@ -189,7 +205,7 @@ for (const item of data.sourceMonitoring?.sources || []) {
   }
 }
 
-if (data.routes.length !== 18) fail(`Expected 18 routes, found ${data.routes.length}`);
+if (data.routes.length !== 21) fail(`Expected 21 routes, found ${data.routes.length}`);
 if (data.claims.length < 12) fail(`Expected at least 12 claims, found ${data.claims.length}`);
 if (data.media.length < 11) fail(`Expected at least 11 media records, found ${data.media.length}`);
 

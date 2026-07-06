@@ -49,28 +49,28 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://residentevilveronica.com/about/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://residentevilveronica.com/contact/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://residentevilveronica.com/privacy/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://residentevilveronica.com/pc-requirements/</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/preorder/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/demo/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/editions/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://residentevilveronica.com/original-vs-remake/</loc>
@@ -79,33 +79,9 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://residentevilveronica.com/media/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/screenshots/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://residentevilveronica.com/steam/</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/changelog/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://residentevilveronica.com/watchlist/</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

@@ -8,6 +8,7 @@ const stylesheetPath = "/styles/site.css";
 const adsenseClient = "ca-pub-2875158540739129";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
+const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -164,6 +165,22 @@ function sourceById(id) {
 
 function routeByPath(routePath) {
   return data.routes.find((route) => route.path === routePath);
+}
+
+function isTrustRoute(route) {
+  return route.section === "trust";
+}
+
+function routeRobots(route) {
+  return route.robots || "index,follow,max-image-preview:large";
+}
+
+function shouldShowAds(route) {
+  return route.showAds !== false;
+}
+
+function shouldIncludeInSitemap(route) {
+  return route.includeInSitemap !== false && !routeRobots(route).includes("noindex");
 }
 
 function footerLinks(paths) {
@@ -546,6 +563,16 @@ function steamStatusSection() {
 }
 
 function routeSpecific(route) {
+  if (isTrustRoute(route)) {
+    return `
+      <section class="static-section static-policy">
+        <h2>Site Policy</h2>
+        <p>${escapeHtml(data.site.disclaimer)}</p>
+        <p>${escapeHtml(data.site.noPiracy)}</p>
+        <p>Corrections and source updates are reviewed against official pages, platform store records and verified official video channels.</p>
+      </section>`;
+  }
+
   if (route.path === "/media/") {
     return `${mediaSectionNav()}${mediaGrid(route.path)}${officialVideosSection()}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
   }
@@ -675,6 +702,7 @@ function routeSpecific(route) {
 }
 
 function staticBody(route) {
+  const trustRoute = isTrustRoute(route);
   return `
     <div class="static-shell" data-route="${escapeHtml(route.path)}">
       <header class="static-header">
@@ -688,24 +716,24 @@ function staticBody(route) {
           <p class="eyebrow">${escapeHtml(data.site.tagline)}</p>
           <h1>${escapeHtml(route.h1)}</h1>
           <p class="static-lede">${escapeHtml(route.intro)}</p>
-          <p class="static-trust">Last checked: ${escapeHtml(data.site.lastVerified)}. Exact release date has not been announced.</p>
+          <p class="static-trust">Last checked: ${escapeHtml(data.site.lastVerified)}.${trustRoute ? " Independent fan-made site policy page." : " Exact release date has not been announced."}</p>
         </section>
         <section class="static-section">
           ${route.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
         </section>
-        <section class="static-section">
+        ${trustRoute ? "" : `<section class="static-section">
           <h2>Current Status</h2>
           <div class="static-grid">${claimCards(route.path)}</div>
-        </section>
-        ${data.watchlist?.placementRoutes?.includes(route.path) && route.path !== "/watchlist/" ? watchlistSection() : ""}
+        </section>`}
+        ${!trustRoute && data.watchlist?.placementRoutes?.includes(route.path) && route.path !== "/watchlist/" ? watchlistSection() : ""}
         ${routeSpecific(route)}
-        ${route.path === "/media/" ? "" : mediaGrid(route.path)}
-        <section class="static-section static-policy">
+        ${trustRoute || route.path === "/media/" ? "" : mediaGrid(route.path)}
+        ${trustRoute ? "" : `<section class="static-section static-policy">
           <h2>How Updates Are Handled</h2>
           <p>${escapeHtml(data.site.disclaimer)}</p>
           <p>${escapeHtml(data.site.noPiracy)}</p>
           <p>Details that have not been announced yet are labeled clearly and updated only when an official source changes.</p>
-        </section>
+        </section>`}
       </main>
       <footer class="footer">
         <div class="container footer-grid">
@@ -719,6 +747,7 @@ function staticBody(route) {
           </div>
           <nav class="footer-links">${footerLinks(primaryNav.slice(1))}</nav>
           <nav class="footer-links">${footerLinks(footerUtilityRoutes)}</nav>
+          <nav class="footer-links">${footerLinks(footerTrustRoutes)}</nav>
         </div>
       </footer>
     </div>`;
@@ -817,6 +846,9 @@ function pageHtml(route) {
     .join("\n  ");
   const preloadTags = preloadLinks(route);
   const body = staticBody(route);
+  const adsenseLoader = shouldShowAds(route)
+    ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}" crossorigin="anonymous"></script>`
+    : "";
 
   return `<!doctype html>
 <html lang="en">
@@ -826,7 +858,7 @@ function pageHtml(route) {
   <title>${escapeHtml(route.title)}</title>
   <meta name="description" content="${escapeHtml(route.description)}" />
   <link rel="canonical" href="${escapeHtml(absoluteUrl(route.path))}" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content="${escapeHtml(routeRobots(route))}" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${escapeHtml(route.title)}" />
   <meta property="og:description" content="${escapeHtml(route.description)}" />
@@ -835,7 +867,7 @@ function pageHtml(route) {
   <meta name="google-adsense-account" content="${adsenseClient}" />
   <link rel="alternate" type="application/rss+xml" title="Veronica Hub Changelog Feed" href="/feed.xml" />
   ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}" crossorigin="anonymous"></script>
+  ${adsenseLoader}
   ${schemaTags}
 </head>
 <body>
@@ -848,7 +880,7 @@ function pageHtml(route) {
 }
 
 function sitemapXml() {
-  const urls = data.routes.map((route) => `  <url>
+  const urls = data.routes.filter(shouldIncludeInSitemap).map((route) => `  <url>
     <loc>${absoluteUrl(route.path)}</loc>
     <lastmod>${data.site.lastVerified}</lastmod>
     <changefreq>${route.changefreq}</changefreq>

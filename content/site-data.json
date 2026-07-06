@@ -146,6 +146,63 @@
       ]
     },
     {
+      "path": "/about/",
+      "title": "About Veronica Hub: Independent Resident Evil Veronica Tracker",
+      "description": "Learn who runs Veronica Hub, how the site verifies Resident Evil Veronica information, and how it separates official facts from reported context.",
+      "h1": "About Veronica Hub",
+      "section": "trust",
+      "navLabel": "About",
+      "priority": "0.3",
+      "changefreq": "monthly",
+      "showAds": false,
+      "intro": "Veronica Hub is an independent fan-made source tracker for Resident Evil Veronica.",
+      "body": [
+        "Veronica Hub exists to help readers follow Resident Evil Veronica without mixing confirmed information, reported context and rumor. The site is independently operated and is not affiliated with, endorsed by or sponsored by Capcom.",
+        "The editorial rule is simple: official facts come from Capcom, official platform stores or verified official video channels. Reported interview details are labeled as reported context. Rumors, retailer placeholders, unsourced screenshots and social reposts are not treated as confirmed information.",
+        "The site adds value by organizing source links, release-window status, platform status, PC requirement status, trailer records, media references and original-vs-remake context in one maintained dossier.",
+        "Resident Evil, Resident Evil Veronica, Code: Veronica, Capcom and related names are trademarks or property of their respective owners. This site uses those names only to identify the game and discuss publicly available information."
+      ]
+    },
+    {
+      "path": "/contact/",
+      "title": "Contact Veronica Hub: Corrections, Source Updates and Site Questions",
+      "description": "Contact Veronica Hub for corrections, official source changes, attribution questions or site feedback.",
+      "h1": "Contact Veronica Hub",
+      "section": "trust",
+      "navLabel": "Contact",
+      "priority": "0.3",
+      "changefreq": "monthly",
+      "showAds": false,
+      "intro": "Send corrections, source updates and site questions to the Veronica Hub editor.",
+      "body": [
+        "For corrections, source updates, attribution questions or site feedback, email contact@residentevilveronica.com.",
+        "Please include the page URL, the specific sentence or item you are referencing, and the official source link that supports the correction. Source-backed corrections are prioritized over speculation or unsourced claims.",
+        "For copyright, trademark or media-attribution requests, include the asset URL and the preferred correction. Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads.",
+        "Useful reports include broken source links, changed official store listings, updated trailer metadata, newly published Capcom pages, incorrect attribution, accessibility issues and pages where an unknown detail should be labeled more clearly.",
+        "This contact page is for the independent Veronica Hub site only. For official product support, purchases, account issues or press requests, use Capcom or platform-holder support channels."
+      ]
+    },
+    {
+      "path": "/privacy/",
+      "title": "Privacy Policy for Veronica Hub",
+      "description": "Privacy policy for Veronica Hub, including analytics, cookies, advertising disclosures and third-party links.",
+      "h1": "Privacy Policy",
+      "section": "trust",
+      "navLabel": "Privacy",
+      "priority": "0.3",
+      "changefreq": "monthly",
+      "showAds": false,
+      "intro": "This policy explains what Veronica Hub collects, uses and links to when you visit the site.",
+      "body": [
+        "Veronica Hub is an independent fan-made information site. The site does not ask visitors to create accounts, submit passwords or provide payment information.",
+        "The site may use basic analytics to understand page traffic, device categories, referrers and performance issues. Analytics data is used to improve navigation, page quality and technical reliability.",
+        "The site is configured for Google AdSense. Google and other third-party vendors may use cookies or similar technologies to serve ads based on a visitor's prior visits to this and other websites. Google's advertising cookies enable Google and its partners to serve personalized or non-personalized ads where ads are shown.",
+        "Visitors can learn about Google advertising controls and opt out of personalized advertising through Google's Ads Settings. Visitors can also use browser settings or regional privacy tools to limit cookies where available.",
+        "Third-party links on this site may lead to Capcom, Steam, YouTube, platform-holder stores, media sites or other external websites. Those websites operate under their own privacy policies and terms.",
+        "Contact contact@residentevilveronica.com for privacy questions, correction requests or site-policy questions."
+      ]
+    },
+    {
       "path": "/pc-requirements/",
       "title": "Resident Evil Veronica PC Requirements: Current Official Status",
       "description": "Track Resident Evil Veronica PC system requirements status. Minimum and recommended specs are not officially confirmed yet.",
@@ -170,6 +227,9 @@
       "navLabel": "Preorder",
       "priority": "0.7",
       "changefreq": "daily",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Wishlist access exists on Steam, but preorder timing and price are not confirmed.",
       "body": [
         "Resident Evil Veronica has a Steam store page with wishlist access, but wishlist access is not the same as preorder availability.",
@@ -186,6 +246,9 @@
       "navLabel": "Demo",
       "priority": "0.7",
       "changefreq": "daily",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "No official demo has been confirmed at the current verification time.",
       "body": [
         "No Resident Evil Veronica demo has been announced yet.",
@@ -202,6 +265,9 @@
       "navLabel": "Editions",
       "priority": "0.7",
       "changefreq": "daily",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Editions, price and deluxe content are not officially confirmed yet.",
       "body": [
         "Resident Evil Veronica editions and pricing have not been announced yet.",
@@ -237,6 +303,9 @@
       "navLabel": "Media",
       "priority": "0.8",
       "changefreq": "weekly",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Official screenshots, store art, trailer imagery and reference material in one place.",
       "body": [
         "This page collects official Resident Evil Veronica screenshots, store art, trailer imagery and reference material, then separates confirmed remake media from historical gameplay context.",
@@ -253,6 +322,9 @@
       "navLabel": "Screenshots",
       "priority": "0.8",
       "changefreq": "weekly",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Official remake screenshots and store images, separated from speculation and fan media.",
       "body": [
         "This screenshot page focuses on official Resident Evil Veronica remake images from Steam and Capcom sources.",
@@ -285,6 +357,9 @@
       "navLabel": "Changelog",
       "priority": "0.6",
       "changefreq": "daily",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Dated changes show what changed, when it changed and which source caused it.",
       "body": [
         "The changelog records meaningful updates to Resident Evil Veronica information and pages.",
@@ -301,6 +376,9 @@
       "navLabel": "Watchlist",
       "priority": "0.7",
       "changefreq": "daily",
+      "robots": "noindex,follow,max-image-preview:large",
+      "includeInSitemap": false,
+      "showAds": false,
       "intro": "Track official changes for release date, demo, preorder, editions, PC specs, trailers and media.",
       "body": [
         "Use the Watchlist if you only want updates when official Resident Evil Veronica information changes.",

@@ -6,6 +6,7 @@ import siteData from "../../content/site-data.json";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/changelog/", "/faq/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
+const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
@@ -99,7 +100,10 @@ const routeHeroMediaIds = {
   "/screenshots/": "screenshot-01",
   "/steam/": "steam-header",
   "/changelog/": "capcom-site",
-  "/watchlist/": "capcom-site"
+  "/watchlist/": "capcom-site",
+  "/about/": "capcom-site",
+  "/contact/": "capcom-site",
+  "/privacy/": "capcom-site"
 };
 
 function normalizePath(pathname) {
@@ -722,6 +726,28 @@ function TextPage({ routeInfo, children }) {
   );
 }
 
+function TrustPage({ routeInfo }) {
+  return (
+    <>
+      <PageHero routeInfo={routeInfo} />
+      <section className="section">
+        <div className="container content-grid">
+          <article className="card article-copy">
+            {routeInfo.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </article>
+          <aside className="verification-policy">
+            <span className="eyebrow">Site policy</span>
+            <h3>Independent fan-made tracker</h3>
+            <p>{siteData.site.disclaimer}</p>
+            <p>{siteData.site.noPiracy}</p>
+            <a className="source-link" href="/sources/">View source policy</a>
+          </aside>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function PcEstimateSection() {
   const estimate = siteData.pcRequirementEstimate;
   return (
@@ -1182,6 +1208,7 @@ function NotFoundPage() {
 function PageSwitch({ path }) {
   const routeInfo = route(path);
   if (path === "/") return <HomePage />;
+  if (routeInfo.section === "trust") return <TrustPage routeInfo={routeInfo} />;
   if (path === "/platforms/") return <PlatformsPage routeInfo={routeInfo} />;
   if (path === "/pc-requirements/") return <PcRequirementsPage routeInfo={routeInfo} />;
   if (path === "/trailer/") return <TrailerPage routeInfo={routeInfo} />;
@@ -1197,7 +1224,7 @@ function PageSwitch({ path }) {
 }
 
 function SearchOverlay({ onClose }) {
-  const links = [...primaryNav, ...utilityRoutes].map((path) => route(path));
+  const links = [...primaryNav, ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
   return (
     <div className="search-overlay" role="dialog" aria-modal="true">
       <div className="search-modal">
@@ -1215,7 +1242,7 @@ function SearchOverlay({ onClose }) {
 }
 
 function MobileDrawer({ onClose }) {
-  const links = [...primaryNav, ...utilityRoutes].map((path) => route(path));
+  const links = [...primaryNav, ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
   return (
     <div className="mobile-drawer" role="dialog" aria-modal="true">
       <aside className="drawer-panel">
@@ -1252,6 +1279,9 @@ function Footer() {
         </nav>
         <nav className="footer-links">
           {footerUtilityRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
+        </nav>
+        <nav className="footer-links">
+          {footerTrustRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
       </div>
     </footer>
