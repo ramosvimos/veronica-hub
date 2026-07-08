@@ -9,6 +9,10 @@ const adsenseClient = "ca-pub-2875158540739129";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
+const localizedRoutes = {
+  "/": "/ja/",
+  "/ja/": "/"
+};
 
 const articleRoutes = new Set([
   "/release-date/",
@@ -171,6 +175,10 @@ function isTrustRoute(route) {
   return route.section === "trust";
 }
 
+function isJapaneseRoute(route) {
+  return route.locale === "ja";
+}
+
 function routeRobots(route) {
   return route.robots || "index,follow,max-image-preview:large";
 }
@@ -181,6 +189,16 @@ function shouldShowAds(route) {
 
 function shouldIncludeInSitemap(route) {
   return route.includeInSitemap !== false && !routeRobots(route).includes("noindex");
+}
+
+function alternateLocalePath(route) {
+  return localizedRoutes[route.path] || null;
+}
+
+function languageSwitchLink(route) {
+  const target = alternateLocalePath(route) || "/ja/";
+  const label = isJapaneseRoute(route) ? "English" : "日本語";
+  return `<a class="language-link" href="${escapeHtml(target)}" data-locale-choice="${isJapaneseRoute(route) ? "en" : "ja"}">${label}</a>`;
 }
 
 function footerLinks(paths) {
@@ -703,6 +721,7 @@ function routeSpecific(route) {
 
 function staticBody(route) {
   const trustRoute = isTrustRoute(route);
+  const japaneseRoute = isJapaneseRoute(route);
   return `
     <div class="static-shell" data-route="${escapeHtml(route.path)}">
       <header class="static-header">
@@ -710,29 +729,30 @@ function staticBody(route) {
         <nav>
           ${primaryNav.map((path) => routeByPath(path)).filter(Boolean).map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`).join("")}
         </nav>
+        ${languageSwitchLink(route)}
       </header>
       <main>
         <section class="static-hero">
-          <p class="eyebrow">${escapeHtml(data.site.tagline)}</p>
+          <p class="eyebrow">${escapeHtml(japaneseRoute ? "Biohazard Veronica official source tracker" : data.site.tagline)}</p>
           <h1>${escapeHtml(route.h1)}</h1>
           <p class="static-lede">${escapeHtml(route.intro)}</p>
-          <p class="static-trust">Last checked: ${escapeHtml(data.site.lastVerified)}.${trustRoute ? " Independent fan-made site policy page." : " Exact release date has not been announced."}</p>
+          <p class="static-trust">${japaneseRoute ? `最終確認: ${escapeHtml(data.site.lastVerified)}。正確な発売日はまだ発表されていません。` : `Last checked: ${escapeHtml(data.site.lastVerified)}.${trustRoute ? " Independent fan-made site policy page." : " Exact release date has not been announced."}`}</p>
         </section>
         <section class="static-section">
           ${route.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
         </section>
         ${trustRoute ? "" : `<section class="static-section">
-          <h2>Current Status</h2>
+          <h2>${japaneseRoute ? "現在確認できる情報" : "Current Status"}</h2>
           <div class="static-grid">${claimCards(route.path)}</div>
         </section>`}
         ${!trustRoute && data.watchlist?.placementRoutes?.includes(route.path) && route.path !== "/watchlist/" ? watchlistSection() : ""}
         ${routeSpecific(route)}
         ${trustRoute || route.path === "/media/" ? "" : mediaGrid(route.path)}
         ${trustRoute ? "" : `<section class="static-section static-policy">
-          <h2>How Updates Are Handled</h2>
+          <h2>${japaneseRoute ? "更新ルール" : "How Updates Are Handled"}</h2>
           <p>${escapeHtml(data.site.disclaimer)}</p>
           <p>${escapeHtml(data.site.noPiracy)}</p>
-          <p>Details that have not been announced yet are labeled clearly and updated only when an official source changes.</p>
+          <p>${japaneseRoute ? "未発表の内容は未確認として扱い、公式ソースが更新された場合のみ反映します。" : "Details that have not been announced yet are labeled clearly and updated only when an official source changes."}</p>
         </section>`}
       </main>
       <footer class="footer">
@@ -748,6 +768,7 @@ function staticBody(route) {
           <nav class="footer-links">${footerLinks(primaryNav.slice(1))}</nav>
           <nav class="footer-links">${footerLinks(footerUtilityRoutes)}</nav>
           <nav class="footer-links">${footerLinks(footerTrustRoutes)}</nav>
+          <nav class="footer-links">${languageSwitchLink(route)}</nav>
         </div>
       </footer>
     </div>`;
@@ -840,25 +861,56 @@ function schemas(route) {
   return [breadcrumbSchema(route), route.path === "/" ? websiteSchema() : null, faqSchema(route), mediaSchema(route), articleSchema(route)].filter(Boolean);
 }
 
+function hreflangLinks(route) {
+  const alternate = alternateLocalePath(route);
+  if (!alternate) return "";
+  const currentLang = isJapaneseRoute(route) ? "ja" : "en";
+  const alternateLang = isJapaneseRoute(route) ? "en" : "ja";
+  return [
+    `<link rel="alternate" hreflang="${currentLang}" href="${escapeHtml(absoluteUrl(route.path))}" />`,
+    `<link rel="alternate" hreflang="${alternateLang}" href="${escapeHtml(absoluteUrl(alternate))}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(absoluteUrl("/"))}" />`
+  ].join("\n  ");
+}
+
+function localeRedirectScript(route) {
+  if (route.path !== "/") return "";
+  return `<script>
+    (() => {
+      try {
+        const choice = localStorage.getItem("vhLocaleChoice");
+        const language = navigator.language || "";
+        if (!choice && /^ja\\b/i.test(language)) {
+          localStorage.setItem("vhLocaleChoice", "ja");
+          location.replace("/ja/");
+        }
+      } catch {
+      }
+    })();
+  </script>`;
+}
+
 function pageHtml(route) {
   const schemaTags = schemas(route)
     .map((schema) => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
     .join("\n  ");
   const preloadTags = preloadLinks(route);
   const body = staticBody(route);
+  const hreflangTags = hreflangLinks(route);
+  const localeRedirect = localeRedirectScript(route);
   const adsenseLoader = shouldShowAds(route)
     ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}" crossorigin="anonymous"></script>`
     : "";
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${isJapaneseRoute(route) ? "ja" : "en"}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${escapeHtml(route.title)}</title>
   <meta name="description" content="${escapeHtml(route.description)}" />
   <link rel="canonical" href="${escapeHtml(absoluteUrl(route.path))}" />
-  <meta name="robots" content="${escapeHtml(routeRobots(route))}" />
+  ${hreflangTags ? `${hreflangTags}\n  ` : ""}<meta name="robots" content="${escapeHtml(routeRobots(route))}" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${escapeHtml(route.title)}" />
   <meta property="og:description" content="${escapeHtml(route.description)}" />
@@ -867,6 +919,7 @@ function pageHtml(route) {
   <meta name="google-adsense-account" content="${adsenseClient}" />
   <link rel="alternate" type="application/rss+xml" title="Veronica Hub Changelog Feed" href="/feed.xml" />
   ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
+  ${localeRedirect}
   ${adsenseLoader}
   ${schemaTags}
 </head>

@@ -36,6 +36,12 @@ function bodyWordCount(route) {
   return (route.body || []).join(" ").split(/\s+/).filter(Boolean).length;
 }
 
+function hasSubstantialBody(route) {
+  const body = (route.body || []).join(" ").trim();
+  if (route.locale === "ja") return body.length >= 450;
+  return bodyWordCount(route) >= 150;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -94,7 +100,7 @@ for (const route of data.routes) {
   const count = wordCount(html);
   const minimum = route.path === "/media/" ? 180 : 250;
   if (count < minimum) fail(`${route.path} has weak static content: ${count} words`);
-  if (shouldIncludeInSitemap(route) && route.section !== "trust" && bodyWordCount(route) < 150) {
+  if (shouldIncludeInSitemap(route) && route.section !== "trust" && !hasSubstantialBody(route)) {
     fail(`${route.path} has thin route body content: ${bodyWordCount(route)} words`);
   }
 }
@@ -212,7 +218,7 @@ for (const item of data.sourceMonitoring?.sources || []) {
   }
 }
 
-if (data.routes.length !== 21) fail(`Expected 21 routes, found ${data.routes.length}`);
+if (data.routes.length !== 22) fail(`Expected 22 routes, found ${data.routes.length}`);
 if (data.claims.length < 12) fail(`Expected at least 12 claims, found ${data.claims.length}`);
 if (data.media.length < 11) fail(`Expected at least 11 media records, found ${data.media.length}`);
 

@@ -7,6 +7,10 @@ const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/"
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/changelog/", "/faq/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
+const localizedRoutes = {
+  "/": "/ja/",
+  "/ja/": "/"
+};
 const routeMap = new Map(siteData.routes.map((route) => [route.path, route]));
 const knownPaths = new Set(siteData.routes.map((route) => route.path));
 const mediaGalleryIds = [
@@ -101,6 +105,7 @@ const routeHeroMediaIds = {
   "/steam/": "steam-header",
   "/changelog/": "capcom-site",
   "/watchlist/": "capcom-site",
+  "/ja/": "capcom-portrait",
   "/about/": "capcom-site",
   "/contact/": "capcom-site",
   "/privacy/": "capcom-site"
@@ -129,6 +134,14 @@ function changelogId(entry) {
 
 function route(path) {
   return routeMap.get(path) || routeMap.get("/");
+}
+
+function isJapaneseRoute(routeInfo) {
+  return routeInfo?.locale === "ja";
+}
+
+function alternateLocalePath(path) {
+  return localizedRoutes[path] || "/ja/";
 }
 
 function sourceById(id) {
@@ -272,6 +285,14 @@ function Badge({ type, children }) {
 
 function Header({ onSearch, onMenu }) {
   const activePath = normalizePath(window.location.pathname);
+  const languageTarget = alternateLocalePath(activePath);
+  const languageLabel = activePath === "/ja/" ? "English" : "日本語";
+  const chooseLocale = () => {
+    try {
+      localStorage.setItem("vhLocaleChoice", activePath === "/ja/" ? "en" : "ja");
+    } catch {
+    }
+  };
   return (
     <header className="topbar">
       <div className="topbar-inner">
@@ -295,6 +316,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
+          <a className="utility-button" href={languageTarget} onClick={chooseLocale}>{languageLabel}</a>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small find-action" type="button" onClick={onSearch}>Find</button>
           <button className="utility-button small menu-action" type="button" onClick={onMenu}>Menu</button>
@@ -689,19 +711,21 @@ function DeveloperPublisherSection() {
 function PageHero({ routeInfo }) {
   const leadMedia = mediaById(routeHeroMediaIds[routeInfo.path]) || mediaForPage(routeInfo.path, 1)[0] || mediaById("steam-page-bg");
   const style = leadMedia ? { "--page-image": cssImageValue(leadMedia.src) } : undefined;
+  const japanese = isJapaneseRoute(routeInfo);
   return (
     <section className="page-hero" style={style}>
       <div className="page-hero-inner">
-        <span className="hero-kicker">{siteData.site.tagline}</span>
+        <span className="hero-kicker">{japanese ? "Biohazard Veronica official source tracker" : siteData.site.tagline}</span>
         <h1>{routeInfo.h1}</h1>
         <p className="page-lede">{routeInfo.intro}</p>
-        <p className="trust-note">Last verified: {siteData.site.lastVerified}</p>
+        <p className="trust-note">{japanese ? `最終確認: ${siteData.site.lastVerified}` : `Last verified: ${siteData.site.lastVerified}`}</p>
       </div>
     </section>
   );
 }
 
 function TextPage({ routeInfo, children }) {
+  const japanese = isJapaneseRoute(routeInfo);
   return (
     <>
       <PageHero routeInfo={routeInfo} />
@@ -711,10 +735,10 @@ function TextPage({ routeInfo, children }) {
             {routeInfo.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </article>
           <aside className="verification-policy">
-            <span className="eyebrow">Verification</span>
-            <h3>Source Status</h3>
-            <p>Information on this page was last checked on {siteData.site.lastVerified}. Source links are available for the main details.</p>
-            <a className="source-link" href="/sources/">View sources</a>
+            <span className="eyebrow">{japanese ? "Verification" : "Verification"}</span>
+            <h3>{japanese ? "公式ソース確認" : "Source Status"}</h3>
+            <p>{japanese ? `このページの情報は ${siteData.site.lastVerified} に確認しました。未発表の内容は未確認として扱います。` : `Information on this page was last checked on ${siteData.site.lastVerified}. Source links are available for the main details.`}</p>
+            <a className="source-link" href="/sources/">{japanese ? "英語版ソースを見る" : "View sources"}</a>
           </aside>
         </div>
       </section>
@@ -1224,7 +1248,7 @@ function PageSwitch({ path }) {
 }
 
 function SearchOverlay({ onClose }) {
-  const links = [...primaryNav, ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
+  const links = [...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
   return (
     <div className="search-overlay" role="dialog" aria-modal="true">
       <div className="search-modal">
@@ -1242,7 +1266,7 @@ function SearchOverlay({ onClose }) {
 }
 
 function MobileDrawer({ onClose }) {
-  const links = [...primaryNav, ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
+  const links = [...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
   return (
     <div className="mobile-drawer" role="dialog" aria-modal="true">
       <aside className="drawer-panel">
@@ -1263,6 +1287,15 @@ function MobileDrawer({ onClose }) {
 }
 
 function Footer() {
+  const activePath = normalizePath(window.location.pathname);
+  const languageTarget = alternateLocalePath(activePath);
+  const languageLabel = activePath === "/ja/" ? "English" : "日本語";
+  const chooseLocale = () => {
+    try {
+      localStorage.setItem("vhLocaleChoice", activePath === "/ja/" ? "en" : "ja");
+    } catch {
+    }
+  };
   return (
     <footer className="footer">
       <div className="container footer-grid">
@@ -1283,6 +1316,9 @@ function Footer() {
         <nav className="footer-links">
           {footerTrustRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
+        <nav className="footer-links">
+          <a href={languageTarget} onClick={chooseLocale}>{languageLabel}</a>
+        </nav>
       </div>
     </footer>
   );
@@ -1293,6 +1329,19 @@ function App() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const currentPath = normalizePath(window.location.pathname);
   const isNotFound = !knownPaths.has(currentPath);
+
+  React.useEffect(() => {
+    if (currentPath !== "/") return;
+    try {
+      const choice = localStorage.getItem("vhLocaleChoice");
+      const language = navigator.language || "";
+      if (!choice && /^ja\b/i.test(language)) {
+        localStorage.setItem("vhLocaleChoice", "ja");
+        window.location.replace("/ja/");
+      }
+    } catch {
+    }
+  }, [currentPath]);
 
   return (
     <div className="app-shell">

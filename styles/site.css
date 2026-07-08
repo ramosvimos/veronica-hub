@@ -310,6 +310,7 @@ input {
 }
 
 .utility-button,
+.language-link,
 .latest-pill,
 .btn,
 .chip,
@@ -321,6 +322,7 @@ input {
 }
 
 .utility-button,
+.language-link,
 .latest-pill {
   min-height: 36px;
   border-radius: 10px;
@@ -333,6 +335,11 @@ input {
 
 .utility-button.small {
   display: none;
+}
+
+.language-link {
+  min-width: 64px;
+  white-space: nowrap;
 }
 
 .latest-pill {
@@ -1386,6 +1393,16 @@ input:focus-visible {
     width: min(1180px, calc(100vw - 24px));
   }
 
+  .topbar-inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .top-actions {
+    min-width: 0;
+    justify-content: end;
+  }
+
   .brand-title {
     display: none;
   }
@@ -1396,6 +1413,12 @@ input:focus-visible {
     display: none;
   }
 
+  .language-link {
+    display: inline-flex;
+    min-width: 52px;
+    padding: 0 10px;
+  }
+
   .top-actions .menu-action {
     display: inline-flex;
   }
@@ -1403,6 +1426,13 @@ input:focus-visible {
   .hero {
     min-height: auto;
     padding: 44px 0 42px;
+  }
+
+  .hero-grid,
+  .hero-copy,
+  .page-hero-inner {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .hero-dossier {
@@ -1419,8 +1449,13 @@ input:focus-visible {
   .hero h1,
   .page-hero h1,
   .static-hero h1 {
-    font-size: clamp(34px, 9.6vw, 42px);
-    line-height: .98;
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(30px, 8.4vw, 36px);
+    line-height: 1.02;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-wrap: wrap;
   }
 
   .section-heading h2,
@@ -1430,9 +1465,11 @@ input:focus-visible {
   }
 
   .hero-subtitle,
+  .page-lede,
   .section-heading p,
   .static-lede,
   .static-section > p {
+    width: 100%;
     max-width: calc(100vw - 28px);
     overflow-wrap: anywhere;
   }
