@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import { track } from "@vercel/analytics";
 import { Analytics } from "@vercel/analytics/react";
 import siteData from "../../content/site-data.json";
 
@@ -117,6 +118,44 @@ function normalizePath(pathname) {
   return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
 
+function analyticsPath() {
+  return normalizePath(window.location.pathname);
+}
+
+function cleanAnalyticsLabel(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().slice(0, 80);
+}
+
+function trackEvent(name, properties = {}) {
+  try {
+    track(name, {
+      path: analyticsPath(),
+      ...properties
+    });
+  } catch {
+  }
+}
+
+function analyticsEventForLink(anchor) {
+  if (anchor.dataset.analyticsEvent) return anchor.dataset.analyticsEvent;
+  const href = anchor.getAttribute("href") || "";
+  const absoluteHref = anchor.href || href;
+  if (href === "/feed.xml" || absoluteHref.endsWith("/feed.xml")) return "rss_click";
+  if (absoluteHref.includes("store.steampowered.com")) return "steam_click";
+  if (absoluteHref.includes("youtube.com") || absoluteHref.includes("youtu.be")) return "official_video_click";
+  if (anchor.classList.contains("source-link") && /^https?:\/\//.test(absoluteHref)) return "source_click";
+  return null;
+}
+
+function linkAnalyticsProperties(anchor) {
+  return {
+    href: anchor.getAttribute("href") || anchor.href,
+    label: cleanAnalyticsLabel(anchor.textContent),
+    source_id: anchor.dataset.sourceId || undefined,
+    locale: anchor.dataset.locale || undefined
+  };
+}
+
 function slugify(value) {
   return String(value || "")
     .toLowerCase()
@@ -159,7 +198,7 @@ function SourceLinks({ sourceIds }) {
       {sources.map((source, index) => (
         <React.Fragment key={source.id}>
           {index > 0 && ", "}
-          <a href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined}>{source.name}</a>
+          <a href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined} data-analytics-event="source_click" data-source-id={source.id}>{source.name}</a>
         </React.Fragment>
       ))}
     </>
@@ -316,7 +355,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
-          <a className="utility-button" href={languageTarget} onClick={chooseLocale}>{languageLabel}</a>
+          <a className="utility-button" href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small find-action" type="button" onClick={onSearch}>Find</button>
           <button className="utility-button small menu-action" type="button" onClick={onMenu}>Menu</button>
@@ -505,6 +544,10 @@ function QuickFacts({ path = "/" }) {
 function OfficialVideoTerminal() {
   const [loaded, setLoaded] = React.useState(false);
   const poster = siteData.media.find((item) => item.id === "trailer-poster");
+  const loadTrailer = () => {
+    trackEvent("trailer_play", { video: siteData.trailer.id });
+    setLoaded(true);
+  };
   return (
     <div className="terminal official-video-terminal">
       <div className="terminal-chrome">
@@ -516,7 +559,7 @@ function OfficialVideoTerminal() {
         {loaded ? (
           <iframe src={`${siteData.trailer.embedUrl}&autoplay=1`} title={siteData.trailer.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         ) : (
-          <button className="trailer-poster-button" type="button" onClick={() => setLoaded(true)} aria-label={`Load official trailer: ${siteData.trailer.title}`}>
+          <button className="trailer-poster-button" type="button" onClick={loadTrailer} aria-label={`Load official trailer: ${siteData.trailer.title}`}>
             <OptimizedImage src={poster.src} alt="" />
             <span className="play-core" aria-hidden="true">▶</span>
             <span className="trailer-cta-text">Watch official trailer</span>
@@ -664,7 +707,7 @@ function SourcesPreview({ expanded = false }) {
               <h3>{source.name}</h3>
               <p>{source.usedFor}</p>
               <p className="meta">Last checked: {source.lastChecked}</p>
-              <a className="source-link" href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined}>Open source</a>
+              <a className="source-link" href={source.url} target={source.url.startsWith("http") ? "_blank" : undefined} rel={source.url.startsWith("http") ? "noopener noreferrer" : undefined} data-source-id={source.id}>Open source</a>
             </article>
           ))}
         </div>
@@ -1317,7 +1360,7 @@ function Footer() {
           {footerTrustRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
         <nav className="footer-links">
-          <a href={languageTarget} onClick={chooseLocale}>{languageLabel}</a>
+          <a href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
         </nav>
       </div>
     </footer>
@@ -1343,9 +1386,30 @@ function App() {
     }
   }, [currentPath]);
 
+  React.useEffect(() => {
+    const handleClick = (event) => {
+      const anchor = event.target.closest?.("a[href]");
+      if (!anchor) return;
+      const eventName = analyticsEventForLink(anchor);
+      if (!eventName) return;
+      trackEvent(eventName, linkAnalyticsProperties(anchor));
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
+  const openSearch = () => {
+    trackEvent("search_open");
+    setSearchOpen(true);
+  };
+  const openMenu = () => {
+    trackEvent("menu_open");
+    setMenuOpen(true);
+  };
+
   return (
     <div className="app-shell">
-      <Header onSearch={() => setSearchOpen(true)} onMenu={() => setMenuOpen(true)} />
+      <Header onSearch={openSearch} onMenu={openMenu} />
       <main>{isNotFound ? <NotFoundPage /> : <PageSwitch path={currentPath} />}</main>
       <Footer />
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}

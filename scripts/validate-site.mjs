@@ -154,6 +154,15 @@ const adsTxtPath = path.join(root, "ads.txt");
 if (!fs.existsSync(adsTxtPath)) fail("Missing ads.txt");
 else if (!read(adsTxtPath).includes(adsTxtLine)) fail("ads.txt missing Google AdSense publisher line");
 
+const appBundlePath = path.join(root, "designs/veronica-hub/app.bundle.js");
+if (!fs.existsSync(appBundlePath)) fail("Missing app bundle");
+else {
+  const appBundle = read(appBundlePath);
+  for (const eventName of ["source_click", "steam_click", "official_video_click", "trailer_play", "rss_click", "language_switch", "search_open", "menu_open"]) {
+    if (!appBundle.includes(eventName)) fail(`App bundle missing analytics event: ${eventName}`);
+  }
+}
+
 for (const media of data.media) {
   const assetPath = path.join(root, media.src.replace(/^\//, ""));
   if (!fs.existsSync(assetPath)) fail(`Missing media asset: ${media.src}`);

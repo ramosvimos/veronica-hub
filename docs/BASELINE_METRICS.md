@@ -5,7 +5,7 @@
 - Production URL: https://residentevilveronica.com/
 - Baseline start date: 2026-06-10
 - Measurement owner: site maintainer
-- Analytics source: Vercel Web Analytics
+- Analytics source: Vercel Web Analytics page views and custom events
 - Search source: Google Search Console
 
 ## Day 0
@@ -50,7 +50,23 @@
 | Search clicks | 0 | Compare against Day 14 |
 | Average CTR | 0% | Review title and description fit |
 | Returning visitors | 0 | From analytics if available |
-| Source clicks | 0 | Only if event tracking is added later |
+| Source clicks | 0 | From `source_click` custom events |
+| Trailer plays | 0 | From `trailer_play` custom events |
+| Steam clicks | 0 | From `steam_click` custom events |
+| Language switches | 0 | From `language_switch` custom events |
+
+## Custom Event Review
+
+| Event | What It Explains | Improvement Action |
+| --- | --- | --- |
+| `source_click` | Whether visitors verify claims through official links | Move high-trust sources closer to weak pages |
+| `trailer_play` | Whether trailer sections create engagement | Improve poster placement or video copy |
+| `steam_click` | Whether store-intent pages route users to Steam | Strengthen Steam/status calls to action |
+| `official_video_click` | Whether visitors prefer YouTube over embedded playback | Improve video library ordering |
+| `rss_click` | Whether update monitoring has demand | Promote watchlist and changelog links |
+| `language_switch` | Whether Japanese localization is being used | Expand localized pages if usage is meaningful |
+| `search_open` | Whether visitors need navigation help | Add internal links to searched topics |
+| `menu_open` | Whether mobile navigation is discoverable | Review mobile nav layout if usage is high but depth is low |
 
 ## Interpretation Rules
 
