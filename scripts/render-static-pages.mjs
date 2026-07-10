@@ -729,7 +729,11 @@ function staticBody(route) {
         <nav>
           ${primaryNav.map((path) => routeByPath(path)).filter(Boolean).map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`).join("")}
         </nav>
-        ${languageSwitchLink(route)}
+        <div class="top-actions">
+          ${languageSwitchLink(route)}
+          <a class="latest-pill" href="/watchlist/">Watchlist</a>
+          <a class="utility-button small menu-action static-menu-link" href="#site-footer">Menu</a>
+        </div>
       </header>
       <main>
         <section class="static-hero">
@@ -755,7 +759,7 @@ function staticBody(route) {
           <p>${japaneseRoute ? "未発表の内容は未確認として扱い、公式ソースが更新された場合のみ反映します。" : "Details that have not been announced yet are labeled clearly and updated only when an official source changes."}</p>
         </section>`}
       </main>
-      <footer class="footer">
+      <footer class="footer" id="site-footer">
         <div class="container footer-grid">
           <div>
             <a class="brand" href="/">

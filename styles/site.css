@@ -1,8 +1,8 @@
 :root {
   --bg: #040303;
   --bg-soft: #0b0809;
-  --panel: rgba(255, 255, 255, .055);
-  --panel-strong: rgba(13, 14, 18, .82);
+  --panel: rgba(14, 13, 16, .78);
+  --panel-strong: rgba(11, 10, 13, .94);
   --line: rgba(255, 255, 255, .12);
   --text: #f3f0ec;
   --muted: #c5bdb7;
@@ -28,6 +28,25 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .search-overlay,
+  .mobile-drawer,
+  .search-modal,
+  .drawer-panel {
+    animation: surface-scrim-in 160ms ease-out both !important;
+  }
+
+  .utility-button:active,
+  .language-link:active,
+  .latest-pill:active,
+  .btn:active,
+  .media-zoom-button:active,
+  .close-button:active,
+  .drawer-links a:active,
+  .section-jump-nav a:active,
+  .route-card:active {
+    transform: none !important;
   }
 }
 
@@ -63,6 +82,12 @@ a {
 
 img {
   display: block;
+  max-width: 100%;
+}
+
+picture,
+iframe,
+video {
   max-width: 100%;
 }
 
@@ -352,6 +377,30 @@ input {
   border-color: rgba(196, 27, 34, .34);
 }
 
+.utility-button,
+.language-link,
+.latest-pill,
+.btn,
+.media-zoom-button,
+.close-button,
+.drawer-links a,
+.section-jump-nav a,
+.route-card {
+  transition: transform 100ms ease-out, background-color 160ms ease-out, border-color 160ms ease-out;
+}
+
+.utility-button:active,
+.language-link:active,
+.latest-pill:active,
+.btn:active,
+.media-zoom-button:active,
+.close-button:active,
+.drawer-links a:active,
+.section-jump-nav a:active,
+.route-card:active {
+  transform: scale(.97);
+}
+
 .hero,
 .page-hero,
 .static-hero {
@@ -393,6 +442,8 @@ input {
 .hero-copy {
   display: grid;
   justify-items: start;
+  width: 100%;
+  min-width: 0;
   max-width: 760px;
 }
 
@@ -482,7 +533,7 @@ h3 {
 .hero-subtitle,
 .page-lede,
 .static-lede {
-  max-width: 660px;
+  max-width: min(660px, 100%);
   margin-top: 22px;
   font-size: clamp(18px, 1.5vw, 21px);
 }
@@ -536,7 +587,7 @@ h3 {
   border-radius: 12px;
   background: var(--panel);
   box-shadow: 0 24px 80px rgba(0, 0, 0, .34);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
 }
 
 .dossier-panel {
@@ -1240,6 +1291,7 @@ h3 {
   place-items: center;
   padding: 18px;
   background: rgba(0, 0, 0, .72);
+  animation: surface-scrim-in 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .search-modal,
@@ -1247,8 +1299,15 @@ h3 {
   width: min(640px, 100%);
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: rgba(9, 10, 15, .96);
+  background: var(--panel-strong);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .46);
+  backdrop-filter: blur(18px);
   padding: 18px;
+}
+
+.search-modal {
+  transform-origin: top right;
+  animation: surface-modal-in 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .modal-head {
@@ -1288,6 +1347,7 @@ h3 {
   width: min(420px, 100%);
   height: 100%;
   margin-left: auto;
+  animation: surface-drawer-in 240ms cubic-bezier(0.32, 0.72, 0, 1) both;
 }
 
 .drawer-links {
@@ -1302,6 +1362,33 @@ h3 {
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 14px;
+}
+
+@keyframes surface-scrim-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes surface-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes surface-drawer-in {
+  from {
+    opacity: .72;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .static-shell {
@@ -1402,11 +1489,13 @@ input:focus-visible {
   .topbar-inner {
     grid-template-columns: auto auto;
     justify-content: space-between;
+    gap: 10px;
   }
 
   .top-actions {
     min-width: 0;
     justify-content: end;
+    gap: 6px;
   }
 
   .brand-title {
@@ -1419,14 +1508,15 @@ input:focus-visible {
     display: none;
   }
 
-  .language-link {
+  .top-actions .menu-action {
     display: inline-flex;
     min-width: 52px;
     padding: 0 10px;
   }
 
-  .top-actions .menu-action {
-    display: inline-flex;
+  .top-actions .language-link,
+  .top-actions .find-action {
+    display: none;
   }
 
   .hero {

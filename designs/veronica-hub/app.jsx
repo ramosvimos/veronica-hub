@@ -355,7 +355,7 @@ function Header({ onSearch, onMenu }) {
         </nav>
         <div className="top-actions">
           <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
-          <a className="utility-button" href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
+          <a className="utility-button language-link" href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small find-action" type="button" onClick={onSearch}>Find</button>
           <button className="utility-button small menu-action" type="button" onClick={onMenu}>Menu</button>
