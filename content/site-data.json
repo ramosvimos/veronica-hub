@@ -2,7 +2,7 @@
   "site": {
     "name": "Veronica Hub",
     "origin": "https://residentevilveronica.com",
-    "lastVerified": "2026-06-22",
+    "lastVerified": "2026-07-12",
     "tagline": "Resident Evil Veronica source-backed official update tracker",
     "disclaimer": "Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.",
     "noPiracy": "Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads."
@@ -27,7 +27,8 @@
       "intro": "Track the confirmed 2027 release window, official remake details, platforms, story premise, screenshots and source links.",
       "body": [
         "Capcom has announced Resident Evil Veronica for 2027. Official sources identify it as a remake of 2000's Resident Evil Code: Veronica, developed with a reimagined story, modernized gameplay and detailed graphics.",
-        "The confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Steam lists the PC page as live, with the planned release year set to 2027 and system requirements still marked TBD.",
+        "The confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Official Steam, PlayStation, Xbox and Nintendo store pages are now live, while Steam still lists the planned release year as 2027 and PC system requirements as TBD.",
+        "Capcom reported that Resident Evil Veronica passed one million combined wishlists across PS5 and PC shortly after its announcement. This is an interest milestone, not a sales figure or preorder count.",
         "A June 2026 producer interview and media Q&A added reported development context: the remake is described as third-person, the shortened Veronica title is meant to communicate main-series importance, and the team includes developers from the Resident Evil 2 and Resident Evil 4 remakes.",
         "This site separates official facts from reported context and unknown details. Release date, preorder timing, demo availability, editions, PC requirements and new media are updated only when Capcom, Steam or another official platform source changes.",
         "The practical reading today is simple: the game is real, the release year is official, the platform set is official, and PC store presence is real. The exact launch day, price, edition lineup, demo plan, physical packaging and final PC hardware target are still not public.",
@@ -86,9 +87,11 @@
       "changefreq": "daily",
       "intro": "Confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC.",
       "body": [
-        "Resident Evil Veronica is confirmed for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. PC availability is also supported by the live Steam page.",
+        "Resident Evil Veronica is confirmed for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Official store pages are live on Steam, PlayStation, Xbox and Nintendo, with direct links provided below.",
         "Other formats, subscription launches, cloud versions or older-console releases have not been confirmed. They should not be assumed from previous Resident Evil releases.",
-        "If Capcom or a platform holder adds another listing, this page will be updated with the matching source link.",
+        "The official Xbox listing currently shows single-player, Xbox achievements, cloud saves, 4K Ultra HD and Series X|S optimization. These store flags do not confirm a 4K 60 FPS performance target.",
+        "The PlayStation listing currently shows offline single-player, DualSense vibration and trigger support, PS5 Pro enhancement and Game Help. The Nintendo listing confirms a digital Switch 2 version, one local player and TV, tabletop and handheld play modes.",
+        "Capcom also reported more than one million combined PS5 and PC wishlists shortly after the announcement. Wishlist interest is not the same as sales, preorders or a release-date commitment.",
         "The confirmed platform list is already useful for purchase planning, but it does not answer every platform question. Physical editions, cross-save, cloud streaming, performance modes, regional storefront timing and subscription availability are separate details that still need official confirmation.",
         "PC has the clearest store signal because the Steam page is live. That confirms PC presence and wishlist access, but it does not confirm the final hardware requirements, pricing, DRM details, preorder timing or Steam Deck status.",
         "Nintendo Switch 2 support is notable because it means the remake is being announced for current-generation Nintendo hardware from the start. Until Capcom publishes more technical information, this page should avoid guessing resolution, frame rate or cartridge/download packaging.",
@@ -652,9 +655,12 @@
       "status": "confirmed",
       "sourceIds": [
         "capcom-press-2026-06-08",
-        "steam-store"
+        "steam-store",
+        "playstation-store",
+        "xbox-store",
+        "nintendo-store"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-12",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -665,6 +671,41 @@
       ]
     },
     {
+      "id": "official-store-pages",
+      "label": "Official store pages",
+      "value": "Live on Steam, PlayStation, Xbox and Nintendo",
+      "status": "confirmed",
+      "sourceIds": [
+        "steam-store",
+        "playstation-store",
+        "xbox-store",
+        "nintendo-store"
+      ],
+      "lastChecked": "2026-07-12",
+      "lastChanged": "2026-07-12",
+      "pages": [
+        "/",
+        "/platforms/",
+        "/sources/"
+      ]
+    },
+    {
+      "id": "wishlist-milestone",
+      "label": "Wishlist milestone",
+      "value": "More than one million combined wishlists across PS5 and PC",
+      "status": "confirmed",
+      "sourceIds": [
+        "resident-evil-social-wishlist-2026-06-10"
+      ],
+      "lastChecked": "2026-07-12",
+      "lastChanged": "2026-06-10",
+      "pages": [
+        "/",
+        "/platforms/",
+        "/sources/"
+      ]
+    },
+    {
       "id": "steam-page",
       "label": "Steam page",
       "value": "Live with wishlist access",
@@ -672,7 +713,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-12",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -880,7 +921,43 @@
       "reliability": "high",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
       "usedFor": "Store page, PC status, developer, publisher, planned release year, story synopsis, Steam features, language support and system requirements status",
-      "lastChecked": "2026-06-22"
+      "lastChecked": "2026-07-12"
+    },
+    {
+      "id": "playstation-store",
+      "name": "PlayStation Store",
+      "type": "official-store",
+      "reliability": "high",
+      "url": "https://store.playstation.com/en-us/concept/10020020",
+      "usedFor": "PS5 wishlist access, offline single-player, DualSense support, PS5 Pro enhancement and Game Help store flags",
+      "lastChecked": "2026-07-12"
+    },
+    {
+      "id": "xbox-store",
+      "name": "Xbox Store",
+      "type": "official-store",
+      "reliability": "high",
+      "url": "https://www.xbox.com/en-US/games/store/resident-evil-veronica/9pjjk03lkjkb",
+      "usedFor": "Xbox Series X|S listing, single-player, achievements, cloud saves, 4K Ultra HD and optimization store flags",
+      "lastChecked": "2026-07-12"
+    },
+    {
+      "id": "nintendo-store",
+      "name": "Nintendo Store",
+      "type": "official-store",
+      "reliability": "high",
+      "url": "https://www.nintendo.com/us/store/products/resident-evil-veronica-switch-2/",
+      "usedFor": "Nintendo Switch 2 digital listing, one local player, supported play modes and languages",
+      "lastChecked": "2026-07-12"
+    },
+    {
+      "id": "resident-evil-social-wishlist-2026-06-10",
+      "name": "Official Resident Evil wishlist milestone",
+      "type": "official-social",
+      "reliability": "high",
+      "url": "https://bsky.app/profile/residentevil.capcomusa.com/post/3mny6lxm2uk2t",
+      "usedFor": "Capcom-reported milestone of more than one million combined PS5 and PC wishlists",
+      "lastChecked": "2026-07-12"
     },
     {
       "id": "vgc-producer-interview-2026-06-10",
@@ -1148,7 +1225,9 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "note": "PC is officially listed. Steam page is live; system requirements remain unknown."
+      "note": "Steam wishlist access is live; minimum and recommended PC requirements remain TBD.",
+      "storeUrl": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+      "storeLabel": "Open Steam page"
     },
     {
       "id": "ps5",
@@ -1156,9 +1235,12 @@
       "name": "PlayStation 5",
       "status": "confirmed",
       "sourceIds": [
-        "capcom-press-2026-06-08"
+        "capcom-press-2026-06-08",
+        "playstation-store"
       ],
-      "note": "Official platform listing verified."
+      "note": "The store lists offline single-player, DualSense support, PS5 Pro enhancement and Game Help.",
+      "storeUrl": "https://store.playstation.com/en-us/concept/10020020",
+      "storeLabel": "Open PlayStation Store"
     },
     {
       "id": "xbox-series",
@@ -1166,9 +1248,12 @@
       "name": "Xbox Series X|S",
       "status": "confirmed",
       "sourceIds": [
-        "capcom-press-2026-06-08"
+        "capcom-press-2026-06-08",
+        "xbox-store"
       ],
-      "note": "Official platform listing verified."
+      "note": "The store lists single-player, achievements, cloud saves, 4K Ultra HD and Series X|S optimization.",
+      "storeUrl": "https://www.xbox.com/en-US/games/store/resident-evil-veronica/9pjjk03lkjkb",
+      "storeLabel": "Open Xbox Store"
     },
     {
       "id": "switch-2",
@@ -1176,9 +1261,12 @@
       "name": "Nintendo Switch 2",
       "status": "confirmed",
       "sourceIds": [
-        "capcom-press-2026-06-08"
+        "capcom-press-2026-06-08",
+        "nintendo-store"
       ],
-      "note": "Official platform listing verified."
+      "note": "The official digital listing confirms one local player and TV, tabletop and handheld modes.",
+      "storeUrl": "https://www.nintendo.com/us/store/products/resident-evil-veronica-switch-2/",
+      "storeLabel": "Open Nintendo Store"
     },
     {
       "id": "steam",
@@ -1188,7 +1276,9 @@
       "sourceIds": [
         "steam-store"
       ],
-      "note": "Store page and wishlist access are available."
+      "note": "The official Steam page is live with wishlist access and a 2027 release window.",
+      "storeUrl": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
+      "storeLabel": "Open Steam page"
     }
   ],
   "characters": [
@@ -2196,6 +2286,18 @@
         "reason": "Store page, wishlist, PC, developer/publisher and media records"
       },
       {
+        "sourceId": "playstation-store",
+        "reason": "PS5 wishlist access and platform feature flags"
+      },
+      {
+        "sourceId": "xbox-store",
+        "reason": "Xbox listing availability and platform feature flags"
+      },
+      {
+        "sourceId": "nintendo-store",
+        "reason": "Nintendo Switch 2 listing availability, play modes and language support"
+      },
+      {
         "sourceId": "official-youtube-trailer",
         "reason": "Official trailer availability and video metadata"
       }
@@ -2211,6 +2313,19 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-07-12",
+      "type": "Source Review",
+      "title": "Official platform store links and wishlist milestone added",
+      "summary": "Added direct Steam, PlayStation, Xbox and Nintendo store links, recorded official platform feature flags, and added Capcom's one-million-wishlist milestone with sales and preorder caveats.",
+      "sourceId": "resident-evil-social-wishlist-2026-06-10",
+      "affectedClaims": [
+        "confirmed-platforms",
+        "official-store-pages",
+        "wishlist-milestone",
+        "steam-page"
+      ]
+    },
     {
       "date": "2026-06-22",
       "type": "Source Review",

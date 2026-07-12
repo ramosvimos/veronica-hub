@@ -6,7 +6,15 @@
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Resident Evil Veronica source-backed official update tracker official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Official platform store links and wishlist milestone added</title>
+      <link>https://residentevilveronica.com/changelog/#2026-07-12-official-platform-store-links-and-wishlist-milestone-added</link>
+      <guid isPermaLink="false">veronica-hub:2026-07-12-official-platform-store-links-and-wishlist-milestone-added</guid>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Added direct Steam, PlayStation, Xbox and Nintendo store links, recorded official platform feature flags, and added Capcom&apos;s one-million-wishlist milestone with sales and preorder caveats. Reference: Official Resident Evil wishlist milestone (https://bsky.app/profile/residentevil.capcomusa.com/post/3mny6lxm2uk2t).</description>
+    </item>
     <item>
       <title>Producer interview details added</title>
       <link>https://residentevilveronica.com/changelog/#2026-06-22-producer-interview-details-added</link>

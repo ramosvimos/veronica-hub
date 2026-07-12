@@ -1004,6 +1004,17 @@ function PlatformsPage({ routeInfo }) {
                   <h3>{platform.name}</h3>
                   <p>{platform.note}</p>
                   <p className="meta">Sources: {platform.sourceIds.map((id) => sourceById(id)?.name).filter(Boolean).join(", ")}</p>
+                  {platform.storeUrl ? (
+                    <a
+                      className="source-link"
+                      href={platform.storeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-source-id={platform.sourceIds.at(-1)}
+                    >
+                      {platform.storeLabel || "Open official store"}
+                    </a>
+                  ) : null}
                 </div>
               </article>
             ))}

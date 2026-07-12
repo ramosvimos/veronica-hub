@@ -607,6 +607,22 @@ function routeSpecific(route) {
     return officialVideosSection();
   }
 
+  if (route.path === "/platforms/") {
+    return `
+      <section class="static-section">
+        <h2>Official Platform Store Links</h2>
+        <div class="static-grid">
+          ${data.platforms.map((platform) => `<article class="static-card">
+            <p class="eyebrow">${escapeHtml(platform.status)}</p>
+            <h3>${escapeHtml(platform.name)}</h3>
+            <p>${escapeHtml(platform.note)}</p>
+            <p class="meta">Sources: ${sourceLinks(platform.sourceIds)}.</p>
+            ${platform.storeUrl ? `<a class="source-link" href="${escapeHtml(platform.storeUrl)}">${escapeHtml(platform.storeLabel || "Open official store")}</a>` : ""}
+          </article>`).join("")}
+        </div>
+      </section>`;
+  }
+
   if (route.path === "/faq/") {
     return `
       <section class="static-section">

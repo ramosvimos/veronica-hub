@@ -128,6 +128,17 @@ const steamHtml = read(routeOutputPath("/steam/"));
 if (!steamHtml.includes("Steam Status")) fail("Steam page missing status section");
 if (!steamHtml.includes("Wishlist access is live")) fail("Steam page missing wishlist status");
 
+const platformsHtml = read(routeOutputPath("/platforms/"));
+for (const platform of data.platforms) {
+  if (!platform.storeUrl) fail(`Platform is missing store URL: ${platform.id}`);
+  else if (!platformsHtml.includes(platform.storeUrl)) fail(`Platforms page missing store URL: ${platform.id}`);
+}
+for (const sourceId of ["steam-store", "playstation-store", "xbox-store", "nintendo-store"]) {
+  const source = data.sources.find((item) => item.id === sourceId);
+  if (!source) fail(`Missing official platform source: ${sourceId}`);
+  else if (!platformsHtml.includes(source.url)) fail(`Platforms page missing official source link: ${sourceId}`);
+}
+
 const sitemap = read(path.join(root, "sitemap.xml"));
 for (const route of data.routes) {
   const inSitemap = sitemap.includes(`${data.site.origin}${route.path}`);
