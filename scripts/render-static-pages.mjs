@@ -104,6 +104,51 @@ const mediaSectionLinks = [
   { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
   { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
 ];
+const imageDimensionsCache = new Map();
+
+function readImageDimensions(src) {
+  if (!src?.startsWith("/")) return null;
+  if (imageDimensionsCache.has(src)) return imageDimensionsCache.get(src);
+
+  let dimensions = null;
+  try {
+    const buffer = fs.readFileSync(path.join(root, src.replace(/^\/+/, "")));
+
+    if (buffer.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))) {
+      dimensions = { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+    } else if (buffer.subarray(0, 2).equals(Buffer.from([255, 216]))) {
+      let offset = 2;
+      while (offset < buffer.length) {
+        if (buffer[offset] !== 255) {
+          offset += 1;
+          continue;
+        }
+        const marker = buffer[offset + 1];
+        const length = buffer.readUInt16BE(offset + 2);
+        if ([192, 193, 194, 195, 197, 198, 199, 201, 202, 203, 205, 206, 207].includes(marker)) {
+          dimensions = { height: buffer.readUInt16BE(offset + 5), width: buffer.readUInt16BE(offset + 7) };
+          break;
+        }
+        if (!length || offset + length + 2 > buffer.length) break;
+        offset += length + 2;
+      }
+    } else if (buffer.subarray(0, 4).toString("ascii") === "RIFF" && buffer.subarray(8, 12).toString("ascii") === "WEBP" && buffer.subarray(12, 16).toString("ascii") === "VP8X") {
+      dimensions = {
+        width: 1 + buffer.readUIntLE(24, 3),
+        height: 1 + buffer.readUIntLE(27, 3)
+      };
+    } else if (path.extname(src).toLowerCase() === ".svg") {
+      const svg = buffer.toString("utf8");
+      const viewBox = svg.match(/viewBox=["']\s*[-\d.]+\s+[-\d.]+\s+([\d.]+)\s+([\d.]+)\s*["']/i);
+      if (viewBox) dimensions = { width: Number(viewBox[1]), height: Number(viewBox[2]) };
+    }
+  } catch {
+    dimensions = null;
+  }
+
+  imageDimensionsCache.set(src, dimensions);
+  return dimensions;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -281,7 +326,9 @@ function optimizedImageSrc(src) {
 }
 
 function imageMarkup(item) {
-  const img = `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" loading="lazy" decoding="async" fetchpriority="low" />`;
+  const dimensions = readImageDimensions(item.src);
+  const sizeAttributes = dimensions ? ` width="${dimensions.width}" height="${dimensions.height}"` : "";
+  const img = `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}"${sizeAttributes} loading="lazy" decoding="async" fetchpriority="low" />`;
   const optimizedSrc = optimizedImageSrc(item.src);
   if (!optimizedSrc) return img;
   return `<picture><source srcset="${escapeHtml(optimizedSrc)}" type="image/webp" />${img}</picture>`;
@@ -936,6 +983,7 @@ function pageHtml(route) {
   <meta property="og:description" content="${escapeHtml(route.description)}" />
   <meta property="og:image" content="${escapeHtml(data.site.origin)}/assets/official/capcom-veronica-ogp.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/assets/editorial/veronica-hub-favicon.svg" type="image/svg+xml" />
   <meta name="google-adsense-account" content="${adsenseClient}" />
   <link rel="alternate" type="application/rss+xml" title="Veronica Hub Changelog Feed" href="/feed.xml" />
   ${preloadTags ? `${preloadTags}\n  ` : ""}<link rel="stylesheet" href="${stylesheetPath}" />
@@ -944,7 +992,7 @@ function pageHtml(route) {
   ${schemaTags}
 </head>
 <body>
-  <noscript>${body}</noscript>
+  <div id="static-content">${body}</div>
   <div id="root"></div>
   <script src="${bundlePath}" defer></script>
 </body>

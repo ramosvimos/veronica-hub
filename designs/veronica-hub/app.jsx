@@ -1384,6 +1384,22 @@ function App() {
   const currentPath = normalizePath(window.location.pathname);
   const isNotFound = !knownPaths.has(currentPath);
 
+  React.useLayoutEffect(() => {
+    const staticContent = document.getElementById("static-content");
+    if (staticContent) {
+      staticContent.hidden = true;
+      staticContent.setAttribute("aria-hidden", "true");
+    }
+
+    const fragmentId = window.location.hash.slice(1);
+    if (fragmentId) {
+      const appTarget = [...document.querySelectorAll("#root [id]")].find((element) => element.id === fragmentId);
+      appTarget?.scrollIntoView();
+    }
+
+    staticContent?.querySelectorAll("[id]").forEach((element) => element.removeAttribute("id"));
+  }, []);
+
   React.useEffect(() => {
     if (currentPath !== "/") return;
     try {

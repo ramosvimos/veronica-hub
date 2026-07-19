@@ -84,6 +84,15 @@ for (const route of data.routes) {
   if (!html.includes(`name="robots" content="${escapeHtml(routeRobots(route))}"`)) fail(`Robots meta mismatch for ${route.path}`);
   if (!html.includes("application/ld+json")) fail(`Missing JSON-LD for ${route.path}`);
   if (!html.includes(`name="google-adsense-account" content="${adsenseClient}"`)) fail(`Missing AdSense account meta for ${route.path}`);
+  if (!html.includes('rel="icon" href="/assets/editorial/veronica-hub-favicon.svg"')) fail(`Missing declared favicon for ${route.path}`);
+  if (!html.includes('id="static-content"')) fail(`Missing static HTML content container for ${route.path}`);
+  if (html.includes("<noscript>")) fail(`Static HTML must not be limited to noscript on ${route.path}`);
+  for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+    if (!/\bwidth="\d+"/.test(image[0]) || !/\bheight="\d+"/.test(image[0])) {
+      fail(`Static image is missing dimensions for ${route.path}`);
+      break;
+    }
+  }
   const adsenseLoaderCount = (html.match(/adsbygoogle\.js/g) || []).length;
   if (shouldShowAds(route) && !html.includes(`pagead/js/adsbygoogle.js?client=${adsenseClient}`)) fail(`Missing AdSense loader for ${route.path}`);
   if (!shouldShowAds(route) && adsenseLoaderCount !== 0) fail(`AdSense loader should be disabled for ${route.path}`);
