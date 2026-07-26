@@ -420,9 +420,8 @@ function mediaSectionNav() {
   return `
     <section class="static-section static-section-compact" aria-label="Media page sections">
       <div class="section-jump-nav">
-        ${mediaSectionLinks.map((item, index) => `
+        ${mediaSectionLinks.map((item) => `
           <a href="${escapeHtml(item.href)}">
-            <span class="nav-code">SEC ${String(index + 1).padStart(2, "0")}</span>
             <strong>${escapeHtml(item.label)}</strong>
             <span>${escapeHtml(item.meta)}</span>
           </a>`).join("")}

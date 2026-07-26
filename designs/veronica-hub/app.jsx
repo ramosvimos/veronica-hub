@@ -301,18 +301,17 @@ function Header({ onSearch, onMenu }) {
           </span>
         </a>
         <nav className="nav" aria-label="Primary navigation">
-          {primaryNav.map((path, index) => {
+          {primaryNav.map((path) => {
             const item = route(path);
             return (
               <a key={path} className={activePath === path ? "active" : ""} href={path}>
-                <span className="nav-code">PAGE {String(index + 1).padStart(2, "0")}</span>
                 <span className="nav-label">{item.navLabel}</span>
               </a>
             );
           })}
         </nav>
         <div className="top-actions">
-          <button className="utility-button" type="button" onClick={onSearch}>Search pages</button>
+          <button className="utility-button search-action" type="button" onClick={onSearch}>Search pages</button>
           <a className="utility-button language-link" href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
           <a className="latest-pill" href="/watchlist/">Watchlist</a>
           <button className="utility-button small find-action" type="button" onClick={onSearch}>Find</button>
@@ -330,20 +329,20 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <span className="hero-kicker">Independent remake tracker</span>
+          <span className="hero-kicker">Source-checked remake tracker</span>
           <div className="chip-row">
             <span className="chip cyan">2027 release window</span>
             <span className="chip red">Exact date pending</span>
-            <span className="chip">Independent fan-made hub</span>
+            <span className="chip">Remake of Code: Veronica</span>
           </div>
-          <h1>Resident Evil <span>Code Veronica</span> Remake</h1>
+          <h1>Resident Evil <span>Veronica</span></h1>
           <p className="hero-subtitle">{route("/").intro}</p>
           <div className="cta-row">
             <a className="btn primary" href="/release-date/">Release Date</a>
             <a className="btn secondary" href="/trailer/">Watch Trailer</a>
             <a className="btn secondary" href="/media/">Official Media</a>
           </div>
-          <p className="trust-note">LAST VERIFIED: {siteData.site.lastVerified} / RELEASE WINDOW: {release?.value || "2027"} / EXACT DATE: {exactDate?.value || "Not officially confirmed"}</p>
+          <p className="trust-note">Last verified {siteData.site.lastVerified} · Release window {release?.value || "2027"} · Exact date {exactDate?.value || "not officially confirmed"}</p>
         </div>
         <aside className="hero-dossier" aria-label="Current game status">
           <DossierPanel />
@@ -476,7 +475,7 @@ function QuickFacts({ path = "/" }) {
       <div className="container">
         <SectionHeading title="Confirmed details">Each item includes its current status, source and last check date.</SectionHeading>
         <div className="facts-grid">
-          {claimsForPage(path).map((claim) => (
+          {claimsForPage(path).slice(0, 6).map((claim) => (
             <article className="card fact-card" key={claim.id}>
               <div className="slot-top">
                 <Badge type={claim.status}>{claim.status}</Badge>
@@ -572,39 +571,90 @@ function OfficialVideoLibrary({ compact = false } = {}) {
 function MediaPreview() {
   const previewIds = ["screenshot-01", "screenshot-02", "screenshot-03", "screenshot-04", "screenshot-05", "screenshot-06", "screenshot-07"];
   const media = previewIds.map((id) => mediaById(id)).filter(Boolean);
-  const [activeImage, setActiveImage] = React.useState(null);
+  const [activeIndex, setActiveIndex] = React.useState(-1);
+  const activeImage = media[activeIndex];
+  const openImage = (item) => setActiveIndex(media.findIndex((candidate) => candidate.id === item.id));
   return (
     <section className="section" id="media-preview">
       <div className="container">
         <SectionHeading title="Official screenshots">A preview of the remake gallery.</SectionHeading>
         <div className="media-reference-grid">
-          {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} onOpen={setActiveImage} />)}
+          {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} onOpen={openImage} />)}
         </div>
       </div>
-      {activeImage ? <ImageLightbox item={activeImage} onClose={() => setActiveImage(null)} /> : null}
+      {activeImage ? (
+        <ImageLightbox
+          item={activeImage}
+          onClose={() => setActiveIndex(-1)}
+          onPrevious={() => setActiveIndex((activeIndex - 1 + media.length) % media.length)}
+          onNext={() => setActiveIndex((activeIndex + 1) % media.length)}
+          positionText={`${activeIndex + 1} of ${media.length}`}
+        />
+      ) : null}
     </section>
   );
 }
 
-function ImageLightbox({ item, onClose }) {
+function useDialogLifecycle({ dialogRef, initialFocusRef, onClose }) {
+  const onCloseRef = React.useRef(onClose);
+  onCloseRef.current = onClose;
+
+  React.useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
+    document.body.style.overflow = "hidden";
+    initialFocusRef?.current?.focus();
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") onCloseRef.current();
+      if (event.key !== "Tab") return;
+      const focusable = [...(dialogRef.current?.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])') || [])];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+      previousFocus?.focus?.();
+    };
+  }, [dialogRef, initialFocusRef]);
+}
+
+function ImageLightbox({ item, onClose, onPrevious, onNext, positionText }) {
+  const dialogRef = React.useRef(null);
+  const closeRef = React.useRef(null);
+  useDialogLifecycle({ dialogRef, initialFocusRef: closeRef, onClose });
+
   React.useEffect(() => {
     const onKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft" && onPrevious) onPrevious();
+      if (event.key === "ArrowRight" && onNext) onNext();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
+  }, [onNext, onPrevious]);
 
   return (
-    <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={item.title} onClick={onClose}>
-      <button className="lightbox-close" type="button" onClick={onClose} aria-label="Close image preview">x</button>
+    <div ref={dialogRef} className="image-lightbox" role="dialog" aria-modal="true" aria-label={item.title} onClick={onClose}>
+      <button ref={closeRef} className="lightbox-close" type="button" onClick={onClose} aria-label="Close image preview">×</button>
+      {onPrevious ? <button className="lightbox-nav lightbox-previous" type="button" onClick={(event) => { event.stopPropagation(); onPrevious(); }} aria-label="Previous image">←</button> : null}
       <figure className="lightbox-figure" onClick={(event) => event.stopPropagation()}>
         <OptimizedImage src={item.src} alt={item.alt} loading="eager" />
         <figcaption>
           <strong>{item.title}</strong>
-          <span>{item.kind}</span>
+          <span>{positionText ? `${positionText} · ` : ""}{item.kind}</span>
         </figcaption>
       </figure>
+      {onNext ? <button className="lightbox-nav lightbox-next" type="button" onClick={(event) => { event.stopPropagation(); onNext(); }} aria-label="Next image">→</button> : null}
     </div>
   );
 }
@@ -636,12 +686,12 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <LatestVerification />
-      <WatchlistCallout />
       <QuickFacts path="/" />
+      <LatestVerification />
       <RouteCards />
       <TrailerPreview />
       <MediaPreview />
+      <WatchlistCallout />
       <SourcesPreview />
     </>
   );
@@ -731,7 +781,7 @@ function TextPage({ routeInfo, children }) {
             {routeInfo.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </article>
           <aside className="verification-policy">
-            <h3>{japanese ? "公式ソース確認" : "Source Status"}</h3>
+            <h2>{japanese ? "公式ソース確認" : "Source Status"}</h2>
             <p>{japanese ? `このページの情報は ${siteData.site.lastVerified} に確認しました。未発表の内容は未確認として扱います。` : `Information on this page was last checked on ${siteData.site.lastVerified}. Source links are available for the main details.`}</p>
             <a className="source-link" href="/sources/">{japanese ? "英語版ソースを見る" : "View sources"}</a>
           </aside>
@@ -872,14 +922,18 @@ function ContextMedia({ path }) {
   );
 }
 
-function MediaCard({ item, variant = "", cover = null }) {
+function MediaCard({ item, variant = "", cover = null, onOpen = null }) {
   const source = sourceById(item.sourceId);
   const variantClass = variant ? ` media-card-${variant}` : "";
   const imageSrc = cover?.src || item.src;
   const imageAlt = cover?.alt || item.alt;
   return (
     <figure className={`card media-card${variantClass}`}>
-      <OptimizedImage src={imageSrc} alt={imageAlt} />
+      {onOpen ? (
+        <button className="media-card-open" type="button" onClick={() => onOpen(item)} aria-label={`Open larger image: ${item.title}`}>
+          <OptimizedImage src={imageSrc} alt={imageAlt} />
+        </button>
+      ) : <OptimizedImage src={imageSrc} alt={imageAlt} />}
       <figcaption>
         <strong>{item.title}</strong>
         <span>{cover ? "site editorial cover / " : ""}{item.kind} / {source?.name || "Official source"}</span>
@@ -894,9 +948,8 @@ function MediaSectionNav() {
     <section className="section section-compact" aria-label="Media page sections">
       <div className="container">
         <div className="section-jump-nav">
-          {mediaSectionLinks.map((item, index) => (
+          {mediaSectionLinks.map((item) => (
             <a href={item.href} key={item.href}>
-              <span className="nav-code">SEC {String(index + 1).padStart(2, "0")}</span>
               <strong>{item.label}</strong>
               <span>{item.meta}</span>
             </a>
@@ -1021,6 +1074,9 @@ function MediaPage({ routeInfo }) {
   const timeline = sortTimeline(siteData.gameHistoryTimeline || []);
   const spotlightMedia = mediaByIds(mediaSpotlightIds);
   const assetMedia = mediaByIds(mediaAssetIds);
+  const [activeIndex, setActiveIndex] = React.useState(-1);
+  const activeImage = spotlightMedia[activeIndex];
+  const openImage = (item) => setActiveIndex(spotlightMedia.findIndex((candidate) => candidate.id === item.id));
 
   return (
     <>
@@ -1031,7 +1087,7 @@ function MediaPage({ routeInfo }) {
           <SectionHeading title="Official screenshots">In-game frames come first. Store art and page backgrounds are collected below.</SectionHeading>
           <div className="media-showcase">
             {spotlightMedia.map((item, index) => (
-              <MediaCard item={item} variant={index === 0 ? "lead" : "compact"} key={item.id} />
+              <MediaCard item={item} variant={index === 0 ? "lead" : "compact"} key={item.id} onOpen={openImage} />
             ))}
           </div>
           {assetMedia.length ? (
@@ -1067,6 +1123,15 @@ function MediaPage({ routeInfo }) {
         </section>
       ) : null}
       <QuickFacts path="/media/" />
+      {activeImage ? (
+        <ImageLightbox
+          item={activeImage}
+          onClose={() => setActiveIndex(-1)}
+          onPrevious={() => setActiveIndex((activeIndex - 1 + spotlightMedia.length) % spotlightMedia.length)}
+          onNext={() => setActiveIndex((activeIndex + 1) % spotlightMedia.length)}
+          positionText={`${activeIndex + 1} of ${spotlightMedia.length}`}
+        />
+      ) : null}
     </>
   );
 }
@@ -1143,37 +1208,70 @@ function PageSwitch({ path }) {
 }
 
 function SearchOverlay({ onClose }) {
-  const links = [...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
+  const dialogRef = React.useRef(null);
+  const inputRef = React.useRef(null);
+  const [query, setQuery] = React.useState("");
+  const paths = [...new Set([...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes])];
+  const links = paths.map((path) => route(path));
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  const matches = normalizedQuery
+    ? links.filter((item) => [item.navLabel, item.h1, item.intro, ...(item.body || [])].join(" ").toLocaleLowerCase().includes(normalizedQuery))
+    : links;
+  useDialogLifecycle({ dialogRef, initialFocusRef: inputRef, onClose });
   return (
-    <div className="search-overlay" role="dialog" aria-modal="true">
-      <div className="search-modal">
+    <div className="search-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <section ref={dialogRef} className="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title">
         <div className="modal-head">
-          <strong>Search pages</strong>
-          <button className="close-button" type="button" onClick={onClose}>x</button>
+          <h2 id="search-title">Search pages</h2>
+          <button className="close-button" type="button" onClick={onClose} aria-label="Close search">×</button>
         </div>
-        <input className="search-input" autoFocus placeholder="Search release date, platforms, trailer..." />
-        <div className="suggestions">
-          {links.map((item) => <a className="chip" href={item.path} key={item.path}>{item.navLabel}</a>)}
-        </div>
-      </div>
+        <label className="sr-only" htmlFor="site-search">Search by topic</label>
+        <input
+          ref={inputRef}
+          id="site-search"
+          className="search-input"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder="Try release date, platforms or trailer"
+          autoComplete="off"
+          aria-describedby="search-result-count"
+        />
+        <p className="search-result-count" id="search-result-count" role="status" aria-live="polite">
+          {matches.length} {matches.length === 1 ? "page" : "pages"} found
+        </p>
+        {matches.length ? (
+          <nav className="suggestions" aria-label="Search results">
+            {matches.map((item) => (
+              <a href={item.path} key={item.path}>
+                <strong>{item.navLabel}</strong>
+                <span>{item.intro}</span>
+              </a>
+            ))}
+          </nav>
+        ) : <p className="search-empty">No matching pages. Try “release date”, “platforms”, “trailer” or “PC”.</p>}
+      </section>
     </div>
   );
 }
 
 function MobileDrawer({ onClose }) {
-  const links = [...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes].map((path) => route(path));
+  const dialogRef = React.useRef(null);
+  const closeRef = React.useRef(null);
+  const paths = [...new Set([...primaryNav, "/ja/", ...utilityRoutes, ...footerTrustRoutes])];
+  const links = paths.map((path) => route(path));
+  useDialogLifecycle({ dialogRef, initialFocusRef: closeRef, onClose });
   return (
-    <div className="mobile-drawer" role="dialog" aria-modal="true">
-      <aside className="drawer-panel">
+    <div className="mobile-drawer" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <aside ref={dialogRef} className="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
         <div className="modal-head">
           <a className="brand" href="/" onClick={onClose}>
             <span className="mark">VH</span>
-            <span className="brand-title"><strong>Veronica Hub</strong><span>Menu</span></span>
+            <span className="brand-title"><strong id="menu-title">Veronica Hub</strong><span>Site menu</span></span>
           </a>
-          <button className="close-button" type="button" onClick={onClose}>x</button>
+          <button ref={closeRef} className="close-button" type="button" onClick={onClose} aria-label="Close menu">×</button>
         </div>
-        <nav className="drawer-links">
-          {links.map((item, index) => <a key={item.path} href={item.path} onClick={onClose}><span>{String(index + 1).padStart(2, "0")}</span>{item.navLabel}</a>)}
+        <nav className="drawer-links" aria-label="All pages">
+          {links.map((item) => <a key={item.path} href={item.path} onClick={onClose}>{item.navLabel}</a>)}
         </nav>
         <p className="meta">{siteData.site.disclaimer}</p>
       </aside>
@@ -1202,16 +1300,16 @@ function Footer() {
           <p>{siteData.site.disclaimer}</p>
           <p className="meta">{siteData.site.noPiracy}</p>
         </div>
-        <nav className="footer-links">
+        <nav className="footer-links" aria-label="Main pages">
           {primaryNav.slice(1).map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
-        <nav className="footer-links">
+        <nav className="footer-links" aria-label="Site utilities">
           {footerUtilityRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
-        <nav className="footer-links">
+        <nav className="footer-links" aria-label="Site policies">
           {footerTrustRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
         </nav>
-        <nav className="footer-links">
+        <nav className="footer-links" aria-label="Language">
           <a href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
         </nav>
       </div>
@@ -1222,6 +1320,7 @@ function Footer() {
 function App() {
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const lastTriggerRef = React.useRef(null);
   const currentPath = normalizePath(window.location.pathname);
   const isNotFound = !knownPaths.has(currentPath);
 
@@ -1266,13 +1365,24 @@ function App() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  const openSearch = () => {
+  const restoreTriggerFocus = () => window.requestAnimationFrame(() => lastTriggerRef.current?.focus());
+  const openSearch = (event) => {
+    lastTriggerRef.current = event.currentTarget;
     trackEvent("search_open");
     setSearchOpen(true);
   };
-  const openMenu = () => {
+  const openMenu = (event) => {
+    lastTriggerRef.current = event.currentTarget;
     trackEvent("menu_open");
     setMenuOpen(true);
+  };
+  const closeSearch = () => {
+    setSearchOpen(false);
+    restoreTriggerFocus();
+  };
+  const closeMenu = () => {
+    setMenuOpen(false);
+    restoreTriggerFocus();
   };
 
   return (
@@ -1280,8 +1390,8 @@ function App() {
       <Header onSearch={openSearch} onMenu={openMenu} />
       <main>{isNotFound ? <NotFoundPage /> : <PageSwitch path={currentPath} />}</main>
       <Footer />
-      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
-      {menuOpen && <MobileDrawer onClose={() => setMenuOpen(false)} />}
+      {searchOpen && <SearchOverlay onClose={closeSearch} />}
+      {menuOpen && <MobileDrawer onClose={closeMenu} />}
       <Analytics />
     </div>
   );
