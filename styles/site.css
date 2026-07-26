@@ -69,9 +69,7 @@ body::before {
   z-index: 20;
   pointer-events: none;
   opacity: .12;
-  background:
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, .032) 0 1px, transparent 1px 6px),
-    radial-gradient(ellipse at 50% 36%, transparent 0 44%, rgba(0, 0, 0, .32) 78%);
+  background: radial-gradient(ellipse at 50% 36%, transparent 0 44%, rgba(0, 0, 0, .32) 78%);
   mix-blend-mode: screen;
 }
 
@@ -226,7 +224,7 @@ input {
 
 .section-jump-nav {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
 }
 

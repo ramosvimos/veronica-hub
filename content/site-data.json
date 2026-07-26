@@ -2,8 +2,8 @@
   "site": {
     "name": "Veronica Hub",
     "origin": "https://residentevilveronica.com",
-    "lastVerified": "2026-07-19",
-    "tagline": "Resident Evil Veronica source-backed official update tracker",
+    "lastVerified": "2026-07-26",
+    "tagline": "Independent tracker for official Resident Evil Veronica updates",
     "disclaimer": "Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.",
     "noPiracy": "Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads."
   },
@@ -24,17 +24,22 @@
       "navLabel": "Home",
       "priority": "1.0",
       "changefreq": "daily",
-      "intro": "Track the confirmed 2027 release window, platforms, PC status, trailers and source links. Veronica Hub is an independent tracker, not an official Capcom site.",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "announcement-status",
+        "release-window",
+        "exact-release-date",
+        "confirmed-platforms",
+        "official-store-pages",
+        "steam-page"
+      ],
+      "intro": "Capcom has confirmed Resident Evil Veronica for 2027 on PS5, Xbox Series X|S, Nintendo Switch 2 and PC. We track what is official and flag what is still unknown.",
       "body": [
-        "Capcom has announced Resident Evil Veronica for 2027. Official sources identify it as a remake of 2000's Resident Evil Code: Veronica, developed with a reimagined story, modernized gameplay and detailed graphics.",
-        "The confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Official Steam, PlayStation, Xbox and Nintendo store pages are now live, while Steam still lists the planned release year as 2027 and PC system requirements as TBD.",
+        "Resident Evil Veronica is a remake of 2000's Resident Evil Code: Veronica. Capcom describes it as a reimagining with modernized gameplay and more detailed graphics.",
+        "The game is coming to PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC in 2027. Store pages are live on Steam, PlayStation, Xbox and Nintendo.",
         "Capcom reported that Resident Evil Veronica passed one million combined wishlists across PS5 and PC shortly after its announcement. This is an interest milestone, not a sales figure or preorder count.",
-        "A June 2026 producer interview and media Q&A added reported development context: the remake is described as third-person, the shortened Veronica title is meant to communicate main-series importance, and the team includes developers from the Resident Evil 2 and Resident Evil 4 remakes.",
-        "This site separates official facts from reported context and unknown details. Release date, preorder timing, demo availability, editions, PC requirements and new media are updated only when Capcom, Steam or another official platform source changes.",
-        "The practical reading today is simple: the game is real, the release year is official, the platform set is official, and PC store presence is real. The exact launch day, price, edition lineup, demo plan, physical packaging and final PC hardware target are still not public.",
-        "That distinction matters because Resident Evil announcements often create placeholder pages, retailer assumptions and trailer-frame speculation before the publisher gives complete product details. Veronica Hub keeps those categories separate so readers can decide what is safe to repeat and what still needs a primary source.",
-        "For returning Code: Veronica players, the strongest confirmed value is not a frame-by-frame remake map yet. It is the official positioning: Capcom is bringing the Rockfort Island story back as a modern remake and treating the Veronica chapter as important enough to sit beside the recent mainline remake cycle.",
-        "For new players, this page works as a starting dossier. Use Release Date for timing, Platforms for hardware choices, PC Requirements for upgrade caution, Story for spoiler-light context, Original vs Remake for comparison, and Sources when you want to inspect the underlying records yourself."
+        "Producer interviews describe the remake as a third-person game and say members of the Resident Evil 2 and Resident Evil 4 remake teams are involved. PlayStation Blog also reports that parts of the story are being adjusted to fit the wider series lore.",
+        "Capcom has not announced an exact release date, price, editions, demo or final PC requirements. New here? Start with the release date, platforms or spoiler-light story overview."
       ]
     },
     {
@@ -47,13 +52,15 @@
       "navLabel": "日本語",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
       "intro": "公式発表、Steamページ、公式動画をもとに、バイオハザード ヴェロニカの発売時期と対応機種を日本語で確認できます。",
       "body": [
         "バイオハザード ヴェロニカは、2000年に発売された Resident Evil Code: Veronica をベースにしたリメイク作品です。現在確認できる公式情報では、発売時期は2027年予定で、正確な発売日はまだ発表されていません。",
         "対応機種として確認されているのは PlayStation 5、Xbox Series X|S、Nintendo Switch 2、PC です。PC版についてはSteamページが公開されており、ウィッシュリスト登録は可能ですが、最小・推奨システム要件はまだTBDの状態です。",
-        "このページでは、日本語検索で使われやすい「バイオハザード ヴェロニカ」という呼び方を使いながら、公式情報と未確認情報を分けて整理します。価格、予約開始日、体験版、限定版、PCスペックなどは、Capcomや公式ストアが発表するまで未確定として扱います。",
-        "トレーラー映像は作品の雰囲気や舞台を知る手がかりになりますが、すべてのゲームシステム、敵、パズル、チャプター構成を確定するものではありません。カメラ視点や開発背景に関するインタビュー情報は、公式ページの記載とは分けて「報道に基づく補足情報」として扱います。",
-        "英語版の詳しいページでは、発売日、対応機種、PC要件、トレーラー、ストーリー、原作との違い、公式ソースを個別に確認できます。日本語ページはまず総合入口として運用し、日本語検索の反応が出たら個別ページを追加していきます。"
+        "価格、予約開始日、体験版、限定版、PCスペックはまだ発表されていません。公式情報が公開されるまでは未確定として掲載します。",
+        "公式トレーラーでは舞台や登場人物を確認できます。カメラ視点や開発背景については、プロデューサーの発言を引用した報道もあわせて紹介しています。",
+        "2026年6月のPlayStation Blogでは、プロデューサーが原作の一部を現在のシリーズ設定に合うよう調整すると説明しています。どの場面や人物描写が変わるかは未発表です。また、アルバート・ウェスカーはクレア、クリスと並んで物語に重要な人物として言及されましたが、リメイクでの登場方法や操作可否はまだ確認されていません。",
+        "発売時期、対応機種、PC要件、トレーラー、ストーリー、原作との違いは、英語版の各ページで詳しく確認できます。"
       ]
     },
     {
@@ -65,17 +72,16 @@
       "navLabel": "Release Date",
       "priority": "0.9",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "intro": "The official release window is 2027. No exact release date is confirmed yet.",
       "body": [
-        "Resident Evil Veronica currently has a 2027 release window. That window appears in Capcom announcement material and on the Steam store page.",
-        "No exact calendar date has been announced. Dates from forum posts, social clips, retailer placeholders or countdown pages should be treated as unconfirmed unless Capcom or an official store publishes them.",
-        "Release date, preorder timing, demo availability and edition details are tracked separately because each one can be announced at a different time.",
-        "A release window is not the same as a launch date. The current public fact is the year 2027; anything more precise than that needs a dated Capcom announcement, platform store update or official trailer description before it belongs on a release-date page.",
-        "The safest way to read the timeline is to separate four events: announcement, exact date reveal, preorder opening and launch. The announcement has happened. The other three have not been confirmed at the current verification time.",
-        "Retailers sometimes publish placeholder months or dates so they can list a product early. Those placeholders can be useful watch signals, but they should not be treated as confirmed Resident Evil Veronica scheduling unless the same date appears on an official Capcom or platform-holder page.",
-        "The current official record establishes a year, not a season, quarter, month or day. Capcom says the release date and further details will be announced later. The PlayStation and Steam listings both show 2027, but neither supplies a more precise launch date.",
-        "A wishlist or announced-store label is useful because it confirms a live product record. It does not create an exact date, a preorder date or a price. This distinction matters when search snippets, retailer pages or social posts attach a more specific date to a live store listing.",
-        "If the exact date changes from unknown to confirmed, this page should be updated first, followed by the homepage, FAQ, Steam status and changelog. That keeps the site from spreading date claims that only appear in one secondary source."
+        "Capcom and the official store listings give Resident Evil Veronica a 2027 release window. None of them lists a season, month or day.",
+        "An exact date, preorder date and launch price have not been announced.",
+        "Retailer placeholders, countdown pages and social posts are not release-date confirmation. Look for the same date on a Capcom, PlayStation, Xbox, Nintendo or Steam page before treating it as official.",
+        "Wishlisting is available on several stores, but a wishlist button does not mean preorders are open.",
+        "A release window is not a launch date. The confirmed information currently stops at the year, so quarter, month and day claims need a dated Capcom announcement or matching official-store update.",
+        "Treat announcement, exact-date reveal, preorder opening and launch as separate events. The announcement and store wishlists are live; the exact date, preorder checkout and release itself have not happened.",
+        "Official store pages can change at different times or by region. A credible date should appear consistently in Capcom material or on the relevant platform stores before players use it for travel, time off or preorder planning."
       ]
     },
     {
@@ -87,17 +93,26 @@
       "navLabel": "Platforms",
       "priority": "0.9",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "confirmed-platforms",
+        "official-store-pages",
+        "playstation-store-status",
+        "xbox-store-status",
+        "xbox-rating-metadata",
+        "nintendo-store-status"
+      ],
       "intro": "Confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC.",
       "body": [
         "Resident Evil Veronica is confirmed for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Official store pages are live on Steam, PlayStation, Xbox and Nintendo, with direct links provided below.",
-        "Other formats, subscription launches, cloud versions or older-console releases have not been confirmed. They should not be assumed from previous Resident Evil releases.",
+        "No older-console, subscription or cloud release has been announced.",
         "The official Xbox listing currently shows single-player, Xbox achievements, cloud saves, 4K Ultra HD and Series X|S optimization. These store flags do not confirm a 4K 60 FPS performance target.",
+        "The Xbox page displays a Mature 17+ badge and content descriptors, but the same page also says the game has not yet been rated. The final ESRB rating is therefore still unclear.",
         "The PlayStation listing currently shows offline single-player, DualSense vibration and trigger support, PS5 Pro enhancement and Game Help. The Nintendo listing confirms a digital Switch 2 version, one local player and TV, tabletop and handheld play modes.",
         "Capcom also reported more than one million combined PS5 and PC wishlists shortly after the announcement. Wishlist interest is not the same as sales, preorders or a release-date commitment.",
-        "The confirmed platform list is already useful for purchase planning, but it does not answer every platform question. Physical editions, cross-save, cloud streaming, performance modes, regional storefront timing and subscription availability are separate details that still need official confirmation.",
-        "PC has the clearest store signal because the Steam page is live. That confirms PC presence and wishlist access, but it does not confirm the final hardware requirements, pricing, DRM details, preorder timing or Steam Deck status.",
-        "Nintendo Switch 2 support is notable because it means the remake is being announced for current-generation Nintendo hardware from the start. Until Capcom publishes more technical information, this page should avoid guessing resolution, frame rate or cartridge/download packaging.",
-        "The page intentionally keeps unsupported platforms out of the confirmed list. Prior Resident Evil releases can suggest patterns, but platform support for this remake should come from the current Resident Evil Veronica announcement cycle, not from assumptions about earlier games."
+        "Physical editions, cross-save, cloud streaming, performance modes, regional timing and subscription availability remain unannounced.",
+        "Steam confirms a PC release and wishlist access. It does not yet list final hardware requirements, price, DRM details, preorder timing or Steam Deck support.",
+        "Capcom has not published resolution, frame-rate or packaging details for the Nintendo Switch 2 version."
       ]
     },
     {
@@ -109,14 +124,15 @@
       "navLabel": "Trailer",
       "priority": "0.9",
       "changefreq": "daily",
-      "intro": "The trailer page embeds the English official Resident Evil announcement video and lists verified official mirrors.",
+      "lastModified": "2026-07-26",
+      "intro": "Watch the English announcement trailer and find the verified Capcom and platform-channel uploads.",
       "body": [
-        "The lead trailer on this page is the English official announcement video from the Resident Evil YouTube channel. The video loads only after you click the poster so the page stays fast.",
+        "The main video is the English announcement trailer from the official Resident Evil YouTube channel. It loads after you click the poster.",
         "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence. Media Q&A reports say producer Yoshiaki Hirabayashi described the remake as a third-person game, so the first-person-looking trailer section should not be treated as a confirmed first-person mode.",
         "The official video library below includes Capcom regional uploads, platform-holder uploads and the Summer Game Fest world-premiere upload. Media-site mirrors are not treated as primary official records.",
-        "Announcement trailers are useful for confirming existence, tone, branding and broad setting, but they are weak evidence for final systems. A camera angle in a reveal trailer can be staged for mood; a gameplay breakdown, store feature list or developer presentation carries more weight for mechanics.",
-        "This page treats official uploads as source records rather than just embeds. Regional channels, platform-holder channels and event channels can preserve different descriptions, timestamps or audience context, so the library keeps them visible instead of relying on one repost.",
-        "The trailer also helps identify what remains unknown. It does not confirm a demo, exact date, edition plan, final PC spec, full enemy list, chapter layout or every returning character. Those items stay on their own tracker pages until a stronger source appears."
+        "The trailer does not confirm a demo, exact date, editions, final PC requirements, a full enemy list or every returning character.",
+        "Official uploads can carry different descriptions, timestamps and regional details, which is why the page keeps Capcom, platform-holder and event versions separate. A repost may preserve the footage but lose the source context needed to confirm a claim.",
+        "For gameplay questions, a developer presentation or store feature listing is stronger evidence than a cinematic camera angle. Until Capcom shows an extended gameplay sequence, the trailer should be read as a reveal of premise and tone."
       ]
     },
     {
@@ -128,16 +144,23 @@
       "navLabel": "Story",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "story-premise",
+        "lore-continuity",
+        "wesker-story-context",
+        "claire-character-depth",
+        "modernized-gameplay",
+        "camera-perspective"
+      ],
       "intro": "A spoiler-light overview of Claire Redfield, Rockfort Island and the official remake premise.",
       "body": [
         "Steam places the story three months after the biological disaster in Raccoon City. Claire Redfield travels to France in search of Chris Redfield after surviving with Leon S. Kennedy and Sherry Birkin.",
         "The official store synopsis says Claire is captured by Umbrella special forces and taken to Rockfort Island, which is transformed by another biological disaster into a survival-horror setting.",
-        "A producer interview frames the remake as a chance to continue Claire's post-Raccoon City story and explore more of her character motivation, but exact scene changes remain undisclosed.",
-        "The original Code: Veronica remains useful context, but the remake is officially described as a reimagined storyline. This page avoids treating every original scene, puzzle, enemy or character beat as remake-confirmed.",
-        "For a spoiler-light reading, the confirmed setup has three anchors: Claire's search for Chris, Umbrella's capture of Claire, and the Rockfort Island outbreak. Those anchors are enough to understand why the remake matters without listing late-game twists from the original.",
-        "The remake label creates an important boundary. It confirms a relationship to Code: Veronica, but it does not promise that every cutscene, boss order, puzzle solution or supporting character will survive unchanged.",
-        "This page therefore separates premise from prediction. Premise comes from current official copy. Prediction belongs in comparison notes and should be phrased as context, not confirmation.",
-        "Readers who have not played the original can use this page without learning every reveal. Readers who did play the original can use Original vs Remake to compare direction while waiting for Capcom to show more story material."
+        "Producer Yoshiaki Hirabayashi says the remake will explore more of Claire's motivations after Raccoon City.",
+        "Hirabayashi also told PlayStation Blog that parts of the original story are being adjusted to connect more closely with the Resident Evil lore established since 2000. Capcom has not said which scenes or character arcs will change.",
+        "The remake is based on Code: Veronica, but Capcom describes its story as reimagined. Returning characters, puzzles and bosses are not confirmed until they appear in current remake material.",
+        "This overview stops at the setup: Claire searches for Chris, Umbrella captures her, and another outbreak begins on Rockfort Island."
       ]
     },
     {
@@ -149,15 +172,20 @@
       "navLabel": "Characters",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "story-premise",
+        "lore-continuity",
+        "wesker-story-context",
+        "claire-character-depth"
+      ],
       "intro": "Confirmed character information, with original-game context kept separate where needed.",
       "body": [
-        "Claire Redfield is central to the remake's premise, and Chris Redfield is part of the search that drives the story setup.",
-        "Some characters are known from the 2000 original, but not every original appearance should be treated as confirmed for the remake until Capcom shows or names it.",
-        "Official screenshots and trailer frames are useful references, but unnamed visual appearances are described carefully until more information is published.",
-        "The character tracker uses three labels: confirmed, referenced and original context. Confirmed means the current remake material names or directly establishes the character. Referenced means the character is part of the premise but their remake role is not fully shown. Original context means the character matters to Code: Veronica history but is not automatically confirmed for the remake.",
-        "This prevents a common remake mistake: importing the entire original cast list into a new game page before the publisher confirms how the remake handles those roles.",
-        "Claire is the clearest confirmed story driver because the Steam synopsis describes her search and capture. Chris is central to the motivation, but his exact remake role should remain carefully worded until official material gives more detail.",
-        "As Capcom publishes more screenshots, trailers or cast notes, this page should update character status first, then story and FAQ pages can link back to the clarified record."
+        "Claire Redfield drives the story. The Steam synopsis follows her search for Chris and her capture by Umbrella.",
+        "Chris is part of the official premise, but Capcom has not shown how large his role will be.",
+        "Producer Yoshiaki Hirabayashi has named Albert Wesker alongside Claire and Chris when discussing the story. That is not yet a cast or playable-character announcement.",
+        "Characters known only from the 2000 original remain listed as original-game context until Capcom names or shows them in the remake.",
+        "The tracker separates confirmed, referenced and original-game context. A confirmed character appears in current remake material; a referenced character belongs to the official premise; original context alone does not establish a remake appearance."
       ]
     },
     {
@@ -169,14 +197,21 @@
       "navLabel": "FAQ",
       "priority": "0.8",
       "changefreq": "weekly",
-      "intro": "Fast answers for high-intent questions, with unknown details labeled directly.",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "exact-release-date",
+        "confirmed-platforms",
+        "pc-requirements",
+        "lore-continuity",
+        "xbox-rating-metadata",
+        "demo-status"
+      ],
+      "intro": "Quick answers about the release date, platforms, PC version, demo and preorders.",
       "body": [
-        "The FAQ gives quick answers about the official announcement, release window, platforms, PC status, demo, preorder, editions and site affiliation.",
-        "If a detail has not been announced yet, the answer says so directly instead of guessing.",
-        "For longer explanations, use the dedicated pages linked in the navigation.",
-        "The questions are written for searchers who need a fast answer without reading every source note. Each short answer keeps the same rule as the rest of the site: official facts are stated directly, reported producer context is labeled, and unknown details stay unknown.",
-        "This FAQ should not become a rumor index. If a question depends on leaks, retailer placeholders, unverified social posts or original-game assumptions, the answer should redirect to what is currently confirmed instead of repeating the claim.",
-        "When official information changes, FAQ answers should be updated after the relevant detail page. That keeps the quick answer layer aligned with the deeper release-date, platform, PC, story and source pages."
+        "These answers use Capcom announcements, official store pages and attributed producer interviews.",
+        "For source links and longer explanations, open the related page from the navigation.",
+        "Each answer separates confirmed facts, attributed producer reporting and details that remain unknown. Store placeholders, reposts and assumptions from the 2000 original do not become confirmation just because they appear in search results.",
+        "When an official source changes, the detailed topic page and dated changelog are updated before the short answer here. This keeps release, platform, PC and story answers aligned with the underlying record."
       ]
     },
     {
@@ -188,15 +223,23 @@
       "navLabel": "Sources",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "official-store-pages",
+        "lore-continuity",
+        "wesker-story-context",
+        "xbox-rating-metadata",
+        "supported-languages",
+        "camera-perspective"
+      ],
       "intro": "Official links used for release window, platforms, trailer, store status and media.",
       "body": [
-        "This page collects the official links used across the site, including Capcom announcement material, the official Resident Evil Veronica product page, the Steam store page and verified official video uploads.",
-        "Capcom sources confirm the announcement, release window, platform set, remake positioning and RE Engine development context. Steam confirms store-specific details including developer, publisher, planned release year, story synopsis, feature flags, language support and TBD PC requirements. PlayStation, Xbox and Nintendo records add current platform-specific store capabilities.",
-        "Media interviews and Q&A reports are now tracked separately as reported context, useful for producer comments about camera direction, naming and development-team background. Leaks, screenshots without links and retailer placeholders are not treated as confirmed information unless they are backed by an official source.",
-        "The source hierarchy is intentionally conservative. Official Capcom pages, official store pages and verified platform-holder uploads are the strongest records. Interviews and event Q&A coverage can add context, but they are labeled as reported unless Capcom publishes the same detail in first-party copy.",
-        "The page also records what each source is used for. A trailer upload might confirm video availability and tone, while the Steam page is better for PC store status, language listings and system requirement placeholders.",
-        "This prevents one source from carrying more weight than it should. For example, a store page can confirm wishlist access, but it does not confirm preorder availability unless the store actually opens preorders.",
-        "If a source changes, the affected claims should be updated with the new check date. If a source disappears or becomes ambiguous, the claim should be downgraded until a stable official replacement is available."
+        "Capcom announcements and product pages are the main sources for the remake's release window, platforms and overall direction.",
+        "Steam, PlayStation, Xbox and Nintendo store pages provide platform-specific details such as wishlist access, supported languages and feature labels.",
+        "Attributed interviews add producer comments about the camera, title, development team and story. They are labeled as reported until Capcom publishes the same detail directly.",
+        "Retailer placeholders, screenshots without a source and social reposts are not used as confirmation.",
+        "The Xbox listing currently contradicts itself: it shows a Mature 17+ badge while also saying the game has not yet been rated. The rating remains unresolved.",
+        "The source hierarchy is deliberate: first-party Capcom records and official platform stores carry the most weight, verified video uploads confirm what was published, and attributed interviews supply context with a reported label. A source is only used for the claim it actually supports."
       ]
     },
     {
@@ -208,12 +251,13 @@
       "navLabel": "About",
       "priority": "0.3",
       "changefreq": "monthly",
+      "lastModified": "2026-07-26",
       "showAds": false,
       "intro": "Veronica Hub is an independent fan-made source tracker for Resident Evil Veronica.",
       "body": [
         "Veronica Hub exists to help readers follow Resident Evil Veronica without mixing confirmed information, reported context and rumor. The site is independently operated and is not affiliated with, endorsed by or sponsored by Capcom.",
         "The editorial rule is simple: official facts come from Capcom, official platform stores or verified official video channels. Reported interview details are labeled as reported context. Rumors, retailer placeholders, unsourced screenshots and social reposts are not treated as confirmed information.",
-        "The site adds value by organizing source links, release-window status, platform status, PC requirement status, trailer records, media references and original-vs-remake context in one maintained dossier.",
+        "The site brings release, platform, PC, trailer and story sources together so readers can check a claim without hunting through several store pages.",
         "Resident Evil, Resident Evil Veronica, Code: Veronica, Capcom and related names are trademarks or property of their respective owners. This site uses those names only to identify the game and discuss publicly available information."
       ]
     },
@@ -226,6 +270,7 @@
       "navLabel": "Contact",
       "priority": "0.3",
       "changefreq": "monthly",
+      "lastModified": "2026-07-19",
       "showAds": false,
       "intro": "Send corrections, source updates and site questions to the Veronica Hub editor.",
       "body": [
@@ -245,6 +290,7 @@
       "navLabel": "Privacy",
       "priority": "0.3",
       "changefreq": "monthly",
+      "lastModified": "2026-07-09",
       "showAds": false,
       "intro": "This policy explains what Veronica Hub collects, uses and links to when you visit the site.",
       "body": [
@@ -265,15 +311,14 @@
       "navLabel": "PC Requirements",
       "priority": "0.8",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "intro": "PC is confirmed, but minimum and recommended requirements are not confirmed yet.",
       "body": [
         "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. Steam currently lists minimum and recommended system requirements as TBD, so the official PC specification status remains unknown.",
-        "Because PC players still need planning guidance, this page includes a clearly labeled estimate based on nearby official RE Engine PC requirements.",
-        "The estimate is not official Resident Evil Veronica guidance. It is a preparation range only. When Capcom or Steam publishes exact requirements, this page should switch to the official table.",
-        "The safest PC advice today is to avoid treating any comparison chart as a guarantee. Resident Evil 4, Village and newer Capcom listings are useful reference points because they show nearby RE Engine hardware ranges, but Veronica can still land higher or lower depending on final rendering targets and feature support.",
-        "A buyer who already owns a modern gaming PC can use this page to understand risk. A buyer planning an upgrade should wait for Capcom or Steam to publish final minimum and recommended requirements before spending around this single game.",
-        "The page separates three ideas: official status, low-confidence floor and safer target. Official status is confirmed as TBD. The floor is only a weak historical comparison. The safer target is a practical planning range for players who want more room than minimum settings.",
-        "Once official requirements appear, the speculative tiers should move below the official table or be removed. The first update should record CPU, GPU, RAM, storage, operating system, DirectX and any notes about ray tracing, upscaling or HDR support if the store lists them."
+        "The estimates below compare official requirements for nearby RE Engine games. They are planning references, not Resident Evil Veronica specifications.",
+        "Do not buy or upgrade hardware for this game based on the estimates alone. Wait for Capcom or Steam to publish the final CPU, GPU, memory and storage requirements.",
+        "Nearby RE Engine games can show the rough range of hardware Capcom has supported, but they cannot predict Veronica's final rendering targets, ray tracing options, upscaling support or storage footprint. Treat comparison tables as context, not a compatibility test.",
+        "If you already own a recent gaming PC, wait for the official table before changing parts. If you are planning a full upgrade, compare the eventual minimum and recommended specifications with your preferred resolution and frame-rate target before spending."
       ]
     },
     {
@@ -285,6 +330,7 @@
       "navLabel": "Preorder",
       "priority": "0.7",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
@@ -304,6 +350,7 @@
       "navLabel": "Demo",
       "priority": "0.7",
       "changefreq": "daily",
+      "lastModified": "2026-07-19",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
@@ -323,6 +370,7 @@
       "navLabel": "Editions",
       "priority": "0.7",
       "changefreq": "daily",
+      "lastModified": "2026-06-13",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
@@ -343,17 +391,23 @@
       "navLabel": "Original vs Remake",
       "priority": "0.7",
       "changefreq": "weekly",
-      "intro": "A careful comparison between official remake material and original-game context.",
+      "lastModified": "2026-07-26",
+      "featuredClaimIds": [
+        "remake-status",
+        "modernized-gameplay",
+        "camera-perspective",
+        "title-rationale",
+        "remake-team-context",
+        "lore-continuity"
+      ],
+      "intro": "What Capcom has confirmed about the remake—and what still comes only from the 2000 original.",
       "body": [
         "Resident Evil Veronica is officially described as a remake of 2000's Resident Evil Code: Veronica. Steam says it preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics.",
         "A June 2026 producer interview says Capcom views Code Veronica as important as a numbered Resident Evil entry and chose the shorter Veronica title to align with recent mainline subtitle conventions.",
-        "The same interview reports continuity with the Resident Evil 2 and Resident Evil 4 remake team, while media Q&A coverage reports that the new game is third-person. Those details help compare direction, but they do not reveal puzzle design, campaign structure or exact combat systems.",
-        "The original game is useful context for Claire Redfield, Rockfort Island, Umbrella and the wider Resident Evil timeline, but remake status should come from current official material.",
-        "This comparison is meant to help returning fans and new players understand what is officially stated now, what comes from the original game, and what remains unknown.",
-        "The most reliable comparison point is the remake promise itself: preserve the essence, modernize the play, reimagine the story and improve presentation. That is broader than a remaster and narrower than an unrelated reboot.",
-        "Returning players should therefore expect continuity at the premise level, not a guarantee that every room route, item placement, boss order or cutscene beat will match the 2000 release.",
-        "New players do not need to study the original before following the remake. The original is useful for understanding why Claire, Chris, Umbrella and Rockfort Island matter, but official remake material should remain the source for current gameplay and story claims.",
-        "This page is also where speculation should be contained. If a detail only comes from the original game, it belongs in original context. If a detail comes from Capcom, Steam or verified official video material, it can move into confirmed remake context."
+        "Producer interviews describe the remake as third-person and say developers from the Resident Evil 2 and Resident Evil 4 remake teams are involved. Capcom has not yet shown the puzzle design, campaign structure or full combat system.",
+        "PlayStation Blog reports that parts of the original story will be adjusted to fit the series lore established since 2000. Capcom has not identified the scenes or character arcs that will change.",
+        "Returning players can expect the same basic premise, not the same room routes, item locations, boss order or cutscenes.",
+        "New players do not need to play the original first. The remake's current synopsis explains the essential setup around Claire, Chris, Umbrella and Rockfort Island."
       ]
     },
     {
@@ -365,14 +419,14 @@
       "navLabel": "Media",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
       "intro": "Official screenshots, store art, trailer imagery and reference material in one place.",
       "body": [
-        "This page collects official Resident Evil Veronica screenshots, store art, trailer imagery and reference material, then separates confirmed remake media from historical gameplay context.",
-        "Images are grouped with source labels so you can tell whether they came from Capcom, Steam or an official video channel.",
-        "The reference game section adds older Resident Evil entries for gameplay context without mixing them into the confirmed remake information."
+        "Browse official Resident Evil Veronica screenshots, store art and trailer images from Capcom, Steam and verified video channels.",
+        "Older Resident Evil games appear in a separate reference section for comparison."
       ]
     },
     {
@@ -384,6 +438,7 @@
       "navLabel": "Screenshots",
       "priority": "0.8",
       "changefreq": "weekly",
+      "lastModified": "2026-07-26",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
@@ -403,16 +458,16 @@
       "navLabel": "Steam",
       "priority": "0.8",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "intro": "The official Steam page is live with wishlist access, a planned 2027 release year and PC requirements still marked TBD.",
       "body": [
         "Resident Evil Veronica has an official Steam store page for PC players. The page lists CAPCOM Co., Ltd. as developer and publisher and provides wishlist access.",
         "Steam currently shows a planned 2027 release year and keeps minimum and recommended PC system requirements as TBD.",
         "Wishlist access is not the same as preorder availability. Price, editions, preorder bonuses and exact release date should stay unknown until Steam or Capcom publishes those details.",
-        "The Steam page is one of the most useful live records because it can change before a press release is widely circulated. It can expose store-specific fields such as supported languages, feature flags, requirement placeholders and publisher metadata.",
-        "At the same time, Steam fields should be read narrowly. A live page confirms that PC distribution is planned and that wishlisting is available; it does not automatically confirm launch timing beyond the listed year, discount plans, edition names or preload timing.",
-        "Steam currently lists single-player support, Steam Achievements, subtitles, HDR and Family Sharing, along with 14 supported languages. These are useful PC-store details, but they are separate from hardware requirements and should not be read as a promise of price, preorder access or a fixed launch day.",
-        "This site treats Steam as a primary source for store status and PC-facing details. If the Steam page adds official requirements, price, preorder controls or release timing, the PC Requirements, Preorder, Release Date and FAQ pages should be updated from that record.",
-        "Until then, the most important Steam takeaway is that PC is confirmed but final PC buying information is incomplete."
+        "The page lists single-player support, Steam Achievements, subtitles, HDR, Family Sharing and 14 supported languages.",
+        "PC is confirmed, but the information needed to plan a purchase—final requirements, price, editions and preload timing—is still missing.",
+        "Read each Steam field narrowly. The live listing confirms PC distribution, current store features and wishlist access; it does not confirm a fixed launch day, discount plan, edition names, preload window or Steam Deck compatibility.",
+        "If Steam adds price, preorder controls or official requirements, those fields should take precedence over retailer listings and hardware estimates because they come from the platform's live product record."
       ]
     },
     {
@@ -424,14 +479,14 @@
       "navLabel": "Changelog",
       "priority": "0.6",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
       "intro": "Dated changes show what changed, when it changed and which source caused it.",
       "body": [
-        "The changelog records meaningful updates to Resident Evil Veronica information and pages.",
-        "It is not a daily news feed. If there is no official change, there may be nothing new to list.",
-        "When official details change, the changelog helps show what changed and which source caused the update."
+        "The changelog records changes to official Resident Evil Veronica information and the pages affected by each update.",
+        "No entry is added when the official sources have not changed."
       ]
     },
     {
@@ -443,14 +498,14 @@
       "navLabel": "Watchlist",
       "priority": "0.7",
       "changefreq": "daily",
+      "lastModified": "2026-07-26",
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
       "intro": "Track official changes for release date, demo, preorder, editions, PC specs, trailers and media.",
       "body": [
-        "Use the Watchlist if you only want updates when official Resident Evil Veronica information changes.",
-        "RSS is available now at /feed.xml. The feed follows changelog updates, so it is useful for readers who want to track official information changes.",
-        "The Watchlist focuses on release date, demo, preorder, editions or price, PC requirements, trailer updates and official media changes."
+        "Use the Watchlist for release-date, demo, preorder, edition, PC requirement, trailer and media updates.",
+        "The RSS feed at /feed.xml publishes the same changes recorded in the changelog."
       ]
     }
   ],
@@ -502,7 +557,7 @@
         "steam-store",
         "capcom-press-2026-06-08"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -516,18 +571,21 @@
     {
       "id": "camera-perspective",
       "label": "Camera perspective",
-      "value": "Producer interview and Q&A coverage describe Resident Evil Veronica as a third-person game",
+      "value": "Producer reports, including PlayStation Blog coverage, describe Resident Evil Veronica as a third-person game",
       "status": "reported",
       "sourceIds": [
+        "playstation-blog-sgf-2026-06-08",
         "vgc-producer-interview-2026-06-10",
         "gamesradar-producer-qa-2026-06-10"
       ],
-      "lastChecked": "2026-06-22",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-10",
       "pages": [
         "/",
         "/ja/",
         "/trailer/",
+        "/story/",
+        "/sources/",
         "/original-vs-remake/",
         "/faq/"
       ]
@@ -556,9 +614,10 @@
       "value": "Producer interview reports development-team continuity with the Resident Evil 2 and Resident Evil 4 remakes",
       "status": "reported",
       "sourceIds": [
+        "playstation-blog-sgf-2026-06-08",
         "vgc-producer-interview-2026-06-10"
       ],
-      "lastChecked": "2026-06-22",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-10",
       "pages": [
         "/",
@@ -583,6 +642,40 @@
       ]
     },
     {
+      "id": "lore-continuity",
+      "label": "Story continuity direction",
+      "value": "Producer says parts of the original story will be retuned to connect with the wider Resident Evil lore",
+      "status": "reported",
+      "sourceIds": [
+        "playstation-blog-sgf-2026-06-08"
+      ],
+      "lastChecked": "2026-07-26",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/story/",
+        "/characters/",
+        "/sources/",
+        "/original-vs-remake/",
+        "/faq/"
+      ]
+    },
+    {
+      "id": "wesker-story-context",
+      "label": "Albert Wesker context",
+      "value": "Producer names Wesker with Claire and Chris as important to the series and this story; no remake role is defined yet",
+      "status": "reported",
+      "sourceIds": [
+        "playstation-blog-sgf-2026-06-08"
+      ],
+      "lastChecked": "2026-07-26",
+      "lastChanged": "2026-06-08",
+      "pages": [
+        "/story/",
+        "/characters/",
+        "/sources/"
+      ]
+    },
+    {
       "id": "search-alias",
       "label": "Common search name",
       "value": "Resident Evil Code Veronica Remake",
@@ -590,7 +683,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -606,7 +699,7 @@
       "sourceIds": [
         "capcom-press-2026-06-08"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -623,7 +716,7 @@
         "capcom-press-2026-06-08",
         "steam-store"
       ],
-      "lastChecked": "2026-06-13",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -644,7 +737,7 @@
         "playstation-store",
         "gamesradar-producer-qa-2026-06-10"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -664,7 +757,7 @@
         "xbox-store",
         "nintendo-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -685,7 +778,7 @@
         "xbox-store",
         "nintendo-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-07-12",
       "pages": [
         "/",
@@ -717,7 +810,7 @@
       "sourceIds": [
         "playstation-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/"
@@ -731,10 +824,26 @@
       "sourceIds": [
         "xbox-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/"
+      ]
+    },
+    {
+      "id": "xbox-rating-metadata",
+      "label": "Xbox age-rating metadata",
+      "value": "Mature 17+ badge and descriptors displayed, but the same Xbox page still says the content is not yet age-rated",
+      "status": "unknown",
+      "sourceIds": [
+        "xbox-store"
+      ],
+      "lastChecked": "2026-07-26",
+      "lastChanged": "2026-07-26",
+      "pages": [
+        "/platforms/",
+        "/sources/",
+        "/faq/"
       ]
     },
     {
@@ -745,7 +854,7 @@
       "sourceIds": [
         "nintendo-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/"
@@ -759,7 +868,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-07-12",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/",
@@ -777,7 +886,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/",
@@ -794,7 +903,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/platforms/",
@@ -833,7 +942,7 @@
       "sourceIds": [
         "steam-store"
       ],
-      "lastChecked": "2026-07-19",
+      "lastChecked": "2026-07-26",
       "lastChanged": "2026-06-08",
       "pages": [
         "/pc-requirements/",
@@ -949,7 +1058,7 @@
       "reliability": "high",
       "url": "https://www.capcom.co.jp/ir/english/news/html/e260608.html",
       "usedFor": "Announcement, 2027 release window, platforms, genre and remake status",
-      "lastChecked": "2026-07-19"
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "capcom-official-product",
@@ -967,7 +1076,7 @@
       "reliability": "high",
       "url": "https://store.steampowered.com/app/4824610/Resident_Evil_Veronica/",
       "usedFor": "Store page, PC status, developer, publisher, planned release year, story synopsis, Steam features, language support and system requirements status",
-      "lastChecked": "2026-07-19"
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "playstation-store",
@@ -976,7 +1085,7 @@
       "reliability": "high",
       "url": "https://store.playstation.com/en-us/concept/10020020",
       "usedFor": "PS5 store status, wishlist availability, PS5 Pro Enhanced, Game Help, DualSense and single-player details",
-      "lastChecked": "2026-07-19"
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "xbox-store",
@@ -984,8 +1093,8 @@
       "type": "official-store",
       "reliability": "high",
       "url": "https://www.xbox.com/en-US/games/store/resident-evil-veronica/9pjjk03lkjkb",
-      "usedFor": "Xbox Series X|S availability, 4K Ultra HD, single-player, achievements and cloud-save capabilities",
-      "lastChecked": "2026-07-19"
+      "usedFor": "Xbox Series X|S availability, platform capabilities and the internally conflicting age-rating metadata currently displayed",
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "nintendo-store",
@@ -994,7 +1103,7 @@
       "reliability": "high",
       "url": "https://www.nintendo.com/us/store/products/resident-evil-veronica-switch-2/",
       "usedFor": "Switch 2 digital listing, player count, play modes, HDR, audio and language support",
-      "lastChecked": "2026-07-19"
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "resident-evil-social-wishlist-2026-06-10",
@@ -1004,6 +1113,15 @@
       "url": "https://bsky.app/profile/residentevil.capcomusa.com/post/3mny6lxm2uk2t",
       "usedFor": "Capcom-reported milestone of more than one million combined PS5 and PC wishlists",
       "lastChecked": "2026-07-12"
+    },
+    {
+      "id": "playstation-blog-sgf-2026-06-08",
+      "name": "PlayStation Blog Summer Game Fest report",
+      "type": "official-platform-interview-report",
+      "reliability": "high",
+      "url": "https://blog.playstation.com/2026/06/08/summer-game-fest-2026-hands-on-and-more-details-on-11-upcoming-ps5-games/",
+      "usedFor": "Directly attributed producer comments on third-person direction, remake-team context, lore continuity and the story importance of Claire, Chris and Albert Wesker",
+      "lastChecked": "2026-07-26"
     },
     {
       "id": "vgc-producer-interview-2026-06-10",
@@ -1341,6 +1459,12 @@
       "note": "Chris is part of the official premise because Claire is searching for him; current official material does not yet define his playable role in the remake."
     },
     {
+      "name": "Albert Wesker",
+      "status": "reported",
+      "role": "Producer-confirmed story context",
+      "note": "A PlayStation Blog report quotes producer Yoshiaki Hirabayashi naming Wesker alongside Claire and Chris as important to the series and this story. This is not yet a cast or playable-role announcement."
+    },
+    {
       "name": "Leon S. Kennedy and Sherry Birkin",
       "status": "referenced-context",
       "role": "Raccoon City continuity",
@@ -1376,12 +1500,20 @@
       "question": "Why is it called Resident Evil Veronica instead of Code Veronica?",
       "answer": "A producer interview says the team still respects the Code Veronica name, but shortened the remake title to communicate that this story is important like a numbered Resident Evil entry and to align with recent one-word subtitle conventions."
     },
-    {
-      "question": "Where does the story begin?",
-      "answer": "Steam places the premise three months after the Raccoon City disaster, with Claire searching for Chris before being captured by Umbrella forces and taken to Rockfort Island. This is the safest spoiler-light setup to repeat because it comes from the current store synopsis."
-    },
-    {
-      "question": "What is the exact release date?",
+  {
+    "question": "Where does the story begin?",
+    "answer": "Steam places the premise three months after the Raccoon City disaster, with Claire searching for Chris before being captured by Umbrella forces and taken to Rockfort Island. This is the safest spoiler-light setup to repeat because it comes from the current store synopsis."
+  },
+  {
+    "question": "Will the remake change the original story?",
+    "answer": "Producer Yoshiaki Hirabayashi told PlayStation Blog that parts of the original story will be retuned to connect with the wider Resident Evil lore established since 2000. That confirms a continuity-focused approach, but not which scenes, character arcs or plot details will change."
+  },
+  {
+    "question": "Does Resident Evil Veronica have a final ESRB rating?",
+    "answer": "Not reliably yet. The Xbox store currently displays a Mature 17+ badge and content descriptors, but the same page still says the content has not yet been age-rated. Until ESRB or Capcom publishes a matching final record, treat the Xbox display as conflicting store metadata rather than a settled final rating."
+  },
+  {
+    "question": "What is the exact release date?",
       "answer": "A 2027 release window is confirmed. An exact release date has not been officially confirmed, so day-and-month claims from placeholders, reposts or countdown pages should be treated as unconfirmed unless Capcom or an official platform store publishes them."
     },
     {
@@ -1706,10 +1838,10 @@
       "release": "1996",
       "position": "RE1",
       "platforms": "PlayStation, PC, Dreamcast",
-      "storyContext": "Established fixed-camera survival mechanics, item friction and room-based tension before the series shifted to modern controls.",
-      "playability": "Classic baseline with deliberate movement and strict inventory management, useful for understanding original survival pressure.",
-      "whyReference": "This is the oldest playable anchor. It defines what players still expect from survival horror rhythm in later remakes.",
-      "origin": "RE1 defined the franchise’s core architecture and became the oldest benchmark before every later gameplay conversion.",
+      "storyContext": "Established the fixed-camera exploration, puzzles and limited supplies used by the early series.",
+      "playability": "Deliberate movement, limited inventory space and careful route planning.",
+      "whyReference": "It shows the survival-horror ideas that later games and remakes keep returning to.",
+      "origin": "The first Resident Evil established the structure used by the early series.",
       "media": [
         {
           "label": "Official remaster store image",
@@ -1741,10 +1873,10 @@
       "release": "1998",
       "position": "RE2",
       "platforms": "PlayStation, PC, Xbox",
-      "storyContext": "Extends the franchise with Claire and Leon in parallel arcs, and a wider crisis after the Raccoon City incident.",
-      "playability": "Sharper room pressure and clearer combat-readability than RE1, with stronger checkpoint cadence.",
-      "whyReference": "Most useful legacy baseline for inventory rhythm and campaign urgency before modern remakes.",
-      "origin": "RE2 preserved the original survival loop while scaling scope, making it a direct historical comparator for modern tuning.",
+      "storyContext": "Follows Claire and Leon through parallel routes during the Raccoon City outbreak.",
+      "playability": "Broader routes and more enemies, while limited supplies still make every detour matter.",
+      "whyReference": "Claire's first game is the most useful early comparison for her role and the series' classic pacing.",
+      "origin": "Resident Evil 2 expanded the original formula with two protagonists and a larger story.",
       "media": [
         {
           "label": "NTSC cover",
@@ -1776,10 +1908,10 @@
       "release": "1999",
       "position": "RE3",
       "platforms": "PlayStation, PC, Dreamcast, Xbox",
-      "storyContext": "Introduces a recurring threat pressure model centered around the Nemesis chase and escape rhythm.",
-      "playability": "Higher urgency profile with timed pressure from repeating boss pressure and tighter encounter resets.",
-      "whyReference": "Important to understand how threat persistence changed pacing before modern action-remake design.",
-      "origin": "RE3 formalized repetitive pursuit pressure, which later games and remakes later borrow for intensity calibration.",
+      "storyContext": "Builds much of its tension around Jill escaping a recurring pursuer.",
+      "playability": "Faster movement and frequent chases create more pressure than the first two games.",
+      "whyReference": "It shows how a recurring threat can change the pace of a Resident Evil campaign.",
+      "origin": "Resident Evil 3 made Nemesis a constant interruption to exploration.",
       "media": [
         {
           "label": "Official cover",
@@ -1818,10 +1950,10 @@
       "release": "2000",
       "position": "RE CV",
       "platforms": "Dreamcast, PlayStation 2, PC",
-      "storyContext": "Direct narrative predecessor for Veronica, extending the Claire/Chris arc through broader island and travel settings.",
-      "playability": "Longer transitions and sustained movement segments, while still grounded in classic survival rhythm.",
-      "whyReference": "The most relevant non-remake anchor because Veronica inherits setting and character context from this node.",
-      "origin": "Code Veronica is the direct predecessor chain, so relation mapping for Veronica starts here before any modernization.",
+      "storyContext": "Continues Claire's search for Chris across Rockfort Island and other locations.",
+      "playability": "A longer classic-style campaign with fixed cameras, limited supplies and large connected areas.",
+      "whyReference": "It provides the story, characters and locations that Capcom is now reimagining.",
+      "origin": "Code: Veronica is the 2000 game that Resident Evil Veronica is remaking.",
       "media": [
         {
           "label": "Game map scene",
@@ -1860,10 +1992,10 @@
       "release": "2002",
       "position": "RE0",
       "platforms": "GameCube, PS3, PS4, PC",
-      "storyContext": "Prequel branch with Rebecca and Billy, using a companion-first puzzle and combat structure before Veronica’s broader arc.",
-      "playability": "Twin-role pacing and checkpoint placement emphasize sequencing and short-term strategy.",
-      "whyReference": "Useful if visitors want the predecessor style before full cinematic action transitions.",
-      "origin": "RE0 preserves early design rhythm with partner framing and helps explain how the series handled tension before later remasters.",
+      "storyContext": "A prequel starring Rebecca and Billy, built around switching between two characters.",
+      "playability": "Character switching changes how players solve puzzles and manage supplies.",
+      "whyReference": "It shows how Capcom experimented with the classic formula before the action era.",
+      "origin": "Resident Evil 0 kept the fixed-camera design while adding a two-character system.",
       "media": [
         {
           "label": "Official remaster store image",
@@ -1902,10 +2034,10 @@
       "release": "2005",
       "position": "RE4",
       "platforms": "GameCube, PS2, PC, Xbox",
-      "storyContext": "Moves the series into more cinematic action-survival using Leon in a wider mission geography.",
-      "playability": "Stronger movement and enemy density profile than earlier entries while keeping survival constraints in place.",
-      "whyReference": "This is the structural pivot before RE4 Remake shows the full modernization path.",
-      "origin": "RE4 introduced the major shift toward modern action timing, a key reason RE4 Remake is in the playable comparison queue.",
+      "storyContext": "Sends Leon through a more cinematic and action-heavy rescue mission.",
+      "playability": "Faster aiming, larger enemy groups and more action, with resource management still in the loop.",
+      "whyReference": "It marks the series' biggest shift away from the controls used by the original Code: Veronica.",
+      "origin": "Resident Evil 4 introduced the over-the-shoulder camera and faster combat that reshaped the series.",
       "media": [
         {
           "label": "Official store image",
@@ -1940,10 +2072,10 @@
       "release": "2009",
       "position": "RE5",
       "platforms": "PS3, Xbox 360, PS4, Xbox One, PC",
-      "storyContext": "Expands the story into broader action and cooperative structures with stronger mission throughput.",
-      "playability": "Larger combat spaces and faster flow, useful for understanding modern action-pressure branches.",
-      "whyReference": "Important contrast for visitors comparing Veronica with the more action-heavy Resident Evil entries.",
-      "origin": "RE5 illustrates a short period where action tempo outpaced narrow survival structure; valuable for direction clarity.",
+      "storyContext": "Continues Chris Redfield's story through a larger, co-op action campaign.",
+      "playability": "Large combat spaces, partner play and a much faster supply-and-combat loop.",
+      "whyReference": "It provides a clear contrast with the slower survival-horror direction expected from Veronica.",
+      "origin": "Resident Evil 5 pushed the action and co-op elements of Resident Evil 4 much further.",
       "media": [
         {
           "label": "Official store image",
@@ -1982,10 +2114,10 @@
       "release": "2012",
       "position": "RE6",
       "platforms": "PS3, Xbox 360, PS4, Xbox One, PC",
-      "storyContext": "Splits into multiple protagonists and campaign branches, increasing structural complexity.",
-      "playability": "High throughput with heavier sequence density and mission segmentation.",
-      "whyReference": "A cautionary comparison for scope and pacing: useful when discussing what Veronica likely did not inherit.",
-      "origin": "RE6 showed how broad campaign design can dilute intensity; it helps position why remakes moved back toward tighter control.",
+      "storyContext": "Splits the story across several protagonists and four connected campaigns.",
+      "playability": "Fast movement, frequent set pieces and missions divided into action-heavy chapters.",
+      "whyReference": "It shows the large-scale action direction Capcom moved away from in later horror games.",
+      "origin": "Resident Evil 6 spread its story across several styles of action gameplay.",
       "media": [
         {
           "label": "Official store image",
@@ -2024,10 +2156,10 @@
       "release": "2017",
       "position": "RE7",
       "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
-      "storyContext": "Re-centers the series around first-person dread and tighter house-scale immersion.",
-      "playability": "Close-quarters exploration and fear rhythm become stronger than classical static-room sequencing.",
-      "whyReference": "Critical modern baseline before RE8 and before current remake expectations in narrative tone.",
-      "origin": "RE7 introduced the perspective reset that made later releases feel more intimate and immediate in threat reaction.",
+      "storyContext": "Returns the series to a smaller horror story told through a first-person camera.",
+      "playability": "Close-range exploration, sparse resources and a slower pace make threats feel immediate.",
+      "whyReference": "It began the RE Engine era and restored horror as the series' main focus.",
+      "origin": "Resident Evil 7 paired a first-person view with a tighter setting and slower pacing.",
       "media": [
         {
           "label": "Official store image",
@@ -2066,10 +2198,10 @@
       "release": "2019",
       "position": "RE2 Remake",
       "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
-      "storyContext": "Modern RE2 rebuild with near-complete system refresh on a proven chapter skeleton.",
-      "playability": "Clearer input responsiveness, improved movement pacing and preserved inventory pressure under modern control systems.",
-      "whyReference": "Most reliable modern anchor for how a legacy chapter is remade for current audience habits.",
-      "origin": "RE2 Remake is the current proof point for Capcom’s baseline conversion approach, directly useful for Veronica expectation framing.",
+      "storyContext": "Rebuilds Resident Evil 2 with modern controls while keeping Claire, Leon and the Raccoon City setting.",
+      "playability": "Modern aiming and movement sit alongside limited inventory space, puzzles and route planning.",
+      "whyReference": "It is the clearest example of how Capcom may modernize Code: Veronica without abandoning survival horror.",
+      "origin": "Resident Evil 2 Remake turned a fixed-camera game into a modern over-the-shoulder experience.",
       "media": [
         {
           "label": "Official store image",
@@ -2104,10 +2236,10 @@
       "release": "2020",
       "position": "RE3 Remake",
       "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
-      "storyContext": "Rebuild of RE3 with compressed pacing and modern threat readability.",
-      "playability": "Faster loop compression and clearer enemy telegraphing for modern players without full structural rewrite.",
-      "whyReference": "Supports players comparing campaign density and urgency before deciding on Veronica expectations.",
-      "origin": "RE3 Remake demonstrates what a short remaster-like conversion can preserve while changing input and timing conventions.",
+      "storyContext": "Rebuilds Resident Evil 3 as a shorter and more direct escape from Raccoon City.",
+      "playability": "Faster combat, more direct routes and clearer enemy attacks reduce the slower exploration of the original.",
+      "whyReference": "It shows that a remake can change campaign length and structure as well as controls.",
+      "origin": "Resident Evil 3 Remake condensed the original into a shorter, more action-focused campaign.",
       "media": [
         {
           "label": "Official store image",
@@ -2142,10 +2274,10 @@
       "release": "2021",
       "position": "RE8",
       "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
-      "storyContext": "Post-RE7 continuation with stronger boss-driven progression and broader modern traversal.",
-      "playability": "Large modern action-horror map language with tactical movement and boss rhythm.",
-      "whyReference": "Current mainstream reference for players comparing how modern scale and pacing may continue into Veronica.",
-      "origin": "RE8 marks the recent benchmark before Veronica and helps place expectations for atmosphere versus combat density.",
+      "storyContext": "Continues Resident Evil 7 with a larger setting and a stronger focus on bosses and combat.",
+      "playability": "Broader areas, faster combat and more weapon upgrades than Resident Evil 7.",
+      "whyReference": "It shows the scale and visual detail that recent RE Engine games can reach.",
+      "origin": "Resident Evil Village expanded Resident Evil 7's first-person design into a larger game.",
       "media": [
         {
           "label": "Official store image",
@@ -2180,10 +2312,10 @@
       "release": "2023",
       "position": "RE4 Remake",
       "platforms": "PC, PS4/PS5, Xbox One/Xbox Series X|S",
-      "storyContext": "Current modernized form of RE4 with full contemporary control and encounter systems.",
-      "playability": "Tighter combat windows, revised pacing and stronger player agency under legacy camera legacy converted to modern expectations.",
-      "whyReference": "Most direct modern template for expected gameplay translation quality and tone transfer.",
-      "origin": "RE4 Remake is the nearest official modern reference for how Capcom remasters legacy structure at 2023-level polish.",
+      "storyContext": "Rebuilds Resident Evil 4 with modern controls, expanded encounters and a revised story.",
+      "playability": "Modern movement, parrying and revised encounters make combat more flexible while preserving the original route.",
+      "whyReference": "It is the best current comparison for the production quality and scale Capcom may target with Veronica.",
+      "origin": "Resident Evil 4 Remake is Capcom's newest completed remake of a classic Resident Evil game.",
       "media": [
         {
           "label": "Official store image",
@@ -2344,6 +2476,10 @@
         "reason": "Nintendo Switch 2 listing availability, play modes and language support"
       },
       {
+        "sourceId": "playstation-blog-sgf-2026-06-08",
+        "reason": "Producer-attributed camera, remake-team, lore-continuity and character context"
+      },
+      {
         "sourceId": "official-youtube-trailer",
         "reason": "Official trailer availability and video metadata"
       }
@@ -2359,6 +2495,29 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-07-26",
+      "type": "Source Review",
+      "title": "Producer comments add lore continuity and Wesker context",
+      "summary": "Added producer-attributed PlayStation Blog context on story retuning, third-person direction, remake-team continuity and the story importance of Albert Wesker alongside Claire and Chris.",
+      "sourceId": "playstation-blog-sgf-2026-06-08",
+      "affectedClaims": [
+        "camera-perspective",
+        "remake-team-context",
+        "lore-continuity",
+        "wesker-story-context"
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "type": "Source Review",
+      "title": "Conflicting Xbox age-rating metadata recorded",
+      "summary": "The Xbox page displays a Mature 17+ badge and content descriptors while its own description still says the content has not yet been age-rated. The site records the display as unresolved rather than a confirmed final rating.",
+      "sourceId": "xbox-store",
+      "affectedClaims": [
+        "xbox-rating-metadata"
+      ]
+    },
     {
       "date": "2026-07-12",
       "type": "Source Review",
@@ -2483,99 +2642,99 @@
     {
       "year": "1996",
       "title": "Resident Evil",
-      "event": "Foundational survival-horror grammar established.",
-      "impact": "Defined inventory, puzzle and threat pacing for the whole franchise.",
-      "note": "Baseline for the playable comparisons on this page."
+      "event": "Established the series' mix of limited supplies, puzzles and slow-building tension.",
+      "impact": "Set the basic survival-horror structure that later games kept changing.",
+      "note": "The starting point for comparing every later entry."
     },
     {
       "year": "1998",
       "title": "Resident Evil 2",
-      "event": "Series expands with parallel protagonists and city-level crisis continuity.",
-      "impact": "Strengthens checkpoint rhythm and pressure progression.",
-      "note": "High relevance for first-time visitors mapping core survival rhythm."
+      "event": "Expanded the story with Claire and Leon's parallel routes through Raccoon City.",
+      "impact": "Made exploration broader while keeping inventory pressure and puzzle-heavy progression.",
+      "note": "Especially relevant because Claire returns in Veronica."
     },
     {
       "year": "1999",
       "title": "Resident Evil 3: Nemesis",
-      "event": "Recurring threat pressure model becomes central.",
-      "impact": "Introduces a stronger urgency profile around enemy return cycles.",
-      "note": "Useful for understanding chase-based intensity expectations."
+      "event": "Made a recurring pursuer central to the campaign.",
+      "impact": "Added a faster, more relentless kind of tension.",
+      "note": "Useful context for how the series handles chase sequences."
     },
     {
       "year": "2000",
       "title": "Resident Evil Code: Veronica",
-      "event": "Narrative bridge for the Veronica storyline enters.",
-      "impact": "Creates direct story context that the remake inherits at a high level.",
-      "note": "Primary predecessor for direct lore relationship."
+      "event": "Continued Claire's search for Chris beyond Raccoon City.",
+      "impact": "Introduced Rockfort Island and the story now being remade.",
+      "note": "The direct source material for Resident Evil Veronica."
     },
     {
       "year": "2002",
       "title": "Resident Evil 0",
-      "event": "Prequel branch adds companion-first puzzle rhythm.",
-      "impact": "Refines pressure sequencing before heavy cinematic modernization.",
-      "note": "Supportive context node, not the main sequel chain."
+      "event": "Added character switching and partner-based puzzles.",
+      "impact": "Pushed the classic fixed-camera formula toward more complex character management.",
+      "note": "Related design context rather than part of Veronica's direct story."
     },
     {
       "year": "2005",
       "title": "Resident Evil 4",
-      "event": "Major modernization pivot: cinematic action and movement tuning.",
-      "impact": "Shifts the franchise toward faster, more active pressure systems.",
-      "note": "This pivot explains later remake conversion logic."
+      "event": "Moved the series to an over-the-shoulder camera and faster combat.",
+      "impact": "Changed how Resident Evil handles movement, aiming and enemy encounters.",
+      "note": "The turning point behind the controls used by the modern remakes."
     },
     {
       "year": "2009",
       "title": "Resident Evil 5",
-      "event": "Co-op and action scale increase across mission architecture.",
-      "impact": "Shows a wider action direction before later contraction.",
-      "note": "Use for historical contrast only."
+      "event": "Expanded the action focus with co-op and larger combat spaces.",
+      "impact": "Moved further away from the slower isolation of the early games.",
+      "note": "Useful mainly as a contrast with the remake era."
     },
     {
       "year": "2012",
       "title": "Resident Evil 6",
-      "event": "Campaign structure becomes multi-protagonist and broad.",
-      "impact": "Raises complexity and broadens the pace of exploration.",
-      "note": "Important turning point for later scope refinement."
+      "event": "Split the game across several protagonists and campaigns.",
+      "impact": "Took the series' action-heavy direction to its widest scale.",
+      "note": "Helps explain why later games returned to tighter settings."
     },
     {
       "year": "2017",
       "title": "Resident Evil 7: Biohazard",
-      "event": "First-person horror reset.",
-      "impact": "Re-centers fear, immersion and camera control expectations.",
-      "note": "Critical checkpoint for modern playable controls."
+      "event": "Returned the focus to horror through a first-person camera and a smaller setting.",
+      "impact": "Made close-range exploration and vulnerability central again.",
+      "note": "The beginning of the current RE Engine era."
     },
     {
       "year": "2019",
       "title": "Resident Evil 2 Remake",
-      "event": "High-confidence legacy rebuild of a classic chapter.",
-      "impact": "Proves how Capcom modernizes with control and atmosphere continuity.",
-      "note": "Primary modern benchmark for remaking classic systems."
+      "event": "Rebuilt a fixed-camera classic as a modern over-the-shoulder game.",
+      "impact": "Showed how Capcom can change controls and level flow without losing the original atmosphere.",
+      "note": "The clearest modern comparison for a Code: Veronica remake."
     },
     {
       "year": "2020",
       "title": "Resident Evil 3 Remake",
-      "event": "Urgency-focused remasterized conversion of RE3.",
-      "impact": "Shows compression and clarity as valid modern pacing choices.",
-      "note": "Directly relevant to campaign density questions."
+      "event": "Condensed the original into a shorter, faster remake.",
+      "impact": "Showed that Capcom may change campaign length and structure, not just presentation.",
+      "note": "Relevant when considering how much of Code: Veronica may be reworked."
     },
     {
       "year": "2021",
       "title": "Resident Evil Village",
-      "event": "Current era broad action-horror and boss sequencing established.",
-      "impact": "Sets upper-bound expectations for modern RE combat depth.",
-      "note": "Useful contrast for “how modern” the remake may feel."
+      "event": "Combined first-person horror with broader areas and more action-heavy bosses.",
+      "impact": "Shows the larger scale the RE Engine games can support.",
+      "note": "A useful contrast with the tighter recent remakes."
     },
     {
       "year": "2023",
       "title": "Resident Evil 4 Remake",
-      "event": "Full legacy conversion at RE Engine standards.",
-      "impact": "Most practical modern template for comparing pacing, control and atmosphere transfer.",
-      "note": "Direct reference for Veronica comparison."
+      "event": "Rebuilt another classic around modern controls, parrying and expanded encounters.",
+      "impact": "Shows the current standard for changing combat while preserving a familiar story and tone.",
+      "note": "The newest completed remake to compare with Veronica."
     },
     {
       "year": "2027",
       "title": "Resident Evil Veronica Remake",
-      "event": "Capcom confirms platform set and release window.",
-      "impact": "Shifts user focus from speculation to comparison-based expectation mapping.",
+      "event": "Capcom confirms the remake for 2027 on PS5, Xbox Series X|S, Switch 2 and PC.",
+      "impact": "The question is no longer whether the remake exists, but what Capcom will change.",
       "note": "Exact date remains unconfirmed."
     }
   ]

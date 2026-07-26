@@ -32,14 +32,64 @@ function wordCount(html) {
   return stripTags(html).split(/\s+/).filter(Boolean).length;
 }
 
-function bodyWordCount(route) {
-  return (route.body || []).join(" ").split(/\s+/).filter(Boolean).length;
+function substantialRouteText(route) {
+  const claims = data.claims.filter((claim) => claim.pages.includes(route.path));
+  const sourceIds = new Set(claims.flatMap((claim) => claim.sourceIds));
+  const parts = [
+    ...(route.body || []),
+    ...claims.flatMap((claim) => [claim.label, claim.value]),
+    ...data.sources
+      .filter((source) => sourceIds.has(source.id))
+      .flatMap((source) => [source.name, source.usedFor || ""])
+  ];
+
+  if (route.path === "/faq/") {
+    parts.push(...data.faq.flatMap((item) => [item.question, item.answer]));
+  }
+  if (route.path === "/characters/") {
+    parts.push(...data.characters.flatMap((character) => [character.name, character.role, character.note]));
+  }
+  if (route.path === "/pc-requirements/") {
+    parts.push(
+      data.pcRequirementEstimate.basis,
+      data.pcRequirementEstimate.warning,
+      ...data.pcRequirementEstimate.tiers.flatMap((tier) => [
+        tier.name,
+        tier.notes,
+        tier.os,
+        tier.cpu,
+        tier.memory,
+        tier.gpu
+      ])
+    );
+  }
+
+  return parts.join(" ").trim();
 }
 
 function hasSubstantialBody(route) {
-  const body = (route.body || []).join(" ").trim();
-  if (route.locale === "ja") return body.length >= 450;
-  return bodyWordCount(route) >= 150;
+  const content = substantialRouteText(route);
+  if (route.locale === "ja") return content.length >= 450;
+  return content.split(/\s+/).filter(Boolean).length >= 150;
+}
+
+function substantialWordCount(route) {
+  return substantialRouteText(route).split(/\s+/).filter(Boolean).length;
+}
+
+function renderedMainText(html) {
+  const main = html.match(/<main\b[^>]*>[\s\S]*?<\/main>/)?.[0] || "";
+  return stripTags(main);
+}
+
+function renderedMainWordCount(html) {
+  return renderedMainText(html).split(/\s+/).filter(Boolean).length;
+}
+
+function hasSubstantialRenderedMain(html, route) {
+  const text = renderedMainText(html);
+  if (route.locale === "ja") return text.length >= 1200;
+  return renderedMainWordCount(html) >= 250;
 }
 
 function escapeHtml(value) {
@@ -66,6 +116,13 @@ const routePaths = new Set();
 for (const route of data.routes) {
   if (routePaths.has(route.path)) fail(`Duplicate route path: ${route.path}`);
   routePaths.add(route.path);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(route.lastModified || "")) fail(`Missing or invalid lastModified for ${route.path}`);
+
+  for (const claimId of route.featuredClaimIds || []) {
+    const claim = data.claims.find((item) => item.id === claimId);
+    if (!claim) fail(`Route ${route.path} features missing claim ${claimId}`);
+    else if (!claim.pages.includes(route.path)) fail(`Featured claim ${claimId} is not assigned to ${route.path}`);
+  }
 }
 
 for (const route of data.routes) {
@@ -83,6 +140,9 @@ for (const route of data.routes) {
   if (!html.includes(`rel="canonical" href="${canonical}"`)) fail(`Missing canonical for ${route.path}`);
   if (!html.includes(`name="robots" content="${escapeHtml(routeRobots(route))}"`)) fail(`Robots meta mismatch for ${route.path}`);
   if (!html.includes("application/ld+json")) fail(`Missing JSON-LD for ${route.path}`);
+  if (html.includes('"@type":"Article"') && !html.includes(`"dateModified":"${route.lastModified}"`)) {
+    fail(`Article dateModified mismatch for ${route.path}`);
+  }
   if (!html.includes(`name="google-adsense-account" content="${adsenseClient}"`)) fail(`Missing AdSense account meta for ${route.path}`);
   if (!html.includes('rel="icon" href="/assets/editorial/veronica-hub-favicon.svg"')) fail(`Missing declared favicon for ${route.path}`);
   if (!html.includes('id="static-content"')) fail(`Missing static HTML content container for ${route.path}`);
@@ -109,8 +169,17 @@ for (const route of data.routes) {
   const count = wordCount(html);
   const minimum = route.path === "/media/" ? 180 : 250;
   if (count < minimum) fail(`${route.path} has weak static content: ${count} words`);
-  if (shouldIncludeInSitemap(route) && route.section !== "trust" && !hasSubstantialBody(route)) {
-    fail(`${route.path} has thin route body content: ${bodyWordCount(route)} words`);
+  if (shouldIncludeInSitemap(route) && route.section !== "trust") {
+    if (!hasSubstantialBody(route)) {
+      fail(`${route.path} has thin substantive content: ${substantialWordCount(route)} words`);
+    }
+    if (!hasSubstantialRenderedMain(html, route)) {
+      fail(`${route.path} has thin rendered main content: ${renderedMainWordCount(html)} words`);
+    }
+  }
+  for (const claimId of route.featuredClaimIds || []) {
+    const claim = data.claims.find((item) => item.id === claimId);
+    if (claim && !html.includes(escapeHtml(claim.value))) fail(`Featured claim ${claimId} missing from ${route.path}`);
   }
 }
 
@@ -130,11 +199,11 @@ if (!watchlistHtml.includes("Follow official Veronica updates")) fail("Watchlist
 if (!watchlistHtml.includes("/feed.xml")) fail("Watchlist page missing RSS link");
 
 const screenshotsHtml = read(routeOutputPath("/screenshots/"));
-if (!screenshotsHtml.includes("Screenshot Source Rules")) fail("Screenshots page missing source rules section");
+if (!screenshotsHtml.includes("What belongs in this gallery")) fail("Screenshots page missing source rules section");
 if (!screenshotsHtml.includes("official-screenshot")) fail("Screenshots page missing official screenshot media");
 
 const steamHtml = read(routeOutputPath("/steam/"));
-if (!steamHtml.includes("Steam Status")) fail("Steam page missing status section");
+if (!steamHtml.includes("Steam status")) fail("Steam page missing status section");
 if (!steamHtml.includes("Wishlist access is live")) fail("Steam page missing wishlist status");
 
 const platformsHtml = read(routeOutputPath("/platforms/"));
@@ -153,7 +222,8 @@ for (const route of data.routes) {
   const inSitemap = sitemap.includes(`${data.site.origin}${route.path}`);
   if (shouldIncludeInSitemap(route) && !inSitemap) fail(`Sitemap missing ${route.path}`);
   if (!shouldIncludeInSitemap(route) && inSitemap) fail(`Sitemap should exclude ${route.path}`);
-  if (shouldIncludeInSitemap(route) && !sitemap.includes(`<lastmod>${data.site.lastVerified}</lastmod>`)) fail(`Sitemap lastmod mismatch for ${route.path}`);
+  const expectedSitemapEntry = `<loc>${data.site.origin}${route.path}</loc>\n    <lastmod>${route.lastModified}</lastmod>`;
+  if (shouldIncludeInSitemap(route) && !sitemap.includes(expectedSitemapEntry)) fail(`Sitemap lastmod mismatch for ${route.path}`);
 }
 
 const feedPath = path.join(root, "feed.xml");

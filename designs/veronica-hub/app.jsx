@@ -83,10 +83,7 @@ const editorialAssetCovers = {
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
-  { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
-  { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
-  { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
-  { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
+  { href: "#franchise-timeline", label: "Series Timeline", meta: "Key changes" }
 ];
 const routeHeroMediaIds = {
   "/release-date/": "capcom-title",
@@ -163,10 +160,6 @@ function slugify(value) {
     .replace(/^-|-$/g, "");
 }
 
-function referenceGameId(game) {
-  return `reference-${slugify(game.title || game)}`;
-}
-
 function changelogId(entry) {
   return slugify(`${entry.date}-${entry.title}`);
 }
@@ -207,7 +200,12 @@ function SourceLinks({ sourceIds }) {
 
 function claimsForPage(path) {
   const claims = siteData.claims.filter((claim) => claim.pages.includes(path));
-  return claims.length ? claims : siteData.claims.slice(0, 6);
+  const fallback = claims.length ? claims : siteData.claims;
+  const featuredClaimIds = route(path)?.featuredClaimIds || [];
+  if (!featuredClaimIds.length) return fallback.slice(0, 6);
+
+  const claimsById = new Map(fallback.map((claim) => [claim.id, claim]));
+  return featuredClaimIds.map((id) => claimsById.get(id)).filter(Boolean);
 }
 
 function mediaForGallery() {
@@ -270,52 +268,12 @@ function OptimizedImage({ src, alt, loading = "lazy" }) {
   );
 }
 
-function LinkList({ links }) {
-  if (!links?.length) return null;
-  return (
-    <p className="meta">
-      {links.map((link, index) => (
-        <React.Fragment key={link.url}>
-          <a href={link.url} target={link.url.startsWith("http") ? "_blank" : undefined} rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}>{link.label || link.url}</a>
-          {index < links.length - 1 && " / "}
-        </React.Fragment>
-      ))}
-    </p>
-  );
-}
-
-function sortByRelease(items = []) {
-  return [...items].sort((a, b) => {
-    const aYear = Number.parseInt(a.release, 10) || 0;
-    const bYear = Number.parseInt(b.release, 10) || 0;
-    return aYear - bYear;
-  });
-}
-
 function sortTimeline(items = []) {
   return [...items].sort((a, b) => {
     const aYear = Number.parseInt(a.year, 10) || 0;
     const bYear = Number.parseInt(b.year, 10) || 0;
     return aYear - bYear;
   });
-}
-
-function originPositionFilter() {
-  return new Set([
-    "RE1",
-    "RE2",
-    "RE3",
-    "RE0",
-    "RE CV",
-    "RE4",
-    "RE5",
-    "RE6",
-    "RE7",
-    "RE2 Remake",
-    "RE3 Remake",
-    "RE8",
-    "RE4 Remake"
-  ]);
 }
 
 function Badge({ type, children }) {
@@ -339,7 +297,7 @@ function Header({ onSearch, onMenu }) {
           <span className="mark">VH</span>
           <span className="brand-title">
             <strong>Veronica Hub</strong>
-            <span>Official update tracker</span>
+            <span>Independent source tracker</span>
           </span>
         </a>
         <nav className="nav" aria-label="Primary navigation">
@@ -372,7 +330,7 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-grid container">
         <div className="hero-copy">
-          <span className="hero-kicker">Official remake tracker</span>
+          <span className="hero-kicker">Independent remake tracker</span>
           <div className="chip-row">
             <span className="chip cyan">2027 release window</span>
             <span className="chip red">Exact date pending</span>
@@ -430,7 +388,7 @@ function DossierPanel() {
 function SectionHeading({ kicker, title, children }) {
   return (
     <div className="section-heading">
-      <span className="kicker">{kicker}</span>
+      {kicker ? <span className="kicker">{kicker}</span> : null}
       <h2>{title}</h2>
       {children && <p>{children}</p>}
     </div>
@@ -442,16 +400,12 @@ function RouteCards() {
   return (
     <section className="section tight" id="answers">
       <div className="container">
-        <SectionHeading kicker="Browse by topic" title="Find The Details You Need">Jump to release timing, platforms, trailer, PC status, demo, preorder information, media or source links.</SectionHeading>
+        <SectionHeading title="What do you want to know?">Go straight to the release date, platforms, trailer, PC requirements, demo, preorders or official sources.</SectionHeading>
         <div className="route-card-grid">
-          {cards.map((path, index) => {
+          {cards.map((path) => {
             const item = route(path);
             return (
               <a className="card route-card" href={path} key={path}>
-                <div className="route-card-top">
-                  <span className="eyebrow">TOPIC {String(index + 1).padStart(2, "0")}</span>
-                  <span aria-hidden="true">Open</span>
-                </div>
                 <div>
                   <h3>{item.navLabel}</h3>
                   <p>{item.intro}</p>
@@ -470,15 +424,15 @@ function LatestVerification() {
     <section className="section tight" id="latest">
       <div className="container content-grid">
         <article className="card">
-          <SectionHeading kicker="Current official status" title="What We Know So Far" />
+          <SectionHeading title="What’s confirmed" />
           <div className="article-copy">
             {route("/").body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
         </article>
         <aside className="verification-policy">
           <span className="eyebrow">Still pending</span>
-          <h3>What Has Not Been Announced</h3>
-          <p>Exact release date, demo timing, preorder details, editions, price and PC requirements are still waiting for official confirmation.</p>
+          <h3>Still unannounced</h3>
+          <p>Capcom has not announced an exact release date, demo, preorder details, editions, price or final PC requirements.</p>
           <a className="source-link" href="/sources/">View official sources</a>
         </aside>
       </div>
@@ -492,7 +446,7 @@ function WatchlistCallout({ expanded = false }) {
   return (
     <section className="section tight watchlist-section" id="watchlist">
       <div className="container">
-        <SectionHeading kicker="Official change alerts" title={watchlist.headline}>{watchlist.promise}</SectionHeading>
+        <SectionHeading title={watchlist.headline}>{watchlist.promise}</SectionHeading>
         <div className="source-grid">
           <article className="card source-card watchlist-card">
             <span className="eyebrow">RSS available now</span>
@@ -505,7 +459,7 @@ function WatchlistCallout({ expanded = false }) {
           </article>
           <article className="card source-card watchlist-card">
             <span className="eyebrow">Tracked topics</span>
-            <h3>Only official changes</h3>
+            <h3>What the feed tracks</h3>
             <ul className="watchlist-topic-list">
               {watchlist.topics.map((topic) => <li key={topic}>{topic}</li>)}
             </ul>
@@ -520,12 +474,11 @@ function QuickFacts({ path = "/" }) {
   return (
     <section className="section tight" id="facts">
       <div className="container">
-        <SectionHeading kicker="Verified details" title="Confirmed So Far">Each item below shows the current status and where the information came from.</SectionHeading>
+        <SectionHeading title="Confirmed details">Each item includes its current status, source and last check date.</SectionHeading>
         <div className="facts-grid">
-          {claimsForPage(path).slice(0, 6).map((claim, index) => (
+          {claimsForPage(path).map((claim) => (
             <article className="card fact-card" key={claim.id}>
               <div className="slot-top">
-                <span className="eyebrow">DETAIL {String(index + 1).padStart(2, "0")}</span>
                 <Badge type={claim.status}>{claim.status}</Badge>
               </div>
               <div>
@@ -579,7 +532,7 @@ function TrailerPreview() {
   return (
     <section className="section" id="trailer">
       <div className="container">
-        <SectionHeading kicker="Official video" title="Announcement Trailer">Watch the official Resident Evil announcement trailer without leaving the page.</SectionHeading>
+        <SectionHeading title="Announcement trailer">Watch the official Resident Evil announcement trailer here.</SectionHeading>
         <OfficialVideoTerminal />
       </div>
     </section>
@@ -593,7 +546,7 @@ function OfficialVideoLibrary({ compact = false } = {}) {
   return (
     <section className="section tight" id="official-videos">
       <div className="container">
-        <SectionHeading kicker="Official videos" title="Official Video Library">Verified uploads from Capcom, platform-holder and Summer Game Fest channels.</SectionHeading>
+        <SectionHeading title="Official video library">Verified uploads from Capcom, PlayStation, Xbox and Summer Game Fest channels.</SectionHeading>
         <div className="source-grid">
           {visibleVideos.map((video) => {
             const source = sourceById(video.sourceId);
@@ -623,7 +576,7 @@ function MediaPreview() {
   return (
     <section className="section" id="media-preview">
       <div className="container">
-        <SectionHeading kicker="Official media" title="Screenshot Preview">A quick look at official screenshots. The full gallery is on the media page.</SectionHeading>
+        <SectionHeading title="Official screenshots">A preview of the remake gallery.</SectionHeading>
         <div className="media-reference-grid">
           {media.slice(0, 8).map((item) => <MediaFrame item={item} key={item.id} onOpen={setActiveImage} />)}
         </div>
@@ -699,7 +652,7 @@ function SourcesPreview({ expanded = false }) {
   return (
     <section className="section" id="sources">
       <div className="container">
-        <SectionHeading kicker="Source links" title="Official References">Open the Capcom, Steam and YouTube pages used for the current information.</SectionHeading>
+        <SectionHeading title="Check the sources">Open the Capcom, Steam and YouTube pages behind the current information.</SectionHeading>
         <div className="source-grid">
           {sources.map((source) => (
             <article className="card source-card" key={source.id}>
@@ -721,10 +674,10 @@ function DeveloperPublisherSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Company info" title="Developer & Publisher">Resident Evil Veronica lists Capcom as both developer and publisher.</SectionHeading>
+        <SectionHeading title="Developer and publisher">Resident Evil Veronica lists Capcom in both roles.</SectionHeading>
         <article className="verification-policy">
           <span className="eyebrow">{profile.company}</span>
-          <h3>Why the two roles matter</h3>
+          <h3>Capcom holds both roles</h3>
           <p>{profile.summary}</p>
           <p className="meta">Reference links: <SourceLinks sourceIds={profile.sourceIds} /></p>
         </article>
@@ -778,7 +731,6 @@ function TextPage({ routeInfo, children }) {
             {routeInfo.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </article>
           <aside className="verification-policy">
-            <span className="eyebrow">{japanese ? "Verification" : "Verification"}</span>
             <h3>{japanese ? "公式ソース確認" : "Source Status"}</h3>
             <p>{japanese ? `このページの情報は ${siteData.site.lastVerified} に確認しました。未発表の内容は未確認として扱います。` : `Information on this page was last checked on ${siteData.site.lastVerified}. Source links are available for the main details.`}</p>
             <a className="source-link" href="/sources/">{japanese ? "英語版ソースを見る" : "View sources"}</a>
@@ -820,7 +772,7 @@ function PcEstimateSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Planning estimate" title="PC Prep Range">This is not official. It is a cautious preparation range based on nearby official Steam requirement listings.</SectionHeading>
+        <SectionHeading title="PC planning range">These estimates use nearby RE Engine games for comparison. They are not official Veronica requirements.</SectionHeading>
         <article className="verification-policy">
           <span className="eyebrow">{estimate.status} / last reviewed {estimate.lastReviewed}</span>
           <h3>Official Veronica specs are still TBD</h3>
@@ -856,7 +808,7 @@ function ScreenshotSourceSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Official gallery" title="Screenshot Source Rules">This page is limited to official remake media from Steam and Capcom-linked sources.</SectionHeading>
+        <SectionHeading title="What belongs in this gallery">Only remake media from Steam, Capcom and verified official channels.</SectionHeading>
         <div className="source-grid">
           <article className="card source-card">
             <span className="eyebrow">Official screenshots</span>
@@ -879,7 +831,7 @@ function SteamStatusSection() {
   return (
     <section className="section tight">
       <div className="container">
-        <SectionHeading kicker="Steam tracker" title="Store Status">Wishlist access is live, but preorder, price and PC requirements are still not final.</SectionHeading>
+        <SectionHeading title="Steam status">Wishlisting is live. Preorders, price and PC requirements are not final.</SectionHeading>
         <div className="source-grid">
           <article className="card source-card">
             <span className="eyebrow">Store page</span>
@@ -911,7 +863,7 @@ function ContextMedia({ path }) {
   return (
     <section className="section">
       <div className="container">
-        <SectionHeading kicker="Related media" title="Official Images">Images below are official assets related to this page.</SectionHeading>
+        <SectionHeading title="Related official images">Images from the sources used on this page.</SectionHeading>
         <div className="media-gallery">
           {media.map((item) => <MediaCard item={item} key={item.id} />)}
         </div>
@@ -937,23 +889,6 @@ function MediaCard({ item, variant = "", cover = null }) {
 }
 
 
-function ReferenceMediaGallery({ game }) {
-  if (!game.media?.length) return null;
-  return (
-    <div className="reference-media-strip">
-      {game.media.map((item) => (
-        <figure className="reference-media-item" key={`${item.src}-${item.label}`}>
-          <OptimizedImage src={item.src} alt={item.alt || item.label} loading="lazy" />
-          <figcaption>
-            <strong>{item.label}</strong>
-            <span>{item.source || "Official image"}</span>
-          </figcaption>
-        </figure>
-      ))}
-    </div>
-  );
-}
-
 function MediaSectionNav() {
   return (
     <section className="section section-compact" aria-label="Media page sections">
@@ -972,29 +907,12 @@ function MediaSectionNav() {
   );
 }
 
-function ReferenceGameSelect({ games }) {
-  if (!games.length) return null;
-  return (
-    <div className="timeline-tools">
-      <label htmlFor="reference-game-jump">Jump to resource card</label>
-      <select id="reference-game-jump" className="jump-select" defaultValue="" onChange={(event) => {
-        if (event.target.value) window.location.hash = event.target.value;
-      }}>
-        <option value="" disabled>Choose a game</option>
-        {games.map((game) => (
-          <option value={referenceGameId(game)} key={`${game.title}-${game.release}`}>{game.release} / {game.title}</option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
 function PlatformsPage({ routeInfo }) {
   return (
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Confirmed platforms" title="Where It Is Coming Out">Platform support is confirmed separately from store-specific features.</SectionHeading>
+          <SectionHeading title="Where it’s coming out">Confirmed platforms and the features listed by each official store.</SectionHeading>
           <div className="platform-grid">
             {siteData.platforms.map((platform) => (
               <article className="card platform-card" key={platform.id}>
@@ -1051,7 +969,7 @@ function CharactersPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Characters" title="Who Is Confirmed So Far">Original-game context is useful, but it is not automatically confirmed for the remake.</SectionHeading>
+          <SectionHeading title="Confirmed and referenced characters">Characters from the original are not automatically confirmed for the remake.</SectionHeading>
           <div className="character-grid">
             {siteData.characters.map((character) => (
               <article className="card character-card" key={character.name}>
@@ -1075,7 +993,7 @@ function FaqPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-          <SectionHeading kicker="Fast answers" title="FAQ">Short answers for the most common release, platform and purchase questions.</SectionHeading>
+          <SectionHeading title="Frequently asked questions">Short answers about the release, platforms and purchase status.</SectionHeading>
           <div className="faq-list">
             {siteData.faq.map((item) => (
               <article className="card" key={item.question}>
@@ -1101,9 +1019,6 @@ function SourcesPage({ routeInfo }) {
 
 function MediaPage({ routeInfo }) {
   const timeline = sortTimeline(siteData.gameHistoryTimeline || []);
-  const sortedGames = sortByRelease(siteData.referenceGames || []);
-  const referenceHrefByTitle = new Map(sortedGames.map((game) => [game.title, `#${referenceGameId(game)}`]));
-  const origins = sortedGames.filter((game) => originPositionFilter().has(game.position));
   const spotlightMedia = mediaByIds(mediaSpotlightIds);
   const assetMedia = mediaByIds(mediaAssetIds);
 
@@ -1113,7 +1028,7 @@ function MediaPage({ routeInfo }) {
       <MediaSectionNav />
       <section className="section" id="official-gallery">
         <div className="container">
-          <SectionHeading kicker="Official gallery" title="Official Screenshots First">The main wall now leads with distinct in-game frames, while repeated logo and store assets sit in the archive strip below.</SectionHeading>
+          <SectionHeading title="Official screenshots">In-game frames come first. Store art and page backgrounds are collected below.</SectionHeading>
           <div className="media-showcase">
             {spotlightMedia.map((item, index) => (
               <MediaCard item={item} variant={index === 0 ? "lead" : "compact"} key={item.id} />
@@ -1136,91 +1051,17 @@ function MediaPage({ routeInfo }) {
       {timeline.length > 0 ? (
         <section className="section" id="franchise-timeline">
           <div className="container">
-            <SectionHeading kicker="Franchise timeline" title="Resident Evil Gameplay Timeline">Use this timeline to see how earlier Resident Evil games shaped expectations for Veronica.</SectionHeading>
-            <ReferenceGameSelect games={sortedGames} />
+            <SectionHeading title="How the series changed">A quick timeline of the games most relevant to Veronica.</SectionHeading>
             <div className="timeline-list">
-              {timeline.map((entry) => {
-                const resourceHref = referenceHrefByTitle.get(entry.title);
-                return (
-                  <article className="card" key={`${entry.year}-${entry.title}`}>
-                    <p className="eyebrow">{entry.year}</p>
-                    <h3>{entry.title}</h3>
-                    <p>{entry.event}</p>
-                    <p className="meta">Impact: {entry.impact}</p>
-                    {entry.note && <p className="meta">Note: {entry.note}</p>}
-                    {resourceHref && <a className="source-link" href={resourceHref}>Open resource card</a>}
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      ) : null}
-      {origins.length > 0 ? (
-        <section className="section" id="classic-origins">
-          <div className="container">
-            <SectionHeading kicker="Classic origins" title="Earlier Games To Know">These games provide useful context for Veronica's pacing, camera, combat and story position.</SectionHeading>
-            <div className="source-grid">
-              {origins.map((game) => (
-                <article className="card source-card" key={`${game.title}-${game.position}`}>
-                  <span className="eyebrow">{game.position} / {game.release}</span>
-                  <h3>{game.title}</h3>
-                  <p><strong>Story context:</strong> {game.storyContext}</p>
-                  <p className="meta">Why it matters: {game.whyReference}</p>
-                  <p className="meta">Origin: {game.origin}</p>
-                  <p className="meta">Playable traits: {game.playability}</p>
-                  <LinkList links={game.links} />
-                  <LinkList links={game.clips} />
+              {timeline.map((entry) => (
+                <article className="card" key={`${entry.year}-${entry.title}`}>
+                  <p className="eyebrow">{entry.year}</p>
+                  <h3>{entry.title}</h3>
+                  <p>{entry.event}</p>
+                  <p className="meta">Why it matters: {entry.impact}</p>
+                  {entry.note && <p className="meta">{entry.note}</p>}
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-      {siteData.referenceGames?.length > 0 ? (
-        <section className="section" id="reference-games">
-          <div className="container">
-            <SectionHeading kicker="Reference Game Encyclopedia" title="Reference Game Encyclopedia">Sorted by release year to provide a clear historical line for gameplay comparison.</SectionHeading>
-            <div className="source-grid">
-              {sortedGames.map((game) => (
-                <article className="card source-card" id={referenceGameId(game)} key={`${game.title}-${game.release}`}>
-                  <p className="eyebrow">{game.release} / {game.position}</p>
-                  <h3>{game.title}</h3>
-                  <p className="meta"><strong>Origin:</strong> {game.origin}</p>
-                  <p className="meta"><strong>Story context:</strong> {game.storyContext}</p>
-                  <p className="meta"><strong>Playability:</strong> {game.playability}</p>
-                  <p className="meta"><strong>Why compare:</strong> {game.whyReference}</p>
-                  <div className="meta"><strong>Image resources:</strong>
-                    <ReferenceMediaGallery game={game} />
-                  </div>
-                  <div className="meta"><strong>Source links:</strong> {game.links?.length ? <LinkList links={game.links} /> : "None"}</div>
-                  <div className="meta"><strong>Clip links:</strong> {game.clips?.length ? <LinkList links={game.clips} /> : "None"}</div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-      {siteData.creatorVideos?.length > 0 ? (
-        <section className="section" id="creator-videos">
-          <div className="container">
-            <SectionHeading kicker="Creator videos" title="Gameplay And Reaction References">These videos help new visitors compare tone, pacing and play style across nearby Resident Evil games.</SectionHeading>
-            <div className="source-grid">
-              {siteData.creatorVideos.map((video) => {
-                const links = [
-                  { label: video.linkLabel || "Watch channel videos", url: video.url },
-                  ...(video.query ? [{ label: "Search related clips", url: video.query }] : [])
-                ];
-                return (
-                  <article className="card source-card" key={`${video.title}-${video.creator}`}>
-                    <span className="eyebrow">{video.creator}</span>
-                    <h3>{video.title}</h3>
-                    <p>{video.context}</p>
-                    <p className="meta">Reason: {video.reason}</p>
-                    <LinkList links={links} />
-                  </article>
-                );
-              })}
             </div>
           </div>
         </section>
@@ -1235,7 +1076,7 @@ function ChangelogPage({ routeInfo }) {
     <TextPage routeInfo={routeInfo}>
       <section className="section tight">
         <div className="container">
-            <SectionHeading kicker="Update history" title="What Changed">Important site and source updates are listed here by date.</SectionHeading>
+            <SectionHeading title="What changed">Source and site updates, listed by date.</SectionHeading>
           <div className="timeline-list">
             {siteData.changelog.map((entry) => {
               const source = sourceById(entry.sourceId);
@@ -1356,7 +1197,7 @@ function Footer() {
         <div>
           <a className="brand" href="/">
             <span className="mark">VH</span>
-            <span className="brand-title"><strong>Veronica Hub</strong><span>Official update tracker</span></span>
+            <span className="brand-title"><strong>Veronica Hub</strong><span>Independent source tracker</span></span>
           </a>
           <p>{siteData.site.disclaimer}</p>
           <p className="meta">{siteData.site.noPiracy}</p>

@@ -4,9 +4,25 @@
     <title>Veronica Hub Changelog</title>
     <link>https://residentevilveronica.com/changelog/</link>
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Resident Evil Veronica source-backed official update tracker official update feed.</description>
+    <description>Independent tracker for official Resident Evil Veronica updates official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Producer comments add lore continuity and Wesker context</title>
+      <link>https://residentevilveronica.com/changelog/#2026-07-26-producer-comments-add-lore-continuity-and-wesker-context</link>
+      <guid isPermaLink="false">veronica-hub:2026-07-26-producer-comments-add-lore-continuity-and-wesker-context</guid>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Added producer-attributed PlayStation Blog context on story retuning, third-person direction, remake-team continuity and the story importance of Albert Wesker alongside Claire and Chris. Reference: PlayStation Blog Summer Game Fest report (https://blog.playstation.com/2026/06/08/summer-game-fest-2026-hands-on-and-more-details-on-11-upcoming-ps5-games/).</description>
+    </item>
+    <item>
+      <title>Conflicting Xbox age-rating metadata recorded</title>
+      <link>https://residentevilveronica.com/changelog/#2026-07-26-conflicting-xbox-age-rating-metadata-recorded</link>
+      <guid isPermaLink="false">veronica-hub:2026-07-26-conflicting-xbox-age-rating-metadata-recorded</guid>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>The Xbox page displays a Mature 17+ badge and content descriptors while its own description still says the content has not yet been age-rated. The site records the display as unresolved rather than a confirmed final rating. Reference: Xbox Store (https://www.xbox.com/en-US/games/store/resident-evil-veronica/9pjjk03lkjkb).</description>
+    </item>
     <item>
       <title>Official platform store links and wishlist milestone added</title>
       <link>https://residentevilveronica.com/changelog/#2026-07-12-official-platform-store-links-and-wishlist-milestone-added</link>

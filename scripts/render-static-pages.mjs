@@ -99,10 +99,7 @@ const editorialAssetCovers = {
 const mediaSectionLinks = [
   { href: "#official-gallery", label: "Official Gallery", meta: "Screenshots" },
   { href: "#official-videos", label: "Official Videos", meta: "Trailers" },
-  { href: "#franchise-timeline", label: "History Timeline", meta: "Series order" },
-  { href: "#classic-origins", label: "Classic Origins", meta: "Predecessors" },
-  { href: "#reference-games", label: "Reference Games", meta: "Playable context" },
-  { href: "#creator-videos", label: "Creator Videos", meta: "Watch clips" }
+  { href: "#franchise-timeline", label: "Series Timeline", meta: "Key changes" }
 ];
 const imageDimensionsCache = new Map();
 
@@ -168,7 +165,13 @@ function absoluteUrl(routePath) {
 }
 
 function routeClaims(routePath) {
-  return data.claims.filter((claim) => claim.pages.includes(routePath));
+  const claims = data.claims.filter((claim) => claim.pages.includes(routePath));
+  const fallback = claims.length ? claims : data.claims;
+  const featuredClaimIds = routeByPath(routePath)?.featuredClaimIds || [];
+  if (!featuredClaimIds.length) return fallback.slice(0, 6);
+
+  const claimsById = new Map(fallback.map((claim) => [claim.id, claim]));
+  return featuredClaimIds.map((id) => claimsById.get(id)).filter(Boolean);
 }
 
 function sortedByRelease(items = []) {
@@ -364,8 +367,8 @@ function mediaGrid(routePath) {
     const assetMedia = mediaByIds(mediaAssetIds);
     return `
     <section class="static-section" id="official-gallery">
-      <h2>Official Screenshots First</h2>
-      <p>The main wall leads with distinct in-game frames. Repeated logo and store assets stay available in the archive strip below.</p>
+      <h2>Official screenshots</h2>
+      <p>In-game frames come first. Store art and page backgrounds are collected below.</p>
       <div class="media-showcase">
         ${spotlightMedia.map((item, index) => {
           const source = sourceById(item.sourceId);
@@ -453,31 +456,20 @@ function referenceGamesSection() {
 
 function timelineSection() {
   const timeline = sortedTimeline(data.gameHistoryTimeline || []);
-  const games = sortedByRelease(data.referenceGames || []);
   if (!timeline.length) return "";
   return `
     <section class="static-section" id="franchise-timeline">
-      <h2>Franchise Timeline</h2>
-      <div class="timeline-tools">
-        <label for="reference-game-jump-static">Jump to resource card</label>
-        <select id="reference-game-jump-static" class="jump-select" onchange="if (this.value) location.hash = this.value">
-          <option value="" selected disabled>Choose a game</option>
-          ${games.map((game) => `<option value="${escapeHtml(referenceGameId(game))}">${escapeHtml(game.release || "")} / ${escapeHtml(game.title || "")}</option>`).join("")}
-        </select>
-      </div>
+      <h2>How the series changed</h2>
+      <p>A quick timeline of the games most relevant to Veronica.</p>
       <div class="timeline-list">
-        ${timeline.map((event) => {
-          const resourceHref = timelineResourceHref(event.title);
-          return `
+        ${timeline.map((event) => `
           <article class="static-card">
             <p class="eyebrow">${escapeHtml(event.year || "")}</p>
             <h3>${escapeHtml(event.title)}</h3>
             <p>${escapeHtml(event.event)}</p>
-            <p class="meta">Impact: ${escapeHtml(event.impact || "")}</p>
-            ${event.note ? `<p class="meta">Note: ${escapeHtml(event.note)}</p>` : ""}
-            ${resourceHref ? `<a class="source-link" href="${escapeHtml(resourceHref)}">Open resource card</a>` : ""}
-          </article>`;
-        }).join("")}
+            <p class="meta">Why it matters: ${escapeHtml(event.impact || "")}</p>
+            ${event.note ? `<p class="meta">${escapeHtml(event.note)}</p>` : ""}
+          </article>`).join("")}
       </div>
     </section>`;
 }
@@ -583,7 +575,7 @@ function screenshotSourceSection() {
   const screenshots = data.media.filter((item) => item.pages.includes("/screenshots/") && item.kind.includes("screenshot"));
   return `
     <section class="static-section">
-      <h2>Screenshot Source Rules</h2>
+      <h2>What belongs in this gallery</h2>
       <div class="static-grid">
         <article class="static-card">
           <p class="eyebrow">Official gallery</p>
@@ -603,7 +595,7 @@ function steamStatusSection() {
   const source = sourceById("steam-store");
   return `
     <section class="static-section">
-      <h2>Steam Status</h2>
+      <h2>Steam status</h2>
       <div class="static-grid">
         <article class="static-card">
           <p class="eyebrow">Store page</p>
@@ -639,7 +631,7 @@ function routeSpecific(route) {
   }
 
   if (route.path === "/media/") {
-    return `${mediaSectionNav()}${mediaGrid(route.path)}${officialVideosSection()}${timelineSection()}${classicsSection()}${referenceGamesSection()}${creatorVideosSection()}`;
+    return `${mediaSectionNav()}${mediaGrid(route.path)}${officialVideosSection()}${timelineSection()}`;
   }
 
   if (route.path === "/screenshots/") {
@@ -827,7 +819,7 @@ function staticBody(route) {
           <div>
             <a class="brand" href="/">
               <span class="mark">VH</span>
-              <span class="brand-title"><strong>Veronica Hub</strong><span>Official update tracker</span></span>
+              <span class="brand-title"><strong>Veronica Hub</strong><span>Independent source tracker</span></span>
             </a>
             <p>${escapeHtml(data.site.disclaimer)}</p>
             <p class="meta">${escapeHtml(data.site.noPiracy)}</p>
@@ -915,7 +907,7 @@ function articleSchema(route) {
     "@type": "Article",
     "headline": route.h1,
     "description": route.description,
-    "dateModified": data.site.lastVerified,
+    "dateModified": route.lastModified,
     "publisher": {
       "@type": "Organization",
       "name": data.site.name
@@ -1003,7 +995,7 @@ function pageHtml(route) {
 function sitemapXml() {
   const urls = data.routes.filter(shouldIncludeInSitemap).map((route) => `  <url>
     <loc>${absoluteUrl(route.path)}</loc>
-    <lastmod>${data.site.lastVerified}</lastmod>
+    <lastmod>${route.lastModified}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`).join("\n");
