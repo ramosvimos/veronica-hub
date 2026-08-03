@@ -207,6 +207,9 @@ if (!steamHtml.includes("Steam status")) fail("Steam page missing status section
 if (!steamHtml.includes("Wishlist access is live")) fail("Steam page missing wishlist status");
 
 const platformsHtml = read(routeOutputPath("/platforms/"));
+const homeHtml = read(routeOutputPath("/"));
+if (!homeHtml.includes("Official store links")) fail("Homepage must describe platform-store links without claiming every store is currently available");
+if (homeHtml.includes("Live on Steam, PlayStation, Xbox and Nintendo")) fail("Homepage must not claim every platform store is currently available");
 for (const platform of data.platforms) {
   if (!platform.storeUrl) fail(`Platform is missing store URL: ${platform.id}`);
   else if (!platformsHtml.includes(platform.storeUrl)) fail(`Platforms page missing store URL: ${platform.id}`);

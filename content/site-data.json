@@ -2,7 +2,7 @@
   "site": {
     "name": "Veronica Hub",
     "origin": "https://residentevilveronica.com",
-    "lastVerified": "2026-07-26",
+    "lastVerified": "2026-08-03",
     "tagline": "Independent tracker for official Resident Evil Veronica updates",
     "disclaimer": "Independent fan-made information hub. Veronica Hub is not affiliated with or endorsed by Capcom.",
     "noPiracy": "Veronica Hub does not host ROMs, ISOs, cracks, emulators or unofficial downloads."
@@ -24,7 +24,7 @@
       "navLabel": "Home",
       "priority": "1.0",
       "changefreq": "daily",
-      "lastModified": "2026-07-26",
+      "lastModified": "2026-08-03",
       "featuredClaimIds": [
         "announcement-status",
         "release-window",
@@ -36,7 +36,7 @@
       "intro": "Capcom has confirmed Resident Evil Veronica for 2027 on PS5, Xbox Series X|S, Nintendo Switch 2 and PC. We track what is official and flag what is still unknown.",
       "body": [
         "Resident Evil Veronica is a remake of 2000's Resident Evil Code: Veronica. Capcom describes it as a reimagining with modernized gameplay and more detailed graphics.",
-        "The game is coming to PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC in 2027. Store pages are live on Steam, PlayStation, Xbox and Nintendo.",
+        "The game is coming to PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC in 2027. Official store links are provided for Steam, PlayStation, Xbox and Nintendo.",
         "Capcom reported that Resident Evil Veronica passed one million combined wishlists across PS5 and PC shortly after its announcement. This is an interest milestone, not a sales figure or preorder count.",
         "Producer interviews describe the remake as a third-person game and say members of the Resident Evil 2 and Resident Evil 4 remake teams are involved. PlayStation Blog also reports that parts of the story are being adjusted to fit the wider series lore.",
         "Capcom has not announced an exact release date, price, editions, demo or final PC requirements. New here? Start with the release date, platforms or spoiler-light story overview."
@@ -769,8 +769,8 @@
     },
     {
       "id": "official-store-pages",
-      "label": "Official store pages",
-      "value": "Live on Steam, PlayStation, Xbox and Nintendo",
+      "label": "Official store links",
+      "value": "Steam, PlayStation, Xbox and Nintendo",
       "status": "confirmed",
       "sourceIds": [
         "steam-store",
@@ -779,7 +779,7 @@
         "nintendo-store"
       ],
       "lastChecked": "2026-07-26",
-      "lastChanged": "2026-07-12",
+      "lastChanged": "2026-08-03",
       "pages": [
         "/",
         "/platforms/",
@@ -2495,6 +2495,20 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-08-03",
+      "type": "Source Review",
+      "title": "Homepage facts rechecked against official sources",
+      "summary": "Capcom's announcement and the Steam, Xbox and Nintendo product pages still confirm the 2027 release window, PS5, Xbox Series X|S, Nintendo Switch 2 and PC platforms, and the absence of an exact release date, price, preorder, demo and PC requirements. No new game announcement was found.",
+      "sourceId": "capcom-press-2026-06-08",
+      "affectedClaims": [
+        "announcement-status",
+        "release-window",
+        "exact-release-date",
+        "confirmed-platforms",
+        "steam-page"
+      ]
+    },
     {
       "date": "2026-07-26",
       "type": "Source Review",

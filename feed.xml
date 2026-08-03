@@ -6,7 +6,15 @@
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Independent tracker for official Resident Evil Veronica updates official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Homepage facts rechecked against official sources</title>
+      <link>https://residentevilveronica.com/changelog/#2026-08-03-homepage-facts-rechecked-against-official-sources</link>
+      <guid isPermaLink="false">veronica-hub:2026-08-03-homepage-facts-rechecked-against-official-sources</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Capcom&apos;s announcement and the Steam, Xbox and Nintendo product pages still confirm the 2027 release window, PS5, Xbox Series X|S, Nintendo Switch 2 and PC platforms, and the absence of an exact release date, price, preorder, demo and PC requirements. No new game announcement was found. Reference: Capcom press release (https://www.capcom.co.jp/ir/english/news/html/e260608.html).</description>
+    </item>
     <item>
       <title>Producer comments add lore continuity and Wesker context</title>
       <link>https://residentevilveronica.com/changelog/#2026-07-26-producer-comments-add-lore-continuity-and-wesker-context</link>
