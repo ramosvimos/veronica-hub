@@ -7,7 +7,7 @@
     "check:sources": "node scripts/check-sources.mjs",
     "check:p1": "node scripts/check-p1-readiness.mjs",
     "check:production": "node scripts/check-production-routes.mjs",
-    "build": "npm run build:js && npm run build:pages && npm run build:feed && npm run validate"
+    "build": "node scripts/build-with-latest-verification.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
