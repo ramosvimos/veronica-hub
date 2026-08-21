@@ -1,0 +1,89 @@
+{
+  "verifiedAt": "2026-08-21",
+  "touchRoutes": [
+    "/",
+    "/platforms/",
+    "/sources/",
+    "/changelog/"
+  ],
+  "bodyReplacements": [
+    {
+      "path": "/",
+      "contains": "passed one million combined wishlists across PS5 and PC",
+      "value": "On August 4, 2026, the official Resident Evil account reported that Resident Evil Veronica had reached two million wishlists. This is an interest milestone, not a sales figure or preorder count."
+    },
+    {
+      "path": "/platforms/",
+      "contains": "more than one million combined PS5 and PC wishlists",
+      "value": "On August 4, 2026, the official Resident Evil account reported two million wishlists for Resident Evil Veronica. Wishlist interest is not the same as sales, preorders or a release-date commitment."
+    }
+  ],
+  "claimUpdates": [
+    {
+      "id": "wishlist-milestone",
+      "value": "Two million wishlists reported by the official Resident Evil account",
+      "status": "confirmed",
+      "sourceIds": [
+        "resident-evil-social-wishlist-2026-08-04"
+      ],
+      "lastChecked": "2026-08-21",
+      "lastChanged": "2026-08-04"
+    }
+  ],
+  "claimLastCheckedIds": [
+    "announcement-status",
+    "release-window",
+    "exact-release-date",
+    "confirmed-platforms",
+    "official-store-pages",
+    "wishlist-milestone",
+    "playstation-store-status",
+    "xbox-store-status",
+    "xbox-rating-metadata",
+    "nintendo-store-status",
+    "steam-page",
+    "steam-features",
+    "supported-languages",
+    "pc-requirements",
+    "preorder-status",
+    "demo-status",
+    "edition-status"
+  ],
+  "sourceUpserts": [
+    {
+      "id": "resident-evil-social-wishlist-2026-08-04",
+      "name": "Official Resident Evil two-million wishlist milestone",
+      "type": "official-social",
+      "reliability": "high",
+      "url": "https://x.com/RE_Games/status/2084455588088435103",
+      "usedFor": "Official Resident Evil account milestone reporting two million wishlists on August 4, 2026",
+      "lastChecked": "2026-08-21"
+    }
+  ],
+  "sourceLastCheckedIds": [
+    "capcom-press-2026-06-08",
+    "steam-store",
+    "playstation-store",
+    "xbox-store",
+    "nintendo-store",
+    "resident-evil-social-wishlist-2026-08-04"
+  ],
+  "changelogEntry": {
+    "date": "2026-08-21",
+    "type": "Source Review",
+    "title": "Two-million wishlist milestone added and official stores rechecked",
+    "summary": "Added the official Resident Evil account's August 4 two-million-wishlist milestone. A fresh review of Capcom, Steam, PlayStation, Xbox and Nintendo still shows a 2027 release window with no exact release date; Steam PC requirements remain TBD, and no preorder timing, price, editions or demo are confirmed.",
+    "sourceId": "resident-evil-social-wishlist-2026-08-04",
+    "affectedClaims": [
+      "wishlist-milestone",
+      "release-window",
+      "exact-release-date",
+      "confirmed-platforms",
+      "steam-page",
+      "pc-requirements",
+      "preorder-status",
+      "demo-status",
+      "edition-status"
+    ]
+  }
+}
