@@ -1,0 +1,44 @@
+/* Additive reading-room styling; reuses the existing site's palette and fonts. */
+.editorial-hero {background:linear-gradient(90deg,var(--bg),transparent),url('/assets/editorial/veronica-archive-dossier.svg') center/cover;}
+.editorial-breadcrumb {display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;color:var(--muted);font-size:.85rem;}
+.editorial-card-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;}
+.editorial-card {display:flex;flex-direction:column;gap:.6rem;min-width:0;padding:1.4rem;border:1px solid var(--line);border-radius:12px;background:var(--panel);}
+.editorial-card h3 {font-size:1.2rem;line-height:1.35;margin:.25rem 0;}
+.editorial-card p {margin:0;color:var(--muted);font-size:.95rem;}
+.editorial-card time {font-family:var(--mono);font-size:.75rem;color:var(--muted);}
+.editorial-read {margin-top:auto;padding-top:.7rem;color:var(--cyan);font-size:.85rem;}
+.editorial-card:hover {border-color:var(--red);}
+.editorial-content {max-width:1160px;margin-inline:auto;overflow-wrap:anywhere;}
+.editorial-byline {display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-family:var(--mono);font-size:.76rem;color:var(--muted);}
+.editorial-scope {border-left:3px solid var(--amber);padding:.8rem 1rem;background:var(--panel);font-size:.95rem;}
+.editorial-lede {max-width:78ch;font-size:1.05rem;margin-block:1.5rem;}
+.editorial-toc {display:flex;gap:.65rem 1.15rem;flex-wrap:wrap;border-block:1px solid var(--line);padding:1rem 0;margin:2rem 0;color:var(--muted);font-size:.85rem;}
+.editorial-toc strong {color:var(--text);}
+.editorial-toc a,.editorial-breadcrumb a {text-decoration:underline;text-underline-offset:4px;}
+.editorial-layout {display:grid;grid-template-columns:minmax(0,2.4fr) minmax(220px,1fr);gap:2.5rem;align-items:start;}
+.editorial-article {min-width:0;max-width:80ch;}
+.editorial-section {margin:0 0 2rem;padding:0 0 1.5rem;border-bottom:1px solid var(--line);scroll-margin-top:6rem;}
+.editorial-section h2,.editorial-spoiler h2 {font-size:1.55rem;line-height:1.3;margin:.75rem 0 1rem;}
+.editorial-status {display:inline-block;border:1px solid var(--line);padding:.2rem .6rem;border-radius:4px;font: .72rem var(--mono);color:var(--muted);}
+.editorial-status-original {color:var(--amber);}
+.editorial-status-confirmed {color:var(--green);}
+.editorial-status-reported {color:var(--cyan);}
+.editorial-evidence {font-size:.8rem;color:var(--muted);line-height:1.8;}
+.editorial-spoiler {margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--panel);scroll-margin-top:6rem;}
+.editorial-spoiler summary {cursor:pointer;padding:1.2rem;color:var(--amber);font-weight:600;}
+.editorial-spoiler>div {padding:.3rem 1.2rem 1rem;}
+.editorial-sidebar {border:1px solid var(--line);border-radius:12px;padding:1.4rem;background:var(--panel);}
+.editorial-sidebar h2 {font-size:1.15rem;margin:0 0 1rem;}
+.editorial-sidebar nav {display:grid;gap:.9rem;}
+.editorial-sidebar nav a {display:flex;justify-content:space-between;gap:.5rem;padding-bottom:.65rem;border-bottom:1px solid var(--line);}
+.editorial-sidebar p {font-size:.85rem;color:var(--muted);}
+.editorial-source-list {padding:1.5rem;border:1px solid var(--line);border-radius:12px;margin-top:1.5rem;}
+.editorial-source-list h2,.editorial-related>h2 {font-size:1.35rem;}
+.editorial-source-list ul {padding-left:1.2rem;}
+.editorial-source-list li {margin:.6rem 0;}
+.editorial-related {margin-block:2.5rem;}
+.editorial-content a:focus-visible,.editorial-card:focus-visible,.editorial-spoiler summary:focus-visible {outline:2px solid var(--cyan);outline-offset:4px;}
+.static-shell .editorial-preview .container {padding-inline:0;}
+@media(max-width:900px) {.editorial-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.editorial-layout{grid-template-columns:1fr;gap:1rem;}}
+@media(max-width:560px) {.editorial-card-grid{grid-template-columns:1fr;}.editorial-card{padding:1.15rem;}.editorial-section h2,.editorial-spoiler h2{font-size:1.3rem;}.editorial-toc{display:grid;}.editorial-byline{display:grid;gap:.35rem;}}
+@media(prefers-reduced-motion:reduce) {.editorial-content *,.editorial-preview * {scroll-behavior:auto!important;transition:none!important;}}
