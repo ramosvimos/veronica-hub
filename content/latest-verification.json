@@ -1,11 +1,6 @@
 {
-  "verifiedAt": "2026-08-21",
-  "touchRoutes": [
-    "/",
-    "/platforms/",
-    "/sources/",
-    "/changelog/"
-  ],
+  "verifiedAt": "2026-09-08",
+  "touchRoutes": ["/", "/ja/", "/release-date/", "/platforms/", "/trailer/", "/demo/", "/faq/", "/sources/", "/watchlist/", "/changelog/"],
   "bodyReplacements": [
     {
       "path": "/",
@@ -16,38 +11,80 @@
       "path": "/platforms/",
       "contains": "more than one million combined PS5 and PC wishlists",
       "value": "On August 4, 2026, the official Resident Evil account reported two million wishlists for Resident Evil Veronica. Wishlist interest is not the same as sales, preorders or a release-date commitment."
+    },
+    {
+      "path": "/changelog/",
+      "contains": "No entry is added when the official sources have not changed.",
+      "value": "Game announcements, source reviews and site changes are labeled separately. A review date is not the date of a new game announcement; earlier entries remain available in this archive and the RSS feed."
     }
+  ],
+  "bodyAppends": [
+    {
+      "path": "/",
+      "value": "September 8 review: Capcom's September 1 announcement schedules a roughly 40-minute Spotlight for September 16 at 14:00 UTC. Veronica is not named in that program list; an appearance or reveal remains unconfirmed."
+    },
+    {
+      "path": "/release-date/",
+      "value": "Reviewed September 8, 2026: the checked Capcom and platform-store records still give only 2027. A publisher showcase date is not a game release date."
+    },
+    {
+      "path": "/trailer/",
+      "value": "Capcom's September 1 Spotlight announcement does not confirm a new Veronica trailer."
+    },
+    {
+      "path": "/demo/",
+      "value": "Capcom's September 1 TGS announcement does not confirm a Veronica demo."
+    },
+    {
+      "path": "/ja/",
+      "value": "2026年9月8日追記：カプコンは9月16日23時（日本時間）から約40分のスポットライト配信を予定しています。9月1日の紹介予定タイトルにヴェロニカは記載されておらず、登場や新映像・体験版は未確認です。"
+    },
+    {
+      "path": "/sources/",
+      "value": "This review uses Capcom's September 1 press release distributed through PR TIMES for event context. The Capcom product/event sites and original X milestone post could not be fully retrieved during this review; their earlier verification dates are retained, not relabeled as newly checked."
+    }
+  ],
+  "routeUpdates": [
+    {"path": "/", "featuredClaimIds": ["announcement-status", "release-window", "exact-release-date", "confirmed-platforms", "capcom-spotlight-2026-09-16", "veronica-tgs-2026-status"]},
+    {"path": "/trailer/", "featuredClaimIds": ["official-trailer", "camera-perspective", "capcom-spotlight-2026-09-16", "veronica-tgs-2026-status"]},
+    {"path": "/watchlist/", "featuredClaimIds": ["capcom-spotlight-2026-09-16", "veronica-tgs-2026-status"]},
+    {"path": "/demo/", "featuredClaimIds": ["demo-status", "veronica-tgs-2026-status"]},
+    {"path": "/sources/", "featuredClaimIds": ["official-store-pages", "capcom-spotlight-2026-09-16", "veronica-tgs-2026-status", "xbox-rating-metadata", "supported-languages", "camera-perspective"]}
   ],
   "claimUpdates": [
     {
       "id": "wishlist-milestone",
       "value": "Two million wishlists reported by the official Resident Evil account",
       "status": "confirmed",
-      "sourceIds": [
-        "resident-evil-social-wishlist-2026-08-04"
-      ],
+      "sourceIds": ["resident-evil-social-wishlist-2026-08-04"],
       "lastChecked": "2026-08-21",
       "lastChanged": "2026-08-04"
     }
   ],
+  "claimUpserts": [
+    {
+      "id": "capcom-spotlight-2026-09-16",
+      "label": "Capcom Spotlight schedule (publisher event)",
+      "value": "September 16, 2026: 14:00 UTC / 07:00 PDT / 23:00 JST; about 40 minutes. Schedule subject to change.",
+      "status": "confirmed",
+      "sourceIds": ["capcom-tgs-press-2026-09-01"],
+      "lastChecked": "2026-09-08",
+      "lastChanged": "2026-09-01",
+      "pages": ["/", "/trailer/", "/watchlist/", "/sources/"]
+    },
+    {
+      "id": "veronica-tgs-2026-status",
+      "label": "Veronica appearance at TGS / Spotlight",
+      "value": "Not named in Capcom's September 1 program list; a Veronica appearance, trailer or demo is not confirmed by that announcement.",
+      "status": "unknown",
+      "sourceIds": ["capcom-tgs-press-2026-09-01"],
+      "lastChecked": "2026-09-08",
+      "lastChanged": "2026-09-01",
+      "pages": ["/", "/trailer/", "/demo/", "/faq/", "/sources/", "/watchlist/"]
+    }
+  ],
   "claimLastCheckedIds": [
-    "announcement-status",
-    "release-window",
-    "exact-release-date",
-    "confirmed-platforms",
-    "official-store-pages",
-    "wishlist-milestone",
-    "playstation-store-status",
-    "xbox-store-status",
-    "xbox-rating-metadata",
-    "nintendo-store-status",
-    "steam-page",
-    "steam-features",
-    "supported-languages",
-    "pc-requirements",
-    "preorder-status",
-    "demo-status",
-    "edition-status"
+    "official-title", "remake-status", "modernized-gameplay", "announcement-status", "release-window", "exact-release-date", "confirmed-platforms", "official-store-pages", "playstation-store-status", "xbox-store-status", "xbox-rating-metadata", "nintendo-store-status", "steam-page", "steam-features", "supported-languages", "pc-requirements", "preorder-status", "demo-status", "edition-status", "genre", "story-premise", "developer-publisher"
   ],
   "sourceUpserts": [
     {
@@ -58,15 +95,24 @@
       "url": "https://x.com/RE_Games/status/2084455588088435103",
       "usedFor": "Official Resident Evil account milestone reporting two million wishlists on August 4, 2026",
       "lastChecked": "2026-08-21"
+    },
+    {
+      "id": "capcom-tgs-press-2026-09-01",
+      "name": "Capcom TGS 2026 announcement (September 1)",
+      "type": "official-press-release",
+      "reliability": "high",
+      "url": "https://prtimes.jp/main/html/rd/p/000005996.000013450.html",
+      "usedFor": "Capcom-authored announcement distributed through PR TIMES: Spotlight schedule and the named program lineup, not confirmation of a Veronica reveal.",
+      "publishedAt": "2026-09-01",
+      "lastChecked": "2026-09-08"
     }
   ],
-  "sourceLastCheckedIds": [
-    "capcom-press-2026-06-08",
-    "steam-store",
-    "playstation-store",
-    "xbox-store",
-    "nintendo-store",
-    "resident-evil-social-wishlist-2026-08-04"
+  "sourceLastCheckedIds": ["capcom-press-2026-06-08", "steam-store", "playstation-store", "xbox-store", "nintendo-store", "capcom-tgs-press-2026-09-01"],
+  "faqUpserts": [
+    {
+      "question": "Is Resident Evil Veronica confirmed for the September 2026 Capcom Spotlight?",
+      "answer": "Not by Capcom's September 1 announcement. It schedules Spotlight for September 16 but does not name Veronica in the program list. This neither confirms an appearance nor rules out later additions."
+    }
   ],
   "changelogEntry": {
     "date": "2026-08-21",
@@ -74,16 +120,26 @@
     "title": "Two-million wishlist milestone added and official stores rechecked",
     "summary": "Added the official Resident Evil account's August 4 two-million-wishlist milestone. A fresh review of Capcom, Steam, PlayStation, Xbox and Nintendo still shows a 2027 release window with no exact release date; Steam PC requirements remain TBD, and no preorder timing, price, editions or demo are confirmed.",
     "sourceId": "resident-evil-social-wishlist-2026-08-04",
-    "affectedClaims": [
-      "wishlist-milestone",
-      "release-window",
-      "exact-release-date",
-      "confirmed-platforms",
-      "steam-page",
-      "pc-requirements",
-      "preorder-status",
-      "demo-status",
-      "edition-status"
-    ]
+    "affectedClaims": ["wishlist-milestone", "release-window", "exact-release-date", "confirmed-platforms", "steam-page", "pc-requirements", "preorder-status", "demo-status", "edition-status"]
+  },
+  "changelogEntries": [
+    {
+      "date": "2026-09-08",
+      "type": "Source Review",
+      "title": "September review: Spotlight scheduled, Veronica participation unconfirmed",
+      "summary": "Added Capcom's September 1 event announcement without treating it as a Veronica reveal. Checked stores still show 2027 and TBD PC requirements. Preserved the August wishlist record and its earlier verification date.",
+      "sourceId": "capcom-tgs-press-2026-09-01",
+      "affectedClaims": ["capcom-spotlight-2026-09-16", "veronica-tgs-2026-status", "release-window", "exact-release-date", "pc-requirements", "demo-status", "preorder-status", "edition-status"]
+    }
+  ],
+  "reviewNotes": {
+    "reviewedOn": "2026-09-08",
+    "scope": "Capcom launch press release, Steam, PlayStation US, Xbox US, Nintendo US and Capcom-authored September 1 TGS press release.",
+    "limitations": [
+      "Capcom product and TGS/Spotlight websites returned blocked or unavailable responses. Event details were verified in the Capcom-authored PR TIMES release instead.",
+      "The original August 4 X post and original YouTube watch page could not be fully retrieved. Their historical source dates are not advanced.",
+      "No new Veronica-specific release date, price, preorder, demo or requirements announcement was verified in the reviewed sources. Event participation remains unknown."
+    ],
+    "editorialRule": "Review timestamps, event announcement dates and future event dates are separate. Routine rechecks do not turn unchanged game facts into new announcements."
   }
 }
