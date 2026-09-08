@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { applyLatestVerification } from './build-with-latest-verification.mjs';
 import { applyEditorialContent } from '../lib/editorial.mjs';
+import { combineEditorialManifests } from '../lib/blog.mjs';
 import { adaptApp, adaptRenderer, adaptValidator } from './editorial-build-adapter.mjs';
 import { validateEditorialOutput } from './validate-editorial.mjs';
 
@@ -11,7 +12,8 @@ export function buildContentSite(root=process.cwd(), run=execFileSync) {
   const read=(p)=>fs.readFileSync(path.join(root,p),'utf8');
   const dataPath=path.join(root,'content/site-data.json');
   const original=read('content/site-data.json');
-  const manifest=JSON.parse(read('content/editorial.json'));
+  const blogPath=path.join(root,'content/blog.json');
+  const manifest=combineEditorialManifests(JSON.parse(read('content/editorial.json')),fs.existsSync(blogPath) ? JSON.parse(read('content/blog.json')) : null);
   const data=applyEditorialContent(applyLatestVerification(JSON.parse(original),JSON.parse(read('content/latest-verification.json'))),manifest);
   const appPath=path.join(root,'designs/veronica-hub/.editorial-entry.generated.jsx');
   const rendererPath=path.join(root,'scripts/.editorial-renderer.generated.mjs');
