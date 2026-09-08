@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "author": "Veronica Hub editorial desk",
+  "publishedAt": "2026-09-08",
+  "sources": [
+    {"id":"b2-cvxfreak-version-guide","name":"cvxfreak: Code Veronica Version Changes Guide (2011)","url":"https://gamefaqs.gamespot.com/gamecube/535839-resident-evil-code-veronica-x/faqs/14669","type":"community-version-research","reliability":"context","usedFor":"Attributed historical comparison of North American and Japanese classic releases; not official remake evidence","lastChecked":"2026-09-08"},
+    {"id":"b2-capcom-cvx-hd-2011","name":"Capcom: Code Veronica X HD achievements announcement (2011)","url":"https://news.capcomusa.com/lets/browse/achievements-in-resident-evil-code-veronica-x-hd","type":"official-historical-announcement","reliability":"high","usedFor":"Historical identification of Code Veronica X HD as a remastered classic, not the new remake","lastChecked":"2026-09-08"},
+    {"id":"b2-capcom-umbrella-archive","name":"Capcom digital archive: Umbrella","url":"https://game.capcom.com/residentevil/en/exfile-2-10.html","type":"official-archive","reliability":"high","usedFor":"Umbrella founders and historical corporate context","lastChecked":"2026-09-08","accessNote":"Text checked in indexed official-page results; direct page retrieval returned an access error during this review."},
+    {"id":"b2-cvx-manual-2011","name":"Capcom Code Veronica X Xbox 360 manual (2011; archived text)","url":"https://manuals.plus/m/1ab5c577ea33b042d1445cb7c1bbcd0257711ea0244a99a2930e1c503b8d4e65","type":"publisher-manual-mirror","reliability":"primary-document-mirror","usedFor":"Classic Xbox 360 save, storage, item inspection and map mechanics; not remake controls","lastChecked":"2026-09-08","accessNote":"Capcom-authored manual in a third-party archive. HTML manual text was readable; the PDF download could not be retrieved in this review. Button diagrams are not transcribed here."},
+    {"id":"b2-classic-walkthrough","name":"Muchitsujo: classic Code Veronica player walkthrough","url":"https://gamefaqs.gamespot.com/dreamcast/250618-resident-evil-code-veronica/faqs/32277","type":"community-walkthrough","reliability":"context","usedFor":"Examples of selective combat and storage in an attributed original-game player route","lastChecked":"2026-09-08"}
+  ],
+  "pages": [
+    {
+      "path":"/blog/code-veronica-vs-code-veronica-x/",
+      "navLabel":"Code Veronica vs X",
+      "title":"Code Veronica vs Code Veronica X: What Actually Changed?",
+      "h1":"Code Veronica vs Code Veronica X: What Actually Changed?",
+      "description":"Understand the original, the expanded X edition, the HD release and the new remake without confusing four versions of Veronica.",
+      "intro":"Understand the original, the expanded X edition, the HD release and the new remake without confusing four versions of Veronica.",
+      "kind":"blog","topic":"Classic versions explained","parent":"/blog/","publishedAt":"2026-09-08","lastReviewed":"2026-09-08",
+      "lede":[
+        "Code: Veronica, Code: Veronica X, an HD edition and Resident Evil Veronica are not four unrelated adventures. The useful distinction is between a version of the classic game and a newly developed remake. Start there before comparing a video, a walkthrough or a store listing.",
+        "This is a guide to identifying those versions, not a ranking based on fresh performance testing. It keeps story spoilers out of the comparison and does not assume that every regional release has identical settings."
+      ],
+      "blocks":[
+        {"id":"original-and-x","title":"The original and X: same adventure, expanded presentation","status":"original","paragraphs":[
+          "Code: Veronica first appeared on Dreamcast in 2000. The expanded edition followed in 2001, with X used in the western title and Kanzenban in Japan. The version-by-version research by cvxfreak documents added Wesker scenes and changes to Steve’s hair, rather than a separate sequel.",
+          "That community guide also records platform and regional differences. Its scope is North America and Japan, not every PAL release. Treat it as an attributed historical comparison, not Capcom’s specification for the upcoming remake."
+        ],"sourceIds":["b2-cvxfreak-version-guide"]},
+        {"id":"hd-edition","title":"HD belongs to the classic game’s release history","status":"original","paragraphs":[
+          "In its July 2011 announcement, Capcom explicitly described Code: Veronica X HD as a remastered classic and discussed its achievement support. The HD label therefore identifies an earlier presentation update; it is not another name for the new Resident Evil Veronica project."
+        ],"sourceIds":["b2-capcom-cvx-hd-2011"]},
+        {"id":"new-remake","title":"The new remake is a different development project","status":"confirmed","paragraphs":[
+          "Capcom’s June 8, 2026 announcement names Resident Evil Veronica as an RE ENGINE remake, with a reimagined story and a planned 2027 release. It does not promise that the additional X scenes, old item placements or classic encounter solutions will carry over unchanged."
+        ],"sourceIds":["capcom-press-2026-06-08"]},
+        {"id":"which-label","title":"A practical way to read a title or video label","status":"analysis","paragraphs":[
+          "Read the full title first, then the platform, and finally the description of the edition. An X suffix answers a different question from an HD label: one helps identify an expanded classic version, while the other points to its later presentation. Neither word by itself tells you the frame rate, region, language options or exact technical behavior of the copy in front of you.",
+          "For comparison videos, keep the version labels visible. Comparing an old cutscene with a new trailer can be interesting, but it mixes a completed release with selected promotional material. A lighting difference is not automatically a story change, and a different edit is not proof that an entire scene has been removed.",
+          "For a walkthrough, match the version before following a very specific instruction. The broad question might be the same—where to go next—but an unlock condition or platform feature needs a more precise match than a similar-looking cover."
+        ],"sourceIds":["b2-cvxfreak-version-guide","b2-capcom-cvx-hd-2011"]},
+        {"id":"common-confusions","title":"Three comparisons worth keeping separate","status":"analysis","paragraphs":[
+          "Original versus X is a historical version comparison. X versus HD concerns a later release of the classic. Classic versus remake asks what a new production chooses to preserve or redesign. Separating those questions prevents a small cosmetic difference from being confused with a complete mechanical overhaul.",
+          "A useful comparison should state what it can actually establish. A release announcement can identify a product. A direct scene comparison can reveal an edit. A technical assessment needs measurements. Do not make one of those sources stand in for all three.",
+          "Keep a short note beside any guide you use: exact title, platform and region. That small habit is more useful than collecting every version or trusting an unsupported “definitive edition” label."
+        ],"sourceIds":[]},
+        {"id":"next-reading","title":"Already own a classic copy?","status":"editorial","paragraphs":[
+          "Use the beginner guide for save and item-management habits, then the spoiler-light timeline for orientation. For the new project, our Original vs Remake and Gameplay pages answer different questions from a classic walkthrough. None of this requires buying another copy simply to understand a name."
+        ],"sourceIds":[]}
+      ],
+      "related":["/blog/code-veronica-beginner-tips/","/original-vs-remake/","/blog/why-resident-evil-veronica-dropped-code/","/blog/"]
+    },
+    {
+      "path":"/blog/rockfort-island-explained/","navLabel":"Rockfort Island explained",
+      "title":"Rockfort Island Explained: Why Veronica Starts in a Prison",
+      "h1":"Rockfort Island Explained: Why Veronica Starts in a Prison",
+      "description":"Follow Claire to Rockfort Island and understand the prison setting, Umbrella’s control and the distinction between original locations and remake evidence.",
+      "intro":"Follow Claire to Rockfort Island and understand the prison setting, Umbrella’s control and the distinction between original locations and remake evidence.",
+      "kind":"blog","topic":"Locations and atmosphere","parent":"/blog/","publishedAt":"2026-09-08","lastReviewed":"2026-09-08",
+      "lede":[
+        "Rockfort Island is more useful to understand as a place designed to control people than as a pin on a map. The story starts with a person trying to find her brother, then turns that search into a problem of captivity and escape.",
+        "This guide explains the setup and offers an editorial reading of the setting. It is not a room-by-room map. A later-location detail from the original is hidden behind a separate spoiler control."
+      ],
+      "blocks":[
+        {"id":"arrival","title":"How Claire gets to Rockfort","status":"confirmed","paragraphs":[
+          "The remake’s Steam synopsis follows Claire to France in search of Chris. Umbrella forces capture her and take her to Rockfort Island, where another biological disaster makes escape a survival problem. The synopsis establishes the island and the premise, not its final room layout."
+        ],"sourceIds":["steam-store"]},
+        {"id":"prison-background","title":"The original island is a prison, not a holiday destination","status":"original","paragraphs":[
+          "Capcom’s official series timeline describes Claire infiltrating an Umbrella facility in Paris before being imprisoned on Rockfort Island. In the original dialogue, Alfred identifies himself as the base’s commander and invokes his family’s connection to Umbrella. The linked transcript is a community transcription of the game, not a remake announcement."
+        ],"sourceIds":["archive-timeline","original-game-dialogue"]},
+        {"id":"why-prison","title":"Why captivity changes the meaning of exploration","status":"analysis","paragraphs":[
+          "In a prison story, a locked door is more than an obstacle placed for a puzzle. Someone intended to keep it closed. That changes the question from “What key fits?” to “Who was allowed through, and what were they protecting?” Reading the setting this way connects exploration to the institution behind it.",
+          "It also gives escape a clear meaning. Finding a new corridor is not necessarily getting closer to freedom; it may mean moving deeper into the same controlled system. A destination can look accessible while still depending on someone else’s keys, machinery or authority. That tension comes from the premise, without requiring a prediction about the remake’s puzzles.",
+          "This is a useful lens for noticing environmental storytelling. As you explore the classic, pay attention to the contrast between spaces for confinement, spaces for work and spaces that display status. Ask who could move between them freely. The answer tells you something about power before a character gives a speech."
+        ],"sourceIds":[]},
+        {"id":"not-a-map","title":"Do not turn a story description into a geographic claim","status":"editorial","paragraphs":[
+          "For this guide, the meaningful facts are Claire’s transfer, Umbrella’s control and the need to escape. We do not assign real-world coordinates, infer a coastline from a screenshot or reproduce an unsourced fan map as an official layout.",
+          "Keep three kinds of image separate: an original-game map, a current official screenshot and an editorial illustration. Each can help explain a location, but they do not establish the same things. A sketch can clarify a concept without telling anyone which door to enter.",
+          "When comparing new footage, describe the visible feature first: a corridor, a gate, a shoreline. Naming an exact original room requires a stronger match. That approach leaves room to notice genuine changes without pretending every dark hallway is already identified."
+        ],"sourceIds":[]},
+        {"id":"later-location","title":"The original journey continues beyond the island","status":"original","paragraphs":[
+          "Capcom’s timeline later places the original story in Antarctica. Its Steve retrospective describes a cargo-plane escape whose controls are overridden. These older records explain why leaving Rockfort does not simply end the original adventure.",
+          "The geographic change is useful context, not confirmation of the remake’s chapter order, transport sequence or playable areas."
+        ],"sourceIds":["archive-timeline","archive-steve-recollections"],"spoiler":true,"spoilerLabel":"Original-story route spoiler — reveal the later destination"},
+        {"id":"reading-route","title":"A location guide without the ending","status":"editorial","paragraphs":[
+          "Stop before opening the optional section to keep the later journey undisclosed. Claire’s dossier explains her motivation; the Ashford family guide explains the names behind the institution. Read the creature pages for older enemy identities, not as a list of what must occupy the remake’s rooms.",
+          "On a first playthrough, keep a note of the spaces you can revisit and the doors you cannot yet use. Understanding the logic of a place can be more satisfying than treating it as a string of directions copied from someone else."
+        ],"sourceIds":[]}
+      ],
+      "related":["/story/","/blog/ashford-family-explained/","/characters/claire-redfield/","/blog/"]
+    },
+    {
+      "path":"/blog/ashford-family-explained/","navLabel":"The Ashford family",
+      "title":"The Ashford Family Explained: Names, Umbrella and Code Veronica",
+      "h1":"The Ashford Family Explained: Names, Umbrella and Code Veronica",
+      "description":"Untangle Edward, Alexander, Alfred and Alexia through a focused relationship guide, with major original-story revelations kept behind spoiler controls.",
+      "intro":"Untangle Edward, Alexander, Alfred and Alexia through a focused relationship guide, with major original-story revelations kept behind spoiler controls.",
+      "kind":"blog","topic":"Family and story connections","parent":"/blog/","publishedAt":"2026-09-08","lastReviewed":"2026-09-08",
+      "lede":[
+        "The Ashford surname connects several different questions: who helped create Umbrella, who commands the island, and whose experiments drive the original story. Treating all those roles as one person makes the plot harder to follow than it needs to be.",
+        "This is a focused guide to the names relevant to Code: Veronica, not an exhaustive family tree. It begins with background and relationships, then separates the larger original-story revelations into optional sections."
+      ],
+      "blocks":[
+        {"id":"edward","title":"Edward: the corporate connection","status":"original","paragraphs":[
+          "Capcom’s Umbrella archive names Edward Ashford alongside Ozwell E. Spencer and James Marcus as the company’s founders in 1968. That is the older corporate-history connection behind the surname; it does not make Edward the commander Claire meets on the island."
+        ],"sourceIds":["b2-capcom-umbrella-archive"]},
+        {"id":"alfred","title":"Alfred: the island’s authority figure","status":"original","paragraphs":[
+          "In the original dialogue, Alfred calls himself commander of the base and says his grandfather was an Umbrella founder. Capcom’s creature archive separately identifies Alexia as his sister. These establish the family and institutional connections without requiring the story’s later reveal.",
+          "The dialogue link is a community transcript. It is useful for locating an original speech, but it should not be cited as new casting, dialogue or characterization approved for the remake."
+        ],"sourceIds":["original-game-dialogue","archive-nosferatu"]},
+        {"id":"separate-roles","title":"Remember roles before memorizing the family tree","status":"analysis","paragraphs":[
+          "A compact reading aid is to attach one question to each name. Edward belongs to the question of corporate origins. Alfred belongs to authority on the island. Alexander and Alexia belong to the family’s experimental history, which the optional sections explain. This keeps a shared surname from flattening different generations into a single villain.",
+          "Notice how Alfred uses family history in the conversation: lineage becomes an argument for authority. The important dramatic point is not merely that a relative had an impressive title. It is that a living character expects the inherited name to settle how others should treat him. That is an interpretation of the speech, rather than an additional biographical fact."
+        ],"sourceIds":["original-game-dialogue"]},
+        {"id":"parent-history","title":"Alexander and the family experiment","status":"original","paragraphs":[
+          "Capcom’s archive identifies Alexander as the sixth head of the Ashford family and Alexia’s father. It explains that Alexia administered t-Veronica to him, that he failed to assimilate it and that he became Nosferatu.",
+          "This turns a creature identity into a relationship: the threat has a history within the same family. The archive describes the original story; it does not confirm that a remake will reveal the identity at the same moment or preserve the encounter."
+        ],"sourceIds":["archive-nosferatu"],"spoiler":true,"spoilerLabel":"Major original-story spoiler — reveal the parent’s fate"},
+        {"id":"research-history","title":"Alexia and the longer experiment","status":"original","paragraphs":[
+          "In its Alexia entry, Capcom describes her achieving symbiosis with t-Veronica after fifteen years of suspended animation at the Antarctic base. The contrast with her father concerns different outcomes of the original fictional experiment.",
+          "That background explains a character’s history, not the new game’s boss forms or gameplay systems. This guide deliberately stops before recounting the final battle."
+        ],"sourceIds":["archive-alexia"],"spoiler":true,"spoilerLabel":"Original-story spoiler — reveal the research outcome"},
+        {"id":"theme","title":"A family story can be more than a list of connections","status":"analysis","paragraphs":[
+          "The most useful question after learning a relationship is what a character does with it. Does family mean care, duty, ownership or entitlement? A plot becomes easier to read when those motives stay distinct. A shared name can explain proximity without excusing an action.",
+          "Try separating a claim about status from evidence about conduct. “My family built this” is a claim to importance. How someone treats a prisoner is a demonstration of power. Reading the two together gives a richer explanation of a character than repeating titles alone.",
+          "For the Ashfords, this approach also preserves the mystery. You can understand why a name matters before learning every revelation attached to it. Keeping the optional sections closed lets the connections accumulate at the pace of your own playthrough."
+        ],"sourceIds":[]},
+        {"id":"next","title":"Where to go from here","status":"editorial","paragraphs":[
+          "Use the Alfred and Alexia dossiers for individual background, and the Rockfort guide for the setting. The original-versus-remake page is the right place to check which conclusions actually concern the new production. An archive relationship should never quietly become an announced remake scene."
+        ],"sourceIds":[]}
+      ],
+      "related":["/characters/alfred-ashford/","/characters/alexia-ashford/","/blog/rockfort-island-explained/","/blog/"]
+    },
+    {
+      "path":"/blog/code-veronica-beginner-tips/","navLabel":"Classic beginner tips",
+      "title":"Code Veronica Beginner Tips: Saves, Supplies and Common Mistakes",
+      "h1":"Code Veronica Beginner Tips: Saves, Supplies and Common Mistakes",
+      "description":"Spoiler-light habits for the classic Code: Veronica X: manage saves, distinguish item boxes, inspect objects and plan a route without a full walkthrough.",
+      "intro":"Spoiler-light habits for the classic Code: Veronica X: manage saves, distinguish item boxes, inspect objects and plan a route without a full walkthrough.",
+      "kind":"blog","topic":"Practical classic-game guide","parent":"/blog/","publishedAt":"2026-09-08","lastReviewed":"2026-09-08",
+      "lede":[
+        "A first run does not need a perfect inventory route or a speedrun plan. It needs enough room to learn without turning one uncertain decision into a long replay. The habits below focus on keeping options open rather than revealing puzzle solutions.",
+        "This guide concerns the classic Code: Veronica X. The mechanical reference is Capcom’s 2011 Xbox 360 manual, available as a third-party archived text. Button labels and save details can vary between releases; none of these instructions is a confirmed control guide for the new remake."
+      ],
+      "blocks":[
+        {"id":"mechanics","title":"Four manual details worth knowing before you start","status":"original","paragraphs":[
+          "The manual says saving at a typewriter consumes an ink ribbon and overwriting removes the previous save. Ordinary item boxes share stored items; a security box is accessible only at that particular box.",
+          "CHECK lets you rotate and inspect an item for clues. In the map legend, yellow doors are unlocked, green doors are locked with a key you own, and red doors need a key you do not have. The manual’s relevant sections are Save/Load, Item, Item Box and Map/File."
+        ],"sourceIds":["b2-cvx-manual-2011"]},
+        {"id":"save-habit","title":"Keep a recovery point, not just a latest save","status":"analysis","paragraphs":[
+          "Use more than one slot when the version you are playing permits it. Keep a reasonably healthy earlier position while making a separate working save for recent progress. A backup is valuable precisely because you cannot know which future decision you will wish to revisit.",
+          "Choose save timing by the progress you would dislike repeating: a solved puzzle, a newly understood route or a clean trip through a dangerous section. Saving because you have something worth preserving is a better learning habit than either saving after every small action or refusing to save at all.",
+          "An earlier save is not a guarantee against every possible bad situation. Think of it as an option to reassess, not a substitute for watching your health and supplies."
+        ],"sourceIds":[]},
+        {"id":"storage-habit","title":"Read the box before trusting it with an important item","status":"analysis","paragraphs":[
+          "Do not rely only on the shape of a storage container. Before walking away, make sure you know whether the item will be available from the next ordinary box or whether you must return to this exact location. That distinction matters more than memorizing a community trick.",
+          "Give each trip a small purpose. Decide which access problem you are investigating, take the item relevant to it, and leave some capacity for discoveries. Carrying an answer to every possible problem can make a simple exploratory trip harder to manage."
+        ],"sourceIds":[]},
+        {"id":"inspect-habit","title":"Investigate before opening an entire walkthrough","status":"analysis","paragraphs":[
+          "When stuck, spend one pass on the information you already have. Inspect the object from another angle, reread the associated file, and compare the wording with the place where you found it. A note in your own words—what you tried and what changed—can prevent repeated guesses.",
+          "Use outside help narrowly. Search for the obstacle or room you are standing in rather than the next major character event. A focused hint is less likely to disclose an ending than jumping several headings ahead in a complete guide."
+        ],"sourceIds":[]},
+        {"id":"combat-habit","title":"Spend resources to solve a problem, not to follow an absolute rule","status":"analysis","paragraphs":[
+          "The older player walkthrough by Muchitsujo illustrates selective fighting, bypassing some encounters and depositing spare equipment. Those examples are route-specific advice, not proof that “never fight” or “always use the knife” is safe for a beginner.",
+          "Compare the whole cost of an attempt. Saving a few rounds is not useful when the experiment repeatedly consumes healing or forces you to replay a section. In an unfamiliar space, a reliable solution can be worth more than an elegant one you have not learned.",
+          "After a failed attempt, change one decision at a time: the route, the distance, the equipment or the point at which you commit. That makes the result easier to learn from than changing everything and hoping."
+        ],"sourceIds":["b2-classic-walkthrough"]},
+        {"id":"session-end","title":"Leave your next session a useful starting point","status":"editorial","paragraphs":[
+          "Before stopping, save deliberately and record your next destination, the obstacle blocking it and where you left anything important. Return to that note before spending time wandering. The goal of a first run is to understand and enjoy the game, not to imitate a practiced route.",
+          "For version names, use the Code Veronica vs X article. For remake mechanics, return to Gameplay. Keeping those references separate prevents a practical classic-game tip from being mistaken for a feature of an unreleased title."
+        ],"sourceIds":[]}
+      ],
+      "related":["/blog/code-veronica-vs-code-veronica-x/","/gameplay/","/blog/what-to-play-before-resident-evil-veronica/","/blog/"]
+    }
+  ],
+  "siteUpdates":[{"date":"2026-09-08","type":"Site Update","title":"Four more blog guides: versions, Rockfort, family and beginner tips","summary":"Published four original English features and expanded the Blog to ten posts. Preserved the first six articles; classic-game tips and optional story spoilers remain separate from remake announcements.","sourceId":"veronica-hub-policy","affectedClaims":[]}]
+}
