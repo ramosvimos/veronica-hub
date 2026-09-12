@@ -17,9 +17,9 @@
   "routes": [
     {
       "path": "/",
-      "title": "Resident Evil Veronica (2027): Release Date & Platforms",
-      "description": "Confirmed Resident Evil Veronica release, platform, PC and trailer updates, with links to the Capcom and official-store sources behind each fact.",
-      "h1": "Resident Evil Veronica: Confirmed 2027 Release Details",
+      "title": "Resident Evil Veronica Tracker: 2027 News and Facts",
+      "description": "Track official Resident Evil Veronica updates, sourced from Capcom and official Steam, PlayStation, Xbox and Nintendo store listings.",
+      "h1": "Resident Evil Veronica Tracker",
       "section": "home",
       "navLabel": "Home",
       "priority": "1.0",
@@ -33,61 +33,57 @@
         "official-store-pages",
         "steam-page"
       ],
-      "intro": "Capcom has confirmed Resident Evil Veronica for 2027 on PS5, Xbox Series X|S, Nintendo Switch 2 and PC. We track what is official and flag what is still unknown.",
+      "intro": "Resident Evil Veronica is Capcom's official remake of the 2000 classic, confirmed for a 2027 release window on PS5, Xbox Series X|S, Switch 2 and PC.",
       "body": [
-        "Resident Evil Veronica is a remake of 2000's Resident Evil Code: Veronica. Capcom describes it as a reimagining with modernized gameplay and more detailed graphics.",
-        "The game is coming to PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC in 2027. Official store links are provided for Steam, PlayStation, Xbox and Nintendo.",
-        "Capcom reported that Resident Evil Veronica passed one million combined wishlists across PS5 and PC shortly after its announcement. This is an interest milestone, not a sales figure or preorder count.",
-        "Producer interviews describe the remake as a third-person game and say members of the Resident Evil 2 and Resident Evil 4 remake teams are involved. PlayStation Blog also reports that parts of the story are being adjusted to fit the wider series lore.",
-        "Capcom has not announced an exact release date, price, editions, demo or final PC requirements. New here? Start with the release date, platforms or spoiler-light story overview."
+        "Capcom officially describes the project as a reimagining of Resident Evil Code: Veronica, updating the original foundation with modernized gameplay mechanics and more detailed graphics. The remake has a confirmed 2027 release window across PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC via Steam.",
+        "Official store links point readers to the Steam, PlayStation, Xbox and Nintendo listings; availability and regional visibility can vary by platform.",
+        "Capcom reported that the title passed one million combined wishlists across PS5 and PC shortly after its initial announcement, though an exact release date, launch pricing, product editions, preorders and a playable demo have not been announced.",
+        "Developer interviews report a modern third-person camera direction and involvement from members of the Resident Evil 2 and Resident Evil 4 remake development teams. PlayStation Blog coverage also notes that elements of the classic narrative will be adjusted to better align with the broader series lore established since 2000.",
+        "Technical specifications remain unconfirmed. While the Steam product page is live, minimum and recommended PC hardware requirements are listed as to be determined, with further platform details pending future Capcom announcements."
       ]
     },
     {
       "path": "/ja/",
-      "title": "バイオハザード ヴェロニカ 最新情報、発売日、対応機種まとめ",
-      "description": "バイオハザード ヴェロニカの2027年発売予定、対応機種、PC版、公式トレーラー、ストーリー情報を公式ソース中心に整理します。",
-      "h1": "バイオハザード ヴェロニカ 最新情報",
+      "title": "バイオハザード ヴェロニカ 非公式情報トラッカー",
+      "description": "『バイオハザード ヴェロニカ』リメイクの公式情報を追跡。カプコンの発表や各ストア情報に基づく発売時期、対応機種、最新事実をまとめています。",
+      "h1": "バイオハザード ヴェロニカ 情報トラッカー",
       "section": "localized-ja",
       "locale": "ja",
       "navLabel": "日本語",
       "priority": "0.8",
       "changefreq": "weekly",
       "lastModified": "2026-07-26",
-      "intro": "公式発表、Steamページ、公式動画をもとに、バイオハザード ヴェロニカの発売時期と対応機種を日本語で確認できます。",
+      "intro": "『バイオハザード ヴェロニカ』は2000年の名作を現代向けに再構築したカプコン公式リメイク作品で、2027年の発売が予定されています。",
       "body": [
-        "バイオハザード ヴェロニカは、2000年に発売された Resident Evil Code: Veronica をベースにしたリメイク作品です。現在確認できる公式情報では、発売時期は2027年予定で、正確な発売日はまだ発表されていません。",
-        "対応機種として確認されているのは PlayStation 5、Xbox Series X|S、Nintendo Switch 2、PC です。PC版についてはSteamページが公開されており、ウィッシュリスト登録は可能ですが、最小・推奨システム要件はまだTBDの状態です。",
-        "価格、予約開始日、体験版、限定版、PCスペックはまだ発表されていません。公式情報が公開されるまでは未確定として掲載します。",
-        "公式トレーラーでは舞台や登場人物を確認できます。カメラ視点や開発背景については、プロデューサーの発言を引用した報道もあわせて紹介しています。",
-        "2026年6月のPlayStation Blogでは、プロデューサーが原作の一部を現在のシリーズ設定に合うよう調整すると説明しています。どの場面や人物描写が変わるかは未発表です。また、アルバート・ウェスカーはクレア、クリスと並んで物語に重要な人物として言及されましたが、リメイクでの登場方法や操作可否はまだ確認されていません。",
-        "発売時期、対応機種、PC要件、トレーラー、ストーリー、原作との違いは、英語版の各ページで詳しく確認できます。"
+        "本作は2000年に発売された『バイオハザード CODE:Veronica』を原作とし、現代的なゲームプレイとより緻密なグラフィックで再構築する公式リメイク作品です。発売時期は2027年予定で、対応プラットフォームはPlayStation 5、Xbox Series X|S、Nintendo Switch 2、PC（Steam）が発表されています。",
+        "Steam、PlayStation、Xbox、Nintendoの各公式ストアページが公開されており、Steamではウィッシュリスト登録が可能です。プロデューサーのインタビューでは三人称視点での進行や『バイオハザード RE:2』『バイオハザード RE:4』を手がけた制作陣の関与が報じられているほか、PlayStation Blogでは2000年以降に構築されたシリーズの公式設定に合わせて一部の物語調整が行われると言及されています。",
+        "物語の背景としてアルバート・ウェスカーの名が語られているものの、具体的な登場規模やプレイアブルキャラクターの確定発表ではありません。また、正確な発売日、販売価格、予約開始日、体験版の配信、限定版の仕様、PC版の動作環境（TBD）などの詳細は現時点で未公表となっており、公式発表があり次第更新します。"
       ]
     },
     {
       "path": "/release-date/",
       "title": "Resident Evil Veronica Release Date: 2027 Status",
-      "description": "Resident Evil Veronica is confirmed for 2027. Track the exact release-date status, official store records and details that remain unannounced.",
+      "description": "Resident Evil Veronica is officially confirmed for 2027. Capcom has not announced an exact date, preorder date or launch price.",
       "h1": "Resident Evil Veronica Release Date",
       "section": "release-date",
       "navLabel": "Release Date",
       "priority": "0.9",
       "changefreq": "daily",
       "lastModified": "2026-07-26",
-      "intro": "The official release window is 2027. No exact release date is confirmed yet.",
+      "intro": "Capcom has officially confirmed a 2027 release window for Resident Evil Veronica, but an exact launch date has not been announced.",
       "body": [
-        "Capcom and the official store listings give Resident Evil Veronica a 2027 release window. None of them lists a season, month or day.",
-        "An exact date, preorder date and launch price have not been announced.",
-        "Retailer placeholders, countdown pages and social posts are not release-date confirmation. Look for the same date on a Capcom, PlayStation, Xbox, Nintendo or Steam page before treating it as official.",
+        "Capcom and official store listings place Resident Evil Veronica in a 2027 release window. None currently lists a season, month or day.",
+        "An exact release date, preorder date and launch price have not been announced.",
+        "Retailer placeholders, countdown pages and social posts are not release-date confirmation. Treat a date as official only when it appears in Capcom material or a matching official store update.",
         "Wishlisting is available on several stores, but a wishlist button does not mean preorders are open.",
         "A release window is not a launch date. The confirmed information currently stops at the year, so quarter, month and day claims need a dated Capcom announcement or matching official-store update.",
-        "Treat announcement, exact-date reveal, preorder opening and launch as separate events. The announcement and store wishlists are live; the exact date, preorder checkout and release itself have not happened.",
-        "Official store pages can change at different times or by region. A credible date should appear consistently in Capcom material or on the relevant platform stores before players use it for travel, time off or preorder planning."
+        "Treat announcement, exact-date reveal, preorder opening and launch as separate events. The announcement and store wishlists are live; the exact date and preorder checkout are not confirmed."
       ]
     },
     {
       "path": "/platforms/",
       "title": "Resident Evil Veronica Platforms: PS5, Xbox, Switch 2, PC",
-      "description": "Confirmed Resident Evil Veronica platforms, plus current official PlayStation, Xbox, Nintendo and Steam store features.",
+      "description": "Resident Evil Veronica is confirmed for PS5, Xbox Series X|S, Nintendo Switch 2 and PC. Compare store features and unannounced details.",
       "h1": "Resident Evil Veronica Platforms",
       "section": "platforms",
       "navLabel": "Platforms",
@@ -102,44 +98,37 @@
         "xbox-rating-metadata",
         "nintendo-store-status"
       ],
-      "intro": "Confirmed platforms are PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC.",
+      "intro": "Resident Evil Veronica is officially confirmed for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC, with official store pages live across all four ecosystems.",
       "body": [
-        "Resident Evil Veronica is confirmed for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC. Official store pages are live on Steam, PlayStation, Xbox and Nintendo, with direct links provided below.",
-        "No older-console, subscription or cloud release has been announced.",
-        "The official Xbox listing currently shows single-player, Xbox achievements, cloud saves, 4K Ultra HD and Series X|S optimization. These store flags do not confirm a 4K 60 FPS performance target.",
-        "The Xbox page displays a Mature 17+ badge and content descriptors, but the same page also says the game has not yet been rated. The final ESRB rating is therefore still unclear.",
-        "The PlayStation listing currently shows offline single-player, DualSense vibration and trigger support, PS5 Pro enhancement and Game Help. The Nintendo listing confirms a digital Switch 2 version, one local player and TV, tabletop and handheld play modes.",
-        "Capcom also reported more than one million combined PS5 and PC wishlists shortly after the announcement. Wishlist interest is not the same as sales, preorders or a release-date commitment.",
-        "Physical editions, cross-save, cloud streaming, performance modes, regional timing and subscription availability remain unannounced.",
-        "Steam confirms a PC release and wishlist access. It does not yet list final hardware requirements, price, DRM details, preorder timing or Steam Deck support.",
-        "Capcom has not published resolution, frame-rate or packaging details for the Nintendo Switch 2 version."
+        "Capcom has formally announced Resident Evil Veronica for PlayStation 5, Xbox Series X|S, Nintendo Switch 2 and PC via Steam. Official product pages are currently live across each digital storefront, allowing players to add the game to their wishlists ahead of launch.",
+        "The PlayStation listing currently shows offline single-player, DualSense vibration and trigger support, PS5 Pro enhancement and Game Help. The Xbox listing shows single-player, cloud saves, achievements, 4K Ultra HD and Series X|S optimization; these flags do not confirm a 4K or 60 FPS target. The Nintendo listing confirms a digital Switch 2 version with one local player and TV, tabletop and handheld modes.",
+        "On Steam, the listing confirms store fields such as achievements, Family Sharing, HDR, subtitles and support for fourteen languages. Capcom also reported more than one million combined PS5 and PC wishlists shortly after announcement, but wishlist milestones indicate interest rather than sales, preorder numbers or an exact launch date.",
+        "Metadata across platforms still contains temporary discrepancies. The Xbox listing shows a Mature 17+ badge and content descriptors while simultaneously noting that the title is not yet rated, leaving final age certification unresolved. Steam hardware requirements also remain listed as to be determined.",
+        "Capcom has not announced releases for older-generation consoles, cloud gaming services or subscription libraries. Physical editions, cross-save, regional timing, performance modes, target resolution and frame-rate details remain unconfirmed across the four platforms."
       ]
     },
     {
       "path": "/trailer/",
-      "title": "Resident Evil Veronica Trailer: Official Announcement Video",
-      "description": "Watch the verified official Resident Evil Veronica announcement trailer and review the source notes for the embedded video.",
-      "h1": "Resident Evil Veronica Trailer",
+      "title": "Resident Evil Veronica Trailer: Official Video Updates",
+      "description": "Watch official Resident Evil Veronica trailers. We track videos from Capcom, PlayStation, Xbox and Summer Game Fest to document settings and characters.",
+      "h1": "Resident Evil Veronica Trailers and Videos",
       "section": "trailer",
       "navLabel": "Trailer",
       "priority": "0.9",
       "changefreq": "daily",
       "lastModified": "2026-07-26",
-      "intro": "Watch the English announcement trailer and find the verified Capcom and platform-channel uploads.",
+      "intro": "Official Resident Evil Veronica trailers showcase the game's atmosphere, settings and characters, but they do not confirm every gameplay mechanic.",
       "body": [
-        "The main video is the English announcement trailer from the official Resident Evil YouTube channel. It loads after you click the poster.",
-        "Trailer footage can show tone, setting and characters, but it does not confirm every mechanic, enemy name, puzzle structure or chapter sequence. Media Q&A reports say producer Yoshiaki Hirabayashi described the remake as a third-person game, so the first-person-looking trailer section should not be treated as a confirmed first-person mode.",
-        "The official video library below includes Capcom regional uploads, platform-holder uploads and the Summer Game Fest world-premiere upload. Media-site mirrors are not treated as primary official records.",
-        "The trailer does not confirm a demo, exact date, editions, final PC requirements, a full enemy list or every returning character.",
-        "Official uploads can carry different descriptions, timestamps and regional details, which is why the page keeps Capcom, platform-holder and event versions separate. A repost may preserve the footage but lose the source context needed to confirm a claim.",
-        "For gameplay questions, a developer presentation or store feature listing is stronger evidence than a cinematic camera angle. Until Capcom shows an extended gameplay sequence, the trailer should be read as a reveal of premise and tone."
+        "To ensure accuracy, this tracker covers verified video uploads. It monitors the official Resident Evil YouTube channel, regional Capcom accounts, PlayStation, Xbox and Summer Game Fest channels for authentic promotional material.",
+        "Promotional videos can reveal the general atmosphere, key settings and character designs, but a trailer cannot prove the inclusion of all mechanics, enemies, puzzles or specific story chapters. Curated footage represents a snapshot of the game rather than the complete gameplay experience.",
+        "Based on producer interviews and media coverage, the remake is reported to be a third-person title. Until Capcom publishes more comprehensive gameplay demonstrations, fans should rely on what is explicitly shown in official video feeds rather than drawing conclusions about unannounced gameplay systems."
       ]
     },
     {
       "path": "/story/",
-      "title": "Resident Evil Veronica Story: Spoiler-Light Official Context",
-      "description": "Spoiler-light Resident Evil Veronica story context from official Steam and Capcom material, separating confirmed remake premise from original-game background.",
-      "h1": "Resident Evil Veronica Story",
+      "title": "Resident Evil Veronica Story: Official Premise Details",
+      "description": "Explore the official Resident Evil Veronica story premise. Claire searches for Chris in a survival-horror setting three months after Raccoon City.",
+      "h1": "Resident Evil Veronica Story Premise",
       "section": "story",
       "navLabel": "Story",
       "priority": "0.8",
@@ -153,20 +142,18 @@
         "modernized-gameplay",
         "camera-perspective"
       ],
-      "intro": "A spoiler-light overview of Claire Redfield, Rockfort Island and the official remake premise.",
+      "intro": "The Resident Evil Veronica remake follows Claire Redfield to Rockfort Island three months after the biological disaster in Raccoon City.",
       "body": [
-        "Steam places the story three months after the biological disaster in Raccoon City. Claire Redfield travels to France in search of Chris Redfield after surviving with Leon S. Kennedy and Sherry Birkin.",
-        "The official store synopsis says Claire is captured by Umbrella special forces and taken to Rockfort Island, which is transformed by another biological disaster into a survival-horror setting.",
-        "Producer Yoshiaki Hirabayashi says the remake will explore more of Claire's motivations after Raccoon City.",
-        "Hirabayashi also told PlayStation Blog that parts of the original story are being adjusted to connect more closely with the Resident Evil lore established since 2000. Capcom has not said which scenes or character arcs will change.",
-        "The remake is based on Code: Veronica, but Capcom describes its story as reimagined. Returning characters, puzzles and bosses are not confirmed until they appear in current remake material.",
-        "This overview stops at the setup: Claire searches for Chris, Umbrella captures her, and another outbreak begins on Rockfort Island."
+        "According to the official Steam listing, the overarching narrative takes place three months after the devastating events in Raccoon City. Claire travels to France in search of her missing brother, Chris. Her investigation is cut short when she is captured by Umbrella special forces and transported to Rockfort Island.",
+        "The official game synopsis says that another biological disaster transforms Rockfort Island into a survival-horror setting.",
+        "The producer has stated that the remake will explore more of Claire's motivations. PlayStation Blog coverage also reports that parts of the original story will be adjusted to connect with the wider Resident Evil lore established since 2000.",
+        "The core premise is confirmed, but exact scenes, specific character arcs, puzzles, enemies, bosses and other detailed story changes remain unannounced. This page stays spoiler-light and updates only when official material clarifies more of the remake."
       ]
     },
     {
       "path": "/characters/",
-      "title": "Resident Evil Veronica Characters: Confirmed and Context",
-      "description": "Resident Evil Veronica character tracker separating remake-confirmed appearances from original Code: Veronica context.",
+      "title": "Resident Evil Veronica Characters: Cast Updates",
+      "description": "Track Resident Evil Veronica character information: Claire Redfield and Chris in the official premise, plus reported Wesker context.",
       "h1": "Resident Evil Veronica Characters",
       "section": "characters",
       "navLabel": "Characters",
@@ -179,19 +166,17 @@
         "wesker-story-context",
         "claire-character-depth"
       ],
-      "intro": "Confirmed character information, with original-game context kept separate where needed.",
+      "intro": "Claire Redfield is the central focus of the Resident Evil Veronica remake, while the full cast and playable roster remain unannounced.",
       "body": [
-        "Claire Redfield drives the story. The Steam synopsis follows her search for Chris and her capture by Umbrella.",
-        "Chris is part of the official premise, but Capcom has not shown how large his role will be.",
-        "Producer Yoshiaki Hirabayashi has named Albert Wesker alongside Claire and Chris when discussing the story. That is not yet a cast or playable-character announcement.",
-        "Characters known only from the 2000 original remain listed as original-game context until Capcom names or shows them in the remake.",
-        "The tracker separates confirmed, referenced and original-game context. A confirmed character appears in current remake material; a referenced character belongs to the official premise; original context alone does not establish a remake appearance."
+        "According to the official Steam premise, Claire Redfield is the primary focus of the story as she searches for her missing brother. Chris Redfield is named in this core narrative setup, but Capcom has not detailed the extent of his role, screen time or playability in the remake.",
+        "During story discussions, producer Yoshiaki Hirabayashi mentioned Albert Wesker alongside Claire and Chris. This narrative context should not be treated as a formal cast announcement or a playable-character reveal.",
+        "Individuals known only from the original 2000 release remain part of the classic-game context. Until Capcom formally confirms them in the remake, their return remains unconfirmed."
       ]
     },
     {
       "path": "/faq/",
-      "title": "Resident Evil Veronica FAQ: Release, Platforms and PC",
-      "description": "Frequently asked questions about Resident Evil Veronica release date, platforms, trailer, PC requirements, demo, preorder status and sources.",
+      "title": "Resident Evil Veronica FAQ: Verified Facts",
+      "description": "Verified answers about the Resident Evil Veronica remake, based on Capcom announcements, official store pages and attributed producer interviews.",
       "h1": "Resident Evil Veronica FAQ",
       "section": "faq",
       "navLabel": "FAQ",
@@ -206,19 +191,18 @@
         "xbox-rating-metadata",
         "demo-status"
       ],
-      "intro": "Quick answers about the release date, platforms, PC version, demo and preorders.",
+      "intro": "Read clear answers about the Resident Evil Veronica remake, with confirmed, reported and unknown details kept separate.",
       "body": [
-        "These answers use Capcom announcements, official store pages and attributed producer interviews.",
-        "For source links and longer explanations, open the related page from the navigation.",
-        "Each answer separates confirmed facts, attributed producer reporting and details that remain unknown. Store placeholders, reposts and assumptions from the 2000 original do not become confirmation just because they appear in search results.",
-        "When an official source changes, the detailed topic page and dated changelog are updated before the short answer here. This keeps release, platform, PC and story answers aligned with the underlying record."
+        "This independent tracker separates confirmed facts from speculation by relying on Capcom announcements, active digital storefronts and attributed producer interviews.",
+        "Details are labeled confirmed when backed by direct publisher or store data, reported when discussed in attributed interviews, and unknown when official sources have not clarified them.",
+        "Placeholder dates, retailer claims and community rumors are not confirmation. When an official source changes, the detailed topic page and dated changelog are updated before the short answer here."
       ]
     },
     {
       "path": "/sources/",
-      "title": "Resident Evil Veronica Sources: Capcom, Stores and Videos",
-      "description": "Official Resident Evil Veronica links from Capcom, the official product page, Steam and the English Resident Evil YouTube channel.",
-      "h1": "Resident Evil Veronica Sources",
+      "title": "Resident Evil Veronica Sources: Fact Verification",
+      "description": "Review the official sources and verification hierarchy behind Resident Evil Veronica release, platform and story updates.",
+      "h1": "Resident Evil Veronica Sources and Evidence Tracker",
       "section": "sources",
       "navLabel": "Sources",
       "priority": "0.8",
@@ -232,14 +216,13 @@
         "supported-languages",
         "camera-perspective"
       ],
-      "intro": "Official links used for release window, platforms, trailer, store status and media.",
+      "intro": "The site's key claims are checked against official Capcom announcements, platform storefront records and attributed producer interviews.",
       "body": [
-        "Capcom announcements and product pages are the main sources for the remake's release window, platforms and overall direction.",
-        "Steam, PlayStation, Xbox and Nintendo store pages provide platform-specific details such as wishlist access, supported languages and feature labels.",
-        "Attributed interviews add producer comments about the camera, title, development team and story. They are labeled as reported until Capcom publishes the same detail directly.",
-        "Retailer placeholders, screenshots without a source and social reposts are not used as confirmation.",
-        "The Xbox listing currently contradicts itself: it shows a Mature 17+ badge while also saying the game has not yet been rated. The rating remains unresolved.",
-        "The source hierarchy is deliberate: first-party Capcom records and official platform stores carry the most weight, verified video uploads confirm what was published, and attributed interviews supply context with a reported label. A source is only used for the claim it actually supports."
+        "This tracker follows a strict source hierarchy. Official Capcom announcements and primary product pages carry the most weight for core facts such as the release window, platforms and overall direction.",
+        "Steam, the PlayStation Store, the Xbox Store and the Nintendo Store provide platform-specific details such as feature labels, supported languages and wishlist access.",
+        "Attributed producer interviews and authorized media coverage add context, but those details remain labeled reported until corroborated by official documentation.",
+        "Retailer placeholders, unsourced social claims and screenshots without a source are not confirmation. The Xbox listing currently shows a Mature 17+ badge and content descriptors while also saying the game is not yet rated, so the final age rating remains unresolved.",
+        "Verified official video uploads document what was published, and each source is used only for the claim it actually supports."
       ]
     },
     {
@@ -304,27 +287,26 @@
     },
     {
       "path": "/pc-requirements/",
-      "title": "Resident Evil Veronica PC Requirements: Official Status",
-      "description": "Track Resident Evil Veronica PC system requirements status. Minimum and recommended specs are not officially confirmed yet.",
+      "title": "Resident Evil Veronica PC Requirements: Steam Status",
+      "description": "Resident Evil Veronica is confirmed for PC on Steam, but official system requirements remain to be determined. View current status and engine context.",
       "h1": "Resident Evil Veronica PC Requirements",
       "section": "pc-requirements",
       "navLabel": "PC Requirements",
       "priority": "0.8",
       "changefreq": "daily",
       "lastModified": "2026-07-26",
-      "intro": "PC is confirmed, but minimum and recommended requirements are not confirmed yet.",
+      "intro": "Resident Evil Veronica is confirmed for PC via Steam, but minimum and recommended system requirements are still to be determined.",
       "body": [
-        "Resident Evil Veronica is confirmed for PC, and the Steam store page is live. Steam currently lists minimum and recommended system requirements as TBD, so the official PC specification status remains unknown.",
-        "The estimates below compare official requirements for nearby RE Engine games. They are planning references, not Resident Evil Veronica specifications.",
-        "Do not buy or upgrade hardware for this game based on the estimates alone. Wait for Capcom or Steam to publish the final CPU, GPU, memory and storage requirements.",
-        "Nearby RE Engine games can show the rough range of hardware Capcom has supported, but they cannot predict Veronica's final rendering targets, ray tracing options, upscaling support or storage footprint. Treat comparison tables as context, not a compatibility test.",
-        "If you already own a recent gaming PC, wait for the official table before changing parts. If you are planning a full upgrade, compare the eventual minimum and recommended specifications with your preferred resolution and frame-rate target before spending."
+        "Capcom has officially confirmed that Resident Evil Veronica is coming to PC, and the official Steam store listing is active for wishlisting. The hardware fields for both minimum and recommended configurations remain labeled as to be determined.",
+        "Hardware requirements from nearby RE Engine releases serve strictly as contextual planning references, not as specifications or performance guarantees for Resident Evil Veronica.",
+        "Do not buy or upgrade hardware for this game based on estimates alone. Wait for Capcom or Steam to publish the final CPU, GPU, memory and storage requirements.",
+        "Capcom has not confirmed target resolutions, frame rates, CPU models, graphics cards, RAM requirements or installation storage sizes. Ray tracing, upscaling technology and official Steam Deck compatibility also remain unannounced."
       ]
     },
     {
       "path": "/preorder/",
-      "title": "Resident Evil Veronica Preorder Status: What Is Officially Confirmed",
-      "description": "Track Resident Evil Veronica preorder status, store availability and source notes without publishing unconfirmed purchase details.",
+      "title": "Resident Evil Veronica Preorder Status",
+      "description": "Resident Evil Veronica preorder status: Steam wishlist is live, but preorder timing, pricing and editions are not officially confirmed.",
       "h1": "Resident Evil Veronica Preorder Status",
       "section": "preorder",
       "navLabel": "Preorder",
@@ -334,17 +316,17 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Wishlist access exists on Steam, but preorder timing and price are not confirmed.",
+      "intro": "Steam wishlist access is available, but preorder timing and price are not confirmed.",
       "body": [
-        "Resident Evil Veronica has a Steam store page with wishlist access, but wishlist access is not the same as preorder availability.",
-        "Preorder timing, price, regional editions, deluxe content, physical versions and collector packages have not been confirmed yet.",
-        "Once an official store page or Capcom announcement opens preorders, this page will list the available options and source links."
+        "The official Steam page lets players add Resident Evil Veronica to a wishlist, but wishlist access is not preorder availability. No preorder checkout is open.",
+        "Preorder timing, price, regional editions, deluxe content, physical versions and collector packages have not been confirmed.",
+        "When Capcom or an official platform store publishes preorder details, this page will list the available options and source links."
       ]
     },
     {
       "path": "/demo/",
-      "title": "Resident Evil Veronica Demo Status: Official Availability Tracker",
-      "description": "Track whether a Resident Evil Veronica demo has been officially confirmed, including source notes and update policy.",
+      "title": "Resident Evil Veronica Demo Availability",
+      "description": "Check Resident Evil Veronica demo status. No official demo has been announced by Capcom or an official platform.",
       "h1": "Resident Evil Veronica Demo Status",
       "section": "demo",
       "navLabel": "Demo",
@@ -354,17 +336,17 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "No official demo has been confirmed at the current verification time.",
+      "intro": "No official Resident Evil Veronica demo has been announced at the current verification time.",
       "body": [
-        "No Resident Evil Veronica demo has been announced yet.",
-        "A demo would need confirmation from Capcom, Steam, PlayStation, Xbox, Nintendo or another official channel.",
-        "If a demo is announced later, this page will list platform availability, dates, regions and any save-transfer details that are officially published."
+        "No official Resident Evil Veronica demo has been announced.",
+        "A demo update would require confirmation from Capcom, Steam, PlayStation, Xbox, Nintendo or another official channel.",
+        "No demo date or features are confirmed. Future updates will list only details that official sources publish."
       ]
     },
     {
       "path": "/editions/",
-      "title": "Resident Evil Veronica Editions and Price: Current Official Status",
-      "description": "Track Resident Evil Veronica editions, pricing and purchase options. No official editions or prices are confirmed yet.",
+      "title": "Resident Evil Veronica Editions and Prices",
+      "description": "Track Resident Evil Veronica editions and pricing. Official standard, deluxe and collector details have not been announced.",
       "h1": "Resident Evil Veronica Editions and Price",
       "section": "editions",
       "navLabel": "Editions",
@@ -374,19 +356,19 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Editions, price and deluxe content are not officially confirmed yet.",
+      "intro": "Official edition, pricing and package details have not been announced.",
       "body": [
-        "Resident Evil Veronica editions and pricing have not been announced yet.",
-        "Retail placeholders and price comparisons with earlier Resident Evil games should not be treated as confirmed details.",
-        "Standard, deluxe, collector's, upgrade-path and preorder-bonus packaging should remain unknown until Capcom or an official platform store publishes those details publicly.",
+        "The specific editions, pricing and potential deluxe or collector contents have not been officially announced.",
+        "Retailer placeholders and price comparisons with earlier Resident Evil games do not confirm details for this release.",
+        "Standard, deluxe, collector's, upgrade-path and preorder-bonus packaging should remain unknown until Capcom or an official platform store publishes those details.",
         "When official editions appear, this page will separate edition names, included content, platform availability, regional availability and price."
       ]
     },
     {
       "path": "/original-vs-remake/",
-      "title": "Code Veronica Original vs Resident Evil Veronica Remake",
-      "description": "Compare confirmed remake information with original Code: Veronica context without treating every original detail as confirmed.",
-      "h1": "Original vs Remake",
+      "title": "Resident Evil Veronica: Original vs. Remake Changes",
+      "description": "Compare the 2000 Code: Veronica with its remake. Track confirmed story adjustments, modernized gameplay and reported developer context.",
+      "h1": "Resident Evil Veronica Original vs. Remake",
       "section": "original-vs-remake",
       "navLabel": "Original vs Remake",
       "priority": "0.7",
@@ -400,20 +382,18 @@
         "remake-team-context",
         "lore-continuity"
       ],
-      "intro": "What Capcom has confirmed about the remake—and what still comes only from the 2000 original.",
+      "intro": "Resident Evil Veronica is an official remake of the 2000 classic Code: Veronica, updating the original with modernized gameplay and a reimagined narrative.",
       "body": [
-        "Resident Evil Veronica is officially described as a remake of 2000's Resident Evil Code: Veronica. Steam says it preserves the essence of the original while adding modernized gameplay, a reimagined storyline and detailed graphics.",
-        "A June 2026 producer interview says Capcom views Code Veronica as important as a numbered Resident Evil entry and chose the shorter Veronica title to align with recent mainline subtitle conventions.",
-        "Producer interviews describe the remake as third-person and say developers from the Resident Evil 2 and Resident Evil 4 remake teams are involved. Capcom has not yet shown the puzzle design, campaign structure or full combat system.",
-        "PlayStation Blog reports that parts of the original story will be adjusted to fit the series lore established since 2000. Capcom has not identified the scenes or character arcs that will change.",
-        "Returning players can expect the same basic premise, not the same room routes, item locations, boss order or cutscenes.",
-        "New players do not need to play the original first. The remake's current synopsis explains the essential setup around Claire, Chris, Umbrella and Rockfort Island."
+        "According to the official Steam listing, the remake retains the core identity of the 2000 release while introducing modernized gameplay, more detailed graphics and a reimagined storyline. PlayStation Blog coverage reports that parts of the original narrative will be adjusted to connect with the broader series lore established since 2000.",
+        "Developer interviews report a third-person direction and the involvement of teams behind the Resident Evil 2 and Resident Evil 4 remakes. The producer also highlighted the original game's importance to the franchise and explained the choice of the shorter Veronica title.",
+        "Specific changes to puzzles, campaign structure, combat mechanics, room layouts, item locations, boss sequences and cinematic cutscenes remain unannounced. Returning players should not assume that every original detail carries over unchanged.",
+        "New players do not necessarily need to play the original first. The remake's current synopsis provides the essential setup around Claire, Chris, Umbrella and Rockfort Island."
       ]
     },
     {
       "path": "/media/",
-      "title": "Resident Evil Veronica Official Media: Screenshots, Trailer and Source Images",
-      "description": "Browse official Resident Evil Veronica screenshots, trailer art and store media with source labels and alt text.",
+      "title": "Resident Evil Veronica Media: Official Art and Videos",
+      "description": "Browse official Resident Evil Veronica media, including verified remake screenshots, store art and trailers from Capcom, Steam and official channels.",
       "h1": "Resident Evil Veronica Official Media",
       "section": "media",
       "navLabel": "Media",
@@ -423,16 +403,16 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Official screenshots, store art, trailer imagery and reference material in one place.",
+      "intro": "This gallery tracks verified Resident Evil Veronica media, including official screenshots, digital store art and publisher trailers.",
       "body": [
-        "Browse official Resident Evil Veronica screenshots, store art and trailer images from Capcom, Steam and verified video channels.",
-        "Older Resident Evil games appear in a separate reference section for comparison."
+        "This gallery collects official Resident Evil Veronica screenshots, store art and trailer images published through Capcom, Steam and verified platform channels.",
+        "Visual assets from older Resident Evil games are kept in a separate reference context for comparison and are not presented as evidence for the remake."
       ]
     },
     {
       "path": "/screenshots/",
-      "title": "Resident Evil Veronica Screenshots: Official Remake Image Gallery",
-      "description": "Browse official Resident Evil Veronica screenshots from Steam and Capcom with source labels, alt text and update status.",
+      "title": "Resident Evil Veronica Screenshots: Verified Images",
+      "description": "View official Resident Evil Veronica screenshots from Steam and Capcom, with source labels that exclude fan edits, leaks and emulator captures.",
       "h1": "Resident Evil Veronica Screenshots",
       "section": "screenshots",
       "navLabel": "Screenshots",
@@ -442,38 +422,35 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Official remake screenshots and store images, separated from speculation and fan media.",
+      "intro": "Review the official Resident Evil Veronica screenshot collection, curated from verified Capcom communications and Steam storefront updates.",
       "body": [
-        "This screenshot page focuses on official Resident Evil Veronica remake images from Steam and Capcom sources.",
-        "Each image keeps its source label so visitors can tell the difference between official screenshots, store art, trailer art and wider media context.",
-        "Fan edits, leaked images, emulator captures and original-game screenshots are not mixed into this gallery. New screenshots are added only after an official source publishes them."
+        "This archive categorizes official visual assets to provide a clear record of the remake. Each image keeps a source label distinguishing official screenshots, promotional store art, trailer frames and wider media context.",
+        "Fan edits, leaked images, emulator captures and original-game screenshots are excluded from the remake gallery. New screenshots are added only after an official source publishes them."
       ]
     },
     {
       "path": "/steam/",
-      "title": "Resident Evil Veronica Steam: Wishlist and PC Status",
-      "description": "Track the official Resident Evil Veronica Steam page, wishlist status, planned 2027 release year and TBD PC requirements.",
-      "h1": "Resident Evil Veronica Steam Page",
+      "title": "Resident Evil Veronica Steam Page Details",
+      "description": "Explore the official Resident Evil Veronica Steam page, planned 2027 release year, wishlist status and TBD PC requirements.",
+      "h1": "Resident Evil Veronica Steam Release",
       "section": "steam",
       "navLabel": "Steam",
       "priority": "0.8",
       "changefreq": "daily",
       "lastModified": "2026-07-26",
-      "intro": "The official Steam page is live with wishlist access, a planned 2027 release year and PC requirements still marked TBD.",
+      "intro": "The official Steam page for Resident Evil Veronica is live with wishlist access, a planned 2027 release year and PC requirements still marked TBD.",
       "body": [
-        "Resident Evil Veronica has an official Steam store page for PC players. The page lists CAPCOM Co., Ltd. as developer and publisher and provides wishlist access.",
-        "Steam currently shows a planned 2027 release year and keeps minimum and recommended PC system requirements as TBD.",
-        "Wishlist access is not the same as preorder availability. Price, editions, preorder bonuses and exact release date should stay unknown until Steam or Capcom publishes those details.",
-        "The page lists single-player support, Steam Achievements, subtitles, HDR, Family Sharing and 14 supported languages.",
-        "PC is confirmed, but the information needed to plan a purchase—final requirements, price, editions and preload timing—is still missing.",
-        "Read each Steam field narrowly. The live listing confirms PC distribution, current store features and wishlist access; it does not confirm a fixed launch day, discount plan, edition names, preload window or Steam Deck compatibility.",
-        "If Steam adds price, preorder controls or official requirements, those fields should take precedence over retailer listings and hardware estimates because they come from the platform's live product record."
+        "The official Steam page lists CAPCOM as developer and publisher and provides wishlist access for the PC version.",
+        "Steam currently shows a planned 2027 release year, while minimum and recommended PC system requirements remain to be determined.",
+        "Wishlist access is not preorder availability. Price, editions, preorder bonuses and an exact release date remain unknown until Steam or Capcom publishes those details.",
+        "The Steam page lists single-player, Steam Achievements, subtitles, HDR, Family Sharing and support for fourteen languages as store fields.",
+        "PC is confirmed, but final requirements, price, editions, preload timing and Steam Deck compatibility remain unconfirmed."
       ]
     },
     {
       "path": "/changelog/",
-      "title": "Resident Evil Veronica Changelog: Source and Site Updates",
-      "description": "Track dated Resident Evil Veronica source reviews, page updates and official information changes.",
+      "title": "Resident Evil Veronica Changelog: Content Updates",
+      "description": "Review the Resident Evil Veronica changelog. We document verified edits, source adjustments and page updates when official details change.",
       "h1": "Resident Evil Veronica Changelog",
       "section": "changelog",
       "navLabel": "Changelog",
@@ -483,16 +460,16 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Dated changes show what changed, when it changed and which source caused it.",
+      "intro": "The changelog documents verified edits to this site, recording changes when official publisher materials or platform store records update.",
       "body": [
-        "The changelog records changes to official Resident Evil Veronica information and the pages affected by each update.",
-        "No entry is added when the official sources have not changed."
+        "This log provides a transparent record of factual adjustments across the site. Each entry reflects a verified change in official Capcom communications, active platform store fields or attributed developer information.",
+        "No entry is added when the official sources have not changed. Routine maintenance, speculative rumors and unconfirmed community claims are not logged as updates."
       ]
     },
     {
       "path": "/watchlist/",
-      "title": "Resident Evil Veronica Watchlist: Official Update Alerts and RSS",
-      "description": "Follow official Resident Evil Veronica changes through the Veronica Hub watchlist and RSS feed.",
+      "title": "Resident Evil Veronica Watchlist: Track Updates",
+      "description": "Follow verified Resident Evil Veronica updates for release timing, demos, preorders, editions, PC specs, trailers and media via RSS.",
       "h1": "Resident Evil Veronica Watchlist",
       "section": "watchlist",
       "navLabel": "Watchlist",
@@ -502,10 +479,10 @@
       "robots": "noindex,follow,max-image-preview:large",
       "includeInSitemap": false,
       "showAds": false,
-      "intro": "Track official changes for release date, demo, preorder, editions, PC specs, trailers and media.",
+      "intro": "Use the watchlist to follow verified updates about release timing, demos, preorders, editions, PC specs, trailers and official media.",
       "body": [
-        "Use the Watchlist for release-date, demo, preorder, edition, PC requirement, trailer and media updates.",
-        "The RSS feed at /feed.xml publishes the same changes recorded in the changelog."
+        "The watchlist monitors official developments across key topics, including release-window adjustments, demo availability, preorder opening, editions, PC system requirements, trailers and verified media.",
+        "Updates are published alongside the site changelog through the RSS feed at /feed.xml. The feed carries the same verified factual changes recorded in the changelog."
       ]
     }
   ],
@@ -2495,6 +2472,22 @@
     ]
   },
   "changelog": [
+    {
+      "date": "2026-09-12",
+      "type": "Site Update",
+      "title": "Homepage copy refreshed in English and Japanese",
+      "summary": "Refreshed the English and Japanese homepage copy with Gemini-assisted drafts while preserving the confirmed 2027 release window, platform facts and unknown-detail boundaries.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": []
+    },
+    {
+      "date": "2026-09-11",
+      "type": "Site Update",
+      "title": "SEO copy refresh for source-tracked pages",
+      "summary": "Refreshed the English editorial copy across the release, platform, story, media and status pages using Gemini-assisted drafts while preserving source-backed facts and unknown-detail boundaries. No official game fact was changed.",
+      "sourceId": "veronica-hub-policy",
+      "affectedClaims": []
+    },
     {
       "date": "2026-08-03",
       "type": "Source Review",

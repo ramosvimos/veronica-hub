@@ -6,7 +6,63 @@
     <atom:link href="https://residentevilveronica.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>Independent tracker for official Resident Evil Veronica updates official update feed.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Homepage copy refreshed in English and Japanese</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-12-homepage-copy-refreshed-in-english-and-japanese</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-12-homepage-copy-refreshed-in-english-and-japanese</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Refreshed the English and Japanese homepage copy with Gemini-assisted drafts while preserving the confirmed 2027 release window, platform facts and unknown-detail boundaries.</description>
+    </item>
+    <item>
+      <title>SEO copy refresh for source-tracked pages</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-11-seo-copy-refresh-for-source-tracked-pages</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-11-seo-copy-refresh-for-source-tracked-pages</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Refreshed the English editorial copy across the release, platform, story, media and status pages using Gemini-assisted drafts while preserving source-backed facts and unknown-detail boundaries. No official game fact was changed.</description>
+    </item>
+    <item>
+      <title>September review: Spotlight scheduled, Veronica participation unconfirmed</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-08-september-review-spotlight-scheduled-veronica-participation-unconfirmed</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-08-september-review-spotlight-scheduled-veronica-participation-unconfirmed</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Added Capcom&apos;s September 1 event announcement without treating it as a Veronica reveal. Checked stores still show 2027 and TBD PC requirements. Preserved the August wishlist record and its earlier verification date. Reference: Capcom TGS 2026 announcement (September 1) (https://prtimes.jp/main/html/rd/p/000005996.000013450.html).</description>
+    </item>
+    <item>
+      <title>News, gameplay and original-game dossiers added</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-08-news-gameplay-and-original-game-dossiers-added</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-08-news-gameplay-and-original-game-dossiers-added</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Added a news center, a source-checked Spotlight explainer, gameplay, enemy and boss guides, and six character dossiers. Original-story spoilers are opt-in. This is site content, not a new Capcom game announcement.</description>
+    </item>
+    <item>
+      <title>Four more blog guides: versions, Rockfort, family and beginner tips</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-08-four-more-blog-guides-versions-rockfort-family-and-beginner-tips</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-08-four-more-blog-guides-versions-rockfort-family-and-beginner-tips</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Published four original English features and expanded the Blog to ten posts. Preserved the first six articles; classic-game tips and optional story spoilers remain separate from remake announcements.</description>
+    </item>
+    <item>
+      <title>Blog opens with six independent Veronica features</title>
+      <link>https://residentevilveronica.com/changelog/#2026-09-08-blog-opens-with-six-independent-veronica-features</link>
+      <guid isPermaLink="false">veronica-hub:2026-09-08-blog-opens-with-six-independent-veronica-features</guid>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category>Site Update</category>
+      <description>Added a separate Blog with six features covering the camera, title, preparation, Claire’s design, the story timeline and original monsters. Connected navigation, search, article schemas and source links. This is an editorial expansion, not a new Capcom announcement.</description>
+    </item>
+    <item>
+      <title>Two-million wishlist milestone added and official stores rechecked</title>
+      <link>https://residentevilveronica.com/changelog/#2026-08-21-two-million-wishlist-milestone-added-and-official-stores-rechecked</link>
+      <guid isPermaLink="false">veronica-hub:2026-08-21-two-million-wishlist-milestone-added-and-official-stores-rechecked</guid>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <category>Source Review</category>
+      <description>Added the official Resident Evil account&apos;s August 4 two-million-wishlist milestone. A fresh review of Capcom, Steam, PlayStation, Xbox and Nintendo still shows a 2027 release window with no exact release date; Steam PC requirements remain TBD, and no preorder timing, price, editions or demo are confirmed. Reference: Official Resident Evil two-million wishlist milestone (https://x.com/RE_Games/status/2084455588088435103).</description>
+    </item>
     <item>
       <title>Homepage facts rechecked against official sources</title>
       <link>https://residentevilveronica.com/changelog/#2026-08-03-homepage-facts-rechecked-against-official-sources</link>
