@@ -6,6 +6,10 @@ const data = JSON.parse(fs.readFileSync(path.join(root, "content/site-data.json"
 const failures = [];
 const adsenseClient = "ca-pub-2875158540739129";
 const adsTxtLine = "google.com, pub-2875158540739129, DIRECT, f08c47fec0942fa0";
+const requiredFooterBacklink = {
+  href: "https://deepseekdsh.com/tutorials",
+  label: "DeepSeek Harness 安装与使用指南"
+};
 
 function fail(message) {
   failures.push(message);
@@ -162,8 +166,13 @@ for (const route of data.routes) {
   if (html.includes('<a href="/feed.xml">RSS Feed</a>')) fail(`Footer should not link directly to RSS XML on ${route.path}`);
 
   const footer = html.match(/<footer[\s\S]*?<\/footer>/)?.[0] || "";
+  if (!footer.includes(`<a href="${requiredFooterBacklink.href}">${requiredFooterBacklink.label}</a>`)) {
+    fail(`Missing required footer backlink on ${route.path}: ${requiredFooterBacklink.href}`);
+  }
   for (const [, href] of footer.matchAll(/href="([^"]+)"/g)) {
-    if (href !== "/" && !routePaths.has(href)) fail(`Footer link points to missing route on ${route.path}: ${href}`);
+    if (href !== "/" && href !== requiredFooterBacklink.href && !routePaths.has(href)) {
+      fail(`Footer link points to missing route on ${route.path}: ${href}`);
+    }
   }
 
   const count = wordCount(html);
@@ -251,6 +260,10 @@ const appBundlePath = path.join(root, "designs/veronica-hub/app.bundle.js");
 if (!fs.existsSync(appBundlePath)) fail("Missing app bundle");
 else {
   const appBundle = read(appBundlePath);
+  const appBundleText = appBundle.replace(/\\u([0-9a-f]{4})/gi, (_, code) => String.fromCharCode(Number.parseInt(code, 16)));
+  if (!appBundleText.includes(requiredFooterBacklink.href) || !appBundleText.includes(requiredFooterBacklink.label)) {
+    fail(`App bundle is missing required footer backlink: ${requiredFooterBacklink.href}`);
+  }
   for (const eventName of ["source_click", "steam_click", "official_video_click", "trailer_play", "rss_click", "language_switch", "search_open", "menu_open"]) {
     if (!appBundle.includes(eventName)) fail(`App bundle missing analytics event: ${eventName}`);
   }

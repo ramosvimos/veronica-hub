@@ -9,6 +9,9 @@ const adsenseClient = "ca-pub-2875158540739129";
 const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/", "/media/", "/sources/", "/watchlist/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
+const footerExternalLinks = [
+  { href: "https://deepseekdsh.com/tutorials", label: "DeepSeek Harness 安装与使用指南" }
+];
 const localizedRoutes = {
   "/": "/ja/",
   "/ja/": "/"
@@ -254,6 +257,12 @@ function footerLinks(paths) {
     .map((routePath) => routeByPath(routePath))
     .filter(Boolean)
     .map((item) => `<a href="${escapeHtml(item.path)}">${escapeHtml(item.navLabel)}</a>`)
+    .join("");
+}
+
+function footerExternalLinksMarkup() {
+  return footerExternalLinks
+    .map((item) => `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`)
     .join("");
 }
 
@@ -826,6 +835,7 @@ function staticBody(route) {
           <nav class="footer-links">${footerLinks(primaryNav.slice(1))}</nav>
           <nav class="footer-links">${footerLinks(footerUtilityRoutes)}</nav>
           <nav class="footer-links">${footerLinks(footerTrustRoutes)}</nav>
+          <nav class="footer-links" aria-label="Resources">${footerExternalLinksMarkup()}</nav>
           <nav class="footer-links">${languageSwitchLink(route)}</nav>
         </div>
       </footer>
