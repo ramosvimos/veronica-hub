@@ -8,6 +8,9 @@ const primaryNav = ["/", "/release-date/", "/platforms/", "/trailer/", "/story/"
 const utilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/changelog/", "/faq/"];
 const footerUtilityRoutes = ["/pc-requirements/", "/preorder/", "/demo/", "/editions/", "/characters/", "/screenshots/", "/steam/", "/faq/", "/changelog/"];
 const footerTrustRoutes = ["/about/", "/contact/", "/privacy/"];
+const footerExternalLinks = [
+  { href: "https://deepseekdsh.com/tutorials", label: "DeepSeek Harness 安装与使用指南" }
+];
 const localizedRoutes = {
   "/": "/ja/",
   "/ja/": "/"
@@ -1308,6 +1311,9 @@ function Footer() {
         </nav>
         <nav className="footer-links" aria-label="Site policies">
           {footerTrustRoutes.map((path) => <a key={path} href={path}>{route(path).navLabel}</a>)}
+        </nav>
+        <nav className="footer-links" aria-label="Resources">
+          {footerExternalLinks.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
         <nav className="footer-links" aria-label="Language">
           <a href={languageTarget} onClick={chooseLocale} data-analytics-event="language_switch" data-locale={activePath === "/ja/" ? "en" : "ja"}>{languageLabel}</a>
