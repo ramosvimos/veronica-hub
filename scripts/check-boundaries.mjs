@@ -5,11 +5,13 @@ function walk(p){if(!existsSync(p))return [];return readdirSync(p,{withFileTypes
 const findings=[];
 for(const f of walk(path.join(root,'src'))){const s=readFileSync(f,'utf8');for(const [label,re] of [
  ['borrowed deployment or service variable',/\b(?:ASKPDF_[A-Z_]+|STRIPE_[A-Z_]+|SUPABASE_[A-Z_]+|RESEND_[A-Z_]+|NEXTAUTH_SECRET)\b/],
- ['prior site origin',/https:\/\/(?:www\.)?(?:askpdf\.top|rule34higherorlower\.com)/],
+ ['prior site origin',/https:\/\/(?:www\.)?rule34higherorlower\.com/],
  ['remote favicon tracking',/google\.com\/s2\/favicons/],
  ['payment/auth/mail runtime import',/from ["'](?:stripe|next-auth|resend|@supabase\/[^"']+)/],
  ['legacy document pipeline',/\b(?:getServerGameStore|opendataloader|tusd|ASKPDF_DIRECTORY_ONLY)\b/]
  ])if(re.test(s))findings.push(path.relative(root,f)+': '+label);}
+// AskPDF URLs are allowed only as disclosed editorial project content, never as this site's service origin.
+for(const directory of ['src/config','src/lib'])for(const f of walk(path.join(root,directory))){if(/https:\/\/(?:www\.)?askpdf\.top/.test(readFileSync(f,'utf8')))findings.push(path.relative(root,f)+': borrowed AskPDF service origin');}
 const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
 if(config.routes||config.account_id) findings.push('Production route and account configuration must remain absent.');
 const [submissionsDb]=config.d1_databases??[];
