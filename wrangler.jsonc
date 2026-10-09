@@ -7,10 +7,20 @@
     "nodejs_compat",
     "global_fetch_strictly_public"
   ],
+  "vars": {
+    "VERONICA_SUBMISSIONS_MODE": "d1"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "d1_databases": [
+    {
+      "binding": "VERONICA_SUBMISSIONS_DB",
+      "database_name": "veronica-hub-submissions",
+      "database_id": "dabfbc42-b9df-42a8-a8c5-3476ba42506d"
+    }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",

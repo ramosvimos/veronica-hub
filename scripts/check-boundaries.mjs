@@ -11,7 +11,10 @@ for(const f of walk(path.join(root,'src'))){const s=readFileSync(f,'utf8');for(c
  ['legacy document pipeline',/\b(?:getServerGameStore|opendataloader|tusd|ASKPDF_DIRECTORY_ONLY)\b/]
  ])if(re.test(s))findings.push(path.relative(root,f)+': '+label);}
 const config=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
-if(config.routes||config.account_id||config.d1_databases) findings.push('Production routing/account/database configuration must remain absent.');
+if(config.routes||config.account_id) findings.push('Production route and account configuration must remain absent.');
+const [submissionsDb]=config.d1_databases??[];
+if((config.d1_databases??[]).length!==1||submissionsDb?.binding!=='VERONICA_SUBMISSIONS_DB'||submissionsDb?.database_name!=='veronica-hub-submissions'||submissionsDb?.database_id!=='dabfbc42-b9df-42a8-a8c5-3476ba42506d') findings.push('Only the dedicated Veronica Hub submissions D1 database may be bound.');
+if(Object.keys(config.vars??{}).length!==1||config.vars?.VERONICA_SUBMISSIONS_MODE!=='d1') findings.push('Only the non-secret D1 submission mode may be configured as a Worker variable.');
 const pkg=JSON.parse(readFileSync('package.json','utf8'));if(Object.keys(pkg.scripts).some(s=>s==='deploy'||s.startsWith('deploy:')))findings.push('Deployment entry point should not be included.');
 if(existsSync('.github/workflows/deploy-cloudflare.yml'))findings.push('Borrowed deployment workflow remains.');
-if(findings.length){console.error(findings.join('\n'));process.exitCode=1;}else console.log('Service boundaries verified: no copied service config, credentials or deployment routes.');
+if(findings.length){console.error(findings.join('\n'));process.exitCode=1;}else console.log('Service boundaries verified: only the dedicated submissions D1 and non-secret mode are configured; no copied credentials, account ID or routes are present.');

@@ -27,9 +27,14 @@ node scripts/smoke-http.mjs
 npm run build:cloudflare
 ```
 
-No secrets or services are required to browse or build. Production submission storage is **closed by default**; unconfigured requests return 503 and never pretend to save. The free workflow can be exercised in isolated non-production local mode; see `docs/free-submissions.md`.
+No secrets or services are required to browse or build. Submission storage is **closed by default**; unconfigured requests return 503 and never pretend to save. Production uses the separate `veronica-hub-submissions` D1 database. The free workflow can also be exercised in isolated non-production local mode; see `docs/free-submissions.md`.
 
-Production D1 and a dedicated administrator key require separate configuration and authorization. No existing site's credentials, database, account records, payment terms, price IDs, authentication or email setup are copied. No deployment script/workflow or production route is included. `wrangler.jsonc` is build/preview-only.
+`wrangler.jsonc` binds that database as `VERONICA_SUBMISSIONS_DB` and selects D1 mode. The administrator key exists only as a Cloudflare Worker Secret and in the operator's macOS Keychain (service `Veronica Hub submissions admin key`, account `veronica-hub`); never put its value in source or `.dev.vars`. No other site's credentials, database records, payment terms, authentication or email setup are copied. Production deploys update the existing `veronica-hub` Worker and do not change DNS or route configuration.
+
+```sh
+npm run build:cloudflare
+npx opennextjs-cloudflare deploy
+```
 
 ## Content and provenance
 
