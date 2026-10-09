@@ -1,0 +1,826 @@
+{
+  "sourceRepository": "ramosvimos/veronica-hub",
+  "sourceCommit": "cd38d50f4317b6eaa20fafd57b62c9c40e1b80b2",
+  "sourceCommitUrl": "https://github.com/ramosvimos/veronica-hub/commit/cd38d50f4317b6eaa20fafd57b62c9c40e1b80b2",
+  "archivedAt": "2026-10-09",
+  "sourceLastVerified": "2026-09-08",
+  "preservedRoutes": 44,
+  "trackedRoutes": 22,
+  "reconstructedRoutes": 22,
+  "missingRoutes": [],
+  "utilityFiles": [
+    "404.html"
+  ],
+  "assets": [
+    "assets/company/ace-attorney-portal.jpg",
+    "assets/company/devil-may-cry-portal.jpg",
+    "assets/company/mega-man-portal-dark.jpg",
+    "assets/company/monster-hunter-portal.jpg",
+    "assets/company/resident-evil-portal.jpg",
+    "assets/company/street-fighter-series.jpg",
+    "assets/editorial/veronica-archive-background.svg",
+    "assets/editorial/veronica-archive-capsule.svg",
+    "assets/editorial/veronica-archive-dossier.svg",
+    "assets/editorial/veronica-archive-header.svg",
+    "assets/editorial/veronica-archive-island.svg",
+    "assets/editorial/veronica-archive-ogp.svg",
+    "assets/editorial/veronica-archive-title.svg",
+    "assets/editorial/veronica-hub-favicon.svg",
+    "assets/official/capcom-veronica-ogp.png",
+    "assets/official/capcom-veronica-press-a.png",
+    "assets/official/capcom-veronica-press-b.png",
+    "assets/official/capcom-veronica-site.png",
+    "assets/official/steam/steam-capsule.jpg",
+    "assets/official/steam/steam-header.jpg",
+    "assets/official/steam/steam-page-bg.jpg",
+    "assets/official/steam/steam-screenshot-01.jpg",
+    "assets/official/steam/steam-screenshot-02.jpg",
+    "assets/official/steam/steam-screenshot-03.jpg",
+    "assets/official/steam/steam-screenshot-04.jpg",
+    "assets/official/steam/steam-screenshot-05.jpg",
+    "assets/official/steam/steam-screenshot-06.jpg",
+    "assets/official/steam/steam-screenshot-07.jpg",
+    "assets/official/steam/steam-trailer-poster.jpg",
+    "assets/optimized/ace-attorney-portal.webp",
+    "assets/optimized/capcom-veronica-ogp.webp",
+    "assets/optimized/capcom-veronica-press-a.webp",
+    "assets/optimized/capcom-veronica-press-b.webp",
+    "assets/optimized/capcom-veronica-site.webp",
+    "assets/optimized/devil-may-cry-portal.webp",
+    "assets/optimized/mega-man-portal-dark.webp",
+    "assets/optimized/monster-hunter-portal.webp",
+    "assets/optimized/resident-evil-portal.webp",
+    "assets/optimized/steam-capsule.webp",
+    "assets/optimized/steam-header.webp",
+    "assets/optimized/steam-page-bg.webp",
+    "assets/optimized/steam-screenshot-01.webp",
+    "assets/optimized/steam-screenshot-02.webp",
+    "assets/optimized/steam-screenshot-03.webp",
+    "assets/optimized/steam-screenshot-04.webp",
+    "assets/optimized/steam-screenshot-05.webp",
+    "assets/optimized/steam-screenshot-06.webp",
+    "assets/optimized/steam-screenshot-07.webp",
+    "assets/optimized/steam-trailer-poster.webp",
+    "assets/optimized/street-fighter-series.webp"
+  ],
+  "routes": [
+    {
+      "originalPath": "/",
+      "archivePath": "/archive/",
+      "file": "index.html",
+      "title": "Resident Evil Veronica Tracker: 2027 News and Facts",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/ja/",
+      "archivePath": "/archive/ja/",
+      "file": "ja/index.html",
+      "title": "バイオハザード ヴェロニカ 非公式情報トラッカー",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/release-date/",
+      "archivePath": "/archive/release-date/",
+      "file": "release-date/index.html",
+      "title": "Resident Evil Veronica Release Date: 2027 Status",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/platforms/",
+      "archivePath": "/archive/platforms/",
+      "file": "platforms/index.html",
+      "title": "Resident Evil Veronica Platforms: PS5, Xbox, Switch 2, PC",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/trailer/",
+      "archivePath": "/archive/trailer/",
+      "file": "trailer/index.html",
+      "title": "Resident Evil Veronica Trailer: Official Video Updates",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/story/",
+      "archivePath": "/archive/story/",
+      "file": "story/index.html",
+      "title": "Resident Evil Veronica Story: Official Premise Details",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/characters/",
+      "archivePath": "/archive/characters/",
+      "file": "characters/index.html",
+      "title": "Resident Evil Veronica Characters: Cast Updates",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/faq/",
+      "archivePath": "/archive/faq/",
+      "file": "faq/index.html",
+      "title": "Resident Evil Veronica FAQ: Verified Facts",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/sources/",
+      "archivePath": "/archive/sources/",
+      "file": "sources/index.html",
+      "title": "Resident Evil Veronica Sources: Fact Verification",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/about/",
+      "archivePath": "/archive/about/",
+      "file": "about/index.html",
+      "title": "About Veronica Hub: Independent Veronica Tracker",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/contact/",
+      "archivePath": "/archive/contact/",
+      "file": "contact/index.html",
+      "title": "Contact Veronica Hub: Corrections and Sources",
+      "originalLastModified": "2026-07-19",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/privacy/",
+      "archivePath": "/archive/privacy/",
+      "file": "privacy/index.html",
+      "title": "Privacy Policy for Veronica Hub",
+      "originalLastModified": "2026-07-09",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/pc-requirements/",
+      "archivePath": "/archive/pc-requirements/",
+      "file": "pc-requirements/index.html",
+      "title": "Resident Evil Veronica PC Requirements: Steam Status",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/preorder/",
+      "archivePath": "/archive/preorder/",
+      "file": "preorder/index.html",
+      "title": "Resident Evil Veronica Preorder Status",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/demo/",
+      "archivePath": "/archive/demo/",
+      "file": "demo/index.html",
+      "title": "Resident Evil Veronica Demo Availability",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/editions/",
+      "archivePath": "/archive/editions/",
+      "file": "editions/index.html",
+      "title": "Resident Evil Veronica Editions and Prices",
+      "originalLastModified": "2026-06-13",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/original-vs-remake/",
+      "archivePath": "/archive/original-vs-remake/",
+      "file": "original-vs-remake/index.html",
+      "title": "Resident Evil Veronica: Original vs. Remake Changes",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/media/",
+      "archivePath": "/archive/media/",
+      "file": "media/index.html",
+      "title": "Resident Evil Veronica Media: Official Art and Videos",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/screenshots/",
+      "archivePath": "/archive/screenshots/",
+      "file": "screenshots/index.html",
+      "title": "Resident Evil Veronica Screenshots: Verified Images",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/steam/",
+      "archivePath": "/archive/steam/",
+      "file": "steam/index.html",
+      "title": "Resident Evil Veronica Steam Page Details",
+      "originalLastModified": "2026-07-26",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/changelog/",
+      "archivePath": "/archive/changelog/",
+      "file": "changelog/index.html",
+      "title": "Resident Evil Veronica Changelog: Content Updates",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/watchlist/",
+      "archivePath": "/archive/watchlist/",
+      "file": "watchlist/index.html",
+      "title": "Resident Evil Veronica Watchlist: Track Updates",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "tracked page, refreshed through original build transformations"
+    },
+    {
+      "originalPath": "/news/",
+      "archivePath": "/archive/news/",
+      "file": "news/index.html",
+      "title": "Resident Evil Veronica News & Source-Checked Updates",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/news/capcom-spotlight-september-2026/",
+      "archivePath": "/archive/news/capcom-spotlight-september-2026/",
+      "file": "news/capcom-spotlight-september-2026/index.html",
+      "title": "Veronica at September’s Capcom Spotlight: What Is Confirmed?",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/gameplay/",
+      "archivePath": "/archive/gameplay/",
+      "file": "gameplay/index.html",
+      "title": "Resident Evil Veronica Gameplay: Camera, Combat & Open Questions",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/enemies/",
+      "archivePath": "/archive/enemies/",
+      "file": "enemies/index.html",
+      "title": "Code Veronica Enemies: Original Creatures & Remake Evidence",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/bosses/",
+      "archivePath": "/archive/bosses/",
+      "file": "bosses/index.html",
+      "title": "Code Veronica Bosses: Spoiler-Controlled Original Dossiers",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/claire-redfield/",
+      "archivePath": "/archive/characters/claire-redfield/",
+      "file": "characters/claire-redfield/index.html",
+      "title": "Claire Redfield: Veronica Role, Background & Connections",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/chris-redfield/",
+      "archivePath": "/archive/characters/chris-redfield/",
+      "file": "characters/chris-redfield/index.html",
+      "title": "Chris Redfield in Veronica: Claire, Wesker & Original Context",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/albert-wesker/",
+      "archivePath": "/archive/characters/albert-wesker/",
+      "file": "characters/albert-wesker/index.html",
+      "title": "Albert Wesker in Veronica: Story Context Without Cast Rumors",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/steve-burnside/",
+      "archivePath": "/archive/characters/steve-burnside/",
+      "file": "characters/steve-burnside/index.html",
+      "title": "Steve Burnside: Claire Connection & Original Story Dossier",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/alexia-ashford/",
+      "archivePath": "/archive/characters/alexia-ashford/",
+      "file": "characters/alexia-ashford/index.html",
+      "title": "Alexia Ashford: Original Lore, t-Veronica & Remake Evidence",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/characters/alfred-ashford/",
+      "archivePath": "/archive/characters/alfred-ashford/",
+      "file": "characters/alfred-ashford/index.html",
+      "title": "Alfred Ashford: Family Context & What the Archives Establish",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/",
+      "archivePath": "/archive/blog/",
+      "file": "blog/index.html",
+      "title": "Resident Evil Veronica Blog: Stories, Guides & Analysis",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/is-resident-evil-veronica-first-or-third-person/",
+      "archivePath": "/archive/blog/is-resident-evil-veronica-first-or-third-person/",
+      "file": "blog/is-resident-evil-veronica-first-or-third-person/index.html",
+      "title": "Resident Evil Veronica Is Third-Person: Why the Trailer Confused Fans",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/why-resident-evil-veronica-dropped-code/",
+      "archivePath": "/archive/blog/why-resident-evil-veronica-dropped-code/",
+      "file": "blog/why-resident-evil-veronica-dropped-code/index.html",
+      "title": "Why Capcom Dropped “Code” from Resident Evil Veronica",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/what-to-play-before-resident-evil-veronica/",
+      "archivePath": "/archive/blog/what-to-play-before-resident-evil-veronica/",
+      "file": "blog/what-to-play-before-resident-evil-veronica/index.html",
+      "title": "What to Play Before Resident Evil Veronica: A Spoiler-Light Guide",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/claire-redfield-vs-leon-survival-horror/",
+      "archivePath": "/archive/blog/claire-redfield-vs-leon-survival-horror/",
+      "file": "blog/claire-redfield-vs-leon-survival-horror/index.html",
+      "title": "Claire Is Not RE4’s Leon: Veronica’s Survival-Horror Direction",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/code-veronica-resident-evil-timeline/",
+      "archivePath": "/archive/blog/code-veronica-resident-evil-timeline/",
+      "file": "blog/code-veronica-resident-evil-timeline/index.html",
+      "title": "Where Code: Veronica Fits in the Resident Evil Timeline",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/code-veronica-monsters-explained/",
+      "archivePath": "/archive/blog/code-veronica-monsters-explained/",
+      "file": "blog/code-veronica-monsters-explained/index.html",
+      "title": "Why Code: Veronica’s Monsters Are More Than Bigger Zombies",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/code-veronica-vs-code-veronica-x/",
+      "archivePath": "/archive/blog/code-veronica-vs-code-veronica-x/",
+      "file": "blog/code-veronica-vs-code-veronica-x/index.html",
+      "title": "Code Veronica vs Code Veronica X: What Actually Changed?",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/rockfort-island-explained/",
+      "archivePath": "/archive/blog/rockfort-island-explained/",
+      "file": "blog/rockfort-island-explained/index.html",
+      "title": "Rockfort Island Explained: Why Veronica Starts in a Prison",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/ashford-family-explained/",
+      "archivePath": "/archive/blog/ashford-family-explained/",
+      "file": "blog/ashford-family-explained/index.html",
+      "title": "The Ashford Family Explained: Names, Umbrella and Code Veronica",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    },
+    {
+      "originalPath": "/blog/code-veronica-beginner-tips/",
+      "archivePath": "/archive/blog/code-veronica-beginner-tips/",
+      "file": "blog/code-veronica-beginner-tips/index.html",
+      "title": "Code Veronica Beginner Tips: Saves, Supplies and Common Mistakes",
+      "originalLastModified": "2026-09-08",
+      "contentSource": "reconstructed from committed content and original renderer"
+    }
+  ],
+  "assetReuse": [
+    {
+      "targetPath": "public/archive/assets/company/ace-attorney-portal.jpg",
+      "sourcePath": "assets/company/ace-attorney-portal.jpg",
+      "blobSha": "f2adc4fed49b5339d59b24f7b9f150ac05301046",
+      "bytes": 176669,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/company/devil-may-cry-portal.jpg",
+      "sourcePath": "assets/company/devil-may-cry-portal.jpg",
+      "blobSha": "d4101546bd1a2fd1083fe7f3682ca021046ac3be",
+      "bytes": 39924,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/company/mega-man-portal-dark.jpg",
+      "sourcePath": "assets/company/mega-man-portal-dark.jpg",
+      "blobSha": "2be60d16fff3efae354845a85c678ad172a0002d",
+      "bytes": 122932,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/company/monster-hunter-portal.jpg",
+      "sourcePath": "assets/company/monster-hunter-portal.jpg",
+      "blobSha": "52afd47269fd5b42f35a8264a9764dda7626ea8e",
+      "bytes": 250504,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/company/resident-evil-portal.jpg",
+      "sourcePath": "assets/company/resident-evil-portal.jpg",
+      "blobSha": "ca35f83bddbf23a9e0e9aa32557774d097768b00",
+      "bytes": 51050,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/company/street-fighter-series.jpg",
+      "sourcePath": "assets/company/street-fighter-series.jpg",
+      "blobSha": "030688eb3ae8163742d8e7eb4e681cc4b6241259",
+      "bytes": 31958,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-background.svg",
+      "sourcePath": "assets/editorial/veronica-archive-background.svg",
+      "blobSha": "9c1fec4b490ea6da661b3017944e5d9af9fb3079",
+      "bytes": 1374,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-capsule.svg",
+      "sourcePath": "assets/editorial/veronica-archive-capsule.svg",
+      "blobSha": "b7704eb93de7b20bf19e0544967756ce9e618411",
+      "bytes": 1487,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-dossier.svg",
+      "sourcePath": "assets/editorial/veronica-archive-dossier.svg",
+      "blobSha": "34a898ac220c50467e075d8cb0a13f9aefe6894a",
+      "bytes": 1564,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-header.svg",
+      "sourcePath": "assets/editorial/veronica-archive-header.svg",
+      "blobSha": "f64679a11c87bc70b6b23048d4e9c9dbbe9b472e",
+      "bytes": 1238,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-island.svg",
+      "sourcePath": "assets/editorial/veronica-archive-island.svg",
+      "blobSha": "b7ee56b6a5fb60e674fdd5632ccd43228b950fb2",
+      "bytes": 1621,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-ogp.svg",
+      "sourcePath": "assets/editorial/veronica-archive-ogp.svg",
+      "blobSha": "893aae22dfe3975b5ac1b41c09153d7776b4e2f7",
+      "bytes": 1599,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-archive-title.svg",
+      "sourcePath": "assets/editorial/veronica-archive-title.svg",
+      "blobSha": "56450cbb0897d825a8638ce2e1c11c04fa874d34",
+      "bytes": 1360,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/editorial/veronica-hub-favicon.svg",
+      "sourcePath": "assets/editorial/veronica-hub-favicon.svg",
+      "blobSha": "e1f4829615b757b63675176d07f9709d940b355d",
+      "bytes": 352,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/capcom-veronica-ogp.png",
+      "sourcePath": "assets/official/capcom-veronica-ogp.png",
+      "blobSha": "1f6f275de014e9c3a4f628d83e9363871779f772",
+      "bytes": 109151,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/capcom-veronica-press-a.png",
+      "sourcePath": "assets/official/capcom-veronica-press-a.png",
+      "blobSha": "75b0f5e815769815a6958fbb5e24e85f68e0b38c",
+      "bytes": 730822,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/capcom-veronica-press-b.png",
+      "sourcePath": "assets/official/capcom-veronica-press-b.png",
+      "blobSha": "6027888581c845d3e32bd40c564f26ffdeacd46a",
+      "bytes": 62845,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/capcom-veronica-site.png",
+      "sourcePath": "assets/official/capcom-veronica-site.png",
+      "blobSha": "32180c5a0901d8d53a7377836f036984d2442053",
+      "bytes": 49981,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-capsule.jpg",
+      "sourcePath": "assets/official/steam/steam-capsule.jpg",
+      "blobSha": "28fa85ecf44ea5beb0a60f695b1c5c184a4ada74",
+      "bytes": 63919,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-header.jpg",
+      "sourcePath": "assets/official/steam/steam-header.jpg",
+      "blobSha": "96f51fe2a768b98ca3c26ce7525b70d91f8441de",
+      "bytes": 28340,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-page-bg.jpg",
+      "sourcePath": "assets/official/steam/steam-page-bg.jpg",
+      "blobSha": "41f57374114fb3ce1c02ef7f1236a88a7d6b0132",
+      "bytes": 68657,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-01.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-01.jpg",
+      "blobSha": "17a697621aa09cebfad8fec21997e4e198c7c4b4",
+      "bytes": 42639,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-02.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-02.jpg",
+      "blobSha": "ad73c8d3545453b9243f05b69163a5ba8f041fc2",
+      "bytes": 70066,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-03.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-03.jpg",
+      "blobSha": "5e9c55e49f111a990e992a28a6c0bd899584ad92",
+      "bytes": 39404,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-04.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-04.jpg",
+      "blobSha": "6d0e7ef08715ceba4f70141fb91196b4fe6da296",
+      "bytes": 66067,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-05.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-05.jpg",
+      "blobSha": "3b87040bba5f4bb0a290cceae66755dd03f10224",
+      "bytes": 72350,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-06.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-06.jpg",
+      "blobSha": "242ec9fa676cd1c2c69519ca35a446986853ba12",
+      "bytes": 70536,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-screenshot-07.jpg",
+      "sourcePath": "assets/official/steam/steam-screenshot-07.jpg",
+      "blobSha": "837e40eec209ff0e9326ef8d72b297387213e414",
+      "bytes": 44157,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/official/steam/steam-trailer-poster.jpg",
+      "sourcePath": "assets/official/steam/steam-trailer-poster.jpg",
+      "blobSha": "cd38fdcb7110222078b788143bba437b79d3e2e7",
+      "bytes": 58517,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/ace-attorney-portal.webp",
+      "sourcePath": "assets/optimized/ace-attorney-portal.webp",
+      "blobSha": "06a7d1d99d485b966e4fe23f764ec88976173a40",
+      "bytes": 42938,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/capcom-veronica-ogp.webp",
+      "sourcePath": "assets/optimized/capcom-veronica-ogp.webp",
+      "blobSha": "7e7961d1117875f607effde9104064b9137a22f1",
+      "bytes": 27030,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/capcom-veronica-press-a.webp",
+      "sourcePath": "assets/optimized/capcom-veronica-press-a.webp",
+      "blobSha": "0701be2daed54bce37540f5cf61cb757c07d59a6",
+      "bytes": 34120,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/capcom-veronica-press-b.webp",
+      "sourcePath": "assets/optimized/capcom-veronica-press-b.webp",
+      "blobSha": "9577aec3f342f9187676cb5eec09f5834435f910",
+      "bytes": 14552,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/capcom-veronica-site.webp",
+      "sourcePath": "assets/optimized/capcom-veronica-site.webp",
+      "blobSha": "9f3138a80c3df72c4b7ddef0f3418d2f2da5b3d3",
+      "bytes": 4028,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/devil-may-cry-portal.webp",
+      "sourcePath": "assets/optimized/devil-may-cry-portal.webp",
+      "blobSha": "b73fc13fb5f1c93ade9c7617b1eeb294ed25a552",
+      "bytes": 13052,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/mega-man-portal-dark.webp",
+      "sourcePath": "assets/optimized/mega-man-portal-dark.webp",
+      "blobSha": "3d54c8f5f02524f33072b8f76e34102fc095804b",
+      "bytes": 31448,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/monster-hunter-portal.webp",
+      "sourcePath": "assets/optimized/monster-hunter-portal.webp",
+      "blobSha": "d4bf99abdef02f5cc400ba6fb0987f340baf2b38",
+      "bytes": 105174,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/resident-evil-portal.webp",
+      "sourcePath": "assets/optimized/resident-evil-portal.webp",
+      "blobSha": "488363c8457fa886acd10edf06b4641867fb3d41",
+      "bytes": 20406,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-capsule.webp",
+      "sourcePath": "assets/optimized/steam-capsule.webp",
+      "blobSha": "3a0271b1de7d2082040a10f5b2fe34a32c57c251",
+      "bytes": 15658,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-header.webp",
+      "sourcePath": "assets/optimized/steam-header.webp",
+      "blobSha": "d7d97bca4dee8b1add22a57f848664f87bc48eb1",
+      "bytes": 7352,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-page-bg.webp",
+      "sourcePath": "assets/optimized/steam-page-bg.webp",
+      "blobSha": "661dfab7e5e09b2c9d6eb33f460829d36b3f70c3",
+      "bytes": 4206,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-01.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-01.webp",
+      "blobSha": "747d8ccbebed591e3194f76d6b8be45805566563",
+      "bytes": 11584,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-02.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-02.webp",
+      "blobSha": "1f4eb24094ecb2f261529a8c59fd895d16bf901f",
+      "bytes": 24888,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-03.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-03.webp",
+      "blobSha": "c15ff1f061097a0f47b563714b5480166e0fdde5",
+      "bytes": 10882,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-04.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-04.webp",
+      "blobSha": "9efbdfd520488a712676dece8f755f39a7927991",
+      "bytes": 20638,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-05.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-05.webp",
+      "blobSha": "b44e9694f81d2a2e20b56c5d6bc285b0d544de9b",
+      "bytes": 26170,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-06.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-06.webp",
+      "blobSha": "bc8d06081cbdfb9e44d9828721fc06966d10e2d6",
+      "bytes": 25058,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-screenshot-07.webp",
+      "sourcePath": "assets/optimized/steam-screenshot-07.webp",
+      "blobSha": "a762fa5b425fb5129a1c7936c63f3c282a58b52f",
+      "bytes": 10818,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/steam-trailer-poster.webp",
+      "sourcePath": "assets/optimized/steam-trailer-poster.webp",
+      "blobSha": "3f248c3e282831f847425adca5974f30a482fee2",
+      "bytes": 14594,
+      "byteIdentical": true
+    },
+    {
+      "targetPath": "public/archive/assets/optimized/street-fighter-series.webp",
+      "sourcePath": "assets/optimized/street-fighter-series.webp",
+      "blobSha": "03402b2eb1c1d0e69996bd04a0a32df3fe88ab50",
+      "bytes": 19718,
+      "byteIdentical": true
+    }
+  ],
+  "transformedFiles": [
+    "public/archive/index.html",
+    "public/archive/ja/index.html",
+    "public/archive/release-date/index.html",
+    "public/archive/platforms/index.html",
+    "public/archive/trailer/index.html",
+    "public/archive/story/index.html",
+    "public/archive/characters/index.html",
+    "public/archive/faq/index.html",
+    "public/archive/sources/index.html",
+    "public/archive/about/index.html",
+    "public/archive/contact/index.html",
+    "public/archive/privacy/index.html",
+    "public/archive/pc-requirements/index.html",
+    "public/archive/preorder/index.html",
+    "public/archive/demo/index.html",
+    "public/archive/editions/index.html",
+    "public/archive/original-vs-remake/index.html",
+    "public/archive/media/index.html",
+    "public/archive/screenshots/index.html",
+    "public/archive/steam/index.html",
+    "public/archive/changelog/index.html",
+    "public/archive/watchlist/index.html",
+    "public/archive/news/index.html",
+    "public/archive/news/capcom-spotlight-september-2026/index.html",
+    "public/archive/gameplay/index.html",
+    "public/archive/enemies/index.html",
+    "public/archive/bosses/index.html",
+    "public/archive/characters/claire-redfield/index.html",
+    "public/archive/characters/chris-redfield/index.html",
+    "public/archive/characters/albert-wesker/index.html",
+    "public/archive/characters/steve-burnside/index.html",
+    "public/archive/characters/alexia-ashford/index.html",
+    "public/archive/characters/alfred-ashford/index.html",
+    "public/archive/blog/index.html",
+    "public/archive/blog/is-resident-evil-veronica-first-or-third-person/index.html",
+    "public/archive/blog/why-resident-evil-veronica-dropped-code/index.html",
+    "public/archive/blog/what-to-play-before-resident-evil-veronica/index.html",
+    "public/archive/blog/claire-redfield-vs-leon-survival-horror/index.html",
+    "public/archive/blog/code-veronica-resident-evil-timeline/index.html",
+    "public/archive/blog/code-veronica-monsters-explained/index.html",
+    "public/archive/blog/code-veronica-vs-code-veronica-x/index.html",
+    "public/archive/blog/rockfort-island-explained/index.html",
+    "public/archive/blog/ashford-family-explained/index.html",
+    "public/archive/blog/code-veronica-beginner-tips/index.html",
+    "public/archive/404.html",
+    "public/archive/feed.xml",
+    "public/archive/styles/site.css",
+    "public/archive/styles/editorial.css"
+  ],
+  "createdFiles": [
+    "public/archive/styles/archive.css",
+    "public/archive/archive-manifest.json"
+  ]
+}

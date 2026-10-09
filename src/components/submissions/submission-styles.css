@@ -1,0 +1,32 @@
+/* Scoped palette and spacing for the current AskPDF-derived light directory shell. */
+.veronica-submissions {
+  --background: 0 0% 100%;
+  --foreground: 196 37% 14%;
+  --card: 0 0% 100%;
+  --primary: 183 74% 25%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 183 24% 94%;
+  --muted-foreground: 199 13% 37%;
+  --border: 200 20% 88%;
+  --input: 198 22% 76%;
+  --destructive: 0 68% 43%;
+  --radius: 0.65rem;
+  color: hsl(var(--foreground));
+  color-scheme: light;
+}
+.veronica-submissions textarea { font: inherit; }
+.veronica-submissions a.underline { text-decoration: underline; }
+.veronica-submissions .mb-2 { margin-bottom: .5rem; }
+.veronica-submissions .mb-3 { margin-bottom: .75rem; }
+.veronica-submissions .mb-4 { margin-bottom: 1rem; }
+.veronica-submissions .mb-5 { margin-bottom: 1.25rem; }
+.veronica-submissions .mb-6 { margin-bottom: 1.5rem; }
+.veronica-submissions .mb-8 { margin-bottom: 2rem; }
+.veronica-submissions .mb-9 { margin-bottom: 2.25rem; }
+.veronica-submissions .mt-2 { margin-top: .5rem; }
+.veronica-submissions .mt-3 { margin-top: .75rem; }
+.veronica-submissions .mt-5 { margin-top: 1.25rem; }
+.veronica-submissions .mt-6 { margin-top: 1.5rem; }
+.veronica-submissions .my-5 { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+.veronica-submissions .text-sm { font-size: .875rem; }
+.veronica-submissions .text-xs { font-size: .75rem; }

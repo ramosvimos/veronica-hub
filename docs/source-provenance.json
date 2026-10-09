@@ -1,0 +1,81 @@
+{
+  "sourceRepository": "ramosvimos/askpdf-directory",
+  "sourceCommit": "87ec3457e0732c6f76d953af1446d005ec168c05",
+  "checkedOn": "2026-10-09",
+  "sourceFiles": [
+    {
+      "path": "src/components/pdf/compare-provider.tsx",
+      "sha": "0ae7f6499c92ac2162d5d34864f3cd1bfe24cd3a"
+    },
+    {
+      "path": "src/components/pdf/pdf-comparison-table.tsx",
+      "sha": "e53a9585f2e8df0d504f91cfc33172177c2c0b8e"
+    },
+    {
+      "path": "src/components/pdf/pdf-detail.tsx",
+      "sha": "f15d7a279be6d22c93c618a0b5449008e5090b4d"
+    },
+    {
+      "path": "src/components/pdf/pdf-directory.tsx",
+      "sha": "1bec91b9752dd6cd74cc7adb4b1d5f0b1d1d7449"
+    },
+    {
+      "path": "src/components/pdf/pdf-mobile-nav.tsx",
+      "sha": "0ed3c9752d86190af3e88a77ce836989f7f57800"
+    },
+    {
+      "path": "src/components/pdf/pdf-shell.tsx",
+      "sha": "98ee5cd3d78202177cbf5a444079ef891020629b"
+    },
+    {
+      "path": "src/components/pdf/pdf-structured-data.tsx",
+      "sha": "1ea788124337240e6be92cb01bf6fe0849685b5c"
+    },
+    {
+      "path": "src/components/pdf/pdf-tool-icon.tsx",
+      "sha": "1d9fddf8b5e660738f13064dda5f9edeb7083073"
+    },
+    {
+      "path": "src/data/pdf-catalog.ts",
+      "sha": "e32c02b1f4db8ea2887adb15b0dafca5de69ef46"
+    },
+    {
+      "path": "src/lib/pdf-outbound-links.ts",
+      "sha": "d95df55e346750add2e25a18d31bda8ef851adfb"
+    },
+    {
+      "path": "src/lib/pdf-pagination.ts",
+      "sha": "c41c329b5d4c11d25d5508487ab80be3c93b4c0e"
+    },
+    {
+      "path": "src/lib/pdf-submission-access.ts",
+      "sha": "1f79096815adccaace022313da8f8ec6fb9c13a0"
+    },
+    {
+      "path": "src/lib/pdf-submission-database.ts",
+      "sha": "e500d3d5b9aa13c97f65d76ea03e379fe32889cc"
+    },
+    {
+      "path": "src/lib/pdf-submission-review.ts",
+      "sha": "2a81d9b8d0151adb3d14756b9c4b95f2cc7c5e79"
+    },
+    {
+      "path": "src/lib/pdf-submission-schema.ts",
+      "sha": "eefcce9f9d0ebc71c3e17d0705a14c9ce9cba0cc"
+    },
+    {
+      "path": "src/lib/pdf-submission-store.ts",
+      "sha": "a6be319a146ff17f768c8120573f8909514af3f2"
+    },
+    {
+      "path": "src/styles/askpdf.css",
+      "sha": "90d469cb3234ac44799c598580bedaca40d19032"
+    }
+  ],
+  "adaptations": [
+    "General AI/productivity/development catalogue and branding",
+    "Free-only isolated submission state model, dedicated local/D1 adapters",
+    "Next.js 16 async route compatibility",
+    "No payment, account, email, remote favicons, analytics or borrowed service configuration"
+  ]
+}

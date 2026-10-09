@@ -1,4 +1,11 @@
-.DS_Store
-.vercel
 node_modules/
-.gstack/
+.next/
+.open-next/
+.wrangler/
+coverage/
+*.tsbuildinfo
+.env*
+!.env.example
+
+
+.veronica-submissions/
