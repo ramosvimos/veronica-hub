@@ -44,4 +44,4 @@ A Git commit, passing tests and a draft PR do not constitute a deployment or liv
 
 ## Owned-project guides
 
-Five shared-owner projects have five original practical guides each (25 total), linked from `/blog`, `/our-projects` and their tool listings. Articles are rendered server-side, carry source dates and ownership disclosures, and have canonical URLs, Article structured data and sitemap entries. They describe editorial workflows without invented testing, rankings or guaranteed AI recommendations. See `docs/owned-project-articles.md` for the complete map.
+Five shared-owner projects have five original practical guides each (25 total), linked from `/guides`, `/our-projects` and their tool listings. Articles are rendered server-side, carry source dates and ownership disclosures, and have canonical URLs, Article structured data and sitemap entries. They describe editorial workflows without invented testing, rankings or guaranteed AI recommendations. See `docs/owned-project-articles.md` for the complete map.

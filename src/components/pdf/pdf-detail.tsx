@@ -263,7 +263,7 @@ export function PdfToolDetail({ tool, catalog = pdfTools }: { tool: PdfTool; cat
         </aside>
       </div>
 
-      {tool.ownedProject && <section className="pdf-related"><h2>Guides for this project</h2><p>Ownership disclosure: this project and Veronica Hub share an owner. These guides are editorial explanations, not independent product reviews.</p><ul>{getProjectArticles(tool.slug).map(article=><li key={article.slug}><Link href={`/blog/${article.slug}`}>{article.title}</Link></li>)}</ul><Link href="/our-projects">See all our projects</Link></section>}
+      {tool.ownedProject && <section className="pdf-related"><h2>Guides for this project</h2><p>Ownership disclosure: this project and Veronica Hub share an owner. These guides are editorial explanations, not independent product reviews.</p><ul>{getProjectArticles(tool.slug).map(article=><li key={article.slug}><Link href={`/guides/${article.slug}`}>{article.title}</Link></li>)}</ul><Link href="/our-projects">See all our projects</Link></section>}
       {/* Related tools */}
       {related.length > 0 && (
         <section className="pdf-related">
