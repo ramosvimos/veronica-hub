@@ -1,0 +1,462 @@
+[
+  {
+    "slug": "make-a-quote-ready-instagram-reel-transcript",
+    "projectSlug": "video-script-extractor",
+    "title": "How do you make a quote-ready Instagram Reel transcript?",
+    "seoTitle": "How to Make a Quote-Ready Instagram Reel Transcript for Your Article",
+    "description": "Turn an Instagram Reel into checked research notes. Keep source context, verify the exact words, and separate quotations from your own summary.",
+    "excerpt": "A practical Instagram Reel transcript workflow for writers: preserve the source, check quotations, track uncertain words, and keep your research notes useful.",
+    "date": "2026-10-09",
+    "answer": "Make a quote-ready Instagram Reel transcript by keeping the original recording beside the text and checking every passage you plan to quote. Save the creator, link, passage time, and review status together. Video Script Extractor can provide the starting transcript; deciding what is safe to quote is an editorial task.",
+    "sections": [
+      {
+        "heading": "Define what your Instagram Reel transcript needs to prove",
+        "paragraphs": [
+          "A transcript is useful research material, but a neatly written sentence is not evidence that a speaker said it. Before processing a video, write down the question your article needs to answer. Perhaps you need a creator’s explanation of a design choice, rather than their entire account of making a product. That narrower purpose tells you which passage deserves close attention.",
+          "Separate three questions in your notes: what was said, who said it, and whether the underlying claim is true. Checking the recording can establish the first two. It cannot establish a statistic, a product promise, or a historical claim merely because someone says it confidently. Keep a separate fact-check item for anything your finished article presents as a fact."
+        ]
+      },
+      {
+        "heading": "Capture a usable starting point and preserve it",
+        "paragraphs": [
+          "Video Script Extractor’s official getting-started guide describes signing in, submitting a public Instagram Reel or single video-post link, and downloading the completed result from Transcripts. The download contains TXT, SRT, and VTT. These are speech-transcription outputs, not an extraction of the post description or text embedded in the image. The guide was checked on October 9, 2026.",
+          "Create a small research folder before editing. Keep the original export intact, add a working text copy, and make a short source note. Give the folder a name you will recognize next month, such as the subject and recording date if known. A useful source note also says when you accessed the link, because a later reader may encounter a changed or unavailable post."
+        ],
+        "steps": [
+          "Open the individual video and confirm that it is the source you intend to use.",
+          "Save its direct link, creator name, and a one-sentence description.",
+          "Download the result once it is ready, then make a separate review copy.",
+          "Mark the copy as unreviewed until you have checked the relevant audio."
+        ]
+      },
+      {
+        "heading": "Review a passage as a unit of meaning",
+        "paragraphs": [
+          "Listen to the sentence before and after a candidate quote. A speaker might be reporting a common objection, quoting someone else, or setting up a correction. Copying only the memorable sentence can remove that context. Record the question the speaker is answering alongside the passage, especially when you found the clip through a search result rather than following the whole discussion.",
+          "Use an explicit status beside each candidate: checked, needs another listen, or do not quote. The third status is useful. It prevents an attractive but unclear line from returning to your draft later. This is a suggested research method, not a status feature promised by the transcription service. A basic document or notebook is enough to maintain it."
+        ]
+      },
+      {
+        "heading": "Keep exact quotations separate from useful paraphrases",
+        "paragraphs": [
+          "A quotation should preserve the speaker’s meaning and wording. If you want a tighter explanation in your own voice, write a paraphrase in a separate field. Do not improve an awkward sentence and then leave quotation marks around the improved version. That confuses your editorial contribution with the source.",
+          "For an illustrative note, imagine a speaker explains that a prototype helped their small team discuss layout choices. Your summary might be: the prototype supported discussion. It should not become: the prototype proved the design was effective. The second version adds a result that the original idea does not establish. Compare your paraphrase with the recording again after drafting; unsupported certainty often appears during editing rather than transcription."
+        ]
+      },
+      {
+        "heading": "Make a quote card that another editor can check",
+        "paragraphs": [
+          "For each selected passage, record the exact wording, source link, passage start time, speaker identity, and your review date. Add any unresolved issue immediately below it. If a spelling comes from a separate official source, save that link too. This makes the quote card useful when the writing moves from research to editing, or when another person checks the final copy.",
+          "Keep supporting material proportional to the job. A short personal essay may need a few carefully maintained notes. A report involving consequential claims deserves a more formal review process. In either case, avoid calling the entire transcript verified because you checked two lines. State which portions you actually reviewed and leave the rest visibly outside that assurance."
+        ]
+      },
+      {
+        "heading": "Resolve publication questions before the final draft",
+        "paragraphs": [
+          "Public access is a retrieval condition, not a blanket statement about reuse rights. Prefer your own material or content you are authorized to reuse, and resolve any permission questions appropriate to your publication. This guide does not determine whether a particular quotation is legally permitted. Keep attribution and permission decisions separate from the transcription tool’s ability to return text.",
+          "Before delivery, reopen the source link and read your article’s surrounding paragraph. Confirm that your introduction identifies the speaker accurately, your sentence does not exaggerate the claim, and the quote still supports the point you are making. If the video has disappeared, tell your editor rather than silently substituting an unchecked repost. A good research handoff makes uncertainty easy to see."
+        ]
+      }
+    ],
+    "conclusion": "A quote-ready Instagram Reel transcript is a checked set of passages with enough context to revisit them. Keep the original export, preserve the source trail, and distinguish exact words from your interpretation. When a passage cannot be verified, leave it out of the quotation rather than polishing uncertainty into confidence.",
+    "faq": [
+      {
+        "question": "Can I quote a transcript without listening to the Reel?",
+        "answer": "For publication, check the exact passage against the recording. A transcript is a useful draft, but it can contain plausible errors or lose the surrounding context."
+      },
+      {
+        "question": "Do I need subtitle files for a written article?",
+        "answer": "You can write from TXT. Keeping a timed export is helpful when you need to relocate a passage, even if the final article contains no subtitles."
+      },
+      {
+        "question": "What if a name or phrase remains unclear?",
+        "answer": "Keep it marked as unresolved, seek an appropriate confirming source, or choose another passage. Do not substitute a confident guess inside a direct quote."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Video Script Extractor: getting-started workflow — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/instagram-transcript"
+      },
+      {
+        "label": "Video Script Extractor: transcript review limitations — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/instagram-transcription-accuracy"
+      }
+    ],
+    "tags": [
+      "Instagram Reel transcript",
+      "quotation review",
+      "research notes",
+      "speech transcription"
+    ]
+  },
+  {
+    "slug": "choose-transcript-export-for-video-editor",
+    "projectSlug": "video-script-extractor",
+    "title": "Which transcript export should you hand to a video editor?",
+    "seoTitle": "TXT, SRT or VTT: Which Transcript Export Should Your Editor Receive?",
+    "description": "Choose a transcript export by its next destination. Prepare TXT, SRT, or VTT, record the matching video version, and verify the handoff.",
+    "excerpt": "Choose a transcript file for the actual editing task. Learn what to send with TXT, SRT, or VTT, how to label versions, and how to verify a subtitle handoff.",
+    "date": "2026-10-09",
+    "answer": "Send the format your editor’s destination accepts: TXT for working with the wording, or a supported timed format for captions. Video Script Extractor provides TXT, SRT, and VTT, but the file extension is only part of a useful handoff. Include the matching video version, the review status, and a clear explanation of what the editor should do next.",
+    "sections": [
+      {
+        "heading": "Choose a transcript export by the next action",
+        "paragraphs": [
+          "Ask the recipient what they will do when they open the file. Someone cutting a new video may want to search spoken material and select lines. Someone preparing captions needs timings attached to those lines. Someone publishing a web video needs the format their player supports. These are different jobs even when they start with the same recording.",
+          "The official Video Script Extractor format guide identifies TXT as untimed text and SRT and VTT as timed subtitle files. Its exports are available together. Check the recipient’s import requirements before choosing one. You do not need to pick a format because it sounds newer or more professional; the correct choice is the one that supports the next step without unnecessary conversion."
+        ]
+      },
+      {
+        "heading": "Use TXT for a script discussion or paper edit",
+        "paragraphs": [
+          "A paper edit is a written plan for the material that should appear in a cut. For this job, readable text is often the most convenient starting point. Put editorial instructions outside the speaker’s words. For example, write an instruction to move an explanation earlier, rather than quietly moving it inside an apparently original transcript.",
+          "Keep two files if the task involves substantial rewriting: a reviewed record of the speech and a new script draft. Their filenames should explain which is which. An editor should not have to infer whether a sentence was spoken, corrected for recognition, or newly written. This distinction is especially helpful when a team later searches the recording for a line that exists only in the revised script."
+        ]
+      },
+      {
+        "heading": "Use timed files for captions and inspect the real format",
+        "paragraphs": [
+          "Timed text carries instructions about when words should appear. In the formats documented by the product, SRT uses numbered cues and comma-based milliseconds; VTT uses its own syntax, including a WEBVTT header. The W3C WebVTT specification describes external text tracks associated with media. Choose the actual supported export instead of changing a filename’s extension.",
+          "Ask the editor to identify the receiving application and its subtitle import option. Do this before you reshape hundreds of cues. A short compatibility check is cheaper than a late discovery that the final destination expects something different. This article does not promise compatibility with every editor, and a successful import is not the same as a finished caption review."
+        ]
+      },
+      {
+        "heading": "Send a matching video and a small handoff note",
+        "paragraphs": [
+          "The handoff note should state which cut the timings belong to. A file called final-video can become ambiguous as soon as someone makes another final version. Use a shared convention such as project name, date, and revision. Keep the subtitle file and media revision related in their names, while avoiding personal information that does not belong in shared filenames.",
+          "Add one sentence about what has been checked. “Wording reviewed; timing still needs checking in the edited cut” is more useful than “done.” If the recipient must resolve a doubtful phrase, include its location and the question. Do not bury the uncertainty in an unrelated chat thread that will be difficult to find when the edit reaches approval."
+        ],
+        "steps": [
+          "Name the source video revision in the delivery note.",
+          "List each file and its purpose: source text, edited script, or timed captions.",
+          "Describe completed checks and unresolved items separately.",
+          "Ask the recipient to confirm import into the intended destination."
+        ]
+      },
+      {
+        "heading": "Run a short handoff test before approving the full job",
+        "paragraphs": [
+          "Create a disposable copy of the project and import the file there first. Preview an early cue, a cue after an edit, and the final spoken section. Then review the whole timeline before publication. These sample checks are a quick way to catch a gross mismatch, not a replacement for a complete timing pass.",
+          "Watch for two different problems. A constant shift may suggest that the video has an added introduction or another offset. A mismatch that changes after cuts suggests that the subtitle timings belong to a different edit. Investigate the media versions before making random global timing adjustments. The aim is to diagnose the mismatch, not to make one chosen line look correct while leaving the rest wrong."
+        ]
+      },
+      {
+        "heading": "Preserve a simple revision trail",
+        "paragraphs": [
+          "When the editor returns changes, save the revised captions under a new version rather than overwriting the only original. Keep the approval note with the delivered files. A lightweight trail answers three practical questions: which video was reviewed, who checked it, and which subtitle file belongs to that approval.",
+          "Be explicit about conversion work. If someone converts SRT to VTT, preserve the input and review the output in the destination player. Conversion can be a necessary workflow step, but it is still a change that deserves checking. Avoid promising that formatting, positioning, or presentation will remain identical across every tool. The final playback environment is where the result needs to work."
+        ]
+      }
+    ],
+    "conclusion": "The best transcript export is the one your recipient can use for a clearly defined task. Send TXT for written work, choose a supported timed format for captions, and pair either with version information. A brief import and playback check turns a file transfer into a dependable editing handoff.",
+    "faq": [
+      {
+        "question": "Should I send all three files?",
+        "answer": "You can, provided the note explains their purposes. Name the format the editor should start with so the extra files do not create ambiguity."
+      },
+      {
+        "question": "Can I rename an SRT file to make a VTT file?",
+        "answer": "Renaming does not convert the underlying syntax. Use the exported VTT or a proper conversion workflow, then check the result."
+      },
+      {
+        "question": "Will editing the TXT file update my subtitles?",
+        "answer": "No. Treat the exports as separate files. Apply approved wording corrections to the caption version you will publish and check that version again."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Video Script Extractor: export format guide — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/txt-srt-vtt"
+      },
+      {
+        "label": "W3C: WebVTT specification — checked October 9, 2026",
+        "url": "https://www.w3.org/TR/webvtt1/"
+      }
+    ],
+    "tags": [
+      "transcript export",
+      "TXT",
+      "SRT",
+      "VTT",
+      "video editing"
+    ]
+  },
+  {
+    "slug": "review-automatic-captions-before-publishing",
+    "projectSlug": "video-script-extractor",
+    "title": "How do you review automatic captions before publishing a Reel?",
+    "seoTitle": "How to Review Automatic Captions Before Publishing Your Next Video",
+    "description": "Use a practical caption review pass for wording, meaning, timing, and presentation. Separate a generated subtitle draft from a publishable result.",
+    "excerpt": "Review automatic captions with your final video: check meaning, unresolved words, cue timing, and playback, then record exactly which version you approved.",
+    "date": "2026-10-09",
+    "answer": "Review automatic captions against the final video, checking the words first and the viewing experience second. A generated subtitle file is a starting point. It does not establish that every word is correct, that the timings match your edited cut, or that the captions communicate all audio information your audience needs.",
+    "sections": [
+      {
+        "heading": "Decide what a finished automatic caption review means",
+        "paragraphs": [
+          "Write a short acceptance note before you begin: the final captions should reflect the intended recording, remain understandable during playback, and contain no unresolved guesses presented as certain words. This keeps a review from becoming an endless cycle of cosmetic tweaks while substantive errors remain.",
+          "W3C’s caption guidance explains that accessible captions include speech and relevant non-speech audio and that automatic captions need verification. That is broader than obtaining a transcript of spoken words. Video Script Extractor provides a speech-transcription starting point; its official review guide also says it does not assign speaker labels. Plan any additional caption editing in your chosen editor rather than assuming it happened automatically."
+        ]
+      },
+      {
+        "heading": "Review meaning before punctuation",
+        "paragraphs": [
+          "Read one short passage while listening to the corresponding audio. Ask whether the sentence communicates the same proposition, not merely whether it looks grammatical. In particular, flag a sentence that changes certainty, reverses a condition, or turns a possibility into an instruction. A beautifully punctuated sentence can still convey the wrong message.",
+          "Try an illustrative review exercise: a speaker explains that a setting is optional for this demonstration. If the draft captions say the setting is required, the error matters more than a missing comma. Correct it from the recording and inspect the surrounding explanation. Do not generalize from this fictional example into a claim about how often the product makes that mistake."
+        ]
+      },
+      {
+        "heading": "Keep an unresolved list while you work",
+        "paragraphs": [
+          "Use a separate list for passages that interrupt the review. Record the time, the current text, and the exact uncertainty. “Is this the product name or an ordinary word?” is a useful question. “Bad caption” is less useful because a second reviewer must reconstruct what worried you. Continue reviewing other passages if you can do so without relying on the unresolved wording.",
+          "Assign responsibility for the list before publication. A creator may know a product’s proper name, while a fluent speaker may be needed for a passage in another language. If nobody can verify a phrase, choose an honest treatment appropriate to the content rather than filling the gap with a guess. W3C’s transcription guidance discusses identifying unintelligible speech and preserving the meaning of what was actually said."
+        ]
+      },
+      {
+        "heading": "Check timing using the exact video you will publish",
+        "paragraphs": [
+          "Freeze a review copy of the intended final cut, then import the captions into that project. Watch transitions between speech and silence, changes in speaker, and any point where an edit moves the recording forward. A caption should not remain on screen as if it belongs to a different sentence or a different person.",
+          "Do a second viewing focused on the experience of reading. Ask whether each cue stays long enough to follow, whether a break divides an awkward phrase, and whether the next caption arrives before you have processed the previous one. These are editorial review questions, not universal numerical limits. Follow any concrete requirements of your destination and check their current documentation when a project depends on them."
+        ]
+      },
+      {
+        "heading": "Review presentation in the destination player",
+        "paragraphs": [
+          "Preview the published or staged version at the size your audience will use. Text that looked comfortable on an editing monitor may feel crowded in a phone-sized view. Check whether captions cover a relevant label, whether important text is clipped, and whether opening player controls obscures something the viewer needs. Change the layout where the destination gives you that control.",
+          "Also check that the delivered track is the intended revision. A common process failure is approving an edited file but uploading its earlier draft. Give the approved file a distinct name and include it in the final delivery checklist. If captions are permanently embedded into the picture, preview the rendered video because the editable project alone is not the delivered artifact."
+        ],
+        "steps": [
+          "Play the final media with the selected caption track enabled.",
+          "Check the beginning, end, and every edited transition.",
+          "Watch a representative section at a small viewing size.",
+          "Confirm that the uploaded or rendered result uses the approved revision."
+        ]
+      },
+      {
+        "heading": "Record review scope without inventing an accuracy score",
+        "paragraphs": [
+          "Write down the media filename, caption filename, review date, reviewer, and any open issues. You can say that the full recording was checked when that is what happened. Avoid turning an informal review into a percentage or a claim that the service is always accurate. A meaningful measured accuracy result requires a defined reference and a documented method.",
+          "For collaborative work, make a clear decision at the end: approved, approved after specific changes, or needs another review. Include the exact changes in the second case. “Looks fine” leaves too much room for a teammate to assume that wording, timing, speaker identification, and accessibility were all checked when only one of those tasks was done."
+        ]
+      }
+    ],
+    "conclusion": "An automatic caption review is complete when the actual delivery version has been checked and any remaining uncertainty is handled openly. Separate wording, timing, and presentation passes so none disappears inside a vague approval. Keep the reviewed files together and verify the version your audience will see.",
+    "faq": [
+      {
+        "question": "Does a successful subtitle import mean the captions are ready?",
+        "answer": "No. It shows that the destination accepted the file. Review the wording, timing, and playback separately before publication."
+      },
+      {
+        "question": "Should captions identify important sounds as well as speech?",
+        "answer": "When sounds are needed to understand the content, caption guidance calls for representing that information. A speech-only draft may need additional work."
+      },
+      {
+        "question": "Can I claim perfect accuracy after reviewing one section?",
+        "answer": "No. A checked section establishes only what you examined there. Describe your actual review scope and avoid unsupported performance claims."
+      }
+    ],
+    "sources": [
+      {
+        "label": "W3C WAI: captions and automatic-caption limitations — checked October 9, 2026",
+        "url": "https://www.w3.org/WAI/media/av/captions/"
+      },
+      {
+        "label": "W3C WAI: transcribing audio to text — checked October 9, 2026",
+        "url": "https://www.w3.org/WAI/media/av/transcribing/"
+      },
+      {
+        "label": "Video Script Extractor: review and speaker-label limitations — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/instagram-transcription-accuracy"
+      }
+    ],
+    "tags": [
+      "automatic captions",
+      "caption review",
+      "subtitle timing",
+      "accessibility"
+    ]
+  },
+  {
+    "slug": "turn-reel-transcript-into-newsletter",
+    "projectSlug": "video-script-extractor",
+    "title": "How do you turn your own Reel transcript into a useful newsletter?",
+    "seoTitle": "How to Turn Your Own Reel Transcript Into a Useful Email Newsletter",
+    "description": "Build a newsletter from your own Reel without padding the transcript. Choose one reader question, add missing context, and check the final draft.",
+    "excerpt": "Turn your own Reel transcript into a reader-focused newsletter. Choose one useful idea, add the missing explanation, and keep your original voice in the draft.",
+    "date": "2026-10-09",
+    "answer": "Turn a Reel transcript into a newsletter by choosing one reader question and writing an answer that works without the video. Keep the useful spoken idea, replace visual references with clear context, and add only information you can support. A transcript saves the wording; the newsletter still needs its own purpose, structure, and editorial review.",
+    "sections": [
+      {
+        "heading": "Choose the newsletter promise before opening the transcript",
+        "paragraphs": [
+          "Write a one-sentence promise for the email. For example, a demonstration about organizing a desk might become an explanation of how to choose one place for incoming paperwork. That is narrower and more useful than announcing that you have turned a video into an article. The reader should know what they can understand or do after reading.",
+          "Use a topic you can develop honestly from your own knowledge and material. A short clip may contain an observation, not enough evidence for a broad guide. If the transcript only supports a modest point, make that point well. Expanding the word count should never expand the certainty of your original claim."
+        ]
+      },
+      {
+        "heading": "Prepare a working copy of your Reel transcript",
+        "paragraphs": [
+          "Video Script Extractor can turn public Instagram video speech into text and export a plain-text file. Its official site, checked on October 9, 2026, describes written-content reuse as a possible next step. The newsletter workflow here is an editorial recommendation; it does not imply that the service creates or sends an email campaign for you.",
+          "Keep the source text in one document and draft the newsletter in another. Mark phrases you want to retain because they sound like you. Mark gaps that depended on the picture, such as a reference to an item being pointed at. If the original video is in another language, do not assume a transcript has translated it: the product’s language guide distinguishes transcription from translation."
+        ]
+      },
+      {
+        "heading": "Sort the material into idea, explanation, and example",
+        "paragraphs": [
+          "Annotate the transcript by function rather than copying its sequence. Find the central idea, the explanation that supports it, and an example that makes it practical. Spoken delivery often circles back or waits for a visual reveal. An email reader should not have to recreate that pacing to understand the point.",
+          "Consider this invented planning example: a creator demonstrates keeping one tray for incoming papers, then sorting it at a chosen time. The newsletter could explain what goes in the tray, what should bypass it, and how to notice when the habit is not working. Those are proposed additions to investigate or write from real experience. They are not claims that a particular recording already contained those details."
+        ],
+        "steps": [
+          "Highlight the one idea that matches your newsletter promise.",
+          "Move useful supporting details beneath that idea.",
+          "List the questions a reader would ask without the video.",
+          "Fill those gaps from verified information or your own genuine experience."
+        ]
+      },
+      {
+        "heading": "Rewrite references that depended on watching the video",
+        "paragraphs": [
+          "Look for phrases such as “over here,” “this one,” or “as you can see.” Replace them with the named object, action, or result the reader needs. If you cannot explain an important step clearly in text, consider a relevant image or a link to the exact source video. Do not leave the written instructions dependent on an invisible gesture.",
+          "Preserve the distinction between description and evidence. An image can show the arrangement of a workspace, but it does not establish that the arrangement improved productivity. If you want to make an outcome claim, supply appropriate evidence or phrase it as your own limited observation when it truly is one. A newsletter feels more trustworthy when it explains what the example can and cannot demonstrate."
+        ]
+      },
+      {
+        "heading": "Draft an email-shaped piece rather than a cleaned transcript",
+        "paragraphs": [
+          "Open with the reader’s situation, give the central idea, and develop the minimum explanation needed to make it useful. End with a relevant next step. That step might be trying one small change, answering a specific question, or viewing the original demonstration. It does not need to become a sales pitch simply because the source was a social post.",
+          "Use the transcript as a voice reference, not a rule that every sentence must survive. Remove repeated setup, spoken navigation, and material that belongs to a different subject. Keep distinctive wording when it helps the reader. Read the result aloud once to catch sentences that became stiff during editing, then read it silently to check that the structure stands on its own."
+        ]
+      },
+      {
+        "heading": "Check the newsletter as a separate publication",
+        "paragraphs": [
+          "Review every statement you added after transcription. Confirm links, names, and any concrete instructions; do not assume they were checked just because the source video was yours. A new draft can introduce a new error. If the email mentions another person, review whether the wording and the intended sharing are appropriate before including it.",
+          "Preview the email where it will be sent and check the subject, preview text, body, and destination links together. The subject should promise what the email delivers. A useful practical test is to hide the original Reel and ask someone to explain the newsletter’s main point after reading it. If they need the video to understand basic references, revise the text before scheduling or sending."
+        ]
+      }
+    ],
+    "conclusion": "A Reel transcript becomes a useful newsletter when you rebuild it around a clear reader need. Preserve your genuine voice, supply the missing context, and verify new material separately. The finished email should reward the reader even if they never open the original video.",
+    "faq": [
+      {
+        "question": "Can I publish the transcript unchanged as a newsletter?",
+        "answer": "You can use your own words, but review whether the text makes sense without gestures, cuts, and visual demonstrations. A direct transcript often needs restructuring."
+      },
+      {
+        "question": "Does Video Script Extractor translate the newsletter?",
+        "answer": "Its language guide describes original-language transcription, not translation. A translated newsletter requires a separate translation and review step."
+      },
+      {
+        "question": "How long should the newsletter be?",
+        "answer": "Use enough space to answer its one reader question. If the source supports only a short useful note, publish that instead of padding it into a long article."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Video Script Extractor: transcription and written-content workflow — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/"
+      },
+      {
+        "label": "Video Script Extractor: original-language transcription — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/multilingual-transcription"
+      }
+    ],
+    "tags": [
+      "Reel transcript",
+      "newsletter writing",
+      "content repurposing",
+      "editing"
+    ]
+  },
+  {
+    "slug": "diagnose-instagram-transcription-link-failure",
+    "projectSlug": "video-script-extractor",
+    "title": "Why does an Instagram transcription link fail, and what should you check?",
+    "seoTitle": "Instagram Transcription Link Failed? A Practical Diagnostic Checklist",
+    "description": "Diagnose an Instagram transcription failure by separating source access, task state, account limits, and output problems before retrying.",
+    "excerpt": "Troubleshoot an Instagram transcription link methodically: check the source, inspect the existing task, read account limits, and make one informed next move.",
+    "date": "2026-10-09",
+    "answer": "An Instagram transcription link can fail because the source is unavailable, the link does not identify a supported video, the audio is unsuitable, or the task encounters a processing problem. Check those possibilities in order instead of repeatedly submitting the same address. Also distinguish a failed job from a completed transcript whose wording needs correction.",
+    "sections": [
+      {
+        "heading": "Start with the exact symptom",
+        "paragraphs": [
+          "Write down what you can actually observe: a rejected link, a pending task, a failed task, a download problem, or an incorrect transcript. These point to different next steps. “It does not work” combines them into one vague complaint and makes it easy to change the wrong thing.",
+          "Save the visible message and the time you saw it. If you report the issue, quote the wording accurately rather than describing an error code from memory. Do not infer the cause from the appearance of a spinner or from another user’s old support post. Your first goal is to establish where the workflow stopped, not to produce a diagnosis immediately."
+        ]
+      },
+      {
+        "heading": "Check whether the Instagram transcription link identifies a usable source",
+        "paragraphs": [
+          "Video Script Extractor’s official FAQ says the source must be an accessible public Instagram Reel or video post with spoken audio. Private, deleted, or restricted material cannot be retrieved through that workflow. The official getting-started guide also distinguishes a single supported video from a profile or a search page.",
+          "Open the link you actually pasted and compare it with the intended video. A copied profile address may look plausible while pointing to many posts. Check whether the recording still exists and whether speech is present. Do not make a private video public merely to solve a tool problem; choose a workflow appropriate to the material and the people involved. Account access in your own session is not evidence that a separate service can retrieve the same content."
+        ]
+      },
+      {
+        "heading": "Inspect the existing task before submitting again",
+        "paragraphs": [
+          "Look at the saved task state and any available explanation. The official guide says tasks can continue in the background and directs users to Transcripts for their status. Leaving a page therefore should not be treated as proof that a job has disappeared. Check for a completed or ongoing record before creating another one.",
+          "Keep a brief attempt log when troubleshooting: link, submission time, visible status, and what changed before the next attempt. This is your own record, not a promise that the product provides a diagnostic log. It prevents a sequence of identical retries from becoming confusing, especially when several browser tabs are open or two people are investigating the same video."
+        ]
+      },
+      {
+        "heading": "Read limits separately from technical errors",
+        "paragraphs": [
+          "An account allowance or credit message is a usage condition, not proof that the video is corrupt. Read the current account screen and pricing information for the specific limit involved. Check whether the message refers to duration, task count, an active job, or available credit. Avoid using a remembered price or allowance as your diagnostic source because plan details can change.",
+          "Decide whether you want to wait, choose an eligible task, or consider a paid option only after you understand the message. Do not assume that purchasing credit fixes inaccessible content or unsupported input. Likewise, do not keep reprocessing a ready result merely because you need another copy of its output; inspect the existing record and available download controls first."
+        ]
+      },
+      {
+        "heading": "Separate retrieval problems from transcript quality problems",
+        "paragraphs": [
+          "If the task completed and produced text, you have a different problem from a rejected link. Identify a particular passage and compare it with the recording. Write down whether the issue is missing wording, an incorrect term, the language of the output, or subtitle timing. A concrete passage is more useful for review than a general statement that the transcript is wrong.",
+          "For a timing complaint, confirm that the captions and video come from the same cut. If you trimmed an introduction or changed playback speed after transcription, investigate that difference before blaming the original timing. If a name is misrecognized, another submission may or may not change it; a verified correction in your working copy can be the more direct next step. No retry guarantees a better transcript."
+        ]
+      },
+      {
+        "heading": "Make one informed next move and preserve useful evidence",
+        "paragraphs": [
+          "Choose the action that matches what you found: copy the correct individual-video link, resolve a documented account limit, wait for a genuinely active task, or report a persistent failure through the product’s official contact route if one is available. When a temporary retrieval issue seems possible, a later retry can be reasonable, but it should follow the current task state and visible instructions.",
+          "Prepare a concise support report with the source link you are permitted to share, approximate attempt time, browser, visible error, and the troubleshooting already completed. Redact account details or unrelated material from any screenshot. Do not send passwords, session information, or authentication tokens. A precise report is useful even when the cause remains unknown; an invented explanation only makes the investigation harder."
+        ],
+        "steps": [
+          "Record the symptom and the exact visible message.",
+          "Confirm the source type, access, and spoken audio.",
+          "Check the saved task and current account information.",
+          "Change one relevant condition or prepare a focused support report."
+        ]
+      }
+    ],
+    "conclusion": "An Instagram transcription link failure is easier to diagnose when you separate source access, task state, account conditions, and output quality. Work from observed evidence, avoid duplicate submissions, and choose the smallest relevant next step. If the cause remains uncertain, preserve that uncertainty in the support report rather than guessing.",
+    "faq": [
+      {
+        "question": "Why can I watch a video that the service cannot retrieve?",
+        "answer": "Your signed-in session may have access that a separate service does not. The documented workflow requires accessible public supported content."
+      },
+      {
+        "question": "Should I keep submitting the same link?",
+        "answer": "Check the existing task first. Repeating an unchanged request may create confusion without addressing the reason it stopped."
+      },
+      {
+        "question": "Does an inaccurate transcript mean the link failed?",
+        "answer": "No. A completed result with wording errors is a review issue. Identify the affected passage and check it against the original recording."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Video Script Extractor: supported links and failure conditions — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/"
+      },
+      {
+        "label": "Video Script Extractor: task history and getting started — checked October 9, 2026",
+        "url": "https://videoscriptextractor.com/blog/instagram-transcript"
+      }
+    ],
+    "tags": [
+      "Instagram transcription",
+      "troubleshooting",
+      "public video links",
+      "transcript review"
+    ]
+  }
+]

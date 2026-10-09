@@ -23,6 +23,7 @@ export type PdfTool = {
   url: string;
   sources: { label: string; url: string }[];
   featured?: boolean;
+  ownedProject?: boolean;
   paidSubmission?: boolean;
   reciprocalSubmission?: boolean;
   reviewedOn?: string;
@@ -951,7 +952,171 @@ export const pdfTools: PdfTool[] = [
       "local-development"
     ],
     "privacyNotes": "Data handling and retention have not been independently verified here. Review the provider\u2019s current privacy documentation before sharing private data."
-  }
+  },
+{
+  "slug": "deepseek-guides",
+  "name": "DeepSeekDSH",
+  "initials": "D",
+  "websiteDomain": "deepseekdsh.com",
+  "description": "Independent setup, troubleshooting and workflow guides for DeepSeek Harness.",
+  "categories": [
+    "development",
+    "ai"
+  ],
+  "pricing": "Not verified",
+  "processing": "Not verified",
+  "platform": "Web",
+  "registration": "Check the current project",
+  "freeLimits": "Check current project information; no allowance or plan guarantee is made here.",
+  "bestFor": "Independent setup, troubleshooting and workflow guides for DeepSeek Harness.",
+  "limitation": "A community guide, not an official DeepSeek service. Verify version-specific instructions against upstream sources.",
+  "features": [
+    "Our project",
+    "Practical guides"
+  ],
+  "url": "https://deepseekdsh.com/",
+  "sources": [
+    {
+      "label": "Project website",
+      "url": "https://deepseekdsh.com/"
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "evidenceStatus": "reviewed",
+  "ownedProject": true,
+  "privacyNotes": "Review the project and any downstream provider privacy terms before submitting private data."
+},
+{
+  "slug": "random-animal-picker",
+  "name": "Random Animal Picker",
+  "initials": "RAP",
+  "websiteDomain": "randomanimalpicker.com",
+  "description": "Generate animal prompts and explore animal profiles for creative exercises and prototypes.",
+  "categories": [
+    "design",
+    "other"
+  ],
+  "pricing": "Not verified",
+  "processing": "Not verified",
+  "platform": "Web",
+  "registration": "Check the current project",
+  "freeLimits": "Check current project information; no allowance or plan guarantee is made here.",
+  "bestFor": "Generate animal prompts and explore animal profiles for creative exercises and prototypes.",
+  "limitation": "Creative prompts are not an audited random source or a license to reuse animal photography.",
+  "features": [
+    "Our project",
+    "Practical guides"
+  ],
+  "url": "https://randomanimalpicker.com/",
+  "sources": [
+    {
+      "label": "Project website",
+      "url": "https://randomanimalpicker.com/"
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "evidenceStatus": "reviewed",
+  "ownedProject": true,
+  "privacyNotes": "Review the project and any downstream provider privacy terms before submitting private data."
+},
+{
+  "slug": "free-ai-voice-generator",
+  "name": "Free AI Voice Generator",
+  "initials": "FAV",
+  "websiteDomain": "freeaivoicegenerator.com",
+  "description": "Turn written scripts into voiceovers with available preset text-to-speech voices.",
+  "categories": [
+    "ai",
+    "design"
+  ],
+  "pricing": "Not verified",
+  "processing": "Not verified",
+  "platform": "Web",
+  "registration": "Check the current project",
+  "freeLimits": "Check current project information; no allowance or plan guarantee is made here.",
+  "bestFor": "Turn written scripts into voiceovers with available preset text-to-speech voices.",
+  "limitation": "Preset text-to-speech is the current focus. Memorial voice cloning remains waitlisted; check availability and usage terms.",
+  "features": [
+    "Our project",
+    "Practical guides"
+  ],
+  "url": "https://freeaivoicegenerator.com/",
+  "sources": [
+    {
+      "label": "Project website",
+      "url": "https://freeaivoicegenerator.com/"
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "evidenceStatus": "reviewed",
+  "ownedProject": true,
+  "privacyNotes": "Review the project and any downstream provider privacy terms before submitting private data."
+},
+{
+  "slug": "video-script-extractor",
+  "name": "Video Script Extractor",
+  "initials": "VSE",
+  "websiteDomain": "videoscriptextractor.com",
+  "description": "Create speech transcripts and subtitle exports for supported video workflows.",
+  "categories": [
+    "productivity",
+    "ai"
+  ],
+  "pricing": "Not verified",
+  "processing": "Not verified",
+  "platform": "Web",
+  "registration": "Check the current project",
+  "freeLimits": "Check current project information; no allowance or plan guarantee is made here.",
+  "bestFor": "Create speech transcripts and subtitle exports for supported video workflows.",
+  "limitation": "Speech transcription is not on-screen text OCR. Check supported inputs, access conditions and export availability.",
+  "features": [
+    "Our project",
+    "Practical guides"
+  ],
+  "url": "https://videoscriptextractor.com/",
+  "sources": [
+    {
+      "label": "Project website",
+      "url": "https://videoscriptextractor.com/"
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "evidenceStatus": "reviewed",
+  "ownedProject": true,
+  "privacyNotes": "Review the project and any downstream provider privacy terms before submitting private data."
+},
+{
+  "slug": "askpdf-directory",
+  "name": "AskPDF",
+  "initials": "A",
+  "websiteDomain": "askpdf.top",
+  "description": "Compare PDF tools by task and practical constraints before visiting their providers.",
+  "categories": [
+    "productivity"
+  ],
+  "pricing": "Not verified",
+  "processing": "Not verified",
+  "platform": "Web",
+  "registration": "Check the current project",
+  "freeLimits": "Check current project information; no allowance or plan guarantee is made here.",
+  "bestFor": "Compare PDF tools by task and practical constraints before visiting their providers.",
+  "limitation": "AskPDF is a directory. It does not process uploaded PDF files; provider terms and handling differ.",
+  "features": [
+    "Our project",
+    "Practical guides"
+  ],
+  "url": "https://askpdf.top/",
+  "sources": [
+    {
+      "label": "Project website",
+      "url": "https://askpdf.top/"
+    }
+  ],
+  "reviewedOn": "2026-10-09",
+  "evidenceStatus": "reviewed",
+  "ownedProject": true,
+  "privacyNotes": "Review the project and any downstream provider privacy terms before submitting private data."
+}
 ];
 export const pdfCollections = [
   {

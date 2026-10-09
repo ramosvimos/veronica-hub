@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "how-to-start-deepseek-harness-safely",
+    "projectSlug": "deepseek-guides",
+    "title": "How do you start DeepSeek Harness safely?",
+    "seoTitle": "How to Start DeepSeek Harness Safely: A Practical First-Run Checklist",
+    "description": "Prepare a disposable workspace, connect a model, and verify one bounded task before using DeepSeek Harness on an important project.",
+    "excerpt": "Start DeepSeek Harness with a disposable workspace, a verified model connection, and a small task you can inspect before giving it access to important files.",
+    "date": "2026-10-09",
+    "answer": "Start DeepSeek Harness in a dedicated test environment, connect a supported model, and verify the selected folder before allowing file changes. Use DeepSeekDSH as an independent navigation guide, then check the upstream instructions for your installed version. The official project describes the software as experimental and unaudited, so a successful first session does not establish that it is safe for sensitive or production work.",
+    "sections": [
+      {
+        "heading": "Define a first task you can actually check",
+        "paragraphs": [
+          "A good first session has a visible finish line. For example, create a folder containing a short, invented project description and ask the assistant to identify its purpose. You should already know the answer. This makes it easier to notice whether the assistant read the file, confused the location, or supplied a plausible summary without supporting evidence.",
+          "Leave production credentials, client documents, and irreplaceable files outside the experiment. A folder with harmless sample material reduces what you could lose, but it is not an isolation boundary by itself. Prefer a disposable environment when you can. Keep an untouched copy of the sample so you can compare the result or start again without reconstructing the setup."
+        ]
+      },
+      {
+        "heading": "Use the installation guide for your actual machine",
+        "paragraphs": [
+          "DeepSeekDSH separates its Desktop and command-line instructions. That is useful because an application installer, an npm launch, and a source checkout have different prerequisites. Begin with the route that matches your operating system and processor, rather than combining instructions from several tutorials. Check the destination domain before downloading anything.",
+          "The upstream repository currently documents an npm command that starts a local Web UI. Its developer-preview status means instructions can change. Record the application or package version you used and the date of the guide. If the interface differs, investigate that mismatch before improvising configuration changes. This article is a preparation workflow, not a claim that either installer was tested here."
+        ]
+      },
+      {
+        "heading": "Separate the model connection from file access",
+        "paragraphs": [
+          "The official Web UI guide places model configuration in Settings, under Models. Configure the provider there and select a model that your installation exposes. Keep the credential out of the conversation, source files, and screenshots. A provider account and its usage allowance are separate things to verify; opening the application does not prove a model request can succeed.",
+          "For the first request, ask for a brief reply that needs no tools. If it fails, retain the exact error and investigate provider configuration before introducing repository operations. If it succeeds, you have evidence of one working request. You have not yet checked the workspace, command execution, or the correctness of any generated change."
+        ]
+      },
+      {
+        "heading": "Check the DeepSeek Harness workspace before editing",
+        "paragraphs": [
+          "A familiar folder name can still point to the wrong location. Compare the full selected path with the folder you prepared, then ask for a read-only description of its contents. Check that answer against your file manager. The upstream guide notes that a fresh Web UI needs a selected workspace before its composer becomes available.",
+          "This is also the moment to review proposed operations. If the task is only to inspect a sample file, a package installation or a broad shell command deserves a question. A permission prompt tells you an action is being requested; it does not tell you whether that action is appropriate for your goal."
+        ],
+        "steps": [
+          "Select the disposable folder and confirm its complete path.",
+          "Ask for the names of the sample files without creating or changing anything.",
+          "Compare the reported names with the files on disk.",
+          "Stop if the location or proposed action differs from your intended task."
+        ]
+      },
+      {
+        "heading": "Make one reversible change and inspect the difference",
+        "paragraphs": [
+          "Once the read-only check works, choose a small edit with a precise acceptance condition. You might ask for one heading to change in a sample README while keeping the rest untouched. State the allowed file and the exact text you expect. Avoid an open-ended request to improve the entire project during the first session.",
+          "Inspect the actual file afterward. If you use version control, review the diff; otherwise compare with your saved copy. Check for extra files and unrelated edits as well as the requested result. A confident completion message is not the artifact. If the assistant proposes tests, understand what those tests establish and inspect their output independently."
+        ]
+      },
+      {
+        "heading": "Keep a short record before moving to real work",
+        "paragraphs": [
+          "Write down the launch method, installed version, provider, model identifier, selected path, and outcome of your small task. Do not record the API key. These details are useful if the next session behaves differently and help you avoid debugging a changed environment as though it were the same one.",
+          "Before expanding access, ask what additional files and services the next task truly needs. A successful text edit does not validate a plugin, an external account, or a deployment workflow. Add those capabilities only when the next task requires them, with a separate check. Stop the experiment if you cannot explain what an operation will touch."
+        ]
+      }
+    ],
+    "conclusion": "A safe start with DeepSeek Harness is a sequence of narrow checks: installation, model response, folder selection, and a reversible edit. DeepSeekDSH can help you find the relevant instructions, while your own inspection establishes whether the result is acceptable. Keep the first session small enough that a mistake is easy to see and recover from.",
+    "faq": [
+      {
+        "question": "Is DeepSeekDSH the official DeepSeek website?",
+        "answer": "No. DeepSeekDSH identifies itself as an independent community guide. Follow its upstream links when you need official project instructions or safety information."
+      },
+      {
+        "question": "Does selecting a test folder guarantee isolation?",
+        "answer": "No. Folder selection is a workflow choice, not proof of a complete sandbox. Use a dedicated environment and restrict available credentials and data."
+      },
+      {
+        "question": "What should I do if the first request fails?",
+        "answer": "Keep the exact error, version, and provider details without secrets. Diagnose the connection before testing file changes or installing additional components."
+      }
+    ],
+    "sources": [
+      {
+        "label": "DeepSeekDSH installation guide (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/tutorials"
+      },
+      {
+        "label": "Official DeepSeek Harness repository (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness"
+      },
+      {
+        "label": "Official Web UI guide (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/index.md"
+      },
+      {
+        "label": "Official safety notice (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md"
+      }
+    ],
+    "tags": [
+      "DeepSeek Harness",
+      "first-run checklist",
+      "AI coding",
+      "workspace safety"
+    ]
+  },
+  {
+    "slug": "how-to-diagnose-deepseek-harness-connection-errors",
+    "projectSlug": "deepseek-guides",
+    "title": "How do you diagnose a DeepSeek Harness connection error?",
+    "seoTitle": "DeepSeek Harness Connection Errors: A Practical Diagnostic Checklist",
+    "description": "Locate the failing layer in DeepSeek Harness before changing credentials, model IDs, ports, or workspace settings.",
+    "excerpt": "Diagnose DeepSeek Harness connection errors by separating startup, provider authentication, model selection, and workspace access before changing your setup.",
+    "date": "2026-10-09",
+    "answer": "Diagnose a DeepSeek Harness connection error by identifying what failed: the local application, the model request, or access to the workspace. Save the exact message, make one targeted change, and repeat the same small test. DeepSeekDSH has an error index for common symptoms, but an error label is a starting point, not evidence that reinstalling or weakening permissions will solve the problem.",
+    "sections": [
+      {
+        "heading": "Capture the failure before changing the setup",
+        "paragraphs": [
+          "Write down what you did immediately before the error appeared. Did the window fail to open, did a message fail after submission, or did a file operation fail after the model answered? These are different observations. A useful note includes the installed version, launch method, operating system, provider, and selected model identifier.",
+          "Keep the error text intact while removing secrets, personal paths, and private prompt content before sharing it. Avoid posting a full configuration file when a small redacted excerpt explains the issue. Screenshots can contain credentials in adjacent fields. Review the whole image rather than assuming a cropped error box contains nothing sensitive."
+        ]
+      },
+      {
+        "heading": "If the local interface will not open, check startup first",
+        "paragraphs": [
+          "A server-start problem occurs before the model has a chance to respond. DeepSeekDSH groups local port problems separately from provider errors. If your launch reports that an address is already in use, determine whether an existing application instance owns it. Do not terminate an unfamiliar process just because it appears beside the port number.",
+          "Look at the URL printed by the process you actually started. A saved browser tab may belong to an older session or a different launch. If a security warning, operating-system restriction, or corporate network policy appears, resolve it through the supported route. Disabling broad protections creates a new problem and can obscure the original one."
+        ]
+      },
+      {
+        "heading": "Distinguish a missing credential from rejected authentication",
+        "paragraphs": [
+          "A missing-credential message and an authentication rejection require different questions. The first asks whether the selected provider has a usable credential configured. The second asks why the receiving service did not accept the request. DeepSeekDSH provides a dedicated missing-credential guide, while the official provider guide explains where model routes are configured.",
+          "Check the provider destination before editing a key. An official endpoint, a company gateway, and a third-party proxy may use different accounts and settings even if they expose similar model names. Never send a credential to a new destination merely to test whether it works. If a key may have been exposed, use the provider account controls to replace it and review the account activity."
+        ]
+      },
+      {
+        "heading": "Treat an unknown model as a routing question",
+        "paragraphs": [
+          "A readable model name is not always its API identifier. For an unknown-model failure, compare the selected identifier with the catalog or documentation for that exact provider route. Avoid copying a model name from an old screenshot. A provider may offer a model that your installed configuration does not yet expose.",
+          "The upstream provider guide is the right place to check supported configuration behavior. When you test a corrected selection, use a fresh, short conversation and keep the prompt identical. This makes the result easier to interpret. Changing the model, endpoint, prompt, and network settings simultaneously may hide which change fixed the request."
+        ]
+      },
+      {
+        "heading": "A working reply does not prove workspace access",
+        "paragraphs": [
+          "If the model can answer a simple message but a repository operation fails, narrow the investigation to that operation. Confirm the selected folder and the file it tried to read. Then inspect the tool result. A missing file, a denied write, and a command that exits unsuccessfully are different failures even when the assistant describes all of them as an access issue.",
+          "Try a harmless read before requesting changes. Ask the assistant to identify a known sample file and compare the result yourself. Do not respond to a single denied operation by granting access to the entire home directory. If the operation genuinely requires more access, establish the smallest relevant path and why it is needed."
+        ]
+      },
+      {
+        "heading": "Use a repeatable recovery test and a clear stopping point",
+        "paragraphs": [
+          "Choose a test with a narrow expected outcome, such as receiving a short reply without tools or reading one invented text file. Run that same test after each adjustment. Keep a simple record of the changed setting and result. This is faster to reason about than a sequence of unrelated retries.",
+          "If the failure remains, stop before destructive cleanup. Prepare a concise report for the appropriate project or provider: expected behavior, observed behavior, exact redacted error, relevant versions, and steps that reproduce it. Include whether the issue occurs in a clean test workspace. A report that others can reproduce is more useful than saying the application is broken."
+        ],
+        "steps": [
+          "Identify the earliest failing layer.",
+          "Read the matching error page and current upstream reference.",
+          "Change one relevant setting, leaving unrelated settings alone.",
+          "Repeat the original small test and save its actual result.",
+          "Escalate with a redacted reproduction if the failure persists."
+        ]
+      }
+    ],
+    "conclusion": "DeepSeek Harness connection errors are easier to solve when you keep startup, authentication, routing, and workspace checks separate. Use the DeepSeekDSH error index to locate a relevant guide, then verify the recovery with the same small test. Preserve evidence and avoid broad permission changes that are unrelated to the failure.",
+    "faq": [
+      {
+        "question": "Should I reinstall DeepSeek Harness first?",
+        "answer": "Usually, gather the error and identify the failing layer first. Reinstallation may leave provider or workspace configuration unchanged and can remove useful diagnostic context."
+      },
+      {
+        "question": "Can I post my API key with a support request?",
+        "answer": "No. Share the provider name and redacted error, never the key. Review screenshots and configuration excerpts for secrets before posting them."
+      },
+      {
+        "question": "Why can chat work while a file task fails?",
+        "answer": "A model request and a local tool operation use different parts of the workflow. Check the selected path, requested operation, permission result, and command output separately."
+      }
+    ],
+    "sources": [
+      {
+        "label": "DeepSeekDSH error index (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/errors"
+      },
+      {
+        "label": "Missing-credential guide (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/errors/missing-credential"
+      },
+      {
+        "label": "Unknown-model guide (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/errors/unknown-model"
+      },
+      {
+        "label": "Local port guide (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/errors/port-3080-in-use"
+      },
+      {
+        "label": "Official provider configuration guide (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md"
+      }
+    ],
+    "tags": [
+      "DeepSeek Harness",
+      "troubleshooting",
+      "API configuration",
+      "connection errors"
+    ]
+  },
+  {
+    "slug": "how-to-compare-coding-models-in-deepseek-harness",
+    "projectSlug": "deepseek-guides",
+    "title": "How do you compare coding models in DeepSeek Harness?",
+    "seoTitle": "Compare Coding Models in DeepSeek Harness With a Fair Task Checklist",
+    "description": "Compare coding models using a fixed task, clean starting files, explicit acceptance checks, and an honest record of failed runs.",
+    "excerpt": "Build a useful coding-model comparison with the same task, clean files, fixed permissions, and real acceptance checks instead of relying on an unrun ranking.",
+    "date": "2026-10-09",
+    "answer": "Compare coding models in DeepSeek Harness by giving each model the same bounded task from the same starting files, then checking the resulting changes independently. Record failures, intervention, and unknown costs honestly. DeepSeekDSH offers a benchmark template rather than a measured leaderboard. Use it to organize your own evidence, not as proof that one model will perform best on your repository.",
+    "sections": [
+      {
+        "heading": "Choose the decision your comparison should support",
+        "paragraphs": [
+          "Begin with a practical question: which model should handle a small bug fix in this project, or which produces tests that expose known edge cases? Those questions lead to useful acceptance checks. A broad question about the best coding model invites a score that hides important differences between tasks.",
+          "Pick work you understand well enough to review. For a repair task, write down the current failure and the intended behavior before the model sees the prompt. For test generation, identify a behavior the existing suite misses. Avoid a task whose only acceptance condition is that the answer looks polished. Fluency is not the same thing as a correct change."
+        ]
+      },
+      {
+        "heading": "Freeze the starting conditions before each run",
+        "paragraphs": [
+          "Prepare an untouched baseline and restore it for every candidate. A later model must not inherit an earlier patch, generated explanation, or updated dependency. Start a new conversation too. Otherwise the comparison measures accumulated hints alongside model behavior, and you cannot tell which part produced the result.",
+          "Record the model identifier, provider route, Harness version, tool availability, and task instructions. Keep permissions and resource limits consistent. If one run has internet access and another does not, note that the setups differ rather than presenting the outcomes as equivalent. The goal is a comparison you can explain, even if it remains small."
+        ]
+      },
+      {
+        "heading": "Turn a coding task into explicit acceptance checks",
+        "paragraphs": [
+          "A useful repair brief states the allowed files, expected behavior, and things that must remain unchanged. For example, a sample function might need to reject invalid input while preserving valid output. Specify whether tests can be added and whether existing tests may be edited. Protecting the original acceptance test prevents an apparent pass produced by weakening the check.",
+          "Use more than a single success signal. Tests can establish defined behavior, while a diff review can reveal unrelated rewrites, removed validation, or unnecessary dependencies. If the task involves a user interface, inspect the relevant screen as well. Choose those checks before running the comparison so you do not quietly reward the approach you happen to prefer afterward."
+        ]
+      },
+      {
+        "heading": "Record the full run, including your own intervention",
+        "paragraphs": [
+          "Write down when you corrected the prompt, approved an unexpected command, supplied a hint, or manually repaired a file. That effort belongs in the result. A model that finishes after substantial help may still be useful, but it is a different outcome from completing the same task without intervention.",
+          "Keep failed attempts in the record. If you repeat a run after a timeout or a poor answer, label the retry and preserve the first outcome. A small collection of successful screenshots is not a reliable summary of the work required. Report how many runs you performed and whether their results were consistent."
+        ]
+      },
+      {
+        "heading": "Compare cost and speed only when you have evidence",
+        "paragraphs": [
+          "Elapsed time is useful when you define its boundaries. Decide whether it begins with the first prompt and ends at the model response, or ends after your review and corrections. Both can be informative, but they answer different questions. Include the human review time if your decision is about how quickly you can ship an acceptable change.",
+          "For spending, use the provider usage record when available and distinguish measured charges from estimates. Do not enter zero when a value is missing. An unknown cost is unknown, even if the task felt cheap. If you cannot attribute usage to a particular run, leave the result unpriced and explain what you would need to measure it."
+        ]
+      },
+      {
+        "heading": "Use the DeepSeekDSH benchmark template with modest conclusions",
+        "paragraphs": [
+          "The DeepSeekDSH benchmark page supplies a structured starting exercise and recording guidance. It explicitly separates fixture validation from model testing. That distinction matters: showing that an exercise has a correct solution does not show that any model found that solution. Our review did not run a model benchmark or measure task costs.",
+          "After collecting results, make a task-specific choice. You might prefer one model for bounded repairs and another for explanation, or decide that the evidence is too thin to choose. Repeat the comparison on a different representative task before treating a narrow success as a general recommendation. Keep the original records so a future model or application update can be evaluated against the same baseline."
+        ],
+        "steps": [
+          "Write a task brief and acceptance checks before the runs.",
+          "Restore identical files and use a fresh session for each candidate.",
+          "Keep tools, permissions, and time limits consistent.",
+          "Review test output and the diff independently.",
+          "Record failures, help, elapsed time, and verified costs.",
+          "State what your sample supports and what it cannot establish."
+        ]
+      }
+    ],
+    "conclusion": "A useful coding-model comparison in DeepSeek Harness produces inspectable work and an honest record. Start with a decision you actually face, control the conditions, and review the result rather than the confidence of the explanation. DeepSeekDSH provides a place to begin, while your own task evidence determines the recommendation.",
+    "faq": [
+      {
+        "question": "Does DeepSeekDSH publish measured model rankings?",
+        "answer": "The reviewed coding benchmark page identifies itself as a template and does not publish measured model scores. Do not interpret its exercise as a leaderboard."
+      },
+      {
+        "question": "How many tasks do I need?",
+        "answer": "There is no universal number that makes a comparison representative. Start with relevant tasks, disclose the sample, and add varied cases before making broad claims."
+      },
+      {
+        "question": "Should I count a manually repaired result as a pass?",
+        "answer": "Record that it required intervention. You may accept the final artifact for your project, but distinguish assisted completion from an independently successful model run."
+      }
+    ],
+    "sources": [
+      {
+        "label": "DeepSeekDSH coding benchmark template (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/benchmarks/coding-ai"
+      },
+      {
+        "label": "Official DeepSeek Harness repository (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness"
+      },
+      {
+        "label": "Official provider guide (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/guide/providers.md"
+      }
+    ],
+    "tags": [
+      "coding-model comparison",
+      "DeepSeek Harness",
+      "evaluation",
+      "AI coding"
+    ]
+  },
+  {
+    "slug": "how-to-review-deepseek-harness-plugins",
+    "projectSlug": "deepseek-guides",
+    "title": "How do you review a DeepSeek Harness plugin before installing it?",
+    "seoTitle": "Review DeepSeek Harness Plugins Before Installing: A Practical Guide",
+    "description": "Check a DeepSeek Harness plugin’s source, install behavior, access needs, and activation before trusting it with a real workspace.",
+    "excerpt": "Review DeepSeek Harness plugins by checking their source, install scripts, access needs, and active profile before testing one in a small disposable workspace.",
+    "date": "2026-10-09",
+    "answer": "Review a DeepSeek Harness plugin as software you are about to run: verify its source, understand its installation behavior, and identify the data or services it can access. Then test one specific capability in a disposable environment. DeepSeekDSH helps with discovery, but a directory entry, popularity count, or official-looking name does not establish that a package is appropriate for your machine.",
+    "sections": [
+      {
+        "heading": "Start with the capability your task is missing",
+        "paragraphs": [
+          "Write one sentence describing the gap. Perhaps you need to read a particular file type or connect to a service the current setup cannot reach. Then check whether that capability is already present in your installed configuration. Adding a second package without understanding the existing tools can create confusing overlap and additional maintenance.",
+          "A plugin should solve a concrete problem. If you cannot describe what success would look like, postpone installation. For example, reading the title of a harmless sample document is a testable goal. Installing a collection of extensions because they may become useful is not. A smaller setup is easier to review and diagnose."
+        ]
+      },
+      {
+        "heading": "Trace the package back to its author and source",
+        "paragraphs": [
+          "Follow the package link to its repository or registry record and compare the names carefully. Look for installation instructions, a changelog, an issue tracker, and a clear relationship between the published package and its source. These clues help you understand provenance; none is a guarantee of safety.",
+          "Review the exact version or commit you intend to use. A review of a moving branch does not automatically cover a later update. If documentation is missing or the source is difficult to reconcile with the package, record that uncertainty. You do not need to resolve every concern by installing the package and seeing what happens."
+        ]
+      },
+      {
+        "heading": "Read installation behavior separately from tool behavior",
+        "paragraphs": [
+          "A plugin can have an installation step that executes code before its tools appear in the interface. Look for lifecycle scripts, required external executables, downloads, and build commands. Ask why each action is necessary. A package that only needs to format local text should have a clear explanation for any unrelated network access.",
+          "The official Harness CLI reference documents plugin operations and profile handling. Consult that reference for the version you use rather than copying a command from a directory card. If the package manager asks you to permit a build, treat that as a software-execution decision. Do not approve it solely because the prompt is blocking progress."
+        ]
+      },
+      {
+        "heading": "Map the plugin’s access before supplying credentials",
+        "paragraphs": [
+          "Make a small access inventory: folders it can read, files it can change, services it contacts, and credentials it expects. Keep test material synthetic where possible. If an integration requires an account, use the narrowest supported scope for the intended job and understand how to revoke it afterward.",
+          "A plugin description may focus on the useful output while saying little about the data path. Ask where the input goes and whether the plugin invokes another service. If you cannot establish that, avoid confidential material. A local interface does not, by itself, show that all processing stays on your computer."
+        ]
+      },
+      {
+        "heading": "Verify the intended profile and the actual capability",
+        "paragraphs": [
+          "Installation success is only one checkpoint. The CLI reference distinguishes the profile being modified from a package’s contribution to that profile. Verify that you changed the intended environment and follow the current restart instructions. A dependency can be present on disk without the capability you expected being available to the session.",
+          "Test the smallest useful operation first. If the plugin reads documents, try one short file whose contents you know. If it changes files, use a copy and compare the result. Inspect the tool output and any resulting artifacts. Avoid a first test that sends messages, modifies an external account, or touches an important repository."
+        ],
+        "steps": [
+          "Confirm the exact package, reviewed version, and installation source.",
+          "Read the current instructions for the profile you intend to change.",
+          "Review install-time execution and requested access before approval.",
+          "Restart or refresh only as the relevant documentation requires.",
+          "Run one bounded test and inspect its result."
+        ]
+      },
+      {
+        "heading": "Plan removal and updates before depending on the plugin",
+        "paragraphs": [
+          "Find the supported disable or removal route before a plugin becomes part of important work. Keep a record of any account connection and files it creates. Removing a package may not revoke a separately issued service credential or undo a change it already made. Treat those as distinct cleanup steps.",
+          "Review updates with the same attention to changed behavior. New permissions, new endpoints, or a different installation script deserve another look even if the previous version worked well. Keep a known-good version record where your workflow supports it. If the plugin stops being maintained or its purpose changes, reassess whether you still need it."
+        ]
+      }
+    ],
+    "conclusion": "Reviewing DeepSeek Harness plugins is an exercise in understanding source, execution, access, and results. Use DeepSeekDSH to find candidates and upstream documentation to verify behavior. Install only when you can explain the need, test without valuable data, and keep a clear way to disable the capability or revoke its access.",
+    "faq": [
+      {
+        "question": "Does a directory listing mean a plugin is approved?",
+        "answer": "No. Discovery and approval are separate. Verify the author, package version, installation behavior, and access requirements yourself."
+      },
+      {
+        "question": "Why did installation succeed but no new tool appear?",
+        "answer": "The intended profile may not be running, a restart may be required, or the package may not contribute the expected active capability. Check the current CLI reference and package instructions."
+      },
+      {
+        "question": "Is a popular plugin automatically safer?",
+        "answer": "No. Popularity can help you find a project, but it does not establish what its code does or whether its permissions fit your task."
+      }
+    ],
+    "sources": [
+      {
+        "label": "DeepSeekDSH plugin directory (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/plugins"
+      },
+      {
+        "label": "DeepSeekDSH plugin installation guide (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/guides/plugin-installation"
+      },
+      {
+        "label": "Official CLI behavior reference (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md"
+      },
+      {
+        "label": "Official safety notice (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md"
+      }
+    ],
+    "tags": [
+      "DeepSeek Harness plugins",
+      "plugin review",
+      "developer tools",
+      "permissions"
+    ]
+  },
+  {
+    "slug": "deepseek-harness-desktop-or-cli",
+    "projectSlug": "deepseek-guides",
+    "title": "Should you use DeepSeek Harness Desktop or the CLI?",
+    "seoTitle": "DeepSeek Harness Desktop or CLI? Choose a Practical Setup for Work",
+    "description": "Choose a DeepSeek Harness setup by platform, launch habits, troubleshooting needs, and the environment you can maintain.",
+    "excerpt": "Choose DeepSeek Harness Desktop or CLI by your platform, launch habits, and maintenance needs, then verify the same small task in the environment you pick.",
+    "date": "2026-10-09",
+    "answer": "Choose DeepSeek Harness Desktop if a compatible packaged application fits your workflow; choose the CLI if you need a terminal-managed launch or a platform path covered by its instructions. Check current upstream support before downloading. DeepSeekDSH links a dated Desktop record and separate command-line guides, so a listed download should not be mistaken for the newest release or the complete set of upstream build targets.",
+    "sections": [
+      {
+        "heading": "Begin with platform evidence, not the product label",
+        "paragraphs": [
+          "Identify your operating system and processor architecture before choosing an installer. A filename that says Mac is not enough to establish compatibility with every Mac. Similarly, a Windows package may target a particular architecture. Read the notes for the exact file you plan to use and verify its source.",
+          "At review time, DeepSeekDSH linked Windows x64 and Apple Silicon Desktop files with a September 24 record date. The upstream Desktop documentation also describes a macOS x64 build target. A documented target and an available tested download are different claims. Check the current official distribution rather than interpreting an older guide as a universal support statement."
+        ]
+      },
+      {
+        "heading": "Choose the launch method you can maintain",
+        "paragraphs": [
+          "A packaged application can fit someone who wants to open a window and return to an existing workspace. A terminal launch can fit someone who already manages development tools and wants a visible startup command. Neither preference tells you which model will answer better. The launch method and model choice are separate decisions.",
+          "Think about who will troubleshoot the setup later. If a colleague will maintain it, choose a route they understand and record the basics. An apparently shorter installation is not necessarily simpler after an update. You should know where to find the version, how to start and stop the process, and which guide applies when something fails."
+        ]
+      },
+      {
+        "heading": "Keep Desktop prerequisites separate from CLI prerequisites",
+        "paragraphs": [
+          "The upstream repository documents a Node.js-based npm quick start for the Web UI. The Desktop architecture documents bundled runtime components. Do not assume a command-line prerequisite applies to every packaged application, or install extra tools merely because a different tutorial uses them.",
+          "Running from source is another route with its own build requirements. It can be useful for contributors or debugging a specific revision, but it introduces more moving parts than opening a supported package. Unless you need source-level changes, choose a normal launch path first. Record any manually installed prerequisite so you can distinguish it from software managed by the application."
+        ]
+      },
+      {
+        "heading": "Compare the environments, not just the windows",
+        "paragraphs": [
+          "Two interfaces can look similar while running with different processes, plugin compositions, or startup settings. If you keep Desktop and CLI side by side, label which one you are using during a test. A browser tab alone may not tell you which terminal process launched it or which configuration you changed.",
+          "The upstream Desktop documentation separates its executable packages and plugin activation from the CLI. Avoid manually copying dependency folders between installations to make them match. Use each supported configuration route. When troubleshooting, report the launch method as well as the model name so the person helping you can identify the relevant environment."
+        ]
+      },
+      {
+        "heading": "Run the same acceptance check after either setup",
+        "paragraphs": [
+          "The first useful milestone is not that a window appears. Check whether you can configure a model, select a disposable folder, and complete a small read-only task. Then make one reversible edit and inspect the resulting file. Keep the task identical if you are comparing launch methods.",
+          "Use a sample you can evaluate without relying on the assistant’s explanation. For instance, prepare two short text files and ask for their names and first lines. If a request fails, separate startup, provider, and workspace issues before blaming the installation choice. Do not move to an important repository until you understand the result."
+        ],
+        "steps": [
+          "Record the machine architecture and the exact package or command.",
+          "Confirm the installed version and current upstream instructions.",
+          "Use a harmless workspace and a supported model selection.",
+          "Verify one read-only task, then one reversible change.",
+          "Write down the working setup so you can reproduce it later."
+        ]
+      },
+      {
+        "heading": "Make updates and shutdown behavior part of the decision",
+        "paragraphs": [
+          "Check how the chosen application or process handles updates and ongoing work. Do not assume that closing a visible window always terminates background activity. The current Desktop documentation describes background behavior, so consult it before leaving a task unattended or concluding that everything has stopped.",
+          "Before changing versions, preserve work you care about and note the current setup. A developer preview can change configuration or compatibility assumptions. For a team, agree on a version-review habit rather than letting each person silently follow a moving installation command. You do not need a complicated deployment process, but you do need to know when the environment changed."
+        ]
+      }
+    ],
+    "conclusion": "DeepSeek Harness Desktop versus CLI is mainly a setup and maintenance choice. Select the supported route that fits your machine and the way you work, then verify it with a small task. Use DeepSeekDSH for navigation while checking dated download records against the current upstream documentation before installing or upgrading.",
+    "faq": [
+      {
+        "question": "Does Desktop mean the model runs offline?",
+        "answer": "No. A desktop interface does not establish where model inference runs. Check the selected provider and data path separately from the launch method."
+      },
+      {
+        "question": "Should I install Node.js before using Desktop?",
+        "answer": "Follow the exact package instructions. The upstream Desktop documentation describes bundled runtimes, while the npm quick start has separate prerequisites. Do not mix the two paths."
+      },
+      {
+        "question": "Is the download listed by DeepSeekDSH always the latest?",
+        "answer": "No. Its reviewed Desktop page labels the links as a pinned download record. Check current upstream distribution information before treating a listed build as current."
+      }
+    ],
+    "sources": [
+      {
+        "label": "DeepSeekDSH Desktop download record (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/desktop"
+      },
+      {
+        "label": "DeepSeekDSH setup routes (checked 9 October 2026)",
+        "url": "https://deepseekdsh.com/tutorials"
+      },
+      {
+        "label": "Official repository quick start (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness"
+      },
+      {
+        "label": "Official Desktop documentation (checked 9 October 2026)",
+        "url": "https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/desktop/README.md"
+      }
+    ],
+    "tags": [
+      "DeepSeek Harness Desktop",
+      "CLI setup",
+      "developer workflow",
+      "installation"
+    ]
+  }
+]

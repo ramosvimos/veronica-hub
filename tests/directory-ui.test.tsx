@@ -20,7 +20,7 @@ it('keeps query-category filters when the user applies other search filters',()=
  render(<PdfDirectory title="Search" description="Search" tools={pdfTools} action="/search" params={{category:'ai'}}/>);
  expect(document.querySelector('input[type="hidden"][name="category"]')).toHaveAttribute('value','ai');
  expect(screen.getByText('Category: AI assistants')).toBeInTheDocument();
- expect(screen.getAllByRole('article')).toHaveLength(8);
+ expect(screen.getAllByRole('article')).toHaveLength(11);
 });
 
 it('renders submitted HTML-like names and descriptions only as text',()=>{
