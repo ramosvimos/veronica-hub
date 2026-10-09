@@ -1,0 +1,18 @@
+/* Historical archive framing. The underlying site styles are retained. */
+.archive-notice { background: #fff3cd; color: #302610; border-bottom: 2px solid #c69d31; padding: 1.25rem 1rem; font-family: system-ui, sans-serif; position: relative; z-index: 20; }
+.archive-notice-inner { max-width: 1180px; margin: auto; }
+.archive-notice strong { display: block; font-size: 1.125rem; line-height: 1.4; }
+.archive-notice p { max-width: 110ch; margin: .45rem 0 .75rem; font-size: .875rem; line-height: 1.55; }
+.archive-notice nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.archive-notice a { color: #342704; text-decoration: underline; text-underline-offset: .2em; font-weight: 650; font-size: .875rem; }
+.archive-notice code { color: inherit; background: rgba(72, 43, 0, .07); padding: .1rem .2rem; }
+.archive-notice a:focus-visible, .archive-page-index a:focus-visible, .archive-page-index summary:focus-visible { outline: 3px solid #188491; outline-offset: 4px; }
+.archive-page-index { max-width: 1180px; margin: 1rem auto; padding: 1rem; border: 1px solid #645743; border-radius: .5rem; background: #15120e; color: #f3ede1; }
+.archive-page-index summary { cursor: pointer; font-weight: 700; }
+.archive-page-index p { font-size: .875rem; color: #d7cdb9; }
+.archive-page-index ul { columns: 3 15rem; padding-left: 1.3rem; line-height: 1.7; }
+.archive-page-index li { break-inside: avoid; padding-bottom: .3rem; }
+.archive-page-index a { text-decoration: underline; text-underline-offset: .2em; }
+.archive-rss-note { color: #d7cdb9; font-size: .85rem; }
+@media (max-width: 600px) { .archive-notice { padding: 1rem; } .archive-page-index { margin: .75rem; } .archive-notice nav { gap: .65rem 1rem; } }
+@media print { .archive-notice { position: static; background: #fff; color: #000; border: 2px solid #000; } .archive-notice a { color: #000; } }

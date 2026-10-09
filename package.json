@@ -1,19 +1,49 @@
 {
+  "name": "veronica-tools-directory",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "build:js": "esbuild \"designs/veronica-hub/app.jsx\" --bundle --format=iife --minify --outfile=\"designs/veronica-hub/app.bundle.js\"",
-    "build:pages": "node scripts/render-static-pages.mjs",
-    "build:feed": "node scripts/render-feed.mjs",
-    "validate": "node scripts/validate-site.mjs",
-    "check:sources": "node scripts/check-sources.mjs",
-    "check:p1": "node scripts/check-p1-readiness.mjs",
-    "check:production": "node scripts/check-production-routes.mjs",
-    "test": "node --test scripts/*.test.mjs",
-    "build": "npm test && node scripts/build-content-site.mjs"
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "build:cloudflare": "opennextjs-cloudflare build",
+    "preview": "npm run build:cloudflare && opennextjs-cloudflare preview",
+    "lint": "eslint src tests scripts --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "NODE_OPTIONS=--no-experimental-webstorage vitest run",
+    "check:legacy": "node scripts/check-boundaries.mjs",
+    "check:archive": "node scripts/verify-archive.mjs"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "@radix-ui/react-slot": "^1.4.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "next": "16.3.8",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^4.6.5"
   },
-  "devDependencies": { "esbuild": "0.25.5" }
+  "devDependencies": {
+    "@opennextjs/cloudflare": "1.20.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.8",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.9",
+    "wrangler": "^4.109.0"
+  }
 }

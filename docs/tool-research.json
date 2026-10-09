@@ -1,0 +1,338 @@
+[
+  {
+    "name": "ChatGPT",
+    "url": "https://chatgpt.com/",
+    "domain": "chatgpt.com",
+    "description": "Chat with AI, research the web, work with uploaded files, and create images.",
+    "category": "AI",
+    "tags": [
+      "assistant",
+      "research",
+      "images"
+    ],
+    "sourceUrl": "https://chatgpt.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Claude",
+    "url": "https://claude.com/product/overview",
+    "domain": "claude.com",
+    "description": "Use an AI assistant to draft documents, analyze information, and build prototypes.",
+    "category": "AI",
+    "tags": [
+      "assistant",
+      "writing",
+      "analysis"
+    ],
+    "sourceUrl": "https://claude.com/product/overview",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Google Gemini",
+    "url": "https://gemini.google.com/",
+    "domain": "gemini.google.com",
+    "description": "Draft writing, summarize documents, brainstorm ideas, and get help with coding or learning.",
+    "category": "AI",
+    "tags": [
+      "assistant",
+      "learning",
+      "writing"
+    ],
+    "sourceUrl": "https://gemini.google/overview/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Perplexity",
+    "url": "https://www.perplexity.ai/",
+    "domain": "perplexity.ai",
+    "description": "Search the web with AI-generated answers and linked sources for further reading.",
+    "category": "AI",
+    "tags": [
+      "search",
+      "research",
+      "citations"
+    ],
+    "sourceUrl": "https://www.perplexity.ai/en-GB/hub/products/search",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Gemini Notebook",
+    "url": "https://notebook.google/",
+    "domain": "notebook.google",
+    "description": "Ask questions and generate summaries grounded in documents, websites, and other sources you add.",
+    "category": "AI",
+    "tags": [
+      "research",
+      "documents",
+      "summaries"
+    ],
+    "sourceUrl": "https://support.google.com/gemininotebook/answer/16215270?hl=en",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Hugging Face",
+    "url": "https://huggingface.co/",
+    "domain": "huggingface.co",
+    "description": "Discover, share, and collaborate on machine-learning models, datasets, and AI applications.",
+    "category": "AI",
+    "tags": [
+      "models",
+      "datasets",
+      "machine-learning"
+    ],
+    "sourceUrl": "https://huggingface.co/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "DeepL",
+    "url": "https://www.deepl.com/en",
+    "domain": "deepl.com",
+    "description": "Translate text and documents, adapt writing, and add translation to applications through an API.",
+    "category": "AI",
+    "tags": [
+      "translation",
+      "writing",
+      "languages"
+    ],
+    "sourceUrl": "https://www.deepl.com/en",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "ElevenLabs",
+    "url": "https://elevenlabs.io/",
+    "domain": "elevenlabs.io",
+    "description": "Generate speech from text, transcribe audio, and create multilingual voice content.",
+    "category": "AI",
+    "tags": [
+      "audio",
+      "text-to-speech",
+      "transcription"
+    ],
+    "sourceUrl": "https://elevenlabs.io/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Notion",
+    "url": "https://www.notion.com/",
+    "domain": "notion.com",
+    "description": "Keep team documents, wikis, projects, and tasks together in a connected workspace.",
+    "category": "Productivity",
+    "tags": [
+      "workspace",
+      "documents",
+      "projects"
+    ],
+    "sourceUrl": "https://www.notion.com/help/guides/connected-workspace-for-product-teams-to-collaborate-ideate-and-launch",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Obsidian",
+    "url": "https://obsidian.md/",
+    "domain": "obsidian.md",
+    "description": "Write local Markdown notes and connect them into a personal knowledge base.",
+    "category": "Productivity",
+    "tags": [
+      "notes",
+      "markdown",
+      "knowledge-management"
+    ],
+    "sourceUrl": "https://obsidian.md/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Todoist",
+    "url": "https://www.todoist.com/",
+    "domain": "todoist.com",
+    "description": "Capture tasks, organize projects, and plan work with due dates and recurring reminders.",
+    "category": "Productivity",
+    "tags": [
+      "tasks",
+      "planning",
+      "projects"
+    ],
+    "sourceUrl": "https://www.todoist.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Linear",
+    "url": "https://linear.app/",
+    "domain": "linear.app",
+    "description": "Track issues, plan projects, and coordinate product-development work across a team.",
+    "category": "Productivity",
+    "tags": [
+      "issue-tracking",
+      "product",
+      "teamwork"
+    ],
+    "sourceUrl": "https://linear.app/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Raycast",
+    "url": "https://www.raycast.com/",
+    "domain": "raycast.com",
+    "description": "Launch tools, find files, reuse clipboard history, and run extensions from a keyboard-driven interface.",
+    "category": "Productivity",
+    "tags": [
+      "launcher",
+      "shortcuts",
+      "extensions"
+    ],
+    "sourceUrl": "https://www.raycast.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Zapier",
+    "url": "https://zapier.com/",
+    "domain": "zapier.com",
+    "description": "Connect apps and automate workflows that move information or trigger actions across services.",
+    "category": "Productivity",
+    "tags": [
+      "automation",
+      "integrations",
+      "workflows"
+    ],
+    "sourceUrl": "https://zapier.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Calendly",
+    "url": "https://calendly.com/",
+    "domain": "calendly.com",
+    "description": "Share available meeting times, accept bookings, and automate scheduling reminders.",
+    "category": "Productivity",
+    "tags": [
+      "scheduling",
+      "meetings",
+      "calendar"
+    ],
+    "sourceUrl": "https://calendly.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Airtable",
+    "url": "https://www.airtable.com/",
+    "domain": "airtable.com",
+    "description": "Build custom business apps with structured data, configurable interfaces, and workflow automation.",
+    "category": "Productivity",
+    "tags": [
+      "no-code",
+      "data",
+      "automation"
+    ],
+    "sourceUrl": "https://www.airtable.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Cursor",
+    "url": "https://cursor.com/",
+    "domain": "cursor.com",
+    "description": "Use AI coding agents to plan changes, edit code, and work through software-development tasks.",
+    "category": "Development",
+    "tags": [
+      "ai-coding",
+      "editor",
+      "agents"
+    ],
+    "sourceUrl": "https://cursor.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "GitHub Copilot",
+    "url": "https://github.com/features/copilot",
+    "domain": "github.com",
+    "description": "Get code suggestions, coding chat assistance, and explanations within editors and GitHub.",
+    "category": "Development",
+    "tags": [
+      "ai-coding",
+      "code-completion",
+      "github"
+    ],
+    "sourceUrl": "https://github.com/features/copilot",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Visual Studio Code",
+    "url": "https://code.visualstudio.com/",
+    "domain": "code.visualstudio.com",
+    "description": "Edit and debug code with extensions, integrated terminals, source control, and AI-agent support.",
+    "category": "Development",
+    "tags": [
+      "editor",
+      "debugging",
+      "extensions"
+    ],
+    "sourceUrl": "https://code.visualstudio.com/docs",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Postman",
+    "url": "https://www.postman.com/",
+    "domain": "postman.com",
+    "description": "Work with APIs using request collections, automated tests, mock servers, and endpoint monitoring.",
+    "category": "Development",
+    "tags": [
+      "api",
+      "testing",
+      "monitoring"
+    ],
+    "sourceUrl": "https://www.postman.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Supabase",
+    "url": "https://supabase.com/",
+    "domain": "supabase.com",
+    "description": "Build application backends with Postgres, authentication, storage, APIs, and realtime data.",
+    "category": "Development",
+    "tags": [
+      "backend",
+      "postgres",
+      "database"
+    ],
+    "sourceUrl": "https://supabase.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Vercel",
+    "url": "https://vercel.com/",
+    "domain": "vercel.com",
+    "description": "Deploy web applications and AI services with managed hosting, deployment environments, and serverless functions.",
+    "category": "Development",
+    "tags": [
+      "deployment",
+      "hosting",
+      "web"
+    ],
+    "sourceUrl": "https://vercel.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Replit",
+    "url": "https://replit.com/",
+    "domain": "replit.com",
+    "description": "Build and publish applications with AI assistance and integrated database, authentication, and hosting services.",
+    "category": "Development",
+    "tags": [
+      "app-builder",
+      "ai-coding",
+      "hosting"
+    ],
+    "sourceUrl": "https://replit.com/",
+    "checkedOn": "2026-10-09"
+  },
+  {
+    "name": "Docker",
+    "url": "https://www.docker.com/",
+    "domain": "docker.com",
+    "description": "Develop and run applications in containers, with tools for local development and isolated execution.",
+    "category": "Development",
+    "tags": [
+      "containers",
+      "devops",
+      "local-development"
+    ],
+    "sourceUrl": "https://www.docker.com/",
+    "checkedOn": "2026-10-09"
+  }
+]

@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <main style={{padding:"4rem"}}><h1>Page not found</h1><p>This page is unavailable.</p><Link href="/">Browse tools</Link> · <a href="/archive/">Historical archive</a></main>;}
