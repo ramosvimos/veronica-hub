@@ -21,7 +21,7 @@ it('keeps query-category filters when the user applies other search filters',()=
  render(<PdfDirectory title="Search" description="Search" tools={pdfTools} action="/search" params={{category:'ai'}}/>);
  expect(document.querySelector('input[type="hidden"][name="category"]')).toHaveAttribute('value','ai');
  expect(screen.getByText('Category: AI assistants')).toBeInTheDocument();
- expect(screen.getAllByRole('article')).toHaveLength(11);
+ expect(screen.getAllByRole('article')).toHaveLength(12);
 });
 
 it('renders submitted HTML-like names and descriptions only as text',()=>{
@@ -32,3 +32,5 @@ it('renders submitted HTML-like names and descriptions only as text',()=>{
  expect(document.querySelector('svg[onload]')).toBeNull();
  for(const script of document.querySelectorAll('script')){expect(script.type).toBe('application/ld+json');expect(script.textContent).not.toContain('</script>');expect(()=>JSON.parse(script.textContent||'')).not.toThrow();}
 });
+
+it("keeps the canonical Paid selection for lowercase shared URLs",()=>{render(<PdfCompareProvider><PdfDirectory title="Paid tools" description="Paid tools" tools={pdfTools} params={{price:"paid"}}/></PdfCompareProvider>);expect(screen.getByRole("combobox",{name:"Price"})).toHaveValue("Paid");expect(screen.getAllByRole("article")).toHaveLength(3);});

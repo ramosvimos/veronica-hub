@@ -3,6 +3,7 @@ import { pdfTools } from "@/data/pdf-catalog";
 import { submissionSchema, submissionIdSchema, versionSchema, reviewSchema, websiteKey } from "./schema";
 import { assertAdminAccess, assertSubmissionAccess, tokenDigest } from "./access";
 import { insertSubmissionRecord, readSubmissionRecord, mutateSubmissionRecord, listSubmissionRecords, requireSubmissionStorage } from "./store";
+import { paidSubmissionConfiguration } from "./config";
 import { privateSubmission, SubmissionError, type SubmissionRecord } from "./types";
 
 function assertNotSeeded(url: string) {
@@ -18,11 +19,16 @@ export async function createSubmission(value: unknown) {
   await requireSubmissionStorage();
   const input = submissionSchema.parse(value);
   assertNotSeeded(input.url);
+  const paid = input.submissionType === "paid" ? await paidSubmissionConfiguration() : undefined;
+  if (paid && !paid.ready) throw new SubmissionError("payments_disabled", paid.message, 503);
   const token = randomBytes(32).toString("hex");
   const now = new Date().toISOString();
   const record: SubmissionRecord = {
     id: randomUUID(), tokenHash: tokenDigest(token), urlKey: websiteKey(input.url), createdAt: now, updatedAt: now,
-    version: 0, input, status: "awaiting-backlink-review",
+    version: 0, input, serviceType: input.submissionType,
+    status: input.submissionType === "paid" ? "awaiting-payment" : "awaiting-backlink-review",
+    ...(paid?.ready ? { payment: { amount: 990 as const, currency: "usd" as const, environment: paid.provider.environment,
+      status: "awaiting-payment" as const, attempts: [], events: [], refundStatus: "none" as const } } : {}),
   };
   await insertSubmissionRecord(record);
   return { submission: privateSubmission(record), token };
@@ -39,7 +45,12 @@ export async function changeSubmission(id: string, token: string, version: numbe
     assertSubmissionAccess(current, token);
     if (action === "withdraw") {
       if (current.status === "withdrawn") throw new SubmissionError("state", "This submission is already withdrawn.", 409);
-      return { ...clearReview(current), status: "withdrawn" };
+      return { ...clearReview(current), status: "withdrawn",
+        ...(current.payment?.status === "paid" && current.status === "paid-awaiting-review" ? { payment: { ...current.payment, refundStatus: "pending" as const } } : {}),
+      };
+    }
+    if (current.serviceType === "paid" && (action === "resubmit" || current.status !== "awaiting-payment" || current.payment?.attempts.length)) {
+      throw new SubmissionError("state", "Paid submissions cannot be changed after Checkout starts or resubmitted after a decision. Contact editorial support for an unresolved payment.", 409);
     }
     if (action !== "edit" && action !== "resubmit") throw new SubmissionError("validation", "Unknown submission action.");
     if (action === "edit" && (current.status === "approved" || current.status === "withdrawn")) {
@@ -49,10 +60,11 @@ export async function changeSubmission(id: string, token: string, version: numbe
       throw new SubmissionError("state", "Only a rejected or withdrawn submission can be resubmitted.", 409);
     }
     const input = submissionSchema.parse(inputValue ?? current.input);
+    if (input.submissionType !== (current.serviceType || "free")) throw new SubmissionError("state", "The submission service cannot be changed.", 409);
     assertNotSeeded(input.url);
     return {
       ...clearReview(current), input, urlKey: websiteKey(input.url),
-      status: action === "edit" && current.status === "rejected" ? "rejected" : "awaiting-backlink-review",
+      status: current.serviceType === "paid" ? "awaiting-payment" : action === "edit" && current.status === "rejected" ? "rejected" : "awaiting-backlink-review",
     };
   });
   return privateSubmission(record);
@@ -69,8 +81,24 @@ export async function reviewSubmission(key: string, id: string, version: number,
   const record = await mutateSubmissionRecord(id, version, current => {
     assertAdminAccess(key);
     if (review.decision === "withdraw") {
-      if (current.status !== "approved") throw new SubmissionError("state", "Only an approved listing can be withdrawn by editorial review.", 409);
+      if (current.status !== "approved" && !(current.serviceType === "paid" && current.status === "awaiting-payment")) throw new SubmissionError("state", "Only an approved listing or unpaid paid-service submission can be withdrawn by editorial review.", 409);
       return { ...clearReview(current), status: "withdrawn", reviewedAt: new Date().toISOString(), reviewNote: review.note };
+    }
+    if (current.serviceType === "paid") {
+      if (current.status !== "paid-awaiting-review" || current.payment?.status !== "paid" || current.payment.refundStatus !== "none") {
+        throw new SubmissionError("state", "Only a confirmed, unrefunded paid submission awaiting review can receive a decision.", 409);
+      }
+      if (review.decision === "verify") {
+        if (review.websiteChecked !== true) throw new SubmissionError("checks_required", "Manually open the website and confirm the website check.", 409);
+        return { ...current, websiteVerifiedAt: new Date().toISOString(), verificationNote: review.note };
+      }
+      if (review.decision === "approve") {
+        if (!current.websiteVerifiedAt) throw new SubmissionError("checks_required", "Save the manual website check before approving.", 409);
+        submissionSchema.parse(current.input); assertNotSeeded(current.input.url);
+        return { ...current, status: "approved", reviewedAt: new Date().toISOString(), reviewNote: review.note, listingSlug: `submission-${current.id}` };
+      }
+      return { ...current, status: "rejected", reviewedAt: new Date().toISOString(), reviewNote: review.note, listingSlug: undefined,
+        payment: { ...current.payment, refundStatus: "pending" } };
     }
     if (review.decision === "verify") {
       if (current.status !== "awaiting-backlink-review") throw new SubmissionError("state", "Only a submission awaiting checks can be verified.", 409);

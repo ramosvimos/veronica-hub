@@ -210,9 +210,9 @@ describe("configuration, input validation and HTTP privacy", () => {
     sqlite!.exec("DELETE FROM veronica_submission_meta");
     expect((await submissionReadiness()).ready).toBe(false);
   });
-  it("rejects paid submission paths, invalid categories, unsafe URLs, bots and extra fields", () => {
+  it("rejects invalid categories, unsafe URLs, bots and extra fields", () => {
     for (const patch of [
-      { submissionType: "paid" }, { category: "invented" }, { url: "http://northstar-tool.dev" }, { url: "https://127.0.0.1" },
+      { category: "invented" }, { url: "http://northstar-tool.dev" }, { url: "https://127.0.0.1" },
       { url: "https://0x7f000001" }, { url: "https://2130706433" }, { url: "https://internal.local" }, { url: "https://user:password@northstar-tool.dev" },
       { sourceUrl: "javascript:alert(1)" }, { url: "https://northstar-tool.dev/?token=secret" }, { backlinkUrl: "" },
       { confirmed: false }, { website: "bot content" }, { iconDataUrl: "data:fake" }, { description: "short" }, { email: "invalid" },

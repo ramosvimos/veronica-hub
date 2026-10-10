@@ -1,0 +1,300 @@
+{
+  "checkedAt": "2026-10-10",
+  "definitions": {
+    "free": "Core product free; no paid product tier verified.",
+    "freemium": "Ongoing free functionality/tier plus paid upgrades or add-on services.",
+    "paid": "Core product normally requires payment; limited free trials do not count as a permanent free tier.",
+    "unknown": "Insufficient official evidence; leave unverified."
+  },
+  "existing": [
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/",
+      "pricingUrl": "https://chatgpt.com/pricing/",
+      "pricing": "freemium",
+      "evidence": "Free plan alongside Go, Plus, Pro and business subscriptions.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Claude",
+      "url": "https://claude.com/",
+      "pricingUrl": "https://claude.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free plan for everyone alongside paid plans.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Gemini",
+      "url": "https://gemini.google/",
+      "pricingUrl": "https://gemini.google/subscriptions/",
+      "pricing": "freemium",
+      "evidence": "Free access and paid Google AI upgrades; availability varies by region.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Gemini Notebook",
+      "url": "https://notebook.google/",
+      "pricingUrl": "https://support.google.com/gemininotebook/answer/16213268?hl=en",
+      "pricing": "freemium",
+      "evidence": "Standard is free; higher limits through Google AI Plus, Pro, Ultra or qualifying paid plans.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Perplexity",
+      "url": "https://www.perplexity.ai/",
+      "pricingUrl": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+      "pricing": "freemium",
+      "evidence": "Official plan guide distinguishes Free, Pro and Max.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Hugging Face",
+      "url": "https://huggingface.co/",
+      "pricingUrl": "https://huggingface.co/pricing",
+      "pricing": "freemium",
+      "evidence": "Free community features and basic Spaces compute alongside PRO and paid compute.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "DeepL",
+      "url": "https://www.deepl.com/",
+      "pricingUrl": "https://www.deepl.com/en/pro",
+      "pricing": "freemium",
+      "evidence": "Free version alongside Individual, Team, Business and Enterprise.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io/",
+      "pricingUrl": "https://elevenlabs.io/pricing",
+      "pricing": "freemium",
+      "evidence": "Recurring Free credits and paid tiers. Commercial-license rights differ by tier.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Notion",
+      "url": "https://www.notion.com/",
+      "pricingUrl": "https://www.notion.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free workspace and paid Plus/Business/Enterprise. AI in Free/Plus is a limited trial.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Obsidian",
+      "url": "https://obsidian.md/",
+      "pricingUrl": "https://obsidian.md/pricing",
+      "pricing": "freemium",
+      "evidence": "Core app free without limits; optional paid Sync and Publish services.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Todoist",
+      "url": "https://todoist.com/",
+      "pricingUrl": "https://www.todoist.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free Beginner plan and paid Pro/Business.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Linear",
+      "url": "https://linear.app/",
+      "pricingUrl": "https://linear.app/pricing",
+      "pricing": "freemium",
+      "evidence": "Free plan and paid Basic/Business/Enterprise.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Raycast",
+      "url": "https://www.raycast.com/",
+      "pricingUrl": "https://www.raycast.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free launcher features for personal/organizational use; AI in paid Pro plans with limited trial.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Zapier",
+      "url": "https://zapier.com/",
+      "pricingUrl": "https://zapier.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free forever plan with task allowance; paid upgrades.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Calendly",
+      "url": "https://calendly.com/",
+      "pricingUrl": "https://calendly.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Always-free scheduling plan; paid Standard/Teams/Enterprise.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Airtable",
+      "url": "https://airtable.com/",
+      "pricingUrl": "https://airtable.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free plan and paid plans for higher capacity.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Cursor",
+      "url": "https://cursor.com/",
+      "pricingUrl": "https://cursor.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free Hobby plan with limited requests; paid Individual/Teams/Enterprise.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "GitHub Copilot",
+      "url": "https://github.com/features/copilot",
+      "pricingUrl": "https://github.com/features/copilot/plans",
+      "pricing": "freemium",
+      "evidence": "Copilot Free plus paid Pro/Pro+/Max and organization plans.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Visual Studio Code",
+      "url": "https://code.visualstudio.com/",
+      "pricingUrl": "https://code.visualstudio.com/Docs/supporting/faq",
+      "pricing": "free",
+      "evidence": "Editor free for private/commercial use. Paid extensions/services are separate. Microsoft distribution is built on open source rather than wholly open source.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Postman",
+      "url": "https://www.postman.com/",
+      "pricingUrl": "https://www.postman.com/pricing/",
+      "pricing": "freemium",
+      "evidence": "Free core API tools and paid Solo/Team/Enterprise.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Supabase",
+      "url": "https://supabase.com/",
+      "pricingUrl": "https://supabase.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free plan with resource limits; paid Pro/Team/Enterprise and usage charges.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Vercel",
+      "url": "https://vercel.com/",
+      "pricingUrl": "https://vercel.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free Hobby and paid Pro/Enterprise; usage and eligibility restrictions apply.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Replit",
+      "url": "https://replit.com/",
+      "pricingUrl": "https://docs.replit.com/billing/plans/starter-plan",
+      "pricing": "freemium",
+      "evidence": "Free Starter has replenishing daily Agent credits and monthly cloud credits; paid Core/Pro unlock more. Free published app link expires after 30 days.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Docker",
+      "url": "https://www.docker.com/",
+      "pricingUrl": "https://www.docker.com/pricing/",
+      "pricing": "freemium",
+      "evidence": "Docker Personal free; Pro/Team/Business paid. Desktop license eligibility restrictions apply.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "DeepSeekDSH",
+      "url": "https://deepseekdsh.com/",
+      "pricingUrl": "https://deepseekdsh.com/",
+      "pricing": "unknown",
+      "evidence": "Public independent community guides, not an official DeepSeek product. Homepage says model API credits are not included; no verified site pricing declaration.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Random Animal Picker",
+      "url": "https://randomanimalpicker.com/",
+      "pricingUrl": "https://randomanimalpicker.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Animal picker/facts permanently free without account. AI artwork has only a 3-day trial then paid monthly/annual membership.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Free AI Voice Generator",
+      "url": "https://freeaivoicegenerator.com/",
+      "pricingUrl": "https://freeaivoicegenerator.com/",
+      "pricing": "unknown",
+      "evidence": "Homepage confirms recurring free short preset previews, but paid memorial offering is planned/waitlisted; pricing endpoint could not be read. Do not claim an active paid plan.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Video Script Extractor",
+      "url": "https://videoscriptextractor.com/",
+      "pricingUrl": "https://videoscriptextractor.com/pricing",
+      "pricing": "freemium",
+      "evidence": "Free daily short-video allowance, paid recurring membership and one-time credit packs.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "AskPDF",
+      "url": "https://askpdf.top/",
+      "pricingUrl": null,
+      "pricing": "unknown",
+      "evidence": "Homepage and pricing inaccessible in research fetch; preserve unknown, do not substitute unrelated askpdf.org.",
+      "checkedAt": "2026-10-10"
+    }
+  ],
+  "paidCandidates": [
+    {
+      "name": "Jasper",
+      "url": "https://www.jasper.ai/",
+      "pricingUrl": "https://www.jasper.ai/pricing",
+      "description": "AI marketing content and brand workflows.",
+      "pricing": "paid",
+      "evidence": "Paid Pro subscription and custom Business plan; 7-day trial is not a permanent free tier.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Motion",
+      "url": "https://www.usemotion.com/",
+      "pricingUrl": "https://www.usemotion.com/pricing",
+      "description": "AI task, calendar and project planning.",
+      "pricing": "paid",
+      "evidence": "Paid Pro AI and Business AI subscriptions per seat; free trial rather than a permanent free tier.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Surfer",
+      "url": "https://surferseo.com/",
+      "pricingUrl": "https://surferseo.com/pricing/",
+      "description": "Search/AI visibility tracking and content optimization.",
+      "pricing": "paid",
+      "evidence": "Core platform uses paid subscriptions. Separate free tools are not a free core-platform plan. Official 7-day trial expires into selected paid subscription.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Midjourney",
+      "url": "https://www.midjourney.com/",
+      "pricingUrl": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      "description": "AI image and video generation.",
+      "pricing": "paid",
+      "evidence": "All four plans are monthly/yearly subscriptions. Official trial page says no trial on website/Discord; limited niji mobile trial is separate.",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "name": "Tower",
+      "url": "https://www.git-tower.com/",
+      "pricingUrl": "https://www.git-tower.com/pricing",
+      "description": "Desktop Git client for macOS and Windows.",
+      "pricing": "paid",
+      "evidence": "Standard paid subscription with 30-day trial. FAQ explicitly says no free plan; eligible students, educators and nonprofits can apply for free licenses.",
+      "checkedAt": "2026-10-10"
+    }
+  ],
+  "supplementalSources": {
+    "Jasper": "https://help.jasper.ai/hc/en-us/articles/18618674196891-Free-Trial",
+    "Surfer": "https://docs.surferseo.com/en/articles/12944181-how-does-the-surfer-trial-work",
+    "Midjourney": "https://docs.midjourney.com/hc/en-us/articles/27870399340173-Free-Trials"
+  },
+  "includedPaidCandidates": [
+    "Jasper",
+    "Motion",
+    "Tower"
+  ]
+}

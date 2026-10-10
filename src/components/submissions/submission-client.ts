@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { SubmissionStatus } from "@/lib/submissions/types";
 
 export type SubmissionInput = {
-  submissionType: "free";
+  submissionType: "free" | "paid";
   name: string;
   url: string;
   email: string;
@@ -13,7 +13,7 @@ export type SubmissionInput = {
   pricing: "Free" | "Freemium" | "Paid" | "Open source" | "Not verified";
   processing: "Cloud" | "Local" | "Self-hosted" | "Mixed" | "Not applicable" | "Not verified";
   sourceUrl?: string;
-  backlinkUrl: string;
+  backlinkUrl?: string;
   confirmed: true;
   website: string;
 };
@@ -29,8 +29,17 @@ export type SubmissionRecord = {
   listingSlug?: string;
   websiteVerifiedAt?: string;
   backlinkVerifiedAt?: string;
+  serviceType?: "free" | "paid";
+  payment?: {
+    status: "awaiting-payment" | "paid";
+    checkoutStarted: boolean;
+    paidAt?: string;
+    reviewDueAt?: string;
+    refundStatus: "none" | "pending" | "refunded";
+    refundVerifiedAt?: string;
+  };
 };
-export type Readiness = { ready: boolean; mode: "local" | "d1" | "disabled"; message: string; adminReady: boolean };
+export type Readiness = { ready: boolean; mode: "local" | "d1" | "disabled"; message: string; adminReady: boolean; paidReady?: boolean; paidMessage?: string };
 
 export class SubmissionRequestError extends Error {
   constructor(message: string, public status: number) { super(message); }
@@ -61,12 +70,25 @@ export function useSubmissionReadiness() {
 }
 
 export const statusLabels: Record<SubmissionStatus, string> = {
+  "awaiting-payment": "Awaiting confirmed payment",
+  "paid-awaiting-review": "Paid · awaiting editorial review",
   "awaiting-backlink-review": "Awaiting website & backlink checks",
   "free-awaiting-review": "Awaiting editorial decision",
   approved: "Approved", rejected: "Rejected", withdrawn: "Withdrawn",
 };
 export function isPendingSubmission(status: SubmissionStatus) {
-  return status === "awaiting-backlink-review" || status === "free-awaiting-review";
+  return status === "awaiting-backlink-review" || status === "free-awaiting-review" || status === "paid-awaiting-review";
+}
+
+export function isPaidSubmission(submission: SubmissionRecord) {
+  return submission.serviceType === "paid" || submission.input.submissionType === "paid";
+}
+
+export function safeCheckoutUrl(value: unknown, token: string): string {
+  if (typeof value !== "string") throw new Error("A secure checkout link was not returned. Refresh your private status before retrying.");
+  const url = new URL(value);
+  if (url.protocol !== "https:" || url.hostname !== "checkout.stripe.com" || url.port || url.search || !url.pathname.startsWith("/c/pay/") || url.username || url.password || /[\s\\]/.test(value) || value.includes(token)) throw new Error("The checkout link could not be verified. Refresh your private status before retrying.");
+  return value;
 }
 
 export const inputClass = "mt-2 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-foreground disabled:opacity-60";

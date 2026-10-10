@@ -1,4 +1,4 @@
-// Adapted from the current directory's free submission schema; no paid or account paths.
+// Submission service choice is independent of the listed product pricing.
 import { z } from "zod";
 import { pdfCategories } from "@/data/pdf-catalog";
 
@@ -18,7 +18,7 @@ export function isPublicHttpsUrl(value: string) {
 }
 const publicUrl = z.string().trim().max(500).refine(isPublicHttpsUrl, "Use a public HTTPS URL without login details, query parameters or fragments.");
 export const submissionSchema = z.object({
-  submissionType: z.literal("free").default("free"),
+  submissionType: z.enum(["free", "paid"]).default("free"),
   name: z.string().trim().min(2).max(80),
   url: publicUrl,
   email: z.string().trim().email().max(160),
@@ -27,10 +27,12 @@ export const submissionSchema = z.object({
   pricing: z.enum(pricingOptions).default("Not verified"),
   processing: z.enum(processingOptions).default("Not verified"),
   sourceUrl: z.union([z.literal(""), publicUrl]).optional(),
-  backlinkUrl: publicUrl,
+  backlinkUrl: z.union([z.literal(""), publicUrl]).optional(),
   confirmed: z.literal(true),
   website: z.string().max(0).optional(),
-}).strict().transform(input => ({ ...input, sourceUrl: input.sourceUrl || input.url }));
+}).strict().superRefine((input, context) => {
+  if (input.submissionType === "free" && !input.backlinkUrl) context.addIssue({ code: "custom", path: ["backlinkUrl"], message: "A visible backlink page is required for free submissions." });
+}).transform(input => ({ ...input, backlinkUrl: input.backlinkUrl || "", sourceUrl: input.sourceUrl || input.url }));
 export type SubmissionInput = z.infer<typeof submissionSchema>;
 export const submissionIdSchema = z.string().uuid();
 export const versionSchema = z.number().int().nonnegative();

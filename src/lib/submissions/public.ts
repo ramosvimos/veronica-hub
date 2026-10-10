@@ -5,7 +5,9 @@ import { submissionSchema } from "./schema";
 import type { SubmissionRecord } from "./types";
 
 function projectPublicTool(record: SubmissionRecord): PdfTool | undefined {
-  if (record.status !== "approved" || !record.websiteVerifiedAt || !record.backlinkVerifiedAt || !record.reviewedAt || record.listingSlug !== `submission-${record.id}`) return undefined;
+  if (record.status !== "approved" || !record.websiteVerifiedAt || !record.reviewedAt || record.listingSlug !== `submission-${record.id}`) return undefined;
+  const paid = record.serviceType === "paid";
+  if (paid ? record.payment?.status !== "paid" || record.payment.refundStatus !== "none" : !record.backlinkVerifiedAt) return undefined;
   const result = submissionSchema.safeParse(record.input);
   if (!result.success) return undefined;
   const input = result.data;
@@ -18,7 +20,7 @@ function projectPublicTool(record: SubmissionRecord): PdfTool | undefined {
     freeLimits: "Publisher-reported pricing. Confirm current limits on the official website.",
     bestFor: input.description, limitation: "Capabilities and terms can change. Check the official source before use.",
     features: [], url: input.url, sources: [{ label: "Publisher's official source", url: input.sourceUrl }],
-    reciprocalSubmission: true, featured: false, reviewedOn: record.reviewedAt.slice(0, 10), evidenceStatus: "reviewed",
+    reciprocalSubmission: !paid, paidSubmission: paid, featured: false, reviewedOn: record.reviewedAt.slice(0, 10), evidenceStatus: "reviewed",
   };
 }
 export async function getPublishedSubmissionTools(): Promise<PdfTool[]> {

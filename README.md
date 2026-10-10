@@ -4,7 +4,7 @@ A general AI, productivity and developer-tool directory at `residentevilveronica
 
 ## Included
 
-- 24 third-party editorial tools plus 5 explicitly disclosed owner projects; official URLs, concrete purposes and review dates. Unverified pricing, limits and processing fields stay marked.
+- 27 third-party editorial tools plus 5 explicitly disclosed owner projects; official URLs, concrete purposes and review dates. Unverified pricing, limits and processing fields stay marked.
 - Current directory search, category/price/processing filters, pagination, detail pages and up-to-three comparison UI.
 - Free reciprocal-link submissions, private access-token lookup, rejected/withdrawn revision and resubmission, manual website/backlink verification, approval and administrative withdrawal.
 - One fresh approved-publication projection for directory, details, comparison API and sitemap. Emails, tokens and internal review history are excluded.
@@ -45,3 +45,11 @@ A Git commit, passing tests and a draft PR do not constitute a deployment or liv
 ## Owned-project guides
 
 Five shared-owner projects have five original practical guides each (25 total), linked from `/guides`, `/our-projects` and their tool listings. Articles are rendered server-side, carry source dates and ownership disclosures, and have canonical URLs, Article structured data and sitemap entries. They describe editorial workflows without invented testing, rankings or guaranteed AI recommendations. See `docs/owned-project-articles.md` for the complete map.
+
+## Tool price classification
+
+Pricing labels describe product access, not fees for directory inclusion. The October 10 review adds Jasper, Motion and Tower as Paid; a trial is not an ongoing free tier. 25 existing entries are Freemium, Visual Studio Code is Free, and three entries remain Not verified. Each verified classification links to a dated official pricing source; processing and unrelated unverified fields are unchanged. See `docs/pricing-evidence-2026-10-10.json`. Tool price classification is separate from the optional paid-review service described below.
+
+## Optional paid editorial review
+
+The code supports a separately gated USD 9.90 one-time review service without a backlink, with a seven-business-day review deadline after confirmed payment and a full refund for rejected submissions. Payment and refund state are independently persisted; pending refunds are not reported as completed. Paid checkout defaults off and requires dedicated configuration plus the reviewed migration. See `docs/paid-submissions.md`. This change does not enable billing, configure payment credentials or apply any production migration.

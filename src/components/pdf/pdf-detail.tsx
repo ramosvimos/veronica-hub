@@ -196,8 +196,9 @@ export function PdfToolDetail({ tool, catalog = pdfTools }: { tool: PdfTool; cat
 
           {/* Free access & limits */}
           <section>
-            <h2>Free access & limits</h2>
+            <h2>Pricing, free access & limits</h2>
             <p>{tool.freeLimits}</p>
+            {tool.pricingEvidence && <p className="pdf-small-note">Pricing model checked {tool.pricingEvidence.checkedOn} using <a href={tool.pricingEvidence.url} target="_blank" rel={externalRel}>official pricing information</a>. {tool.pricingEvidence.note}</p>}
             <p className="pdf-small-note">
               Pricing and allowances can change. Confirm them on the publisher’s website before committing.
             </p>

@@ -172,3 +172,227 @@ describe("manual editorial review", () => {
     expect(screen.queryByRole("heading", { name: input.name })).not.toBeInTheDocument();
   });
 });
+
+const paidInput: SubmissionRecord["input"] = { ...input, submissionType: "paid", pricing: "Free", backlinkUrl: "" };
+const paidRecord: SubmissionRecord = { ...record, input: paidInput, serviceType: "paid", status: "awaiting-payment", payment: { status: "awaiting-payment", checkoutStarted: false, refundStatus: "none" } };
+const paidReady = { ...ready, paidReady: true, paidMessage: "Paid submissions are available." };
+const confirmedPaid: SubmissionRecord = { ...paidRecord, status: "paid-awaiting-review", version: 2, payment: { status: "paid", checkoutStarted: true, paidAt: "2026-10-09T12:00:00Z", reviewDueAt: "2026-10-20T12:00:00Z", refundStatus: "none" } };
+
+async function fillPaidSubmission() {
+  await userEvent.click(screen.getByRole("radio", { name: /Paid · USD 9.90/ }));
+  fireEvent.change(screen.getByLabelText("Tool name *"), { target: { value: paidInput.name } });
+  fireEvent.change(screen.getByLabelText(/Product website/), { target: { value: paidInput.url } });
+  fireEvent.change(screen.getByLabelText(/Contact email/), { target: { value: paidInput.email } });
+  fireEvent.change(screen.getByLabelText("Category *"), { target: { value: paidInput.category } });
+  fireEvent.change(screen.getByLabelText(/What does your tool do/), { target: { value: paidInput.description } });
+  fireEvent.change(screen.getByLabelText(/Product pricing/), { target: { value: paidInput.pricing } });
+  await userEvent.click(screen.getByRole("checkbox", { name: /I represent this tool/ }));
+}
+async function openAdmin(value: SubmissionRecord) {
+  fetchMock.mockResolvedValueOnce(json(ready)).mockResolvedValueOnce(json({ submissions: [value] }));
+  render(<SubmissionAdmin />);
+  await screen.findByText("Editorial review is available.");
+  fireEvent.change(screen.getByLabelText("Dedicated admin key"), { target: { value: adminKey } });
+  await userEvent.click(screen.getByRole("button", { name: "Load submissions" }));
+  await screen.findByRole("heading", { name: input.name });
+}
+
+describe("paid submission UI", () => {
+  it("keeps paid intake closed without explicit readiness while preserving free intake", async () => {
+    fetchMock.mockResolvedValueOnce(json(ready));
+    render(<SubmissionForm />);
+    await screen.findByText(ready.message);
+    expect(screen.getByRole("radio", { name: /Paid · USD 9.90/ })).toBeDisabled();
+    expect(screen.getByRole("radio", { name: /Free · \$0/ })).toBeChecked();
+    expect(screen.getByRole("button", { name: "Review submission" })).toBeEnabled();
+  });
+
+  it("separates paid submission from product pricing and saves credentials before checkout", async () => {
+    const storage = vi.spyOn(Storage.prototype, "setItem");
+    fetchMock.mockResolvedValueOnce(json(paidReady)).mockResolvedValueOnce(json({ submission: paidRecord, token })).mockResolvedValueOnce(json(paidReady)).mockResolvedValueOnce(json({ submission: { ...paidRecord, version: 1, payment: { ...paidRecord.payment, checkoutStarted: true } }, checkoutUrl: "https://checkout.stripe.com/c/pay/cs_test_example" }));
+    render(<SubmissionForm />);
+    await screen.findByText(ready.message);
+    await fillPaidSubmission();
+    expect(screen.queryByLabelText(/Page with your Veronica Hub/)).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Read the submission terms" })).toHaveAttribute("href", "/terms");
+    await userEvent.click(screen.getByRole("button", { name: "Review submission" }));
+    expect(screen.getByText("USD 9.90 once")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Save paid submission" }));
+    await screen.findByRole("heading", { name: "Save your private access details now" });
+    await screen.findByText(paidReady.paidMessage);
+    expect(JSON.parse(fetchMock.mock.calls[1][1].body)).toMatchObject({ submissionType: "paid", pricing: "Free", backlinkUrl: "", confirmed: true });
+    expect(screen.getByRole("button", { name: "Prepare secure checkout" })).toBeDisabled();
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    await userEvent.click(screen.getByRole("checkbox", { name: /securely saved both/ }));
+    await userEvent.click(screen.getByRole("button", { name: "Hide the token" }));
+    await userEvent.click(screen.getByRole("button", { name: "Prepare secure checkout" }));
+    const link = await screen.findByRole("link", { name: "Continue to secure checkout · USD 9.90" });
+    expect(link).toHaveAttribute("href", "https://checkout.stripe.com/c/pay/cs_test_example");
+    expect(link).toHaveAttribute("referrerpolicy", "no-referrer");
+    expect(fetchMock.mock.calls[3][0]).toBe("/api/submissions/checkout");
+    expect(JSON.parse(fetchMock.mock.calls[3][1].body)).toEqual({ id });
+    expect(fetchMock.mock.calls[3][1].headers.Authorization).toBe(`Bearer ${token}`);
+    expect(screen.queryByLabelText("Private management token")).not.toBeInTheDocument();
+    expect(storage).not.toHaveBeenCalled();
+    storage.mockRestore();
+  });
+
+  it("does not enable checkout if paid availability closes after creation", async () => {
+    fetchMock.mockResolvedValueOnce(json(paidReady)).mockResolvedValueOnce(json({ submission: paidRecord, token })).mockResolvedValueOnce(json({ ...ready, paidReady: false, paidMessage: "Paid checkout is closed for maintenance." }));
+    render(<SubmissionForm />); await screen.findByText(ready.message); await fillPaidSubmission();
+    await userEvent.click(screen.getByRole("button", { name: "Review submission" }));
+    await userEvent.click(screen.getByRole("button", { name: "Save paid submission" }));
+    await screen.findByText("Paid checkout is closed for maintenance.");
+    await userEvent.click(screen.getByRole("checkbox", { name: /securely saved both/ }));
+    expect(screen.getByRole("button", { name: "Prepare secure checkout" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Check checkout availability again" })).toBeInTheDocument();
+  });
+
+  it("ignores checkout success parameters and shows payment pending until server confirmation", async () => {
+    window.history.replaceState(null, "", "/submit-tool/status?payment=success&session_id=cs_test_forged");
+    fetchMock.mockResolvedValueOnce(json({ submission: paidRecord })).mockResolvedValueOnce(json({ ...ready, paidReady: false }));
+    render(<SubmissionStatus />);
+    fireEvent.change(screen.getByLabelText("Submission ID"), { target: { value: id } });
+    fireEvent.change(screen.getByLabelText("Private management token"), { target: { value: token } });
+    await userEvent.click(screen.getByRole("button", { name: "View submission" }));
+    await screen.findByRole("heading", { name: input.name });
+    expect(screen.getByText(/Not yet confirmed by the server/)).toBeInTheDocument();
+    expect(screen.queryByText(/Confirmed by the server on/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Review due by/)).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Prepare secure checkout" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Edit details" })).toBeInTheDocument();
+    window.history.replaceState(null, "", "/");
+  });
+
+  it("uses server-confirmed deadlines and preserves terminal paid refund status", async () => {
+    await openStatus(confirmedPaid);
+    expect(screen.getByText(/Review due by/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Edit details" })).not.toBeInTheDocument();
+    fetchMock.mockResolvedValueOnce(json({ submission: { ...confirmedPaid, status: "rejected", version: 3, payment: { ...confirmedPaid.payment, refundStatus: "pending" } } }));
+    await userEvent.click(screen.getByRole("button", { name: "Refresh status" }));
+    await screen.findByText(/Full refund pending/);
+    expect(screen.queryByRole("button", { name: "Resubmit for review" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Edit details" })).not.toBeInTheDocument();
+    expect(screen.queryByText(/Full refund verified/)).not.toBeInTheDocument();
+  });
+
+  it("never labels a refund complete without a server verification timestamp", async () => {
+    await openStatus({ ...confirmedPaid, status: "rejected", payment: { ...confirmedPaid.payment!, refundStatus: "refunded" } });
+    expect(screen.getByText(/Full refund pending/)).toBeInTheDocument();
+    expect(screen.queryByText(/Full refund verified/)).not.toBeInTheDocument();
+  });
+});
+
+describe("paid editorial and refund review", () => {
+  it("requires the website check for paid submissions without requiring a backlink", async () => {
+    await openAdmin(confirmedPaid);
+    expect(screen.queryByRole("checkbox", { name: /opened the backlink page/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /Open backlink page/ })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Approve & publish" })).toBeDisabled();
+    const verified = { ...confirmedPaid, websiteVerifiedAt: record.createdAt, version: 3 };
+    fetchMock.mockResolvedValueOnce(json({ submission: verified }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /opened the official website/ }));
+    fireEvent.change(screen.getByLabelText(/Review note/), { target: { value: "Official website and product identity verified." } });
+    await userEvent.click(screen.getByRole("button", { name: "Save manual verification" }));
+    await screen.findByText("Manual website check saved. This paid submission still needs an approval decision.");
+    expect(JSON.parse(fetchMock.mock.calls[2][1].body)).toMatchObject({ decision: "verify", websiteChecked: true, backlinkChecked: false });
+    expect(screen.getByRole("button", { name: "Approve & publish" })).toBeEnabled();
+    expect(screen.getByText(/Rejecting this paid submission creates a full USD 9.90 refund obligation/)).toBeInTheDocument();
+  });
+
+  it("keeps paid review unavailable while payment is unconfirmed", async () => {
+    await openAdmin(paidRecord);
+    expect(screen.queryByRole("button", { name: "Approve & publish" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Reject submission" })).not.toBeInTheDocument();
+    expect(screen.getByText(/Editorial decisions are unavailable until the server confirms payment/)).toBeInTheDocument();
+  });
+
+  it("verifies a completed provider refund and keeps failed verification pending", async () => {
+    const rejected: SubmissionRecord = { ...confirmedPaid, status: "rejected", version: 4, payment: { ...confirmedPaid.payment!, refundStatus: "pending" } };
+    await openAdmin(rejected);
+    expect(screen.queryByRole("button", { name: /mark.*refund/i })).not.toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText("Provider refund ID"), { target: { value: "re_example123" } });
+    fetchMock.mockResolvedValueOnce(json({ error: "This provider refund is not a completed full refund for this payment." }, 400));
+    await userEvent.click(screen.getByRole("button", { name: "Verify completed provider refund" }));
+    expect(await screen.findByRole("alert")).toHaveTextContent("not a completed full refund");
+    expect(screen.getByText(/Full refund pending/)).toBeInTheDocument();
+    expect(screen.queryByText(/Full refund verified/)).not.toBeInTheDocument();
+    fetchMock.mockResolvedValueOnce(json({ submission: { ...rejected, version: 5, payment: { ...rejected.payment, refundStatus: "refunded", refundVerifiedAt: "2026-10-10T10:00:00Z" } } }));
+    await userEvent.click(screen.getByRole("button", { name: "Verify completed provider refund" }));
+    await screen.findByText("Full USD 9.90 refund verified against the payment provider’s completed refund record.");
+    expect(JSON.parse(fetchMock.mock.calls[3][1].body)).toEqual({ action: "verify-refund", id, version: 4, refundId: "re_example123" });
+    expect(fetchMock.mock.calls[3][1].headers.Authorization).toBe(`Bearer ${adminKey}`);
+    expect(screen.queryByLabelText("Provider refund ID")).not.toBeInTheDocument();
+  });
+});
+
+describe("paid interruption safeguards", () => {
+  it("requires a note and confirmation when an editor withdraws an unpaid application", async () => {
+    await openAdmin({ ...paidRecord, payment: { ...paidRecord.payment!, checkoutStarted: true } });
+    await userEvent.click(screen.getByRole("button", { name: "Withdraw unpaid application" }));
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(screen.getByText(/This does not cancel an open payment checkout/)).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Confirm withdrawal" }));
+    expect(screen.getByRole("alert")).toHaveTextContent("note of at least 10 characters");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    fireEvent.change(screen.getByLabelText(/Withdrawal note/), { target: { value: "Unpaid application withdrawn after manual review." } });
+    fetchMock.mockResolvedValueOnce(json({ submission: { ...paidRecord, status: "withdrawn", version: 1 } }));
+    await userEvent.click(screen.getByRole("button", { name: "Confirm withdrawal" }));
+    await screen.findByText(/Unpaid application withdrawn. An open checkout is not canceled/);
+    expect(JSON.parse(fetchMock.mock.calls[2][1].body)).toMatchObject({ action: "review", decision: "withdraw", version: 0 });
+  });
+
+  it("locks other private actions during checkout preparation and releases them afterward", async () => {
+    fetchMock.mockResolvedValueOnce(json({ submission: paidRecord })).mockResolvedValueOnce(json(paidReady));
+    render(<SubmissionStatus />);
+    fireEvent.change(screen.getByLabelText("Submission ID"), { target: { value: id } });
+    fireEvent.change(screen.getByLabelText("Private management token"), { target: { value: token } });
+    await userEvent.click(screen.getByRole("button", { name: "View submission" }));
+    await screen.findByText(paidReady.paidMessage);
+    await userEvent.click(screen.getByRole("checkbox", { name: /securely saved my submission ID/ }));
+    let complete!: (response: Response) => void;
+    fetchMock.mockReturnValueOnce(new Promise<Response>(resolve => { complete = resolve; }));
+    await userEvent.click(screen.getByRole("button", { name: "Prepare secure checkout" }));
+    expect(screen.getByRole("button", { name: "Close private view" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Withdraw submission" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Edit details" })).toBeDisabled();
+    complete(json({ submission: { ...paidRecord, version: 1, payment: { ...paidRecord.payment, checkoutStarted: true } }, checkoutUrl: "https://checkout.stripe.com/c/pay/cs_test_safe" }));
+    await screen.findByRole("link", { name: "Continue to secure checkout · USD 9.90" });
+    expect(screen.getByRole("button", { name: "Close private view" })).toBeEnabled();
+    expect(screen.queryByRole("button", { name: "Edit details" })).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Close private view" }));
+    expect(screen.getByLabelText("Private management token")).toHaveValue("");
+    expect(screen.queryByRole("link", { name: "Continue to secure checkout · USD 9.90" })).not.toBeInTheDocument();
+  });
+});
+
+describe("checkout reconciliation", () => {
+  it("shows a server-confirmed payment if checkout reconciliation returns no new payment link", async () => {
+    fetchMock.mockResolvedValueOnce(json({ submission: paidRecord })).mockResolvedValueOnce(json(paidReady));
+    render(<SubmissionStatus />);
+    fireEvent.change(screen.getByLabelText("Submission ID"), { target: { value: id } });
+    fireEvent.change(screen.getByLabelText("Private management token"), { target: { value: token } });
+    await userEvent.click(screen.getByRole("button", { name: "View submission" }));
+    await screen.findByText(paidReady.paidMessage);
+    await userEvent.click(screen.getByRole("checkbox", { name: /securely saved my submission ID/ }));
+    fetchMock.mockResolvedValueOnce(json({ submission: confirmedPaid, checkoutUrl: null }));
+    await userEvent.click(screen.getByRole("button", { name: "Prepare secure checkout" }));
+    await screen.findByText(/Confirmed by the server on/);
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Prepare secure checkout" })).not.toBeInTheDocument();
+    expect(screen.getByText(/Review due by/)).toBeInTheDocument();
+  });
+});
+
+describe("submission service consent", () => {
+  it("requires new paid consent after changing from a confirmed free application", async () => {
+    fetchMock.mockResolvedValueOnce(json(paidReady));
+    render(<SubmissionForm />); await screen.findByText(ready.message);
+    await fillSubmission();
+    expect(screen.getByRole("checkbox", { name: /I represent this tool/ })).toBeChecked();
+    await userEvent.click(screen.getByRole("radio", { name: /Paid · USD 9.90/ }));
+    expect(screen.getByRole("checkbox", { name: /I represent this tool/ })).not.toBeChecked();
+    expect(screen.getByLabelText("Tool name *")).toHaveValue(input.name);
+    expect(screen.getByRole("checkbox", { name: /one-time USD 9.90 submission fee/ })).toBeRequired();
+  });
+});

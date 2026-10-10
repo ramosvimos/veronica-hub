@@ -8,6 +8,7 @@ export function PdfComparisonTable({ tools }: { tools: PdfTool[] }) {
     { label: "Listing relationship", value: (tool) => tool.ownedProject ? "Our project · shared ownership with Veronica Hub" : tool.reciprocalSubmission ? "Community submission · reciprocal link" : "Third-party editorial listing" },
     { label: "Best for", value: (tool) => tool.bestFor },
     { label: "Pricing", value: (tool) => tool.pricing },
+    { label: "Pricing checked", value: (tool) => tool.pricingEvidence?.checkedOn || "Not verified" },
     { label: "Data processing", value: (tool) => tool.processing },
     { label: "Platform", value: (tool) => tool.platform },
     { label: "Registration", value: (tool) => tool.registration },
