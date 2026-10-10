@@ -1,4 +1,5 @@
 // Adapted from the source directory's atomic file store and optimistic-version database updates.
+import { z } from "zod";
 import { mkdir, open, readFile, writeFile, rename, unlink } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import path from "node:path";
@@ -8,12 +9,26 @@ import { SubmissionError, type SubmissionRecord } from "./types";
 
 export const MAX_PENDING_SUBMISSIONS = 200;
 export const MAX_NEW_SUBMISSIONS_PER_DAY = 50;
-const isPending = (record: SubmissionRecord) => record.status === "awaiting-backlink-review" || record.status === "free-awaiting-review";
+const pendingStatuses = ["awaiting-backlink-review", "free-awaiting-review", "awaiting-payment", "paid-awaiting-review"];
+const isPending = (record: SubmissionRecord) => pendingStatuses.includes(record.status);
 const intakeFull = () => new SubmissionError("capacity", "Submission intake is temporarily full. Please try again after pending reviews clear or the 24-hour intake window resets. No new submission was saved.", 429);
 const pendingFull = () => new SubmissionError("capacity", "The review queue is full. Your existing submission is unchanged; try resubmitting after pending reviews clear.", 429);
 const dayCutoff = () => new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 type EnabledConfiguration = Exclude<SubmissionConfiguration, { mode: "disabled" }>;
-const statuses = new Set(["awaiting-backlink-review", "free-awaiting-review", "approved", "rejected", "withdrawn"]);
+const statuses = new Set([...pendingStatuses, "approved", "rejected", "withdrawn"]);
+const isoTime = z.string().datetime();
+const paymentSchema = z.object({
+  amount: z.literal(990), currency: z.literal("usd"), environment: z.enum(["test", "live"]),
+  status: z.enum(["awaiting-payment", "paid"]),
+  attempts: z.array(z.object({
+    id: z.string().uuid(), idempotencyKey: z.string().min(1).max(255), createdAt: isoTime, expiresAt: z.number().int().positive(),
+    sessionId: z.string().regex(/^cs_[A-Za-z0-9_]+$/).optional(), expiredVerifiedAt: isoTime.optional(),
+  }).strict()).max(10),
+  events: z.array(z.object({ id: z.string().regex(/^evt_[A-Za-z0-9]+$/), type: z.string().max(100), receivedAt: isoTime }).strict()),
+  paidAt: isoTime.optional(), reviewDueAt: isoTime.optional(), sessionId: z.string().regex(/^cs_[A-Za-z0-9_]+$/).optional(),
+  paymentIntentId: z.string().regex(/^pi_[A-Za-z0-9]+$/).optional(),
+  refundStatus: z.enum(["none", "pending", "refunded"]), refundId: z.string().regex(/^re_[A-Za-z0-9]+$/).optional(), refundVerifiedAt: isoTime.optional(),
+}).strict();
 function decode(value: unknown): SubmissionRecord {
   const record = value as SubmissionRecord;
   if (!record || !submissionIdSchema.safeParse(record.id).success || !/^[a-f0-9]{64}$/.test(record.tokenHash)
@@ -27,7 +42,21 @@ function decode(value: unknown): SubmissionRecord {
     || [record.websiteVerifiedAt, record.backlinkVerifiedAt, record.reviewedAt].some(value => value !== undefined && !validTime(value))) {
     throw new SubmissionError("storage_invalid", "Submission storage could not be read safely.", 503);
   }
-  return { ...record, input };
+  const serviceType = record.serviceType || "free";
+  if (serviceType !== input.submissionType || (serviceType === "free" && (record.payment || ["awaiting-payment", "paid-awaiting-review"].includes(record.status)))) {
+    throw new SubmissionError("storage_invalid", "Submission service data could not be read safely.", 503);
+  }
+  if (serviceType === "paid") {
+    const result = paymentSchema.safeParse(record.payment);
+    if (!result.success || ["awaiting-backlink-review", "free-awaiting-review"].includes(record.status)) throw new SubmissionError("storage_invalid", "Payment storage could not be read safely.", 503);
+    const payment = result.data;
+    if ((payment.status === "paid" && (!payment.paidAt || !payment.reviewDueAt || !payment.paymentIntentId || !payment.sessionId))
+      || (["paid-awaiting-review", "approved", "rejected"].includes(record.status) && payment.status !== "paid")
+      || (payment.refundStatus !== "none" && payment.status !== "paid")
+      || (payment.refundStatus === "refunded" && (!payment.refundId || !payment.refundVerifiedAt))) throw new SubmissionError("storage_invalid", "Payment storage could not be read safely.", 503);
+    return { ...record, input, serviceType, payment };
+  }
+  return { ...record, input, serviceType };
 }
 export async function requireSubmissionStorage(): Promise<EnabledConfiguration> {
   const config = await submissionConfiguration();
@@ -101,7 +130,7 @@ export async function insertSubmissionRecord(record: SubmissionRecord) {
     return record;
   });
   try {
-    const result = await config.db.prepare("INSERT INTO veronica_submissions (id, version, url_key, listing_slug, status, record, created_at, updated_at) SELECT ?, ?, ?, ?, ?, ?, ?, ? WHERE (SELECT COUNT(*) FROM veronica_submissions WHERE status IN ('awaiting-backlink-review', 'free-awaiting-review')) < ? AND (SELECT COUNT(*) FROM veronica_submissions WHERE created_at >= ?) < ?")
+    const result = await config.db.prepare("INSERT INTO veronica_submissions (id, version, url_key, listing_slug, status, record, created_at, updated_at) SELECT ?, ?, ?, ?, ?, ?, ?, ? WHERE (SELECT COUNT(*) FROM veronica_submissions WHERE status IN ('awaiting-backlink-review', 'free-awaiting-review', 'awaiting-payment', 'paid-awaiting-review')) < ? AND (SELECT COUNT(*) FROM veronica_submissions WHERE created_at >= ?) < ?")
       .bind(record.id, record.version, record.urlKey, null, record.status, JSON.stringify(record), record.createdAt, record.updatedAt, MAX_PENDING_SUBMISSIONS, dayCutoff(), MAX_NEW_SUBMISSIONS_PER_DAY).run();
     if (!result.success) throw new Error("Database insert failed");
     if (result.meta.changes !== 1) throw intakeFull();
@@ -115,6 +144,7 @@ export async function mutateSubmissionRecord(id: string, expectedVersion: number
     // Authorization is inside transform and is performed before revealing a version conflict.
     const next = transform(current);
     if (current.version !== expectedVersion) throw new SubmissionError("conflict", "This submission changed. Refresh its private status before trying again.", 409);
+    if (next === current) return current;
     if (next.id !== current.id || next.tokenHash !== current.tokenHash || next.createdAt !== current.createdAt) throw new Error("Submission identity cannot change");
     return { ...next, version: current.version + 1, updatedAt: new Date().toISOString() };
   }
@@ -128,9 +158,10 @@ export async function mutateSubmissionRecord(id: string, expectedVersion: number
   });
   const current = await readDatabase(config.db, id);
   const next = nextRecord(current);
+  if (next === current) return next;
   const enteringQueue = isPending(next) && !!current && !isPending(current);
   try {
-    const result = await config.db.prepare("UPDATE veronica_submissions SET version = ?, url_key = ?, listing_slug = ?, status = ?, record = ?, updated_at = ? WHERE id = ? AND version = ? AND (? = 0 OR (SELECT COUNT(*) FROM veronica_submissions WHERE status IN ('awaiting-backlink-review', 'free-awaiting-review')) < ?)")
+    const result = await config.db.prepare("UPDATE veronica_submissions SET version = ?, url_key = ?, listing_slug = ?, status = ?, record = ?, updated_at = ? WHERE id = ? AND version = ? AND (? = 0 OR (SELECT COUNT(*) FROM veronica_submissions WHERE status IN ('awaiting-backlink-review', 'free-awaiting-review', 'awaiting-payment', 'paid-awaiting-review')) < ?)")
       .bind(next.version, next.urlKey, next.listingSlug || null, next.status, JSON.stringify(next), next.updatedAt, id, expectedVersion, enteringQueue ? 1 : 0, MAX_PENDING_SUBMISSIONS).run();
     if (!result.success) throw new Error("Database update failed");
     if (result.meta.changes !== 1) {
@@ -139,4 +170,18 @@ export async function mutateSubmissionRecord(id: string, expectedVersion: number
     }
     return next;
   } catch (error) { if (isDuplicateError(error)) throw duplicate(); throw error; }
+}
+
+// Internal provider events do not have a browser version. Retry only CAS conflicts;
+// every retry re-applies the monotonic transform to the newest durable record.
+export async function updateSubmissionFromProvider(id: string, transform: (record: SubmissionRecord) => SubmissionRecord) {
+  for (let attempt = 0; attempt < 8; attempt++) {
+    const current = await readSubmissionRecord(id);
+    if (!current) throw new SubmissionError("payment_mismatch", "The payment does not match a saved submission.", 409);
+    try { return await mutateSubmissionRecord(id, current.version, transform); }
+    catch (error) {
+      if (!(error instanceof SubmissionError) || error.code !== "conflict") throw error;
+    }
+  }
+  throw new SubmissionError("busy", "Payment status is being updated. Retry shortly.", 503);
 }

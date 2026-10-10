@@ -1,0 +1,15 @@
+import { describe,it,expect } from 'vitest';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { pdfTools,filterPdfTools } from '@/data/pdf-catalog';
+import { PdfCompareProvider } from '@/components/pdf/compare-provider';
+import { PdfToolCard } from '@/components/pdf/pdf-directory';
+import { PdfToolDetail } from '@/components/pdf/pdf-detail';
+import { PdfComparisonTable } from '@/components/pdf/pdf-comparison-table';
+import { getPublicPdfTools } from '@/lib/pdf-public-catalog';
+import sitemap from '@/app/sitemap';
+describe('source-backed product pricing',()=>{
+ it('has real paid tools across AI, productivity and development without relabeling free tiers',()=>{const paid=filterPdfTools(pdfTools,{price:'Paid'});expect(paid.map(t=>t.slug)).toEqual(['jasper','motion','tower']);expect(filterPdfTools(pdfTools,{price:'paid'})).toEqual(paid);expect(paid.every(t=>t.pricingEvidence?.freeAccess==='trial-only')).toBe(true);for(const slug of ['chatgpt','claude','cursor','notion','obsidian','github-copilot'])expect(pdfTools.find(t=>t.slug===slug)?.pricing).toBe('Freemium');expect(filterPdfTools(pdfTools,{price:'Paid',category:'development'}).map(t=>t.slug)).toEqual(['tower']);expect(filterPdfTools(pdfTools,{price:'Paid',q:'calendar'}).map(t=>t.slug)).toEqual(['motion']);});
+ it('keeps unknown pricing and unrelated unverified fields honest',()=>{expect(filterPdfTools(pdfTools,{price:'Not verified'}).map(t=>t.slug)).toEqual(['deepseek-guides','free-ai-voice-generator','askpdf-directory']);for(const tool of pdfTools){expect(tool.processing).toBe('Not verified');expect(tool.paidSubmission).toBeUndefined();if(tool.pricing!=='Not verified'){expect(tool.pricingEvidence?.checkedOn).toBe('2026-10-10');expect(new URL(tool.pricingEvidence!.url).protocol).toBe('https:');expect(tool.sources.some(s=>s.url===tool.pricingEvidence?.url)).toBe(true);expect(tool.freeLimits).not.toContain('have not been checked');}}});
+ it('uses the same price and dated evidence on cards, details and comparisons',()=>{for(const tool of pdfTools.filter(t=>t.pricingEvidence)){const card=renderToStaticMarkup(<PdfCompareProvider><PdfToolCard tool={tool}/></PdfCompareProvider>);expect(card).toContain(tool.pricing);expect(card).toContain('Pricing checked 2026-10-10');const detail=renderToStaticMarkup(<PdfCompareProvider><PdfToolDetail tool={tool}/></PdfCompareProvider>);expect(detail).toContain(tool.pricingEvidence!.url.replace(/&/g,'&amp;'));expect(detail).toContain('Pricing model checked');const table=renderToStaticMarkup(<PdfComparisonTable tools={[tool]}/>);expect(table).toContain(tool.pricing);expect(table).toContain('2026-10-10');}});
+ it('publishes all paid tools through shared public data and sitemap',async()=>{const publicTools=await getPublicPdfTools();const map=await sitemap();for(const slug of ['jasper','motion','tower']){expect(publicTools.find(t=>t.slug===slug)?.pricing).toBe('Paid');expect(map.some(p=>p.url===`https://residentevilveronica.com/item/${slug}`)).toBe(true);}});
+});

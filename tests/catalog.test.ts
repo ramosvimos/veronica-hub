@@ -2,16 +2,16 @@ import { describe,it,expect } from 'vitest';
 import { pdfTools,pdfCategories,pdfCollections,filterPdfTools,paramValue } from '@/data/pdf-catalog';
 import { pdfPagination,pdfPageRedirect,pdfHasFilters } from '@/lib/pdf-pagination';
 describe('current AskPDF catalogue adaptation',()=>{
- it('contains 29 source-traceable general tools and unique domains',()=>{
-  expect(pdfTools).toHaveLength(29);expect(new Set(pdfTools.map(t=>t.slug)).size).toBe(29);expect(new Set(pdfTools.map(t=>new URL(t.url).hostname.replace(/^www\./,''))).size).toBe(29);
-  for(const t of pdfTools){expect(t.name.length).toBeGreaterThan(1);expect(t.description.length).toBeGreaterThan(20);expect(t.sources.length).toBeGreaterThan(0);expect(t.reviewedOn).toBe('2026-10-09');expect(new URL(t.url).protocol).toBe('https:');expect(t.pricing).toBe('Not verified');expect(t.processing).toBe('Not verified');expect(t.categories.every(c=>pdfCategories.some(p=>p.slug===c))).toBe(true);expect(t.paidSubmission).toBeUndefined();}
+ it('contains 32 source-traceable general tools and unique domains',()=>{
+  expect(pdfTools).toHaveLength(32);expect(new Set(pdfTools.map(t=>t.slug)).size).toBe(32);expect(new Set(pdfTools.map(t=>new URL(t.url).hostname.replace(/^www\./,''))).size).toBe(32);
+  for(const t of pdfTools){expect(t.name.length).toBeGreaterThan(1);expect(t.description.length).toBeGreaterThan(20);expect(t.sources.length).toBeGreaterThan(0);expect(t.reviewedOn).toMatch(/^2026-10-(09|10)$/);expect(new URL(t.url).protocol).toBe('https:');expect(['Free','Freemium','Paid','Not verified']).toContain(t.pricing);expect(t.processing).toBe('Not verified');expect(t.categories.every(c=>pdfCategories.some(p=>p.slug===c))).toBe(true);expect(t.paidSubmission).toBeUndefined();}
  });
  it('keeps the current real directory text/category/price/processing filters',()=>{
   expect(filterPdfTools(pdfTools,{q:'OBSIDIAN'}).map(t=>t.slug)).toEqual(['obsidian']);
-  expect(filterPdfTools(pdfTools,{category:'ai'})).toHaveLength(11);
+  expect(filterPdfTools(pdfTools,{category:'ai'})).toHaveLength(12);
   expect(filterPdfTools(pdfTools,{q:'Obsidian',category:'ai'})).toEqual([]);
-  expect(filterPdfTools(pdfTools,{price:'free'})).toEqual([]);
-  expect(filterPdfTools(pdfTools,{processing:'Not verified'})).toHaveLength(29);
+  expect(filterPdfTools(pdfTools,{price:'free'}).map(t=>t.slug)).toEqual(['vscode']);
+  expect(filterPdfTools(pdfTools,{processing:'Not verified'})).toHaveLength(32);
  });
  it('sorts copied results without mutating editorial order',()=>{const before=pdfTools.map(t=>t.slug);const sorted=filterPdfTools(pdfTools,{sort:'name'});expect(sorted[0].name).toBe('Airtable');expect(pdfTools.map(t=>t.slug)).toEqual(before);});
  it('rejects array-valued params and detects filters',()=>{expect(paramValue({q:['x','y']},'q')).toBe('');expect(pdfHasFilters({q:'x'})).toBe(true);expect(pdfHasFilters({page:'2'})).toBe(false);});
